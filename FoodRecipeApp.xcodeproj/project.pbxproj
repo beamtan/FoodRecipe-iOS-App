@@ -36,6 +36,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF15DEAA2C5EB67200EF4294 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
+		EF15DEAB2C5EB67200EF4294 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
+		EF15DEAC2C5EB67200EF4294 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		EF15DEAD2C5EB67200EF4294 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		EF15DEAE2C5EB67200EF4294 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
+		EF15DEAF2C5EB67200EF4294 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		EF15DEB02C5EB67200EF4294 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
+		EF15DEB12C5EB67200EF4294 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		EF15DEB22C5EB67200EF4294 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		EFB5AF872C5E94190004075F /* FoodRecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodRecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB5AF8A2C5E94190004075F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFB5AF8C2C5E94190004075F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,11 +108,11 @@
 		EFB5AF892C5E94190004075F /* FoodRecipeApp */ = {
 			isa = PBXGroup;
 			children = (
+				EFB5AFBC2C5EAB470004075F /* Resources */,
+				EFB5AFBA2C5E9A570004075F /* Sources */,
+				EFB5AF932C5E941A0004075F /* Assets.xcassets */,
 				EFB5AF8A2C5E94190004075F /* AppDelegate.swift */,
 				EFB5AF8C2C5E94190004075F /* SceneDelegate.swift */,
-				EFB5AF8E2C5E94190004075F /* ViewController.swift */,
-				EFB5AF902C5E94190004075F /* Main.storyboard */,
-				EFB5AF932C5E941A0004075F /* Assets.xcassets */,
 				EFB5AF952C5E941A0004075F /* LaunchScreen.storyboard */,
 				EFB5AF982C5E941A0004075F /* Info.plist */,
 			);
@@ -125,6 +134,47 @@
 				EFB5AFAD2C5E941B0004075F /* FoodRecipeAppUITestsLaunchTests.swift */,
 			);
 			path = FoodRecipeAppUITests;
+			sourceTree = "<group>";
+		};
+		EFB5AFBA2C5E9A570004075F /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				EFB5AFBB2C5E9A910004075F /* Scenes */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		EFB5AFBB2C5E9A910004075F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				EFB5AF902C5E94190004075F /* Main.storyboard */,
+				EFB5AF8E2C5E94190004075F /* ViewController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		EFB5AFBC2C5EAB470004075F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EFB5AFBD2C5EACB50004075F /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EFB5AFBD2C5EACB50004075F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EF15DEAA2C5EB67200EF4294 /* Inter-Black.ttf */,
+				EF15DEB12C5EB67200EF4294 /* Inter-Bold.ttf */,
+				EF15DEAB2C5EB67200EF4294 /* Inter-ExtraBold.ttf */,
+				EF15DEAC2C5EB67200EF4294 /* Inter-ExtraLight.ttf */,
+				EF15DEAE2C5EB67200EF4294 /* Inter-Light.ttf */,
+				EF15DEAF2C5EB67200EF4294 /* Inter-Medium.ttf */,
+				EF15DEAD2C5EB67200EF4294 /* Inter-Regular.ttf */,
+				EF15DEB22C5EB67200EF4294 /* Inter-SemiBold.ttf */,
+				EF15DEB02C5EB67200EF4294 /* Inter-Thin.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
