@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Inter-Regular.tff</string>
 		<string>Inter-SemiBold.tff</string>
 		<string>Inter-Bold.tff</string>
 	</array>

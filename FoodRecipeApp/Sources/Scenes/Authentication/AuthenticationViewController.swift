@@ -22,8 +22,8 @@ class AuthenticationViewController: TabmanViewController, AuthenticationDisplayL
     var router: (NSObjectProtocol & AuthenticationRoutingLogic & AuthenticationDataPassing)?
     
     private let viewControllerInfo: [(storyboardName: String, identifier: String, type: UIViewController.Type)] = [
-        ("LoginStoryboard", "LoginViewController", LoginViewController.self),
         ("CreateAccountStoryboard", "CreateAccountViewController", CreateAccountViewController.self),
+        ("LoginStoryboard", "LoginViewController", LoginViewController.self),
     ]
     
     private lazy var viewControllers: [UIViewController] = viewControllerInfo.lazy.map { info in
