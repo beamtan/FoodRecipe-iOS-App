@@ -7,9 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF15DED42C5EC41600EF4294 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DECE2C5EC41600EF4294 /* LoginPresenter.swift */; };
+		EF15DED52C5EC41600EF4294 /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DECF2C5EC41600EF4294 /* LoginWorker.swift */; };
+		EF15DED62C5EC41600EF4294 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DED02C5EC41600EF4294 /* LoginRouter.swift */; };
+		EF15DED72C5EC41600EF4294 /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DED12C5EC41600EF4294 /* LoginModels.swift */; };
+		EF15DED82C5EC41600EF4294 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DED22C5EC41600EF4294 /* LoginViewController.swift */; };
+		EF15DED92C5EC41600EF4294 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DED32C5EC41600EF4294 /* LoginInteractor.swift */; };
+		EF15DEE02C5EC44700EF4294 /* CreateAccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEDA2C5EC44700EF4294 /* CreateAccountPresenter.swift */; };
+		EF15DEE12C5EC44700EF4294 /* CreateAccountWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEDB2C5EC44700EF4294 /* CreateAccountWorker.swift */; };
+		EF15DEE22C5EC44700EF4294 /* CreateAccountRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEDC2C5EC44700EF4294 /* CreateAccountRouter.swift */; };
+		EF15DEE32C5EC44700EF4294 /* CreateAccountModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEDD2C5EC44700EF4294 /* CreateAccountModels.swift */; };
+		EF15DEE42C5EC44700EF4294 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEDE2C5EC44700EF4294 /* CreateAccountViewController.swift */; };
+		EF15DEE52C5EC44700EF4294 /* CreateAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEDF2C5EC44700EF4294 /* CreateAccountInteractor.swift */; };
+		EF15DEE72C5EC68000EF4294 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF15DEE62C5EC68000EF4294 /* LoginStoryboard.storyboard */; };
+		EF15DEE92C5EC68F00EF4294 /* CreateAccountStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF15DEE82C5EC68F00EF4294 /* CreateAccountStoryboard.storyboard */; };
+		EF15DEF02C5EC91500EF4294 /* AuthenticationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEEA2C5EC91500EF4294 /* AuthenticationPresenter.swift */; };
+		EF15DEF12C5EC91500EF4294 /* AuthenticationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEEB2C5EC91500EF4294 /* AuthenticationWorker.swift */; };
+		EF15DEF22C5EC91500EF4294 /* AuthenticationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEEC2C5EC91500EF4294 /* AuthenticationRouter.swift */; };
+		EF15DEF32C5EC91500EF4294 /* AuthenticationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEED2C5EC91500EF4294 /* AuthenticationModels.swift */; };
+		EF15DEF42C5EC91500EF4294 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEEE2C5EC91500EF4294 /* AuthenticationViewController.swift */; };
+		EF15DEF52C5EC91500EF4294 /* AuthenticationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEEF2C5EC91500EF4294 /* AuthenticationInteractor.swift */; };
+		EF15DEF72C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF15DEF62C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard */; };
+		EF89885F2C5ED4090028FFD4 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = EF89885E2C5ED4090028FFD4 /* Tabman */; };
 		EFB5AF8B2C5E94190004075F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5AF8A2C5E94190004075F /* AppDelegate.swift */; };
 		EFB5AF8D2C5E94190004075F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5AF8C2C5E94190004075F /* SceneDelegate.swift */; };
-		EFB5AF8F2C5E94190004075F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5AF8E2C5E94190004075F /* ViewController.swift */; };
+		EFB5AF8F2C5E94190004075F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5AF8E2C5E94190004075F /* MainViewController.swift */; };
 		EFB5AF922C5E94190004075F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EFB5AF912C5E94190004075F /* Base */; };
 		EFB5AF942C5E941A0004075F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFB5AF932C5E941A0004075F /* Assets.xcassets */; };
 		EFB5AF972C5E941A0004075F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EFB5AF962C5E941A0004075F /* Base */; };
@@ -45,10 +67,31 @@
 		EF15DEB02C5EB67200EF4294 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
 		EF15DEB12C5EB67200EF4294 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		EF15DEB22C5EB67200EF4294 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		EF15DECE2C5EC41600EF4294 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		EF15DECF2C5EC41600EF4294 /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
+		EF15DED02C5EC41600EF4294 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		EF15DED12C5EC41600EF4294 /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
+		EF15DED22C5EC41600EF4294 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EF15DED32C5EC41600EF4294 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		EF15DEDA2C5EC44700EF4294 /* CreateAccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountPresenter.swift; sourceTree = "<group>"; };
+		EF15DEDB2C5EC44700EF4294 /* CreateAccountWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountWorker.swift; sourceTree = "<group>"; };
+		EF15DEDC2C5EC44700EF4294 /* CreateAccountRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountRouter.swift; sourceTree = "<group>"; };
+		EF15DEDD2C5EC44700EF4294 /* CreateAccountModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountModels.swift; sourceTree = "<group>"; };
+		EF15DEDE2C5EC44700EF4294 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		EF15DEDF2C5EC44700EF4294 /* CreateAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountInteractor.swift; sourceTree = "<group>"; };
+		EF15DEE62C5EC68000EF4294 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
+		EF15DEE82C5EC68F00EF4294 /* CreateAccountStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAccountStoryboard.storyboard; sourceTree = "<group>"; };
+		EF15DEEA2C5EC91500EF4294 /* AuthenticationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationPresenter.swift; sourceTree = "<group>"; };
+		EF15DEEB2C5EC91500EF4294 /* AuthenticationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationWorker.swift; sourceTree = "<group>"; };
+		EF15DEEC2C5EC91500EF4294 /* AuthenticationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRouter.swift; sourceTree = "<group>"; };
+		EF15DEED2C5EC91500EF4294 /* AuthenticationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModels.swift; sourceTree = "<group>"; };
+		EF15DEEE2C5EC91500EF4294 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		EF15DEEF2C5EC91500EF4294 /* AuthenticationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInteractor.swift; sourceTree = "<group>"; };
+		EF15DEF62C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationStoryboard.storyboard; sourceTree = "<group>"; };
 		EFB5AF872C5E94190004075F /* FoodRecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodRecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB5AF8A2C5E94190004075F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFB5AF8C2C5E94190004075F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EFB5AF8E2C5E94190004075F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EFB5AF8E2C5E94190004075F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EFB5AF912C5E94190004075F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EFB5AF932C5E941A0004075F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFB5AF962C5E941A0004075F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF89885F2C5ED4090028FFD4 /* Tabman in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +129,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF15DEB32C5EC29300EF4294 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				EF15DEF62C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard */,
+				EF15DEEE2C5EC91500EF4294 /* AuthenticationViewController.swift */,
+				EF15DEEF2C5EC91500EF4294 /* AuthenticationInteractor.swift */,
+				EF15DEEA2C5EC91500EF4294 /* AuthenticationPresenter.swift */,
+				EF15DEEB2C5EC91500EF4294 /* AuthenticationWorker.swift */,
+				EF15DEEC2C5EC91500EF4294 /* AuthenticationRouter.swift */,
+				EF15DEED2C5EC91500EF4294 /* AuthenticationModels.swift */,
+				EF15DEB42C5EC2E300EF4294 /* Login */,
+				EF15DEB52C5EC2EF00EF4294 /* CreateAccount */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		EF15DEB42C5EC2E300EF4294 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EF15DEE62C5EC68000EF4294 /* LoginStoryboard.storyboard */,
+				EF15DED22C5EC41600EF4294 /* LoginViewController.swift */,
+				EF15DED32C5EC41600EF4294 /* LoginInteractor.swift */,
+				EF15DECE2C5EC41600EF4294 /* LoginPresenter.swift */,
+				EF15DECF2C5EC41600EF4294 /* LoginWorker.swift */,
+				EF15DED02C5EC41600EF4294 /* LoginRouter.swift */,
+				EF15DED12C5EC41600EF4294 /* LoginModels.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		EF15DEB52C5EC2EF00EF4294 /* CreateAccount */ = {
+			isa = PBXGroup;
+			children = (
+				EF15DEE82C5EC68F00EF4294 /* CreateAccountStoryboard.storyboard */,
+				EF15DEDE2C5EC44700EF4294 /* CreateAccountViewController.swift */,
+				EF15DEDF2C5EC44700EF4294 /* CreateAccountInteractor.swift */,
+				EF15DEDA2C5EC44700EF4294 /* CreateAccountPresenter.swift */,
+				EF15DEDB2C5EC44700EF4294 /* CreateAccountWorker.swift */,
+				EF15DEDC2C5EC44700EF4294 /* CreateAccountRouter.swift */,
+				EF15DEDD2C5EC44700EF4294 /* CreateAccountModels.swift */,
+			);
+			path = CreateAccount;
+			sourceTree = "<group>";
+		};
+		EF89885D2C5ED4090028FFD4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EFB5AF7E2C5E94190004075F = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +187,7 @@
 				EFB5AFA02C5E941B0004075F /* FoodRecipeAppTests */,
 				EFB5AFAA2C5E941B0004075F /* FoodRecipeAppUITests */,
 				EFB5AF882C5E94190004075F /* Products */,
+				EF89885D2C5ED4090028FFD4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,13 +204,9 @@
 		EFB5AF892C5E94190004075F /* FoodRecipeApp */ = {
 			isa = PBXGroup;
 			children = (
+				EFB5AF982C5E941A0004075F /* Info.plist */,
 				EFB5AFBC2C5EAB470004075F /* Resources */,
 				EFB5AFBA2C5E9A570004075F /* Sources */,
-				EFB5AF932C5E941A0004075F /* Assets.xcassets */,
-				EFB5AF8A2C5E94190004075F /* AppDelegate.swift */,
-				EFB5AF8C2C5E94190004075F /* SceneDelegate.swift */,
-				EFB5AF952C5E941A0004075F /* LaunchScreen.storyboard */,
-				EFB5AF982C5E941A0004075F /* Info.plist */,
 			);
 			path = FoodRecipeApp;
 			sourceTree = "<group>";
@@ -148,7 +240,8 @@
 			isa = PBXGroup;
 			children = (
 				EFB5AF902C5E94190004075F /* Main.storyboard */,
-				EFB5AF8E2C5E94190004075F /* ViewController.swift */,
+				EFB5AF8E2C5E94190004075F /* MainViewController.swift */,
+				EF15DEB32C5EC29300EF4294 /* Authentication */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -156,6 +249,10 @@
 		EFB5AFBC2C5EAB470004075F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EFB5AF932C5E941A0004075F /* Assets.xcassets */,
+				EFB5AF952C5E941A0004075F /* LaunchScreen.storyboard */,
+				EFB5AF8A2C5E94190004075F /* AppDelegate.swift */,
+				EFB5AF8C2C5E94190004075F /* SceneDelegate.swift */,
 				EFB5AFBD2C5EACB50004075F /* Fonts */,
 			);
 			path = Resources;
@@ -193,6 +290,9 @@
 			dependencies = (
 			);
 			name = FoodRecipeApp;
+			packageProductDependencies = (
+				EF89885E2C5ED4090028FFD4 /* Tabman */,
+			);
 			productName = FoodRecipeApp;
 			productReference = EFB5AF872C5E94190004075F /* FoodRecipeApp.app */;
 			productType = "com.apple.product-type.application";
@@ -242,6 +342,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
+				ORGANIZATIONNAME = "BeamtanDev Co";
 				TargetAttributes = {
 					EFB5AF862C5E94190004075F = {
 						CreatedOnToolsVersion = 15.4;
@@ -265,6 +366,9 @@
 				Base,
 			);
 			mainGroup = EFB5AF7E2C5E94190004075F;
+			packageReferences = (
+				EFA808DC2C5ED1F000FBE989 /* XCRemoteSwiftPackageReference "Tabman" */,
+			);
 			productRefGroup = EFB5AF882C5E94190004075F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -284,6 +388,9 @@
 				EFB5AF942C5E941A0004075F /* Assets.xcassets in Resources */,
 				EFB5AF972C5E941A0004075F /* Base in Resources */,
 				EFB5AF922C5E94190004075F /* Base in Resources */,
+				EF15DEF72C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard in Resources */,
+				EF15DEE92C5EC68F00EF4294 /* CreateAccountStoryboard.storyboard in Resources */,
+				EF15DEE72C5EC68000EF4294 /* LoginStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,8 +415,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFB5AF8F2C5E94190004075F /* ViewController.swift in Sources */,
+				EFB5AF8F2C5E94190004075F /* MainViewController.swift in Sources */,
 				EFB5AF8B2C5E94190004075F /* AppDelegate.swift in Sources */,
+				EF15DED42C5EC41600EF4294 /* LoginPresenter.swift in Sources */,
+				EF15DED52C5EC41600EF4294 /* LoginWorker.swift in Sources */,
+				EF15DED62C5EC41600EF4294 /* LoginRouter.swift in Sources */,
+				EF15DED72C5EC41600EF4294 /* LoginModels.swift in Sources */,
+				EF15DED82C5EC41600EF4294 /* LoginViewController.swift in Sources */,
+				EF15DED92C5EC41600EF4294 /* LoginInteractor.swift in Sources */,
+				EF15DEE02C5EC44700EF4294 /* CreateAccountPresenter.swift in Sources */,
+				EF15DEE12C5EC44700EF4294 /* CreateAccountWorker.swift in Sources */,
+				EF15DEE22C5EC44700EF4294 /* CreateAccountRouter.swift in Sources */,
+				EF15DEE32C5EC44700EF4294 /* CreateAccountModels.swift in Sources */,
+				EF15DEE42C5EC44700EF4294 /* CreateAccountViewController.swift in Sources */,
+				EF15DEE52C5EC44700EF4294 /* CreateAccountInteractor.swift in Sources */,
+				EF15DEF02C5EC91500EF4294 /* AuthenticationPresenter.swift in Sources */,
+				EF15DEF12C5EC91500EF4294 /* AuthenticationWorker.swift in Sources */,
+				EF15DEF22C5EC91500EF4294 /* AuthenticationRouter.swift in Sources */,
+				EF15DEF32C5EC91500EF4294 /* AuthenticationModels.swift in Sources */,
+				EF15DEF42C5EC91500EF4294 /* AuthenticationViewController.swift in Sources */,
+				EF15DEF52C5EC91500EF4294 /* AuthenticationInteractor.swift in Sources */,
 				EFB5AF8D2C5E94190004075F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -651,6 +776,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EFA808DC2C5ED1F000FBE989 /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF89885E2C5ED4090028FFD4 /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFA808DC2C5ED1F000FBE989 /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EFB5AF7F2C5E94190004075F /* Project object */;
 }
