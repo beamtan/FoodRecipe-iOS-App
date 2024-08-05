@@ -9,16 +9,9 @@
 import UIKit
 
 protocol CreateAccountPresentationLogic {
-    func presentSomething(response: CreateAccountModels.Something.Response)
+    
 }
 
 class CreateAccountPresenter: CreateAccountPresentationLogic {
     weak var viewController: CreateAccountDisplayLogic?
-    
-    // MARK: Do something
-    
-    func presentSomething(response: CreateAccountModels.Something.Response) {
-        let viewModel = CreateAccountModels.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
-    }
 }

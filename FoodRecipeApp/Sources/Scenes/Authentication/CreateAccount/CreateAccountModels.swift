@@ -10,17 +10,4 @@ import UIKit
 
 struct CreateAccountModels {
     
-    struct Something {
-        struct Request {
-            
-        }
-        
-        struct Response {
-            
-        }
-        
-        struct ViewModel {
-            
-        }
-    }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CreateAccountDisplayLogic: AnyObject {
-    func displaySomething(viewModel: CreateAccountModels.Something.ViewModel)
+    
 }
 
 class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
@@ -19,9 +19,20 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
     var interactor: CreateAccountBusinessLogic?
     var router: (NSObjectProtocol & CreateAccountRoutingLogic & CreateAccountDataPassing)?
     
+    let googleService: GoogleServiceImp = GoogleService()
+    
     // MARK: - IBOutlet
     
-    
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var signUpWithGoogleView: UIView! {
+        didSet {
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(signUpWithGooglePressed))
+            signUpWithGoogleView.addGestureRecognizer(gesture)
+        }
+    }
     
     // MARK: - Object lifecycle
     
@@ -39,12 +50,37 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
     }
     
     // MARK: - IBAction
     
+    @IBAction func registerPressed(_ sender: UIButton) {
+        let name: String = nameTextField.text ?? ""
+        let email: String = emailTextField.text ?? ""
+        let password: String = passwordTextField.text ?? ""
+        
+        googleService.createUser(email: email, password: password) { [weak self] in
+            guard let self else { return }
+            
+            googleService.seeUserDetail() { user in
+                print("Welcome: \(user?.email ?? "")")
+                print("isAnonymous \(user?.isAnonymous ?? true)")
+           }
+        }
+    }
     
+    @objc func signUpWithGooglePressed() {
+        googleService.signUp(viewController: self) { [weak self] in
+            guard let self else {
+                return
+            }
+            
+            googleService.seeUserDetail() { user in
+                print("Welcome: \(user?.email ?? "")")
+                print("isAnonymous \(user?.isAnonymous ?? true)")
+           }
+        }
+    }
     
     // MARK: - General Function
     
@@ -61,24 +97,59 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
         router.dataStore = interactor
     }
     
-    func doSomething() {
-        let request = CreateAccountModels.Something.Request()
-        interactor?.doSomething(request: request)
+    private func enableRegisterButton() {
+        registerButton.backgroundColor = ._32_B_768
+        registerButton.isEnabled = true
+        registerButton.tintColor = .white
+    }
+    
+    private func disableRegisterButton() {
+        registerButton.backgroundColor = .F_4_F_4_F_4
+        registerButton.isEnabled = false
+        registerButton.tintColor = ._9_CA_3_AF
+    }
+    
+    private func isCreateAccountValid() -> Bool {
+        let isValid: Bool = isNameValid() && isEmailValid() && isPassWordValid()
+        return isValid
+    }
+    
+    private func isNameValid() -> Bool {
+        return nameTextField.text != ""
+    }
+    
+    private func isEmailValid() -> Bool {
+        return emailTextField.text != ""
+    }
+    
+    private func isPassWordValid() -> Bool {
+        return passwordTextField.text?.count ?? 0 >= 10
     }
     
     // MARK: - Display
     
-    func displaySomething(viewModel: CreateAccountModels.Something.ViewModel) {
-    }
-    
-    // MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
+
+}
+
+extension CreateAccountViewController: UITextFieldDelegate {
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
+        guard let textInTextField = textField.text,
+              let stringRange = Range(range, in: textInTextField) else {
+            return false
         }
+        
+        let updatedText: String = textInTextField.replacingCharacters(in: stringRange, with: string)
+        
+        if isCreateAccountValid() {
+            enableRegisterButton()
+        } else {
+            disableRegisterButton()
+        }
+        
+        return true
     }
 }

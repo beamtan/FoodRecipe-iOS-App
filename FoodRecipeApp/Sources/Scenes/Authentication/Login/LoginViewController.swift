@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseAuth
+import GoogleSignIn
 
 protocol LoginDisplayLogic: AnyObject {
     func displaySomething(viewModel: LoginModels.Something.ViewModel)
@@ -19,9 +22,19 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     var interactor: LoginBusinessLogic?
     var router: (NSObjectProtocol & LoginRoutingLogic & LoginDataPassing)?
     
+    let googleService: GoogleServiceImp = GoogleService()
+    
     // MARK: - IBOutlet
     
-    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loginWithGoogleView: UIView! {
+        didSet {
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(loginWithGooglePressed))
+            loginWithGoogleView.addGestureRecognizer(gesture)
+        }
+    }
     
     // MARK: - Object lifecycle
     
@@ -39,12 +52,36 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
     }
     
     // MARK: - IBAction
     
+    @IBAction func loginPressed(_ sender: UIButton) {
+        let email: String = emailTextField.text ?? ""
+        let password: String = passwordTextField.text ?? ""
+        
+        googleService.signIn(email: email, password: password) { [weak self] in
+            guard let self else { return }
+            
+             googleService.seeUserDetail() { user in
+                 print("Welcome: \(user?.email ?? "")")
+                 print("isAnonymous \(user?.isAnonymous ?? true)")
+            }
+        }
+    }
     
+    @objc func loginWithGooglePressed() {
+        googleService.signUp(viewController: self) { [weak self] in
+            guard let self else {
+                return
+            }
+            
+            googleService.seeUserDetail() { user in
+                print("Welcome: \(user?.email ?? "")")
+                print("isAnonymous \(user?.isAnonymous ?? true)")
+           }
+        }
+    }
     
     // MARK: - General Function
     
@@ -61,24 +98,55 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         router.dataStore = interactor
     }
     
-    func doSomething() {
-        let request = LoginModels.Something.Request()
-        interactor?.doSomething(request: request)
+    private func enableRegisterButton() {
+        loginButton.backgroundColor = ._32_B_768
+        loginButton.isEnabled = true
+        loginButton.tintColor = .white
+    }
+    
+    private func disableRegisterButton() {
+        loginButton.backgroundColor = .F_4_F_4_F_4
+        loginButton.isEnabled = false
+        loginButton.tintColor = ._9_CA_3_AF
+    }
+    
+    private func isCreateAccountValid() -> Bool {
+        return isEmailValid() && isPassWordValid()
+    }
+    
+    private func isEmailValid() -> Bool {
+        return emailTextField.text != ""
+    }
+    
+    private func isPassWordValid() -> Bool {
+        return passwordTextField.text?.count ?? 0 >= 10
     }
     
     // MARK: - Display
     
     func displaySomething(viewModel: LoginModels.Something.ViewModel) {
     }
-    
-    // MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
+        guard let textInTextField = textField.text,
+              let stringRange = Range(range, in: textInTextField) else {
+            return false
         }
+        
+        let updatedText: String = textInTextField.replacingCharacters(in: stringRange, with: string)
+        
+        if isCreateAccountValid() {
+            enableRegisterButton()
+        } else {
+            disableRegisterButton()
+        }
+        
+        return true
     }
 }
