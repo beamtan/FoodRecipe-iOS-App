@@ -63,9 +63,13 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         googleService.signIn(email: email, password: password) { [weak self] in
             guard let self else { return }
             
-             googleService.seeUserDetail() { user in
+             googleService.seeUserDetail() { [weak self] user in
+                 guard let self else { return }
+                 
                  print("Welcome: \(user?.email ?? "")")
                  print("isAnonymous \(user?.isAnonymous ?? true)")
+                 
+                 router?.routeToHome()
             }
         }
     }
@@ -119,7 +123,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     }
     
     private func isPassWordValid() -> Bool {
-        return passwordTextField.text?.count ?? 0 >= 10
+        return passwordTextField.text != ""
     }
     
     // MARK: - Display
