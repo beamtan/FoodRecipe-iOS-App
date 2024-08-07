@@ -28,6 +28,7 @@
 		EF15DEF42C5EC91500EF4294 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEEE2C5EC91500EF4294 /* AuthenticationViewController.swift */; };
 		EF15DEF52C5EC91500EF4294 /* AuthenticationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEEF2C5EC91500EF4294 /* AuthenticationInteractor.swift */; };
 		EF15DEF72C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF15DEF62C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard */; };
+		EF3F69C62C63F9C500770C15 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF3F69C52C63F9C500770C15 /* GoogleService-Info.plist */; };
 		EF89885F2C5ED4090028FFD4 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = EF89885E2C5ED4090028FFD4 /* Tabman */; };
 		EFB5AF8B2C5E94190004075F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5AF8A2C5E94190004075F /* AppDelegate.swift */; };
 		EFB5AF8D2C5E94190004075F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5AF8C2C5E94190004075F /* SceneDelegate.swift */; };
@@ -45,7 +46,6 @@
 		EFC523982C629A94001467DC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC523922C629A94001467DC /* HomeViewController.swift */; };
 		EFC523992C629A94001467DC /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC523932C629A94001467DC /* HomeInteractor.swift */; };
 		EFC5239B2C629AB7001467DC /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFC5239A2C629AB7001467DC /* HomeStoryboard.storyboard */; };
-		EFD355682C613B77005CC6DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFD355672C613B77005CC6DA /* GoogleService-Info.plist */; };
 		EFD3556A2C613C60005CC6DA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EFD355692C613C60005CC6DA /* FirebaseAuth */; };
 		EFD3556C2C613C60005CC6DA /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = EFD3556B2C613C60005CC6DA /* GoogleSignIn */; };
 		EFD3556E2C613C60005CC6DA /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFD3556D2C613C60005CC6DA /* GoogleSignInSwift */; };
@@ -100,6 +100,7 @@
 		EF15DEEE2C5EC91500EF4294 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		EF15DEEF2C5EC91500EF4294 /* AuthenticationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInteractor.swift; sourceTree = "<group>"; };
 		EF15DEF62C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationStoryboard.storyboard; sourceTree = "<group>"; };
+		EF3F69C52C63F9C500770C15 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EFB5AF872C5E94190004075F /* FoodRecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodRecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB5AF8A2C5E94190004075F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFB5AF8C2C5E94190004075F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,7 +121,6 @@
 		EFC523922C629A94001467DC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EFC523932C629A94001467DC /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		EFC5239A2C629AB7001467DC /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
-		EFD355672C613B77005CC6DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EFD355702C615183005CC6DA /* GoogleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -279,7 +279,7 @@
 				EFB5AF952C5E941A0004075F /* LaunchScreen.storyboard */,
 				EFB5AF8A2C5E94190004075F /* AppDelegate.swift */,
 				EFB5AF8C2C5E94190004075F /* SceneDelegate.swift */,
-				EFD355672C613B77005CC6DA /* GoogleService-Info.plist */,
+				EF3F69C52C63F9C500770C15 /* GoogleService-Info.plist */,
 				EFB5AFBD2C5EACB50004075F /* Fonts */,
 			);
 			path = Resources;
@@ -440,13 +440,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFB5AF942C5E941A0004075F /* Assets.xcassets in Resources */,
+				EF3F69C62C63F9C500770C15 /* GoogleService-Info.plist in Resources */,
 				EFB5AF972C5E941A0004075F /* Base in Resources */,
 				EFC5239B2C629AB7001467DC /* HomeStoryboard.storyboard in Resources */,
 				EFB5AF922C5E94190004075F /* Base in Resources */,
 				EF15DEF72C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard in Resources */,
 				EF15DEE92C5EC68F00EF4294 /* CreateAccountStoryboard.storyboard in Resources */,
 				EF15DEE72C5EC68000EF4294 /* LoginStoryboard.storyboard in Resources */,
-				EFD355682C613B77005CC6DA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
