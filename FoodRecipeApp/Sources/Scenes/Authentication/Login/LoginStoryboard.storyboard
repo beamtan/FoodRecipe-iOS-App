@@ -233,9 +233,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailBorderView" destination="lNy-RD-lxg" id="wy5-I2-zBa"/>
                         <outlet property="emailTextField" destination="jH5-TC-wMS" id="Oth-fe-xhh"/>
                         <outlet property="loginButton" destination="rW3-11-6e2" id="epz-CZ-jDx"/>
                         <outlet property="loginWithGoogleView" destination="weU-Yv-buH" id="Yg2-yt-14f"/>
+                        <outlet property="passwordBorderView" destination="IQf-lz-fel" id="R3k-QR-5Th"/>
                         <outlet property="passwordTextField" destination="cbs-fz-omH" id="Bvt-OJ-OSb"/>
                     </connections>
                 </viewController>

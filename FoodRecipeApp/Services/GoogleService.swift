@@ -15,7 +15,7 @@ protocol GoogleServiceImp {
     func createUser(email: String, password: String, completionHandler: @escaping (()->()))
     func signUp(viewController: UIViewController, completionHandler: @escaping (()->()))
     func signIn(credential: AuthCredential, completionHandler: @escaping (()->()))
-    func signIn(email: String, password: String, completionHandler: @escaping (()->()))
+    func signIn(email: String, password: String, completionHandler: @escaping ((Error?) -> ()))
     func signOut()
     
     func seeUserDetail(completionHandler: @escaping ((User?) -> ()))
@@ -72,18 +72,25 @@ class GoogleService: GoogleServiceImp {
         }
     }
     
-    func signIn(email: String, password: String, completionHandler: @escaping (() -> ())) {
+    func signIn(
+        email: String,
+        password: String,
+        completionHandler: @escaping ((Error?) -> ()
+        )
+    ) {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-            guard let self else {
+            guard self != nil else {
                 return
             }
             
             if error != nil {
                 print("Error signIn: \(String(describing: error))")
+                completionHandler(error)
+                
                 return
             }
             
-            completionHandler()
+            completionHandler(error)
         }
     }
     

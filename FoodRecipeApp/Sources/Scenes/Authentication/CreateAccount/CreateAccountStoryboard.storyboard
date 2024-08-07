@@ -286,8 +286,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailBorderView" destination="63T-H2-TTJ" id="3Lq-t9-kIP"/>
                         <outlet property="emailTextField" destination="8e5-eb-D8X" id="jb6-dN-RDB"/>
+                        <outlet property="nameBorderView" destination="EaG-kP-h5Z" id="Ptd-9b-kgU"/>
                         <outlet property="nameTextField" destination="aqb-ob-dUf" id="U74-Vh-N7I"/>
+                        <outlet property="passwordBorderView" destination="qfE-eS-atD" id="BLL-GC-I4n"/>
                         <outlet property="passwordTextField" destination="A3R-Qr-gvW" id="mou-Dd-RnB"/>
                         <outlet property="registerButton" destination="4Eg-v8-G9z" id="b5i-ec-bW5"/>
                         <outlet property="signUpWithGoogleView" destination="o4z-7i-Ls8" id="oa8-hv-B44"/>

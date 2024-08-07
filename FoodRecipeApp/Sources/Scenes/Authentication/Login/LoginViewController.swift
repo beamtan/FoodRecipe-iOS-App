@@ -28,6 +28,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginWithGoogleView: UIView! {
         didSet {
@@ -35,6 +36,9 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
             loginWithGoogleView.addGestureRecognizer(gesture)
         }
     }
+    
+    @IBOutlet weak var emailBorderView: UIView!
+    @IBOutlet weak var passwordBorderView: UIView!
     
     // MARK: - Object lifecycle
     
@@ -60,8 +64,14 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         let email: String = emailTextField.text ?? ""
         let password: String = passwordTextField.text ?? ""
         
-        googleService.signIn(email: email, password: password) { [weak self] in
+        googleService.signIn(email: email, password: password) { [weak self] error in
             guard let self else { return }
+            
+            guard error == nil else {
+                showValidate()
+                
+                return
+            }
             
              googleService.seeUserDetail() { [weak self] user in
                  guard let self else { return }
@@ -102,6 +112,41 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         router.dataStore = interactor
     }
     
+    private func showValidate() {
+        emailBorderView.layer.borderColor = UIColor.red.cgColor
+        emailBorderView.layer.borderWidth = 1
+        
+        passwordBorderView.layer.borderColor = UIColor.red.cgColor
+        passwordBorderView.layer.borderWidth = 1
+    }
+    
+    private func clearValidate() {
+        emailBorderView.layer.borderWidth = 0
+        passwordBorderView.layer.borderWidth = 0
+    }
+    
+    private func changeButtonState(textField: UITextField, updatedText: String) {
+        clearValidate()
+        
+        if textField == emailTextField {
+            if isEmailValid(updatedText) &&
+                passwordTextField.text?.count ?? 0 >= 9 {
+                enableRegisterButton()
+            } else {
+                disableRegisterButton()
+            }
+        }
+        
+        if textField == passwordTextField {
+            if updatedText.count >= 9 &&
+                isEmailValid(emailTextField.text ?? "") {
+                enableRegisterButton()
+            } else {
+                disableRegisterButton()
+            }
+        }
+    }
+    
     private func enableRegisterButton() {
         loginButton.backgroundColor = ._32_B_768
         loginButton.isEnabled = true
@@ -114,12 +159,11 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         loginButton.tintColor = ._9_CA_3_AF
     }
     
-    private func isCreateAccountValid() -> Bool {
-        return isEmailValid() && isPassWordValid()
-    }
-    
-    private func isEmailValid() -> Bool {
-        return emailTextField.text != ""
+    private func isEmailValid(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
     }
     
     private func isPassWordValid() -> Bool {
@@ -145,12 +189,10 @@ extension LoginViewController: UITextFieldDelegate {
         
         let updatedText: String = textInTextField.replacingCharacters(in: stringRange, with: string)
         
-        if isCreateAccountValid() {
-            enableRegisterButton()
-        } else {
-            disableRegisterButton()
-        }
+        changeButtonState(textField: textField, updatedText: updatedText)
         
         return true
     }
+    
+    
 }
