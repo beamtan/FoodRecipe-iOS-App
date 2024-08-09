@@ -23,8 +23,8 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     // MARK: Routing
     
     func routeToHome() {
-        guard let destination = UIStoryboard(name: "HomeStoryboard", bundle: nil)
-            .instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController,
+        guard let destination = UIStoryboard(name: "HomeTabbarStoryboard", bundle: nil)
+            .instantiateViewController(withIdentifier: "HomeTabbarViewController") as? HomeTabbarViewController,
               let viewController else { return }
         
         navigateToHome(source: viewController, destination: destination)
@@ -32,9 +32,10 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     
     // MARK: Navigation
     
-    func navigateToHome(source: LoginViewController, destination: HomeViewController) {
-        destination.modalPresentationStyle = .fullScreen
-        source.present(destination, animated: true)
+    func navigateToHome(source: LoginViewController, destination: HomeTabbarViewController) {
+//        destination.modalPresentationStyle = .fullScreen
+//        source.present(destination, animated: true)
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(vc: destination)
     }
     
     // MARK: Passing data

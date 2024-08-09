@@ -18,6 +18,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
     }
+    
+    func changeRootViewController(vc: UIViewController) {
+        guard let window = window else {
+            return
+        }
+        
+        window.rootViewController = vc
+        
+        UIView.transition(
+            with: window,
+            duration: 0.5,
+            options: .transitionFlipFromLeft,
+            animations: nil,
+            completion: nil
+        )
+    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

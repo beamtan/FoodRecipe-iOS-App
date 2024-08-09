@@ -190,6 +190,14 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0W-fd-fmO">
+                                                <rect key="frame" x="154.66666666666666" y="388.66666666666669" width="84" height="41"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="By pass"/>
+                                                <connections>
+                                                    <action selector="byPassToHome:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jg5-d5-REe"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -204,6 +212,8 @@
                                             <constraint firstItem="i9Y-Nx-0Fi" firstAttribute="leading" secondItem="8wO-p8-Srl" secondAttribute="leading" constant="24" id="Rvm-EP-JIX"/>
                                             <constraint firstItem="n0b-7d-31W" firstAttribute="top" secondItem="8wO-p8-Srl" secondAttribute="top" constant="45" id="YlO-R7-Mhp"/>
                                             <constraint firstItem="rW3-11-6e2" firstAttribute="leading" secondItem="8wO-p8-Srl" secondAttribute="leading" constant="54" id="a9L-fg-U8u"/>
+                                            <constraint firstItem="f0W-fd-fmO" firstAttribute="top" secondItem="weU-Yv-buH" secondAttribute="bottom" constant="20" id="e5F-dS-3e6"/>
+                                            <constraint firstItem="f0W-fd-fmO" firstAttribute="centerX" secondItem="8wO-p8-Srl" secondAttribute="centerX" id="fTT-TL-SBY"/>
                                             <constraint firstItem="i9Y-Nx-0Fi" firstAttribute="top" secondItem="n0b-7d-31W" secondAttribute="bottom" constant="8" id="iLO-DW-FDG"/>
                                             <constraint firstItem="rW3-11-6e2" firstAttribute="top" secondItem="i9Y-Nx-0Fi" secondAttribute="bottom" constant="34" id="ldw-Sj-5Jk"/>
                                             <constraint firstAttribute="trailing" secondItem="rW3-11-6e2" secondAttribute="trailing" constant="54" id="r2T-X1-xfg"/>

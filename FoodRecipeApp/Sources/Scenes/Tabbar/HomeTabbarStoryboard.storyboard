@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--HomeTabbarViewController-->
+        <scene sceneID="Nyy-OE-Wrp">
+            <objects>
+                <tabBarController storyboardIdentifier="HomeTabbarViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kRR-J8-Haf" userLabel="HomeTabbarViewController" customClass="HomeTabbarViewController" customModule="FoodRecipeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6CF-tN-5a9" customClass="TabbarViewController" customModule="FoodRecipeApp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="22B-6l-MID" kind="relationship" relationship="viewControllers" id="ced-Ug-2FS"/>
+                        <segue destination="M3G-Ga-WxS" kind="relationship" relationship="viewControllers" id="ODz-ya-EQd"/>
+                        <segue destination="hgt-3t-Pb7" kind="relationship" relationship="viewControllers" id="8PL-8l-ApH"/>
+                        <segue destination="C4q-EW-vhH" kind="relationship" relationship="viewControllers" id="O01-EN-2Rw"/>
+                        <segue destination="NoQ-mt-w95" kind="relationship" relationship="viewControllers" id="UOc-ZB-TqQ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DVE-eX-gYg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-672.51908396946567" y="-420.42253521126764"/>
+        </scene>
+        <!--HomeViewController-->
+        <scene sceneID="M3q-DA-fKk">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="HomeViewController" storyboardName="HomeStoryboard" referencedIdentifier="HomeViewController" id="22B-6l-MID" userLabel="HomeViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="mf2-lh-vto"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aHf-cG-dU0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="62" y="-737"/>
+        </scene>
+        <!--SearchViewController-->
+        <scene sceneID="FWo-XD-3cJ">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SearchViewController" storyboardName="SearchStoryboard" referencedIdentifier="SearchViewController" id="M3G-Ga-WxS" userLabel="SearchViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="ST0-xo-VrS"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fVu-qV-hff" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="337" y="-699"/>
+        </scene>
+        <!--EmptyViewController-->
+        <scene sceneID="PUz-QP-paT">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="EmptyViewController" storyboardName="EmptyStoryboard" referencedIdentifier="EmptyViewController" id="hgt-3t-Pb7" userLabel="EmptyViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Empty" id="syy-v9-T2s" userLabel="Empty"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c42-sd-QRp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="234" y="-503"/>
+        </scene>
+        <!--NotificationViewController-->
+        <scene sceneID="aBe-nl-QhA">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="NotificationViewController" storyboardName="NotificationStoryboard" referencedIdentifier="NotificationViewController" id="C4q-EW-vhH" userLabel="NotificationViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Notification" image="bell" catalog="system" id="hfO-di-bWd"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m9y-yf-aEi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="338" y="-380"/>
+        </scene>
+        <!--ProfileViewController-->
+        <scene sceneID="GGR-NK-wcA">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ProfileViewController" storyboardName="ProfileStoryboard" referencedIdentifier="ProfileViewController" id="NoQ-mt-w95" userLabel="ProfileViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.crop.circle" catalog="system" id="DHS-od-uFD"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qdo-LY-Hg2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="403" y="-226"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="6CF-tN-5a9">
+            <size key="intrinsicContentSize" width="-1" height="83"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="bell" catalog="system" width="125" height="128"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="person.crop.circle" catalog="system" width="128" height="123"/>
+    </resources>
+</document>

@@ -97,6 +97,11 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         }
     }
     
+    @IBAction func byPassToHome(_ sender: Any) {
+        router?.routeToHome()
+    }
+    
+    
     // MARK: - General Function
     
     private func setup() {

@@ -66,6 +66,17 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         interactor?.doSomething(request: request)
     }
     
+    private func createNav(with title: String, and image: UIImage?, vc: UIViewController) -> UINavigationController {
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.tabBarItem.title = title
+        nav.tabBarItem.image = image
+        
+        nav.viewControllers.first?.navigationItem.title = title + "Controller"
+        
+        return nav
+    }
+    
     // MARK: - Display
     
     func displaySomething(viewModel: HomeModels.Something.ViewModel) {
@@ -73,12 +84,5 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     
     // MARK: - Navigation
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
+    
 }
