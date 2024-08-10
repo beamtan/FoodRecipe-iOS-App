@@ -91,13 +91,13 @@ class AuthenticationViewController: TabmanViewController, AuthenticationDisplayL
         buttonBar.indicator.weight = .light
         buttonBar.indicator.cornerStyle = .rounded
         buttonBar.indicator.overscrollBehavior = .compress
-        buttonBar.indicator.tintColor = .systemGreen
+        buttonBar.indicator.tintColor = ._0_A_2533
         
         buttonBar.buttons.customize {
             $0.tintColor = .gray
             $0.font = UIFont(name: "Inter-SemiBold", size: 16) ?? .boldSystemFont(ofSize: 16)
             $0.selectedFont = UIFont(name: "Inter-SemiBold", size: 16)
-            $0.selectedTintColor = .systemGreen
+            $0.selectedTintColor = ._0_A_2533
         }
         
         let systemBar = buttonBar.systemBar()

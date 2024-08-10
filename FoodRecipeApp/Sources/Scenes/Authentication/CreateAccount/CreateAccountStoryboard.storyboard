@@ -39,7 +39,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="36" id="SUr-bH-2cE"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -48,7 +48,7 @@
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your full name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aqb-ob-dUf">
                                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="46"/>
-                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                                                <fontDescription key="fontDescription" name="SofiaPro-Regular" family="SofiaPro" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits" textContentType="username"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="whc-Gi-LQW" id="mZM-r1-qhG"/>
@@ -89,7 +89,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="36" id="pdl-Bq-BBB"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -98,7 +98,7 @@
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Eg namaemail@emailkamu.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8e5-eb-D8X">
                                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="46"/>
-                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                                                <fontDescription key="fontDescription" name="SofiaPro-Regular" family="SofiaPro" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="whc-Gi-LQW" id="hV7-g8-QlG"/>
@@ -139,7 +139,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="36" id="80W-r2-D8d"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -148,7 +148,7 @@
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="**** **** ****" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A3R-Qr-gvW">
                                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="46"/>
-                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                                                <fontDescription key="fontDescription" name="SofiaPro-Regular" family="SofiaPro" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="whc-Gi-LQW" id="Q0f-Dy-4aI"/>
@@ -190,7 +190,7 @@
                                                 <color key="tintColor" name="9CA3AF"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Registration">
-                                                    <fontDescription key="titleFontDescription" name="Inter-Bold" family="Inter" pointSize="14"/>
+                                                    <fontDescription key="titleFontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="14"/>
                                                 </buttonConfiguration>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -221,7 +221,7 @@
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up with Google" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toE-ch-fUA">
                                                         <rect key="frame" x="81.999999999999986" y="17.333333333333314" width="135.66666666666663" height="17"/>
-                                                        <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>

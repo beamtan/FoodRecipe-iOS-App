@@ -9,7 +9,7 @@
 import UIKit
 
 protocol HomeDisplayLogic: AnyObject {
-    func displaySomething(viewModel: HomeModels.Something.ViewModel)
+    
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic {
@@ -19,9 +19,18 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     var interactor: HomeBusinessLogic?
     var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
     
+    private var categories: [HomeModels.Category] = [
+        HomeModels.Category(name: "Breakfast", isSelected: true),
+        HomeModels.Category(name: "Lunch", isSelected: false),
+        HomeModels.Category(name: "Dinner", isSelected: false),
+        HomeModels.Category(name: "Snack", isSelected: false),
+    ]
+    
     // MARK: - IBOutlet
     
-    
+    @IBOutlet weak var featuredCollectionView: UICollectionView!
+    @IBOutlet weak var categoryCollectionView: UICollectionView!
+    @IBOutlet weak var popularRecipeCollectionView: UICollectionView!
     
     // MARK: - Object lifecycle
     
@@ -39,7 +48,6 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
     }
     
     // MARK: - IBAction
@@ -61,28 +69,108 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         router.dataStore = interactor
     }
     
-    func doSomething() {
-        let request = HomeModels.Something.Request()
-        interactor?.doSomething(request: request)
-    }
-    
-    private func createNav(with title: String, and image: UIImage?, vc: UIViewController) -> UINavigationController {
-        let nav = UINavigationController(rootViewController: vc)
-        
-        nav.tabBarItem.title = title
-        nav.tabBarItem.image = image
-        
-        nav.viewControllers.first?.navigationItem.title = title + "Controller"
-        
-        return nav
-    }
-    
     // MARK: - Display
     
-    func displaySomething(viewModel: HomeModels.Something.ViewModel) {
-    }
     
     // MARK: - Navigation
     
     
+}
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if isFeaturedCollectionView(collectionView) {
+            return 2
+        }
+        
+        if isCategoryCollectionView(collectionView) {
+            return 4
+        }
+        
+        if isPopularRecipeCollectionView(collectionView) {
+            return 6
+        }
+        
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if isFeaturedCollectionView(collectionView) {
+            return setUpFeaturedCell(collectionView, indexPath)
+        }
+        
+        if isCategoryCollectionView(collectionView) {
+            return setUpCategoryCell(collectionView, indexPath)
+        }
+        
+        if isPopularRecipeCollectionView(collectionView) {
+            return setUpPopularRecipeCell(collectionView, indexPath)
+        }
+        
+        return UICollectionViewCell()
+    }
+}
+
+// MARK: - Set Up CollectionView
+
+extension HomeViewController {
+    private func isFeaturedCollectionView(_ collectionView: UICollectionView) -> Bool {
+        return collectionView == featuredCollectionView
+    }
+    
+    private func isCategoryCollectionView(_ collectionView: UICollectionView) -> Bool {
+        return collectionView == categoryCollectionView
+    }
+    
+    private func isPopularRecipeCollectionView(_ collectionView: UICollectionView) -> Bool {
+        return collectionView == popularRecipeCollectionView
+    }
+    
+    private func setUpFeaturedCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = featuredCollectionView.dequeueReusableCell(
+            withReuseIdentifier: FeaturedCardCollectionViewCell.identifier,
+            for: indexPath
+        ) as! FeaturedCardCollectionViewCell
+        
+        let image: UIImage = (indexPath.row == 0) ?
+        UIImage(named: "FeaturedCard1")! : UIImage(named: "FeaturedCard2")!
+        
+        cell.setUp(image: image)
+        
+        return cell
+    }
+    
+    private func setUpCategoryCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = categoryCollectionView.dequeueReusableCell(
+            withReuseIdentifier: CategoryCollectionViewCell.identifier,
+            for: indexPath
+        ) as! CategoryCollectionViewCell
+        
+        let category = categories[indexPath.row]
+        let name: String = category.name
+        let isSelected: Bool = category.isSelected
+        
+        cell.setUp(name: name, isSelectedCategory: isSelected)
+        
+        cell.categoryClosure = { [weak self] name in
+            guard let self else { return }
+            
+            categories.enumerated().forEach { (index, category) in
+                self.categories[index].isSelected = (category.name == name) ? true : false
+            }
+            
+            categoryCollectionView.reloadData()
+        }
+        
+        return cell
+    }
+    
+    private func setUpPopularRecipeCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = popularRecipeCollectionView.dequeueReusableCell(
+            withReuseIdentifier: PopularRecipeCollectionViewCell.identifier,
+            for: indexPath
+        ) as! PopularRecipeCollectionViewCell
+        
+        return cell
+    }
 }

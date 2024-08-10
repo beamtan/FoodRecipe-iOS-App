@@ -22,8 +22,8 @@ class TabbarViewController: UITabBar {
     
     override func draw(_ rect: CGRect) {
         addShape()
-        tintColor = UIColor(named: "red")
-        unselectedItemTintColor = UIColor.lightGray
+        unselectedItemTintColor = .gray
+        tintColor = ._3_DA_0_A_7
     }
     
     override open func sizeThatFits(_ size: CGSize) -> CGSize {
@@ -39,14 +39,21 @@ class TabbarViewController: UITabBar {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = createPath()
         shapeLayer.strokeColor = UIColor.clear.cgColor
-        shapeLayer.fillColor = UIColor(named: "tabBarBackgroundColor")?.cgColor ?? UIColor.white.cgColor
+        shapeLayer.fillColor = UIColor.white.cgColor
         shapeLayer.lineWidth = 1.0
+        
+        // Add shadow
+        shapeLayer.shadowColor = UIColor.black.cgColor
+        shapeLayer.shadowOffset = CGSize(width: 0, height: 1)
+        shapeLayer.shadowOpacity = 0.1
+        shapeLayer.shadowRadius = 8
         
         if let oldShapeLayer = self.shapeLayer {
             self.layer.replaceSublayer(oldShapeLayer, with: shapeLayer)
         } else {
             self.layer.insertSublayer(shapeLayer, at: 0)
         }
+        
         self.shapeLayer = shapeLayer
     }
     

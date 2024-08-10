@@ -10,17 +10,16 @@ import UIKit
 
 struct HomeModels {
     
-    struct Something {
-        struct Request {
-            
-        }
-        
-        struct Response {
-            
-        }
-        
-        struct ViewModel {
-            
-        }
+    struct Category {
+        var name: String
+        var isSelected: Bool
+    }
+    
+    struct Recipe {
+        let imageUrl: String
+        let title: String
+        let calorie: Int
+        let time: String
+        let isFavourite: Bool
     }
 }

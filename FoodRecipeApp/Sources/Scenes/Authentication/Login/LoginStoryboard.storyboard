@@ -34,12 +34,12 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0b-7d-31W" userLabel="Email View">
                                                 <rect key="frame" x="24" y="45" width="345" height="82"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jM-CK-O6M">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jM-CK-O6M">
                                                         <rect key="frame" x="8" y="0.0" width="329" height="36"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="36" id="X9K-3G-zk4"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -48,7 +48,7 @@
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Eg namaemail@emailkamu.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jH5-TC-wMS">
                                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="46"/>
-                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                                                <fontDescription key="fontDescription" name="SofiaPro-Regular" family="SofiaPro" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="Pqg-mU-2E3"/>
@@ -89,7 +89,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="36" id="vx1-wN-WeJ"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -98,7 +98,7 @@
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="**** **** ****" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cbs-fz-omH">
                                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="46"/>
-                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                                                <fontDescription key="fontDescription" name="SofiaPro-Regular" family="SofiaPro" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="mAd-eD-wn4"/>
@@ -140,7 +140,7 @@
                                                 <color key="tintColor" name="9CA3AF"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Login">
-                                                    <fontDescription key="titleFontDescription" name="Inter-Bold" family="Inter" pointSize="14"/>
+                                                    <fontDescription key="titleFontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="14"/>
                                                 </buttonConfiguration>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -171,7 +171,7 @@
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with Google" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLm-Pa-vj1">
                                                         <rect key="frame" x="82" y="17.333333333333314" width="122.33333333333331" height="17"/>
-                                                        <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>

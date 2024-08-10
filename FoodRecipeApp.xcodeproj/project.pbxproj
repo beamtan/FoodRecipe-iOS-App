@@ -53,6 +53,12 @@
 		EF15DEF42C5EC91500EF4294 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEEE2C5EC91500EF4294 /* AuthenticationViewController.swift */; };
 		EF15DEF52C5EC91500EF4294 /* AuthenticationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEEF2C5EC91500EF4294 /* AuthenticationInteractor.swift */; };
 		EF15DEF72C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF15DEF62C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard */; };
+		EF78B01F2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78B01E2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift */; };
+		EF78B0222C67CA9B003686F5 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78B0212C67CA9B003686F5 /* CategoryCollectionViewCell.swift */; };
+		EF78B0252C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78B0242C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift */; };
+		EF78B02B2C681983003686F5 /* SofiaPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF78B02A2C681983003686F5 /* SofiaPro-Bold.ttf */; };
+		EF78B02D2C6819B6003686F5 /* SofiaPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF78B02C2C6819B6003686F5 /* SofiaPro-Light.ttf */; };
+		EF78B02F2C6819C8003686F5 /* SofiaPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF78B02E2C6819C8003686F5 /* SofiaPro-Regular.ttf */; };
 		EF86657C2C653E7C0016023C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF86657B2C653E7C0016023C /* GoogleService-Info.plist */; };
 		EF8665822C6612EF0016023C /* HomeTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8665812C6612EF0016023C /* HomeTabbarViewController.swift */; };
 		EF8665842C66133F0016023C /* HomeTabbarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF8665832C66133F0016023C /* HomeTabbarStoryboard.storyboard */; };
@@ -151,6 +157,12 @@
 		EF15DEEE2C5EC91500EF4294 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		EF15DEEF2C5EC91500EF4294 /* AuthenticationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInteractor.swift; sourceTree = "<group>"; };
 		EF15DEF62C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationStoryboard.storyboard; sourceTree = "<group>"; };
+		EF78B01E2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF78B0212C67CA9B003686F5 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF78B0242C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularRecipeCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF78B02A2C681983003686F5 /* SofiaPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaPro-Bold.ttf"; sourceTree = "<group>"; };
+		EF78B02C2C6819B6003686F5 /* SofiaPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaPro-Light.ttf"; sourceTree = "<group>"; };
+		EF78B02E2C6819C8003686F5 /* SofiaPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaPro-Regular.ttf"; sourceTree = "<group>"; };
 		EF86657B2C653E7C0016023C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF8665812C6612EF0016023C /* HomeTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabbarViewController.swift; sourceTree = "<group>"; };
 		EF8665832C66133F0016023C /* HomeTabbarStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeTabbarStoryboard.storyboard; sourceTree = "<group>"; };
@@ -300,6 +312,56 @@
 			path = CreateAccount;
 			sourceTree = "<group>";
 		};
+		EF78B01D2C67BFF2003686F5 /* FeaturedCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF78B01E2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift */,
+			);
+			path = FeaturedCell;
+			sourceTree = "<group>";
+		};
+		EF78B0202C67CA80003686F5 /* CategoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF78B0212C67CA9B003686F5 /* CategoryCollectionViewCell.swift */,
+			);
+			path = CategoryCell;
+			sourceTree = "<group>";
+		};
+		EF78B0232C67E0DE003686F5 /* PopularRecipeCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF78B0242C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift */,
+			);
+			path = PopularRecipeCell;
+			sourceTree = "<group>";
+		};
+		EF78B0282C68192A003686F5 /* Inter */ = {
+			isa = PBXGroup;
+			children = (
+				EF15DEAA2C5EB67200EF4294 /* Inter-Black.ttf */,
+				EF15DEB12C5EB67200EF4294 /* Inter-Bold.ttf */,
+				EF15DEAB2C5EB67200EF4294 /* Inter-ExtraBold.ttf */,
+				EF15DEAC2C5EB67200EF4294 /* Inter-ExtraLight.ttf */,
+				EF15DEAE2C5EB67200EF4294 /* Inter-Light.ttf */,
+				EF15DEAF2C5EB67200EF4294 /* Inter-Medium.ttf */,
+				EF15DEAD2C5EB67200EF4294 /* Inter-Regular.ttf */,
+				EF15DEB22C5EB67200EF4294 /* Inter-SemiBold.ttf */,
+				EF15DEB02C5EB67200EF4294 /* Inter-Thin.ttf */,
+			);
+			path = Inter;
+			sourceTree = "<group>";
+		};
+		EF78B0292C681936003686F5 /* SofiaPro */ = {
+			isa = PBXGroup;
+			children = (
+				EF78B02A2C681983003686F5 /* SofiaPro-Bold.ttf */,
+				EF78B02E2C6819C8003686F5 /* SofiaPro-Regular.ttf */,
+				EF78B02C2C6819B6003686F5 /* SofiaPro-Light.ttf */,
+			);
+			path = SofiaPro;
+			sourceTree = "<group>";
+		};
 		EF86657D2C6601890016023C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,15 +476,8 @@
 		EFB5AFBD2C5EACB50004075F /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				EF15DEAA2C5EB67200EF4294 /* Inter-Black.ttf */,
-				EF15DEB12C5EB67200EF4294 /* Inter-Bold.ttf */,
-				EF15DEAB2C5EB67200EF4294 /* Inter-ExtraBold.ttf */,
-				EF15DEAC2C5EB67200EF4294 /* Inter-ExtraLight.ttf */,
-				EF15DEAE2C5EB67200EF4294 /* Inter-Light.ttf */,
-				EF15DEAF2C5EB67200EF4294 /* Inter-Medium.ttf */,
-				EF15DEAD2C5EB67200EF4294 /* Inter-Regular.ttf */,
-				EF15DEB22C5EB67200EF4294 /* Inter-SemiBold.ttf */,
-				EF15DEB02C5EB67200EF4294 /* Inter-Thin.ttf */,
+				EF78B0292C681936003686F5 /* SofiaPro */,
+				EF78B0282C68192A003686F5 /* Inter */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -430,6 +485,9 @@
 		EFC5238D2C629A75001467DC /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				EF78B01D2C67BFF2003686F5 /* FeaturedCell */,
+				EF78B0202C67CA80003686F5 /* CategoryCell */,
+				EF78B0232C67E0DE003686F5 /* PopularRecipeCell */,
 				EF09E4482C661F69004675DF /* HomeStoryboard.storyboard */,
 				EFC523922C629A94001467DC /* HomeViewController.swift */,
 				EFC523932C629A94001467DC /* HomeInteractor.swift */,
@@ -548,6 +606,8 @@
 				EFA808DC2C5ED1F000FBE989 /* XCRemoteSwiftPackageReference "Tabman" */,
 				EFD355652C613705005CC6DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				EFD355662C613799005CC6DA /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				EF78B0262C680689003686F5 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				EF78B0272C680BDA003686F5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = EFB5AF882C5E94190004075F /* Products */;
 			projectDirPath = "";
@@ -565,7 +625,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF78B02B2C681983003686F5 /* SofiaPro-Bold.ttf in Resources */,
 				EFB5AF942C5E941A0004075F /* Assets.xcassets in Resources */,
+				EF78B02F2C6819C8003686F5 /* SofiaPro-Regular.ttf in Resources */,
 				EF09E45C2C662926004675DF /* SearchStoryboard.storyboard in Resources */,
 				EF0759742C66592F00CA1F67 /* NotificationStoryboard.storyboard in Resources */,
 				EF86657C2C653E7C0016023C /* GoogleService-Info.plist in Resources */,
@@ -574,6 +636,7 @@
 				EF8665842C66133F0016023C /* HomeTabbarStoryboard.storyboard in Resources */,
 				EFB5AF922C5E94190004075F /* Base in Resources */,
 				EF07597D2C66881000CA1F67 /* EmptyStoryboard.storyboard in Resources */,
+				EF78B02D2C6819B6003686F5 /* SofiaPro-Light.ttf in Resources */,
 				EF15DEF72C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard in Resources */,
 				EF0759762C66594000CA1F67 /* ProfileStoryboard.storyboard in Resources */,
 				EF15DEE92C5EC68F00EF4294 /* CreateAccountStoryboard.storyboard in Resources */,
@@ -612,6 +675,7 @@
 				EF15DED82C5EC41600EF4294 /* LoginViewController.swift in Sources */,
 				EF15DED92C5EC41600EF4294 /* LoginInteractor.swift in Sources */,
 				EF0759612C6658E900CA1F67 /* NotificationPresenter.swift in Sources */,
+				EF78B0252C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift in Sources */,
 				EF0759622C6658E900CA1F67 /* NotificationWorker.swift in Sources */,
 				EF0759632C6658E900CA1F67 /* NotificationRouter.swift in Sources */,
 				EF0759642C6658E900CA1F67 /* NotificationModels.swift in Sources */,
@@ -628,6 +692,7 @@
 				EFD355712C615183005CC6DA /* GoogleService.swift in Sources */,
 				EF15DEE22C5EC44700EF4294 /* CreateAccountRouter.swift in Sources */,
 				EF15DEE32C5EC44700EF4294 /* CreateAccountModels.swift in Sources */,
+				EF78B01F2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift in Sources */,
 				EF15DEE42C5EC44700EF4294 /* CreateAccountViewController.swift in Sources */,
 				EF15DEE52C5EC44700EF4294 /* CreateAccountInteractor.swift in Sources */,
 				EF07596D2C66590900CA1F67 /* ProfilePresenter.swift in Sources */,
@@ -638,6 +703,7 @@
 				EF0759712C66590900CA1F67 /* ProfileViewController.swift in Sources */,
 				EF0759722C66590900CA1F67 /* ProfileInteractor.swift in Sources */,
 				EF15DEF02C5EC91500EF4294 /* AuthenticationPresenter.swift in Sources */,
+				EF78B0222C67CA9B003686F5 /* CategoryCollectionViewCell.swift in Sources */,
 				EF15DEF12C5EC91500EF4294 /* AuthenticationWorker.swift in Sources */,
 				EF15DEF22C5EC91500EF4294 /* AuthenticationRouter.swift in Sources */,
 				EF15DEF32C5EC91500EF4294 /* AuthenticationModels.swift in Sources */,
@@ -993,6 +1059,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EF78B0262C680689003686F5 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		EF78B0272C680BDA003686F5 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
 		EFA808DC2C5ED1F000FBE989 /* XCRemoteSwiftPackageReference "Tabman" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/uias/Tabman.git";

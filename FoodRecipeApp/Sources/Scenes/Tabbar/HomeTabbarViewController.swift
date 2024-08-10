@@ -17,6 +17,9 @@ class HomeTabbarViewController: UITabBarController, UITabBarControllerDelegate {
         selectedIndex = 0
 
         setupMiddleButton()
+        
+        tabBar.tintColor = ._70_B_9_BE
+        tabBar.unselectedItemTintColor = UIColor.gray
     }
 
     func setupMiddleButton() {
@@ -29,13 +32,22 @@ class HomeTabbarViewController: UITabBarController, UITabBarControllerDelegate {
             )
         )
         
-        middleButton.setBackgroundImage(UIImage(named: "food"), for: .normal)
+        let cookImage = UIImage(systemName: "frying.pan")
+        let tintedCookImage = cookImage?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        
+        middleButton.setImage(tintedCookImage, for: .normal)
+        
+        middleButton.backgroundColor = ._0_A_2533
+        middleButton.layer.cornerRadius = 28
+        
         middleButton.layer.shadowColor = UIColor.black.cgColor
         middleButton.layer.shadowOffset = CGSize(width: 4, height: 4)
         middleButton.layer.shadowOpacity = 0.1
         
-        tabBar.addSubview(middleButton)
         middleButton.addTarget(self, action: #selector(middleButtonPressed), for: .touchUpInside)
+        
+        tabBar.addSubview(middleButton)
+        
         view.layoutIfNeeded()
     }
     

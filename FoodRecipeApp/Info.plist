@@ -15,6 +15,9 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
+		<string>SofiaPro-Light.ttf</string>
+		<string>SofiaPro-Regular.ttf</string>
+		<string>SofiaPro-Bold.ttf</string>
 		<string>Inter-Regular.tff</string>
 		<string>Inter-SemiBold.tff</string>
 		<string>Inter-Bold.tff</string>
