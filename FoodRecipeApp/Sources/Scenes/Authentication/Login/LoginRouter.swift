@@ -33,8 +33,6 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     // MARK: Navigation
     
     func navigateToHome(source: LoginViewController, destination: HomeTabbarViewController) {
-//        destination.modalPresentationStyle = .fullScreen
-//        source.present(destination, animated: true)
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(vc: destination)
     }
     

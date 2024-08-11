@@ -232,7 +232,7 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UrG-1Q-3uH">
                                                                     <rect key="frame" x="2" y="2" width="200" height="240"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FeaturedCard1" translatesAutoresizingMaskIntoConstraints="NO" id="Mcs-s0-fFQ">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Taco" translatesAutoresizingMaskIntoConstraints="NO" id="Mcs-s0-fFQ">
                                                                             <rect key="frame" x="16" y="16" width="168" height="128"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="128" id="54C-li-cHD"/>
@@ -297,7 +297,7 @@
                                                                             <rect key="frame" x="144" y="28" width="28" height="28"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3NK-II-W8J">
-                                                                                    <rect key="frame" x="6" y="7.9999999999999991" width="16" height="13"/>
+                                                                                    <rect key="frame" x="6" y="8.0000000000000018" width="16" height="12.999999999999995"/>
                                                                                     <color key="tintColor" red="0.1294117719" green="0.12549020350000001" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="16" id="HoK-lt-w4i"/>
@@ -445,6 +445,7 @@
     </scenes>
     <resources>
         <image name="FeaturedCard1" width="264" height="172"/>
+        <image name="Taco" width="168" height="128"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="fitness.timer" catalog="system" width="128" height="123"/>
         <image name="flame" catalog="system" width="106" height="128"/>

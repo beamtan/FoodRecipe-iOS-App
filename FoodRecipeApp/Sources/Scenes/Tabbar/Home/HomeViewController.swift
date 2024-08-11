@@ -171,6 +171,12 @@ extension HomeViewController {
             for: indexPath
         ) as! PopularRecipeCollectionViewCell
         
+        cell.foodClosure = { [weak self] in
+            guard let self else { return }
+            
+            router?.routeToFoodDetail()
+        }
+        
         return cell
     }
 }

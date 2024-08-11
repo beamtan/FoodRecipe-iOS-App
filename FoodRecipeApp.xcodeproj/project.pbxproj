@@ -85,6 +85,13 @@
 		EFDABFBC2C68BD2800D594A7 /* SearchPopularRecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFBB2C68BD2800D594A7 /* SearchPopularRecipeCollectionViewCell.swift */; };
 		EFDABFBF2C68C5A400D594A7 /* EditorChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFBE2C68C5A400D594A7 /* EditorChoiceCollectionViewCell.swift */; };
 		EFDABFC22C68D55C00D594A7 /* ProfileFavCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFC12C68D55C00D594A7 /* ProfileFavCollectionViewCell.swift */; };
+		EFDABFCA2C68E3EB00D594A7 /* FoodDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFC42C68E3EB00D594A7 /* FoodDetailPresenter.swift */; };
+		EFDABFCB2C68E3EB00D594A7 /* FoodDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFC52C68E3EB00D594A7 /* FoodDetailWorker.swift */; };
+		EFDABFCC2C68E3EB00D594A7 /* FoodDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFC62C68E3EB00D594A7 /* FoodDetailRouter.swift */; };
+		EFDABFCD2C68E3EB00D594A7 /* FoodDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFC72C68E3EB00D594A7 /* FoodDetailModels.swift */; };
+		EFDABFCE2C68E3EB00D594A7 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFC82C68E3EB00D594A7 /* FoodDetailViewController.swift */; };
+		EFDABFCF2C68E3EB00D594A7 /* FoodDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFC92C68E3EB00D594A7 /* FoodDetailInteractor.swift */; };
+		EFDABFD12C68E45000D594A7 /* FoodDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDABFD02C68E45000D594A7 /* FoodDetailStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,6 +199,13 @@
 		EFDABFBB2C68BD2800D594A7 /* SearchPopularRecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopularRecipeCollectionViewCell.swift; sourceTree = "<group>"; };
 		EFDABFBE2C68C5A400D594A7 /* EditorChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		EFDABFC12C68D55C00D594A7 /* ProfileFavCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFavCollectionViewCell.swift; sourceTree = "<group>"; };
+		EFDABFC42C68E3EB00D594A7 /* FoodDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailPresenter.swift; sourceTree = "<group>"; };
+		EFDABFC52C68E3EB00D594A7 /* FoodDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailWorker.swift; sourceTree = "<group>"; };
+		EFDABFC62C68E3EB00D594A7 /* FoodDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailRouter.swift; sourceTree = "<group>"; };
+		EFDABFC72C68E3EB00D594A7 /* FoodDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailModels.swift; sourceTree = "<group>"; };
+		EFDABFC82C68E3EB00D594A7 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
+		EFDABFC92C68E3EB00D594A7 /* FoodDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailInteractor.swift; sourceTree = "<group>"; };
+		EFDABFD02C68E45000D594A7 /* FoodDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodDetailStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -544,6 +558,13 @@
 		EFDABFC32C68E3A600D594A7 /* FoodDetail */ = {
 			isa = PBXGroup;
 			children = (
+				EFDABFD02C68E45000D594A7 /* FoodDetailStoryboard.storyboard */,
+				EFDABFC82C68E3EB00D594A7 /* FoodDetailViewController.swift */,
+				EFDABFC92C68E3EB00D594A7 /* FoodDetailInteractor.swift */,
+				EFDABFC42C68E3EB00D594A7 /* FoodDetailPresenter.swift */,
+				EFDABFC52C68E3EB00D594A7 /* FoodDetailWorker.swift */,
+				EFDABFC62C68E3EB00D594A7 /* FoodDetailRouter.swift */,
+				EFDABFC72C68E3EB00D594A7 /* FoodDetailModels.swift */,
 			);
 			path = FoodDetail;
 			sourceTree = "<group>";
@@ -680,6 +701,7 @@
 				EF78B02D2C6819B6003686F5 /* SofiaPro-Light.ttf in Resources */,
 				EF15DEF72C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard in Resources */,
 				EF0759762C66594000CA1F67 /* ProfileStoryboard.storyboard in Resources */,
+				EFDABFD12C68E45000D594A7 /* FoodDetailStoryboard.storyboard in Resources */,
 				EF15DEE92C5EC68F00EF4294 /* CreateAccountStoryboard.storyboard in Resources */,
 				EF15DEE72C5EC68000EF4294 /* LoginStoryboard.storyboard in Resources */,
 			);
@@ -754,6 +776,12 @@
 				EF15DEF52C5EC91500EF4294 /* AuthenticationInteractor.swift in Sources */,
 				EF09E4552C66290F004675DF /* SearchPresenter.swift in Sources */,
 				EF09E4562C66290F004675DF /* SearchWorker.swift in Sources */,
+				EFDABFCA2C68E3EB00D594A7 /* FoodDetailPresenter.swift in Sources */,
+				EFDABFCB2C68E3EB00D594A7 /* FoodDetailWorker.swift in Sources */,
+				EFDABFCC2C68E3EB00D594A7 /* FoodDetailRouter.swift in Sources */,
+				EFDABFCD2C68E3EB00D594A7 /* FoodDetailModels.swift in Sources */,
+				EFDABFCE2C68E3EB00D594A7 /* FoodDetailViewController.swift in Sources */,
+				EFDABFCF2C68E3EB00D594A7 /* FoodDetailInteractor.swift in Sources */,
 				EF09E4572C66290F004675DF /* SearchRouter.swift in Sources */,
 				EF09E4582C66290F004675DF /* SearchModels.swift in Sources */,
 				EF09E4592C66290F004675DF /* SearchViewController.swift in Sources */,

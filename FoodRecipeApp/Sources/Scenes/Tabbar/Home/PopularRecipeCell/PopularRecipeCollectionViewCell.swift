@@ -12,6 +12,7 @@ class PopularRecipeCollectionViewCell: UICollectionViewCell {
     static let identifier: String = "PopularRecipeCollectionViewCell"
     
     var likeClosure: (() -> ())?
+    var foodClosure: (() -> ())?
     
     @IBOutlet weak private var imageView: UIImageView!
     @IBOutlet weak private var titleLabel: UILabel!
@@ -21,7 +22,7 @@ class PopularRecipeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var favouriteButtonView: UIView!
     @IBOutlet weak private var favouriteImageView: UIImageView! {
         didSet {
-            let gesture = UITapGestureRecognizer(target: self, action: #selector(favouritePress))
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(favouritePressed))
             favouriteImageView.addGestureRecognizer(gesture)
         }
     }
@@ -31,14 +32,17 @@ class PopularRecipeCollectionViewCell: UICollectionViewCell {
             cardView.layer.shadowOpacity = 0.1
             cardView.layer.shadowOffset = CGSize(width: 0, height: 1)
             cardView.layer.shadowRadius = 2
+            
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(foodPressed))
+            cardView.addGestureRecognizer(gesture)
         }
     }
     
-    @objc private func favouritePress() {
+    @objc private func favouritePressed() {
         print("Fav")
     }
     
-//    func setUp(image) {
-//        
-//    }
+    @objc private func foodPressed() {
+        foodClosure?()
+    }
 }

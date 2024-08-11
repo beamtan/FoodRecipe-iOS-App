@@ -167,7 +167,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eek-lh-f3i">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="136"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FeaturedCard1" translatesAutoresizingMaskIntoConstraints="NO" id="wTu-fo-EmI">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avocadoImage" translatesAutoresizingMaskIntoConstraints="NO" id="wTu-fo-EmI">
                                                             <rect key="frame" x="8" y="8" width="84" height="84"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="84" id="XkL-g8-wuF"/>
@@ -253,7 +253,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uW6-HI-VQz">
                                                     <rect key="frame" x="0.0" y="0.0" width="345" height="100"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FeaturedCard2" translatesAutoresizingMaskIntoConstraints="NO" id="drR-R4-0zO">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="burger" translatesAutoresizingMaskIntoConstraints="NO" id="drR-R4-0zO">
                                                             <rect key="frame" x="8" y="8" width="100" height="84"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="GnY-sq-LiG"/>
@@ -400,9 +400,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FeaturedCard1" width="264" height="172"/>
-        <image name="FeaturedCard2" width="264" height="172"/>
         <image name="arrowshape.right.fill" catalog="system" width="128" height="104"/>
+        <image name="avocadoImage" width="19" height="27.333333969116211"/>
+        <image name="burger" width="100" height="84"/>
         <image name="folder.fill" catalog="system" width="128" height="96"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>

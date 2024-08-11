@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol HomeRoutingLogic {
-    
+    func routeToFoodDetail()
 }
 
 protocol HomeDataPassing {
@@ -19,4 +19,20 @@ protocol HomeDataPassing {
 class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
     weak var viewController: HomeViewController?
     var dataStore: HomeDataStore?
+    
+    func routeToFoodDetail() {
+        guard let destination = UIStoryboard(name: "FoodDetailStoryboard", bundle: nil).instantiateViewController(withIdentifier: "FoodDetailViewController") as? FoodDetailViewController,
+              let viewController else {
+            return
+        }
+        
+        navigateToFoodDetail(source: viewController, destination: destination)
+    }
+    
+    // MARK: Navigation
+    
+    func navigateToFoodDetail(source: HomeViewController, destination: FoodDetailViewController) {
+        destination.modalPresentationStyle = .overFullScreen
+        source.present(destination, animated: true)
+    }
 }
