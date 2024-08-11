@@ -19,8 +19,28 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     var interactor: SearchBusinessLogic?
     var router: (NSObjectProtocol & SearchRoutingLogic & SearchDataPassing)?
     
+    private var categories: [HomeModels.Category] = [
+        HomeModels.Category(name: "Breakfast", isSelected: true),
+        HomeModels.Category(name: "Lunch", isSelected: false),
+        HomeModels.Category(name: "Dinner", isSelected: false),
+        HomeModels.Category(name: "Snack", isSelected: false),
+    ]
+    
     // MARK: - IBOutlet
     
+    @IBOutlet weak private var categoryCollectionView: UICollectionView!
+    @IBOutlet weak private var searchTextFieldView: UIView! {
+        didSet {
+            searchTextFieldView.layer.borderColor = UIColor.D_2_D_4_D_8.cgColor
+            searchTextFieldView.layer.borderWidth = 1.0
+        }
+    }
+    
+    @IBOutlet weak private var popularRecipeViewAllButtonView: UILabel!
+    @IBOutlet weak private var editorChoiceViewAllButtonView: UILabel!
+
+    @IBOutlet weak private var searchPopularRecipeCollectionView: UICollectionView!
+    @IBOutlet weak private var editorChoiceCollectionView: UICollectionView!
     
     
     // MARK: - Object lifecycle
@@ -80,5 +100,96 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
                 router.perform(selector, with: segue)
             }
         }
+    }
+}
+
+extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if isCategoryCollectionView(collectionView) {
+            return 4
+        }
+        
+        if isSearchPopularRecipeCollectionView(collectionView) {
+            return 6
+        }
+        
+        if isEditorChoiceCollectionView(collectionView) {
+            return 6
+        }
+        
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if isCategoryCollectionView(collectionView) {
+            return setUpCategoryCell(collectionView, indexPath)
+        }
+        
+        if isSearchPopularRecipeCollectionView(collectionView) {
+            return setUpSearchPopularRecipeCollectionViewCell(collectionView, indexPath)
+        }
+        
+        if isEditorChoiceCollectionView(collectionView) {
+            return setUpEditorChoiceCollectionViewCell(collectionView, indexPath)
+        }
+        
+        return UICollectionViewCell()
+    }
+}
+
+extension SearchViewController {
+    private func isCategoryCollectionView(_ collectionView: UICollectionView) -> Bool {
+        return collectionView == categoryCollectionView
+    }
+    
+    private func isSearchPopularRecipeCollectionView(_ collectionView: UICollectionView) -> Bool {
+        return collectionView == searchPopularRecipeCollectionView
+    }
+    
+    private func isEditorChoiceCollectionView(_ collectionView: UICollectionView) -> Bool {
+        return collectionView == editorChoiceCollectionView
+    }
+    
+    private func setUpCategoryCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = categoryCollectionView.dequeueReusableCell(
+            withReuseIdentifier: CategoryCollectionViewCell.identifier,
+            for: indexPath
+        ) as! CategoryCollectionViewCell
+        
+        let category = categories[indexPath.row]
+        let name: String = category.name
+        let isSelected: Bool = category.isSelected
+        
+        cell.setUp(name: name, isSelectedCategory: isSelected)
+        
+        cell.categoryClosure = { [weak self] name in
+            guard let self else { return }
+            
+            categories.enumerated().forEach { (index, category) in
+                self.categories[index].isSelected = (category.name == name) ? true : false
+            }
+            
+            categoryCollectionView.reloadData()
+        }
+        
+        return cell
+    }
+    
+    private func setUpSearchPopularRecipeCollectionViewCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = searchPopularRecipeCollectionView.dequeueReusableCell(
+            withReuseIdentifier: SearchPopularRecipeCollectionViewCell.identifier,
+            for: indexPath
+        ) as! SearchPopularRecipeCollectionViewCell
+        
+        return cell
+    }
+    
+    private func setUpEditorChoiceCollectionViewCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = editorChoiceCollectionView.dequeueReusableCell(
+            withReuseIdentifier: EditorChoiceCollectionViewCell.identifier,
+            for: indexPath
+        ) as! EditorChoiceCollectionViewCell
+        
+        return cell
     }
 }

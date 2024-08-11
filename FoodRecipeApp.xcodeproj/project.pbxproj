@@ -82,6 +82,8 @@
 		EFD3556C2C613C60005CC6DA /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = EFD3556B2C613C60005CC6DA /* GoogleSignIn */; };
 		EFD3556E2C613C60005CC6DA /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFD3556D2C613C60005CC6DA /* GoogleSignInSwift */; };
 		EFD355712C615183005CC6DA /* GoogleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD355702C615183005CC6DA /* GoogleService.swift */; };
+		EFDABFBC2C68BD2800D594A7 /* SearchPopularRecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFBB2C68BD2800D594A7 /* SearchPopularRecipeCollectionViewCell.swift */; };
+		EFDABFBF2C68C5A400D594A7 /* EditorChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFBE2C68C5A400D594A7 /* EditorChoiceCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +188,8 @@
 		EFC523922C629A94001467DC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EFC523932C629A94001467DC /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		EFD355702C615183005CC6DA /* GoogleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleService.swift; sourceTree = "<group>"; };
+		EFDABFBB2C68BD2800D594A7 /* SearchPopularRecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopularRecipeCollectionViewCell.swift; sourceTree = "<group>"; };
+		EFDABFBE2C68C5A400D594A7 /* EditorChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +261,8 @@
 		EF09E44E2C6628EB004675DF /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				EFDABFBD2C68C59000D594A7 /* EditorChoiceCell */,
+				EFDABFBA2C68BD0600D594A7 /* SearchPopularRecipeCell */,
 				EF09E45B2C662926004675DF /* SearchStoryboard.storyboard */,
 				EF09E4532C66290F004675DF /* SearchViewController.swift */,
 				EF09E4542C66290F004675DF /* SearchInteractor.swift */,
@@ -507,6 +513,22 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		EFDABFBA2C68BD0600D594A7 /* SearchPopularRecipeCell */ = {
+			isa = PBXGroup;
+			children = (
+				EFDABFBB2C68BD2800D594A7 /* SearchPopularRecipeCollectionViewCell.swift */,
+			);
+			path = SearchPopularRecipeCell;
+			sourceTree = "<group>";
+		};
+		EFDABFBD2C68C59000D594A7 /* EditorChoiceCell */ = {
+			isa = PBXGroup;
+			children = (
+				EFDABFBE2C68C5A400D594A7 /* EditorChoiceCollectionViewCell.swift */,
+			);
+			path = EditorChoiceCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -680,6 +702,7 @@
 				EF0759632C6658E900CA1F67 /* NotificationRouter.swift in Sources */,
 				EF0759642C6658E900CA1F67 /* NotificationModels.swift in Sources */,
 				EF0759652C6658E900CA1F67 /* NotificationViewController.swift in Sources */,
+				EFDABFBC2C68BD2800D594A7 /* SearchPopularRecipeCollectionViewCell.swift in Sources */,
 				EF0759662C6658E900CA1F67 /* NotificationInteractor.swift in Sources */,
 				EF15DEE02C5EC44700EF4294 /* CreateAccountPresenter.swift in Sources */,
 				EFC523942C629A94001467DC /* HomePresenter.swift in Sources */,
@@ -716,6 +739,7 @@
 				EF09E4592C66290F004675DF /* SearchViewController.swift in Sources */,
 				EF09E45A2C66290F004675DF /* SearchInteractor.swift in Sources */,
 				EF07597B2C66880200CA1F67 /* EmptyViewController.swift in Sources */,
+				EFDABFBF2C68C5A400D594A7 /* EditorChoiceCollectionViewCell.swift in Sources */,
 				EFB5AF8D2C5E94190004075F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
