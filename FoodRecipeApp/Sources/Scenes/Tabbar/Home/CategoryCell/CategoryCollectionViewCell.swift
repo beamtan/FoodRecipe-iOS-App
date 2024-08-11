@@ -26,7 +26,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     func setUp(name: String, isSelectedCategory: Bool) {
         categoryLabel.text = name
         categoryLabel.textColor = isSelectedCategory ? .white : .black
-        categoryView.backgroundColor = isSelectedCategory ? ._70_B_9_BE : .F_1_F_5_F_5
+        categoryView.backgroundColor = isSelectedCategory ? ._70_B_9_BE : .E_6_EBF_2
         
         self.name = name
     }

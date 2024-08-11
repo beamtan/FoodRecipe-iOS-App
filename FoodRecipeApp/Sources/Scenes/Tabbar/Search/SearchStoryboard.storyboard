@@ -28,7 +28,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="9al-NL-Rqu"/>
                                     <constraint firstItem="eaq-Ss-k7F" firstAttribute="centerY" secondItem="6mm-SQ-kt0" secondAttribute="centerY" id="Lx4-2S-f5w"/>
@@ -146,7 +146,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1dX-fE-9lP" userLabel="Search Popular Recipes Collection View">
                                 <rect key="frame" x="0.0" y="301" width="393" height="136"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="136" id="CtB-FF-DSp"/>
                                 </constraints>
@@ -185,6 +185,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="tQh-cQ-GBf" secondAttribute="trailing" constant="8" id="2c4-YC-3X7"/>
                                                         <constraint firstAttribute="width" constant="100" id="4tw-hA-npR"/>
@@ -234,7 +235,7 @@
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fqT-5V-71m" userLabel="Editor Choice Collection View">
                                 <rect key="frame" x="0.0" y="494" width="393" height="358"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DBT-Sr-Vqd">
                                     <size key="itemSize" width="345" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -259,9 +260,9 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easy homemade beef burger" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVl-bW-Khm">
-                                                            <rect key="frame" x="124" y="8" width="162" height="33.333333333333336"/>
+                                                            <rect key="frame" x="124" y="8" width="160" height="33.333333333333336"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="162" id="m04-iG-Kms"/>
+                                                                <constraint firstAttribute="width" constant="160" id="4zq-6Y-fk8"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="16"/>
                                                             <nil key="textColor"/>
@@ -300,10 +301,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beamtan tangsanga" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0F-rm-0pA">
-                                                            <rect key="frame" x="152" y="66" width="126" height="16.333333333333329"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="126" id="3iq-Ei-HYE"/>
-                                                            </constraints>
+                                                            <rect key="frame" x="152" y="66" width="145" height="16.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="SofiaPro-Regular" family="SofiaPro" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -320,6 +318,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="drR-R4-0zO" secondAttribute="bottom" constant="8" id="SUu-6X-SIy"/>
                                                         <constraint firstItem="KVl-bW-Khm" firstAttribute="top" secondItem="drR-R4-0zO" secondAttribute="top" id="UhJ-Zt-Ezs"/>
                                                         <constraint firstItem="drR-R4-0zO" firstAttribute="top" secondItem="uW6-HI-VQz" secondAttribute="top" constant="8" id="XRZ-hn-lfv"/>
+                                                        <constraint firstItem="UEa-GN-gWg" firstAttribute="leading" secondItem="z0F-rm-0pA" secondAttribute="trailing" constant="8" id="aHB-NZ-ziA"/>
                                                         <constraint firstItem="KVl-bW-Khm" firstAttribute="leading" secondItem="drR-R4-0zO" secondAttribute="trailing" constant="16" id="dqb-0K-oGj"/>
                                                         <constraint firstAttribute="trailing" secondItem="UEa-GN-gWg" secondAttribute="trailing" constant="16" id="o6S-YS-tV2"/>
                                                         <constraint firstItem="UEa-GN-gWg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KVl-bW-Khm" secondAttribute="trailing" constant="8" id="r6m-7I-UAT"/>
@@ -356,7 +355,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="F1F5F5"/>
                         <constraints>
                             <constraint firstItem="x8U-E6-3LK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="4OA-hq-PRu"/>
                             <constraint firstItem="fqT-5V-71m" firstAttribute="top" secondItem="AuD-dU-sW2" secondAttribute="bottom" constant="12" id="4dw-Hf-Ghh"/>
@@ -410,6 +409,9 @@
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="70B9BE">
             <color red="0.43900001049041748" green="0.72500002384185791" blue="0.74500000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="F1F5F5">
+            <color red="0.94499999284744263" green="0.96100002527236938" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

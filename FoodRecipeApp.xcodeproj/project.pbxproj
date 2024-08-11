@@ -84,6 +84,7 @@
 		EFD355712C615183005CC6DA /* GoogleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD355702C615183005CC6DA /* GoogleService.swift */; };
 		EFDABFBC2C68BD2800D594A7 /* SearchPopularRecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFBB2C68BD2800D594A7 /* SearchPopularRecipeCollectionViewCell.swift */; };
 		EFDABFBF2C68C5A400D594A7 /* EditorChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFBE2C68C5A400D594A7 /* EditorChoiceCollectionViewCell.swift */; };
+		EFDABFC22C68D55C00D594A7 /* ProfileFavCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFC12C68D55C00D594A7 /* ProfileFavCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +191,7 @@
 		EFD355702C615183005CC6DA /* GoogleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleService.swift; sourceTree = "<group>"; };
 		EFDABFBB2C68BD2800D594A7 /* SearchPopularRecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopularRecipeCollectionViewCell.swift; sourceTree = "<group>"; };
 		EFDABFBE2C68C5A400D594A7 /* EditorChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		EFDABFC12C68D55C00D594A7 /* ProfileFavCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFavCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,7 @@
 		EF07595A2C66588200CA1F67 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				EFDABFC02C68D53900D594A7 /* ProfileFavCollectionView */,
 				EF0759752C66594000CA1F67 /* ProfileStoryboard.storyboard */,
 				EF07596B2C66590900CA1F67 /* ProfileViewController.swift */,
 				EF07596C2C66590900CA1F67 /* ProfileInteractor.swift */,
@@ -386,6 +389,7 @@
 				EF0759592C66586300CA1F67 /* Notification */,
 				EF07595A2C66588200CA1F67 /* Profile */,
 				EF0759792C6687E800CA1F67 /* Empty */,
+				EFDABFC32C68E3A600D594A7 /* FoodDetail */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
@@ -527,6 +531,21 @@
 				EFDABFBE2C68C5A400D594A7 /* EditorChoiceCollectionViewCell.swift */,
 			);
 			path = EditorChoiceCell;
+			sourceTree = "<group>";
+		};
+		EFDABFC02C68D53900D594A7 /* ProfileFavCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				EFDABFC12C68D55C00D594A7 /* ProfileFavCollectionViewCell.swift */,
+			);
+			path = ProfileFavCollectionView;
+			sourceTree = "<group>";
+		};
+		EFDABFC32C68E3A600D594A7 /* FoodDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FoodDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -717,6 +736,7 @@
 				EF15DEE32C5EC44700EF4294 /* CreateAccountModels.swift in Sources */,
 				EF78B01F2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift in Sources */,
 				EF15DEE42C5EC44700EF4294 /* CreateAccountViewController.swift in Sources */,
+				EFDABFC22C68D55C00D594A7 /* ProfileFavCollectionViewCell.swift in Sources */,
 				EF15DEE52C5EC44700EF4294 /* CreateAccountInteractor.swift in Sources */,
 				EF07596D2C66590900CA1F67 /* ProfilePresenter.swift in Sources */,
 				EF07596E2C66590900CA1F67 /* ProfileWorker.swift in Sources */,

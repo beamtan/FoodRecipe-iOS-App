@@ -21,7 +21,19 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
     
     // MARK: - IBOutlet
     
+    @IBOutlet weak private var profileCardView: UIView! {
+        didSet {
+            profileCardView.layer.shadowColor = UIColor.black.cgColor
+            profileCardView.layer.shadowOpacity = 0.1
+            profileCardView.layer.shadowOffset = CGSize(width: 0, height: 1)
+            profileCardView.layer.shadowRadius = 2
+        }
+    }
+    @IBOutlet weak private var profileImageView: UIImageView!
+    @IBOutlet weak private var profileNameLabel: UILabel!
+    @IBOutlet weak private var profileRole: UILabel!
     
+    @IBOutlet weak var profileFavCollectionView: UICollectionView!
     
     // MARK: - Object lifecycle
     
@@ -70,15 +82,39 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
     
     func displaySomething(viewModel: ProfileModels.Something.ViewModel) {
     }
+}
+
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 6
+    }
     
-    // MARK: - Navigation
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = profileFavCollectionView.dequeueReusableCell(
+            withReuseIdentifier: ProfileFavCollectionViewCell.identifier,
+            for: indexPath
+        ) as! ProfileFavCollectionViewCell
+        
+        return cell
+    }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
+    /// 1
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        /// 2
+        return UIEdgeInsets(top: 1.0, left: 24.0, bottom: 1.0, right: 24.0)
+    }
+    
+    /// 3
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        /// 4
+        let lay = collectionViewLayout as! UICollectionViewFlowLayout
+        /// 5
+        let widthPerItem = collectionView.frame.width / 2 - lay.minimumInteritemSpacing
+        /// 6
+        return CGSize(width: widthPerItem - 24.0, height: 198)
     }
 }
