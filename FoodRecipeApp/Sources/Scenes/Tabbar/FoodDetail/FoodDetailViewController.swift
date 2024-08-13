@@ -62,12 +62,14 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             
-            UIView.animate(withDuration: 0.1) {
-                self.instructionsButton.backgroundColor = .E_6_EBF_2
-                self.instructionsButton.setTitleColor(.green, for: .normal)
+            UIView.animate(withDuration: 0.1) { [weak self] in
+                guard let self else { return }
+                
+                instructionsButton.backgroundColor = .E_6_EBF_2
+                instructionsButton.titleLabel?.textColor = .black
                 
                 sender.backgroundColor = ._042628
-                sender.setTitleColor(.orange, for: .normal)
+                sender.titleLabel?.textColor = .white
             }
         }
     }
@@ -76,12 +78,14 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             
-            UIView.animate(withDuration: 0.1) {
-                self.ingredientsButton.backgroundColor = .E_6_EBF_2
-                self.ingredientsButton.setTitleColor(.purple, for: .normal)
+            UIView.animate(withDuration: 0.1) { [weak self] in
+                guard let self else { return }
                 
+                ingredientsButton.backgroundColor = .E_6_EBF_2
+                ingredientsButton.titleLabel?.textColor = .black
+                
+                sender.titleLabel?.textColor = .red
                 sender.backgroundColor = ._042628
-                sender.setTitleColor(.systemPink, for: .normal)
             }
         }
     }

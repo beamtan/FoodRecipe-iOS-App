@@ -72,6 +72,10 @@
 		EFB5AFA22C5E941B0004075F /* FoodRecipeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5AFA12C5E941B0004075F /* FoodRecipeAppTests.swift */; };
 		EFB5AFAC2C5E941B0004075F /* FoodRecipeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5AFAB2C5E941B0004075F /* FoodRecipeAppUITests.swift */; };
 		EFB5AFAE2C5E941B0004075F /* FoodRecipeAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5AFAD2C5E941B0004075F /* FoodRecipeAppUITestsLaunchTests.swift */; };
+		EFC425C02C6A9C51004FF5BE /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC425BF2C6A9C51004FF5BE /* Environment.swift */; };
+		EFC425C22C6A9FAE004FF5BE /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC425C12C6A9FAE004FF5BE /* HttpClient.swift */; };
+		EFC425C42C6A9FFF004FF5BE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EFC425C32C6A9FFF004FF5BE /* Alamofire */; };
+		EFC425C72C6AA0AF004FF5BE /* ExtensionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC425C62C6AA0AF004FF5BE /* ExtensionData.swift */; };
 		EFC523942C629A94001467DC /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5238E2C629A94001467DC /* HomePresenter.swift */; };
 		EFC523952C629A94001467DC /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5238F2C629A94001467DC /* HomeWorker.swift */; };
 		EFC523962C629A94001467DC /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC523902C629A94001467DC /* HomeRouter.swift */; };
@@ -189,6 +193,9 @@
 		EFB5AFA72C5E941B0004075F /* FoodRecipeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodRecipeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB5AFAB2C5E941B0004075F /* FoodRecipeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecipeAppUITests.swift; sourceTree = "<group>"; };
 		EFB5AFAD2C5E941B0004075F /* FoodRecipeAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecipeAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EFC425BF2C6A9C51004FF5BE /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		EFC425C12C6A9FAE004FF5BE /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		EFC425C62C6AA0AF004FF5BE /* ExtensionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionData.swift; sourceTree = "<group>"; };
 		EFC5238E2C629A94001467DC /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		EFC5238F2C629A94001467DC /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
 		EFC523902C629A94001467DC /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
@@ -213,6 +220,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFC425C42C6A9FFF004FF5BE /* Alamofire in Frameworks */,
 				EF89885F2C5ED4090028FFD4 /* Tabman in Frameworks */,
 				EFD3556A2C613C60005CC6DA /* FirebaseAuth in Frameworks */,
 				EFD3556C2C613C60005CC6DA /* GoogleSignIn in Frameworks */,
@@ -388,6 +396,7 @@
 		EF86657D2C6601890016023C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EFC425C52C6AA09C004FF5BE /* Data */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -506,6 +515,31 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		EFC425BD2C6A9C1E004FF5BE /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				EFC425BF2C6A9C51004FF5BE /* Environment.swift */,
+				EFC425C12C6A9FAE004FF5BE /* HttpClient.swift */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		EFC425BE2C6A9C2F004FF5BE /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				EFD355702C615183005CC6DA /* GoogleService.swift */,
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
+		EFC425C52C6AA09C004FF5BE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EFC425C62C6AA0AF004FF5BE /* ExtensionData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		EFC5238D2C629A75001467DC /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,7 +560,8 @@
 		EFD3556F2C61514E005CC6DA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				EFD355702C615183005CC6DA /* GoogleService.swift */,
+				EFC425BE2C6A9C2F004FF5BE /* Google */,
+				EFC425BD2C6A9C1E004FF5BE /* Environment */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -590,6 +625,7 @@
 				EFD355692C613C60005CC6DA /* FirebaseAuth */,
 				EFD3556B2C613C60005CC6DA /* GoogleSignIn */,
 				EFD3556D2C613C60005CC6DA /* GoogleSignInSwift */,
+				EFC425C32C6A9FFF004FF5BE /* Alamofire */,
 			);
 			productName = FoodRecipeApp;
 			productReference = EFB5AF872C5E94190004075F /* FoodRecipeApp.app */;
@@ -732,6 +768,7 @@
 				EFB5AF8B2C5E94190004075F /* AppDelegate.swift in Sources */,
 				EF15DED42C5EC41600EF4294 /* LoginPresenter.swift in Sources */,
 				EF8665822C6612EF0016023C /* HomeTabbarViewController.swift in Sources */,
+				EFC425C22C6A9FAE004FF5BE /* HttpClient.swift in Sources */,
 				EF15DED52C5EC41600EF4294 /* LoginWorker.swift in Sources */,
 				EF15DED62C5EC41600EF4294 /* LoginRouter.swift in Sources */,
 				EF15DED72C5EC41600EF4294 /* LoginModels.swift in Sources */,
@@ -747,6 +784,7 @@
 				EF0759662C6658E900CA1F67 /* NotificationInteractor.swift in Sources */,
 				EF15DEE02C5EC44700EF4294 /* CreateAccountPresenter.swift in Sources */,
 				EFC523942C629A94001467DC /* HomePresenter.swift in Sources */,
+				EFC425C02C6A9C51004FF5BE /* Environment.swift in Sources */,
 				EFC523952C629A94001467DC /* HomeWorker.swift in Sources */,
 				EFC523962C629A94001467DC /* HomeRouter.swift in Sources */,
 				EFC523972C629A94001467DC /* HomeModels.swift in Sources */,
@@ -763,6 +801,7 @@
 				EF07596D2C66590900CA1F67 /* ProfilePresenter.swift in Sources */,
 				EF07596E2C66590900CA1F67 /* ProfileWorker.swift in Sources */,
 				EF07596F2C66590900CA1F67 /* ProfileRouter.swift in Sources */,
+				EFC425C72C6AA0AF004FF5BE /* ExtensionData.swift in Sources */,
 				EF0759702C66590900CA1F67 /* ProfileModels.swift in Sources */,
 				EF0759782C667C6300CA1F67 /* TabbarViewController.swift in Sources */,
 				EF0759712C66590900CA1F67 /* ProfileViewController.swift in Sources */,
@@ -1178,6 +1217,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EFA808DC2C5ED1F000FBE989 /* XCRemoteSwiftPackageReference "Tabman" */;
 			productName = Tabman;
+		};
+		EFC425C32C6A9FFF004FF5BE /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF78B0262C680689003686F5 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		EFD355692C613C60005CC6DA /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
