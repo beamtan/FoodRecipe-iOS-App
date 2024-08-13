@@ -76,6 +76,8 @@
 		EFC425C22C6A9FAE004FF5BE /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC425C12C6A9FAE004FF5BE /* HttpClient.swift */; };
 		EFC425C42C6A9FFF004FF5BE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EFC425C32C6A9FFF004FF5BE /* Alamofire */; };
 		EFC425C72C6AA0AF004FF5BE /* ExtensionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC425C62C6AA0AF004FF5BE /* ExtensionData.swift */; };
+		EFC4264A2C6BB64C004FF5BE /* EditorChoiceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC426492C6BB64C004FF5BE /* EditorChoiceCardView.swift */; };
+		EFC4264D2C6BB687004FF5BE /* EditorChoiceCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFC4264C2C6BB687004FF5BE /* EditorChoiceCardView.xib */; };
 		EFC523942C629A94001467DC /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5238E2C629A94001467DC /* HomePresenter.swift */; };
 		EFC523952C629A94001467DC /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5238F2C629A94001467DC /* HomeWorker.swift */; };
 		EFC523962C629A94001467DC /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC523902C629A94001467DC /* HomeRouter.swift */; };
@@ -196,6 +198,8 @@
 		EFC425BF2C6A9C51004FF5BE /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		EFC425C12C6A9FAE004FF5BE /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		EFC425C62C6AA0AF004FF5BE /* ExtensionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionData.swift; sourceTree = "<group>"; };
+		EFC426492C6BB64C004FF5BE /* EditorChoiceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorChoiceCardView.swift; sourceTree = "<group>"; };
+		EFC4264C2C6BB687004FF5BE /* EditorChoiceCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditorChoiceCardView.xib; sourceTree = "<group>"; };
 		EFC5238E2C629A94001467DC /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		EFC5238F2C629A94001467DC /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
 		EFC523902C629A94001467DC /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 		EF09E44E2C6628EB004675DF /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				EFC4264B2C6BB659004FF5BE /* CardView */,
 				EFDABFBD2C68C59000D594A7 /* EditorChoiceCell */,
 				EFDABFBA2C68BD0600D594A7 /* SearchPopularRecipeCell */,
 				EF09E45B2C662926004675DF /* SearchStoryboard.storyboard */,
@@ -540,6 +545,15 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		EFC4264B2C6BB659004FF5BE /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				EFC4264C2C6BB687004FF5BE /* EditorChoiceCardView.xib */,
+				EFC426492C6BB64C004FF5BE /* EditorChoiceCardView.swift */,
+			);
+			path = CardView;
+			sourceTree = "<group>";
+		};
 		EFC5238D2C629A75001467DC /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -727,6 +741,7 @@
 				EFB5AF942C5E941A0004075F /* Assets.xcassets in Resources */,
 				EF78B02F2C6819C8003686F5 /* SofiaPro-Regular.ttf in Resources */,
 				EF09E45C2C662926004675DF /* SearchStoryboard.storyboard in Resources */,
+				EFC4264D2C6BB687004FF5BE /* EditorChoiceCardView.xib in Resources */,
 				EF0759742C66592F00CA1F67 /* NotificationStoryboard.storyboard in Resources */,
 				EF86657C2C653E7C0016023C /* GoogleService-Info.plist in Resources */,
 				EF09E4492C661F69004675DF /* HomeStoryboard.storyboard in Resources */,
@@ -775,6 +790,7 @@
 				EF15DED82C5EC41600EF4294 /* LoginViewController.swift in Sources */,
 				EF15DED92C5EC41600EF4294 /* LoginInteractor.swift in Sources */,
 				EF0759612C6658E900CA1F67 /* NotificationPresenter.swift in Sources */,
+				EFC4264A2C6BB64C004FF5BE /* EditorChoiceCardView.swift in Sources */,
 				EF78B0252C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift in Sources */,
 				EF0759622C6658E900CA1F67 /* NotificationWorker.swift in Sources */,
 				EF0759632C6658E900CA1F67 /* NotificationRouter.swift in Sources */,

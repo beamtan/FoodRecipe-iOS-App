@@ -40,8 +40,9 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     @IBOutlet weak private var editorChoiceViewAllButtonView: UILabel!
 
     @IBOutlet weak private var searchPopularRecipeCollectionView: UICollectionView!
-    @IBOutlet weak private var editorChoiceCollectionView: UICollectionView!
+//    @IBOutlet weak private var editorChoiceCollectionView: UICollectionView!
     
+    @IBOutlet weak var editorChoiceStackView: UIStackView!
     
     // MARK: - Object lifecycle
     
@@ -60,6 +61,8 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         doSomething()
+        
+        configEditorChoiceCard()
     }
     
     // MARK: - IBAction
@@ -84,6 +87,22 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     func doSomething() {
         let request = SearchModels.Something.Request()
         interactor?.doSomething(request: request)
+    }
+    
+    func configEditorChoiceCard() {
+        for i in 0...10 {
+            let cardView = EditorChoiceCardView()
+            
+            cardView.configureView(
+                imageView: UIImage(named: "burger") ?? UIImage(),
+                userImageView: UIImage(named: "girlDev") ?? UIImage(),
+                title: "Easy homemade beef burger \(i)",
+                name: "Beamtan Dev",
+                nextToClosure: {}
+            )
+            
+            editorChoiceStackView.addArrangedSubview(view)
+        }
     }
     
     // MARK: - Display
@@ -113,10 +132,6 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return 6
         }
         
-        if isEditorChoiceCollectionView(collectionView) {
-            return 6
-        }
-        
         return 0
     }
     
@@ -127,10 +142,6 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         if isSearchPopularRecipeCollectionView(collectionView) {
             return setUpSearchPopularRecipeCollectionViewCell(collectionView, indexPath)
-        }
-        
-        if isEditorChoiceCollectionView(collectionView) {
-            return setUpEditorChoiceCollectionViewCell(collectionView, indexPath)
         }
         
         return UICollectionViewCell()
@@ -144,10 +155,6 @@ extension SearchViewController {
     
     private func isSearchPopularRecipeCollectionView(_ collectionView: UICollectionView) -> Bool {
         return collectionView == searchPopularRecipeCollectionView
-    }
-    
-    private func isEditorChoiceCollectionView(_ collectionView: UICollectionView) -> Bool {
-        return collectionView == editorChoiceCollectionView
     }
     
     private func setUpCategoryCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
@@ -180,15 +187,6 @@ extension SearchViewController {
             withReuseIdentifier: SearchPopularRecipeCollectionViewCell.identifier,
             for: indexPath
         ) as! SearchPopularRecipeCollectionViewCell
-        
-        return cell
-    }
-    
-    private func setUpEditorChoiceCollectionViewCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = editorChoiceCollectionView.dequeueReusableCell(
-            withReuseIdentifier: EditorChoiceCollectionViewCell.identifier,
-            for: indexPath
-        ) as! EditorChoiceCollectionViewCell
         
         return cell
     }
