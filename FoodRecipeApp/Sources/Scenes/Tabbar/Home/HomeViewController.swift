@@ -14,6 +14,13 @@ protocol HomeDisplayLogic: AnyObject {
 
 class HomeViewController: UIViewController, HomeDisplayLogic {
     
+    enum Sections: Int, CaseIterable {
+        case name = 0
+        case featured = 1
+        case category = 2
+        case popularRecipe = 3
+    }
+    
     // MARK: - Properties
     
     var interactor: HomeBusinessLogic?
@@ -28,9 +35,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak var featuredCollectionView: UICollectionView!
-    @IBOutlet weak var categoryCollectionView: UICollectionView!
-    @IBOutlet weak var popularRecipeCollectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Object lifecycle
     
@@ -48,6 +53,9 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupCollectionView()
+        collectionView.collectionViewLayout = createLayout()
     }
     
     // MARK: - IBAction
@@ -69,6 +77,66 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         router.dataStore = interactor
     }
     
+    private func createLayout() -> UICollectionViewCompositionalLayout {
+        return UICollectionViewCompositionalLayout { [weak self] (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+            guard let self else { return nil }
+            
+            switch Sections(rawValue: sectionIndex) {
+            case .name:
+                return createNSCollectionLayoutSectionName()
+            case .featured:
+                return createNSCollectionLayoutSectionFeatured()
+            case .category:
+                return createNSCollectionLayoutSectionCategory()
+            case .popularRecipe:
+                return createNSCollectionLayoutSectionPopularRecipe()
+            case .none:
+                return nil
+            }
+        }
+    }
+    
+    private func setupCollectionView() {
+        /// Name
+        collectionView.register(
+            UINib(nibName: "NameHeaderViewCell", bundle: .main),
+            forCellWithReuseIdentifier: "NameHeaderViewCell"
+        )
+        
+        /// Featured
+        collectionView.register(
+            UINib(nibName: "FeaturedHeaderCollectionViewCell", bundle: nil),
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: "FeaturedHeaderCollectionViewCell"
+        )
+        collectionView.register(
+            UINib(nibName: "FeaturedCardCollectionViewCell", bundle: .main),
+            forCellWithReuseIdentifier: "FeaturedCardCollectionViewCell"
+        )
+        
+        /// Category
+        collectionView.register(
+            UINib(nibName: "CategoryHeaderCollectionViewCell", bundle: nil),
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: "CategoryHeaderCollectionViewCell"
+        )
+        collectionView.register(
+            UINib(nibName: "CategoryCollectionViewCell", bundle: .main),
+            forCellWithReuseIdentifier: "CategoryCollectionViewCell"
+        )
+        
+        /// Popular Recipe
+        collectionView.register(
+            UINib(nibName: "PopularRecipeHeaderCollectionViewCell", bundle: nil),
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: "PopularRecipeHeaderCollectionViewCell"
+        )
+        collectionView.register(
+            UINib(nibName: "PopularRecipeCollectionViewCell", bundle: .main),
+            forCellWithReuseIdentifier: "PopularRecipeCollectionViewCell"
+        )
+    }
+    
     // MARK: - Display
     
     
@@ -78,105 +146,317 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return Sections.allCases.count
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if isFeaturedCollectionView(collectionView) {
+//        if isFeaturedCollectionView(collectionView) {
+//            return 2
+//        }
+//        
+//        if isCategoryCollectionView(collectionView) {
+//            return 4
+//        }
+//        
+//        if isPopularRecipeCollectionView(collectionView) {
+//            return 6
+//        }
+        
+        if section == Sections.name.rawValue {
+            return 1
+        }
+        
+        if section == Sections.featured.rawValue {
             return 2
         }
         
-        if isCategoryCollectionView(collectionView) {
-            return 4
+        if section == Sections.category.rawValue {
+            return categories.count
         }
         
-        if isPopularRecipeCollectionView(collectionView) {
+        if section == Sections.popularRecipe.rawValue {
             return 6
         }
         
         return 0
     }
     
+    /// Set up cell
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if isFeaturedCollectionView(collectionView) {
-            return setUpFeaturedCell(collectionView, indexPath)
+        if indexPath.section == Sections.name.rawValue {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NameHeaderViewCell", for: indexPath) as! NameHeaderViewCell
+            return cell
         }
         
-        if isCategoryCollectionView(collectionView) {
-            return setUpCategoryCell(collectionView, indexPath)
+        if indexPath.section == Sections.featured.rawValue {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeaturedCardCollectionViewCell", for: indexPath) as! FeaturedCardCollectionViewCell
+            return cell
         }
         
-        if isPopularRecipeCollectionView(collectionView) {
-            return setUpPopularRecipeCell(collectionView, indexPath)
+        if indexPath.section == Sections.category.rawValue {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
+            
+            cell.setUp(
+                name: categories[indexPath.row].name,
+                isSelectedCategory: categories[indexPath.row].isSelected
+            )
+            
+            return cell
+        }
+        
+        if indexPath.section == Sections.popularRecipe.rawValue {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularRecipeCollectionViewCell", for: indexPath) as! PopularRecipeCollectionViewCell
+            
+            cell.foodClosure = { [weak self] in
+                guard let self else { return }
+                    
+                router?.routeToFoodDetail()
+            }
+            
+            return cell
         }
         
         return UICollectionViewCell()
+    }
+    
+    /// Set up header
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader &&
+            indexPath.section == Sections.featured.rawValue {
+            let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: "FeaturedHeaderCollectionViewCell",
+                for: indexPath
+            ) as! FeaturedHeaderCollectionViewCell
+            
+            return header
+        }
+        
+        if kind == UICollectionView.elementKindSectionHeader &&
+            indexPath.section == Sections.category.rawValue {
+            let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: "CategoryHeaderCollectionViewCell",
+                for: indexPath
+            ) as! CategoryHeaderCollectionViewCell
+            
+            return header
+        }
+        
+        if kind == UICollectionView.elementKindSectionHeader &&
+            indexPath.section == Sections.popularRecipe.rawValue {
+            let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: "PopularRecipeHeaderCollectionViewCell",
+                for: indexPath
+            ) as! PopularRecipeHeaderCollectionViewCell
+            
+            return header
+        }
+        
+        return UICollectionReusableView()
     }
 }
 
 // MARK: - Set Up CollectionView
 
 extension HomeViewController {
-    private func isFeaturedCollectionView(_ collectionView: UICollectionView) -> Bool {
-        return collectionView == featuredCollectionView
+    // Name
+    private func createNSCollectionLayoutSectionName() -> NSCollectionLayoutSection {
+        /// item = cell dimension
+        let item = NSCollectionLayoutItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalHeight(1.0)
+            )
+        )
+        
+        item.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 0,
+            trailing: 0
+        )
+        
+        /// group = single collectionView dimension alike
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(52)
+            ),
+            subitems: [item]
+        )
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .paging
+        
+        return section
     }
     
-    private func isCategoryCollectionView(_ collectionView: UICollectionView) -> Bool {
-        return collectionView == categoryCollectionView
+    // Featured
+    private func createNSCollectionLayoutSectionFeatured() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .absolute(264),
+                heightDimension: .fractionalHeight(1.0)
+            )
+        )
+        
+        item.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 0,
+            trailing: 0
+        )
+
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .absolute(296),
+                heightDimension: .absolute(172)
+            ),
+            subitems: [item]
+        )
+        
+        group.interItemSpacing = .fixed(16)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .paging
+        
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 24,
+            bottom: 0,
+            trailing: 0
+        )
+        
+        /// [Header ] 2. Add header to the section
+        
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(62)
+        )
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        
+        section.boundarySupplementaryItems = [header]
+        
+        return section
     }
     
-    private func isPopularRecipeCollectionView(_ collectionView: UICollectionView) -> Bool {
-        return collectionView == popularRecipeCollectionView
+    // Category
+    private func createNSCollectionLayoutSectionCategory() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .estimated(50),
+                heightDimension: .fractionalHeight(1.0)
+            )
+        )
+        
+        item.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 0,
+            trailing: 0
+        )
+
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalHeight(1.0),
+                heightDimension: .absolute(41)
+            ),
+            subitems: [item]
+        )
+        
+        group.interItemSpacing = .fixed(12)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .paging
+        
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 24,
+            bottom: 0,
+            trailing: 0
+        )
+        
+        /// [Header ] 2. Add header to the section
+        
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(62)
+        )
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        
+        section.boundarySupplementaryItems = [header]
+        
+        return section
     }
     
-    private func setUpFeaturedCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = featuredCollectionView.dequeueReusableCell(
-            withReuseIdentifier: FeaturedCardCollectionViewCell.identifier,
-            for: indexPath
-        ) as! FeaturedCardCollectionViewCell
+    // Popular recipe
+    private func createNSCollectionLayoutSectionPopularRecipe() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .absolute(200),
+                heightDimension: .absolute(240)
+            )
+        )
         
-        let image: UIImage = (indexPath.row == 0) ?
-        UIImage(named: "FeaturedCard1")! : UIImage(named: "FeaturedCard2")!
+        item.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 0,
+            trailing: 0
+        )
+
+        let groupWidth = CGFloat(200 * 6 + 16 * 5) // 6 items of 200pt width + 5 spacings of 16pt each
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .absolute(groupWidth),
+                heightDimension: .absolute(240)
+            ),
+            subitems: [item]
+        )
         
-        cell.setUp(image: image)
+        group.interItemSpacing = .fixed(16)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .paging
         
-        return cell
-    }
-    
-    private func setUpCategoryCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = categoryCollectionView.dequeueReusableCell(
-            withReuseIdentifier: CategoryCollectionViewCell.identifier,
-            for: indexPath
-        ) as! CategoryCollectionViewCell
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 24,
+            bottom: 0,
+            trailing: 24
+        )
         
-        let category = categories[indexPath.row]
-        let name: String = category.name
-        let isSelected: Bool = category.isSelected
+        /// [Header ] 2. Add header to the section
         
-        cell.setUp(name: name, isSelectedCategory: isSelected)
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(62)
+        )
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
         
-        cell.categoryClosure = { [weak self] name in
-            guard let self else { return }
-            
-            categories.enumerated().forEach { (index, category) in
-                self.categories[index].isSelected = (category.name == name) ? true : false
-            }
-            
-            categoryCollectionView.reloadData()
-        }
+        section.boundarySupplementaryItems = [header]
         
-        return cell
-    }
-    
-    private func setUpPopularRecipeCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = popularRecipeCollectionView.dequeueReusableCell(
-            withReuseIdentifier: PopularRecipeCollectionViewCell.identifier,
-            for: indexPath
-        ) as! PopularRecipeCollectionViewCell
-        
-        cell.foodClosure = { [weak self] in
-            guard let self else { return }
-            
-            router?.routeToFoodDetail()
-        }
-        
-        return cell
+        return section
     }
 }
