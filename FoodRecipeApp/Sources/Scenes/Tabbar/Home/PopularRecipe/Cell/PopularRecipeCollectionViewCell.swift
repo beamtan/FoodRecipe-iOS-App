@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PopularRecipeCollectionViewCell: UICollectionViewCell {
     static let identifier: String = "PopularRecipeCollectionViewCell"
@@ -41,6 +42,13 @@ class PopularRecipeCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+    }
+    
+    func setup(meal: HomeModels.MealsResponse.Meals) {
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(with: URL(string: meal.strMealThumb ?? ""))
+        
+        titleLabel.text = meal.strMeal ?? ""
     }
     
     @objc private func favouritePressed() {

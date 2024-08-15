@@ -9,13 +9,13 @@
 import Foundation
 
 struct Environment {
-    var baseUrl: String {
-        return "https://www.themealdb.com/"
-    }
+    static let baseUrl: String = "https://www.themealdb.com/"
 }
 
 extension Environment {
-    enum Endpoint {
-        static let searchByname: String = "api/json/v1/1/search.php?s="
+    struct Endpoint {
+        static let CATEGORY: String = "\(Environment.baseUrl)api/json/v1/1/categories.php"
+        static let SEARCH_BY_CATEGORY: String = "\(Environment.baseUrl)api/json/v1/1/filter.php?c="
+        static let SEARCH_BY_NAME: String = "\(Environment.baseUrl)api/json/v1/1/search.php?s="
     }
 }
