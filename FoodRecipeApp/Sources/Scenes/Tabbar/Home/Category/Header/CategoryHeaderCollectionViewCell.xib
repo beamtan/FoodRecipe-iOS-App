@@ -10,17 +10,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryHeaderCollectionViewCell" id="clV-AA-psi" customClass="CategoryHeaderCollectionViewCell" customModule="FoodRecipeApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="329" height="66"/>
+            <rect key="frame" x="0.0" y="0.0" width="383" height="74"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pTm-4u-Xlv">
-                <rect key="frame" x="0.0" y="0.0" width="329" height="66"/>
+                <rect key="frame" x="0.0" y="0.0" width="383" height="74"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deu-qe-YLJ">
-                        <rect key="frame" x="0.0" y="0.0" width="329" height="66"/>
+                        <rect key="frame" x="0.0" y="0.0" width="383" height="74"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBs-ZA-Si0">
-                                <rect key="frame" x="0.0" y="24" width="87" height="30"/>
+                                <rect key="frame" x="0.0" y="24" width="86.666666666666671" height="38"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -41,8 +41,8 @@
                     <constraint firstAttribute="trailing" secondItem="deu-qe-YLJ" secondAttribute="trailing" id="lqx-3T-RTy"/>
                 </constraints>
             </collectionViewCellContentView>
-            <size key="customSize" width="329" height="66"/>
-            <point key="canvasLocation" x="-14.503816793893129" y="177.46478873239437"/>
+            <size key="customSize" width="383" height="74"/>
+            <point key="canvasLocation" x="26.717557251908396" y="180.28169014084509"/>
         </collectionViewCell>
     </objects>
 </document>

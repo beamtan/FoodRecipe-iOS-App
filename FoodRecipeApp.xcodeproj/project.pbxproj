@@ -111,6 +111,10 @@
 		EFC523972C629A94001467DC /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC523912C629A94001467DC /* HomeModels.swift */; };
 		EFC523982C629A94001467DC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC523922C629A94001467DC /* HomeViewController.swift */; };
 		EFC523992C629A94001467DC /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC523932C629A94001467DC /* HomeInteractor.swift */; };
+		EFD14EBB2C6E06790016F1B7 /* FoodDetailSheetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD14EB82C6E06790016F1B7 /* FoodDetailSheetCollectionViewCell.swift */; };
+		EFD14EBF2C6E0EAB0016F1B7 /* IngredientCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFD14EBE2C6E0EAB0016F1B7 /* IngredientCollectionViewCell.xib */; };
+		EFD14EC02C6E0EAB0016F1B7 /* IngredientCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD14EBD2C6E0EAB0016F1B7 /* IngredientCollectionViewCell.swift */; };
+		EFD14EC82C6E4EDA0016F1B7 /* HomeViewController+NSCollectionLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD14EC72C6E4EDA0016F1B7 /* HomeViewController+NSCollectionLayoutSection.swift */; };
 		EFD3556A2C613C60005CC6DA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EFD355692C613C60005CC6DA /* FirebaseAuth */; };
 		EFD3556C2C613C60005CC6DA /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = EFD3556B2C613C60005CC6DA /* GoogleSignIn */; };
 		EFD3556E2C613C60005CC6DA /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFD3556D2C613C60005CC6DA /* GoogleSignInSwift */; };
@@ -260,6 +264,10 @@
 		EFC523912C629A94001467DC /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 		EFC523922C629A94001467DC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EFC523932C629A94001467DC /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		EFD14EB82C6E06790016F1B7 /* FoodDetailSheetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailSheetCollectionViewCell.swift; sourceTree = "<group>"; };
+		EFD14EBD2C6E0EAB0016F1B7 /* IngredientCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCollectionViewCell.swift; sourceTree = "<group>"; };
+		EFD14EBE2C6E0EAB0016F1B7 /* IngredientCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientCollectionViewCell.xib; sourceTree = "<group>"; };
+		EFD14EC72C6E4EDA0016F1B7 /* HomeViewController+NSCollectionLayoutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+NSCollectionLayoutSection.swift"; sourceTree = "<group>"; };
 		EFD355702C615183005CC6DA /* GoogleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleService.swift; sourceTree = "<group>"; };
 		EFDABFBB2C68BD2800D594A7 /* SearchPopularRecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopularRecipeCollectionViewCell.swift; sourceTree = "<group>"; };
 		EFDABFBE2C68C5A400D594A7 /* EditorChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -348,7 +356,6 @@
 			children = (
 				EFA42C632C6DC1D4004ACBD5 /* SearchTItle */,
 				EFA42C5E2C6DC0A0004ACBD5 /* SearchTextField */,
-				EFA42C682C6DC241004ACBD5 /* Category */,
 				EFA42C692C6DC282004ACBD5 /* PopularRecipe */,
 				EFA42C732C6DC5F9004ACBD5 /* EditorChoice */,
 				EF09E45B2C662926004675DF /* SearchStoryboard.storyboard */,
@@ -579,13 +586,6 @@
 			path = SearchTItle;
 			sourceTree = "<group>";
 		};
-		EFA42C682C6DC241004ACBD5 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
 		EFA42C692C6DC282004ACBD5 /* PopularRecipe */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,6 +780,7 @@
 		EFC5238D2C629A75001467DC /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				EFD14EC62C6E4E330016F1B7 /* Extensions */,
 				EFA42C492C6D2C0F004ACBD5 /* NameHeader */,
 				EF78B01D2C67BFF2003686F5 /* Featured */,
 				EF78B0202C67CA80003686F5 /* Category */,
@@ -793,6 +794,32 @@
 				EFC523912C629A94001467DC /* HomeModels.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		EFD14EB72C6E06570016F1B7 /* Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				EFD14EB82C6E06790016F1B7 /* FoodDetailSheetCollectionViewCell.swift */,
+				EFD14EBC2C6E0E7F0016F1B7 /* Ingredient */,
+			);
+			path = Sheet;
+			sourceTree = "<group>";
+		};
+		EFD14EBC2C6E0E7F0016F1B7 /* Ingredient */ = {
+			isa = PBXGroup;
+			children = (
+				EFD14EBE2C6E0EAB0016F1B7 /* IngredientCollectionViewCell.xib */,
+				EFD14EBD2C6E0EAB0016F1B7 /* IngredientCollectionViewCell.swift */,
+			);
+			path = Ingredient;
+			sourceTree = "<group>";
+		};
+		EFD14EC62C6E4E330016F1B7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EFD14EC72C6E4EDA0016F1B7 /* HomeViewController+NSCollectionLayoutSection.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		EFD3556F2C61514E005CC6DA /* Services */ = {
@@ -816,6 +843,7 @@
 		EFDABFC32C68E3A600D594A7 /* FoodDetail */ = {
 			isa = PBXGroup;
 			children = (
+				EFD14EB72C6E06570016F1B7 /* Sheet */,
 				EFDABFD02C68E45000D594A7 /* FoodDetailStoryboard.storyboard */,
 				EFDABFC82C68E3EB00D594A7 /* FoodDetailViewController.swift */,
 				EFDABFC92C68E3EB00D594A7 /* FoodDetailInteractor.swift */,
@@ -975,6 +1003,7 @@
 				EFA42C4B2C6D2C69004ACBD5 /* NameHeaderViewCell.xib in Resources */,
 				EF0759762C66594000CA1F67 /* ProfileStoryboard.storyboard in Resources */,
 				EFA42C442C6D298E004ACBD5 /* CategoryCollectionViewCell.xib in Resources */,
+				EFD14EBF2C6E0EAB0016F1B7 /* IngredientCollectionViewCell.xib in Resources */,
 				EFDABFD12C68E45000D594A7 /* FoodDetailStoryboard.storyboard in Resources */,
 				EF15DEE92C5EC68F00EF4294 /* CreateAccountStoryboard.storyboard in Resources */,
 				EF15DEE72C5EC68000EF4294 /* LoginStoryboard.storyboard in Resources */,
@@ -1007,6 +1036,7 @@
 				EFB5AF8F2C5E94190004075F /* MainViewController.swift in Sources */,
 				EFB5AF8B2C5E94190004075F /* AppDelegate.swift in Sources */,
 				EF15DED42C5EC41600EF4294 /* LoginPresenter.swift in Sources */,
+				EFD14EC02C6E0EAB0016F1B7 /* IngredientCollectionViewCell.swift in Sources */,
 				EF8665822C6612EF0016023C /* HomeTabbarViewController.swift in Sources */,
 				EFA42C512C6D3320004ACBD5 /* NameHeaderViewCell.swift in Sources */,
 				EFA42C712C6DC59A004ACBD5 /* SearchPopularRecipeHeaderCollectionViewCell.swift in Sources */,
@@ -1070,6 +1100,8 @@
 				EFDABFCA2C68E3EB00D594A7 /* FoodDetailPresenter.swift in Sources */,
 				EFDABFCB2C68E3EB00D594A7 /* FoodDetailWorker.swift in Sources */,
 				EFDABFCC2C68E3EB00D594A7 /* FoodDetailRouter.swift in Sources */,
+				EFD14EC82C6E4EDA0016F1B7 /* HomeViewController+NSCollectionLayoutSection.swift in Sources */,
+				EFD14EBB2C6E06790016F1B7 /* FoodDetailSheetCollectionViewCell.swift in Sources */,
 				EFDABFCD2C68E3EB00D594A7 /* FoodDetailModels.swift in Sources */,
 				EFDABFCE2C68E3EB00D594A7 /* FoodDetailViewController.swift in Sources */,
 				EFDABFCF2C68E3EB00D594A7 /* FoodDetailInteractor.swift in Sources */,

@@ -95,6 +95,11 @@
                 <constraint firstAttribute="trailing" secondItem="hAk-rj-fAB" secondAttribute="trailing" id="zzY-Yk-KRH"/>
             </constraints>
             <size key="customSize" width="370" height="115"/>
+            <connections>
+                <outlet property="imageView" destination="qOQ-tm-y4E" id="RE5-za-a1X"/>
+                <outlet property="nameLabel" destination="nU4-Fa-yWy" id="wuc-Lj-gPc"/>
+                <outlet property="roleLabel" destination="Fsk-0G-QyE" id="Gmz-H8-gP4"/>
+            </connections>
             <point key="canvasLocation" x="375.57251908396944" y="10.91549295774648"/>
         </collectionViewCell>
     </objects>

@@ -9,10 +9,12 @@
 import UIKit
 
 class SearchPopularRecipeHeaderCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak private var viewAllButtonView: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
-
 }

@@ -21,13 +21,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="346" height="68"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Recipes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUB-cN-lyD">
-                                <rect key="frame" x="0.0" y="24" width="150" height="32"/>
+                                <rect key="frame" x="0.0" y="24" width="149.66666666666666" height="32"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View All" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVf-hn-t8e">
-                                <rect key="frame" x="295" y="32.666666666666664" width="51" height="15"/>
+                                <rect key="frame" x="295.66666666666669" y="32.666666666666664" width="50.333333333333314" height="14.666666666666664"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="14"/>
                                 <color key="textColor" name="70B9BE"/>
                                 <nil key="highlightedColor"/>
@@ -52,6 +52,9 @@
                 <constraint firstItem="RcA-9J-PNj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="q5L-xY-KSJ"/>
             </constraints>
             <size key="customSize" width="346" height="68"/>
+            <connections>
+                <outlet property="viewAllButtonView" destination="HVf-hn-t8e" id="kSm-Gn-bdd"/>
+            </connections>
             <point key="canvasLocation" x="337.40458015267177" y="-4.9295774647887329"/>
         </collectionViewCell>
     </objects>

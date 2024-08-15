@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="381" height="112"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Recipes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7da-VT-FOz">
-                                <rect key="frame" x="0.0" y="24" width="150" height="76"/>
+                                <rect key="frame" x="0.0" y="24" width="149.66666666666666" height="76"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,6 +51,9 @@
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="381" height="112"/>
+            <connections>
+                <outlet property="seeAllButtonView" destination="wR0-4Q-Agh" id="2N1-w2-x1O"/>
+            </connections>
             <point key="canvasLocation" x="-101.5267175572519" y="-145.77464788732394"/>
         </collectionViewCell>
     </objects>

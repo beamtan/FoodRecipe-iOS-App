@@ -27,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View All" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5s-ys-eEB">
-                                <rect key="frame" x="266" y="36.666666666666664" width="51" height="15"/>
+                                <rect key="frame" x="266.66666666666669" y="36.666666666666664" width="50.333333333333314" height="14.666666666666664"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="14"/>
                                 <color key="textColor" name="70B9BE"/>
                                 <nil key="highlightedColor"/>
@@ -52,6 +52,9 @@
                 <constraint firstAttribute="bottom" secondItem="LIN-3F-jYG" secondAttribute="bottom" id="yBJ-vp-Dzf"/>
             </constraints>
             <size key="customSize" width="317" height="76"/>
+            <connections>
+                <outlet property="viewAllButtonView" destination="p5s-ys-eEB" id="oaQ-Em-1qe"/>
+            </connections>
             <point key="canvasLocation" x="316.79389312977099" y="-2.1126760563380285"/>
         </collectionViewCell>
     </objects>

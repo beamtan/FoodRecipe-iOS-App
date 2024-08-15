@@ -74,6 +74,10 @@
                 <constraint firstItem="3oP-DV-GR0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lWr-bQ-Tew"/>
             </constraints>
             <size key="customSize" width="470" height="75"/>
+            <connections>
+                <outlet property="searchTextField" destination="olg-M3-N4U" id="jLZ-f4-aaV"/>
+                <outlet property="textFieldView" destination="wUW-a0-Ckt" id="iuD-px-AMR"/>
+            </connections>
             <point key="canvasLocation" x="432.06106870229007" y="-2.4647887323943665"/>
         </collectionViewCell>
     </objects>

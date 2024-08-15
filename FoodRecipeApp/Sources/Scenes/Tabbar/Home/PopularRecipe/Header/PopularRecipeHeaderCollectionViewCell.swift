@@ -10,4 +10,5 @@ import UIKit
 
 class PopularRecipeHeaderCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak private var seeAllButtonView: UILabel!
 }

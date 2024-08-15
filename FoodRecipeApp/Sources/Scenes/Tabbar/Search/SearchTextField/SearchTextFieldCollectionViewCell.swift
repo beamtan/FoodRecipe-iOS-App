@@ -9,11 +9,12 @@
 import UIKit
 
 class SearchTextFieldCollectionViewCell: UICollectionViewCell {
-
+    
+    @IBOutlet weak private var textFieldView: UIView!
+    @IBOutlet weak private var searchTextField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
-
-    
 }

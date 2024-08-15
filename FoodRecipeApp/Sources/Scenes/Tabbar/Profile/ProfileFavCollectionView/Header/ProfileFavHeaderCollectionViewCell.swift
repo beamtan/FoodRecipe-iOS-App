@@ -9,10 +9,11 @@
 import UIKit
 
 class ProfileFavHeaderCollectionViewCell: UICollectionViewCell {
-
+    
+    @IBOutlet weak private var seeAllButtonView: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
-
 }

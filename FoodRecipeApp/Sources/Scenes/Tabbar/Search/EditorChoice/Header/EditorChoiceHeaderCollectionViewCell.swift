@@ -9,10 +9,11 @@
 import UIKit
 
 class EditorChoiceHeaderCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak private var viewAllButtonView: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
-
 }

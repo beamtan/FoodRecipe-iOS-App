@@ -14,6 +14,11 @@ protocol FoodDetailDisplayLogic: AnyObject {
 
 class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
     
+    enum Sections: Int, CaseIterable {
+        case detail = 0
+        case ingredients = 1
+    }
+    
     // MARK: - Properties
     
     var interactor: FoodDetailBusinessLogic?
@@ -27,13 +32,11 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
     @IBOutlet weak private var foodImageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var foodImageViewTopPadding: NSLayoutConstraint!
     
-    @IBOutlet weak private var ingredientsButton: UIButton!
-    @IBOutlet weak private var instructionsButton: UIButton!
-    
-    @IBOutlet weak private var cardStackView: UIStackView!
     @IBOutlet weak private var headerView: UIView!
     @IBOutlet weak var closeButtonClearBG: UIButton!
     @IBOutlet weak var closeButtonSolidBG: UIButton!
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Object lifecycle
     
@@ -53,120 +56,49 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
         super.viewDidLoad()
         doSomething()
         
-        createIngredientCard()
+        setupCollectionView()
+        collectionView.collectionViewLayout = createLayout()
     }
     
     // MARK: - IBAction
     
-    @IBAction func ingredientsButtonPressed(_ sender: UIButton) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            
-            UIView.animate(withDuration: 0.1) { [weak self] in
-                guard let self else { return }
-                
-                instructionsButton.backgroundColor = .E_6_EBF_2
-                instructionsButton.titleLabel?.textColor = .black
-                
-                sender.backgroundColor = ._042628
-                sender.titleLabel?.textColor = .white
-            }
-        }
-    }
-    
-    @IBAction func instructionsButtonPressed(_ sender: UIButton) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            
-            UIView.animate(withDuration: 0.1) { [weak self] in
-                guard let self else { return }
-                
-                ingredientsButton.backgroundColor = .E_6_EBF_2
-                ingredientsButton.titleLabel?.textColor = .black
-                
-                sender.titleLabel?.textColor = .red
-                sender.backgroundColor = ._042628
-            }
-        }
-    }
+//    @IBAction func ingredientsButtonPressed(_ sender: UIButton) {
+//        DispatchQueue.main.async { [weak self] in
+//            guard let self else { return }
+//            
+//            UIView.animate(withDuration: 0.1) { [weak self] in
+//                guard let self else { return }
+//                
+//                instructionsButton.backgroundColor = .E_6_EBF_2
+//                instructionsButton.titleLabel?.textColor = .black
+//                
+//                sender.backgroundColor = ._042628
+//                sender.titleLabel?.textColor = .white
+//            }
+//        }
+//    }
+//    
+//    @IBAction func instructionsButtonPressed(_ sender: UIButton) {
+//        DispatchQueue.main.async { [weak self] in
+//            guard let self else { return }
+//            
+//            UIView.animate(withDuration: 0.1) { [weak self] in
+//                guard let self else { return }
+//                
+//                ingredientsButton.backgroundColor = .E_6_EBF_2
+//                ingredientsButton.titleLabel?.textColor = .black
+//                
+//                sender.titleLabel?.textColor = .red
+//                sender.backgroundColor = ._042628
+//            }
+//        }
+//    }
     
     @IBAction func closePressed(_ sender: UIButton) {
         dismiss(animated: true)
     }
     
-    @IBAction func closeButton2Pressed(_ sender: UIButton) {
-        dismiss(animated: true)
-    }
-    
     // MARK: - General Function
-    
-    private func createIngredientCard(image: UIImage? = nil, name: String = "") {
-        for i in 1...10 {
-            // Create the container view
-            let customView = UIView()
-            customView.backgroundColor = .white
-            customView.layer.cornerRadius = 12
-            customView.layer.shadowColor = UIColor.black.cgColor
-            customView.layer.shadowOpacity = 0.1
-            customView.layer.shadowOffset = CGSize(width: 0, height: 4)
-            customView.layer.shadowRadius = 6
-            customView.translatesAutoresizingMaskIntoConstraints = false
-            
-            let imageContainerView = UIView()
-            imageContainerView.backgroundColor = .E_6_EBF_2
-            imageContainerView.layer.cornerRadius = 8
-            imageContainerView.layer.masksToBounds = true
-            imageContainerView.translatesAutoresizingMaskIntoConstraints = false
-            
-            // Create the image view
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: "avocadoImage")
-            imageView.contentMode = .scaleAspectFill
-            imageView.layer.masksToBounds = true
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            
-            // Create the label
-            let nameLabel = UILabel()
-            nameLabel.text = "Avocado"
-            nameLabel.font = UIFont.boldSystemFont(ofSize: 16)
-            nameLabel.textColor = .black
-            nameLabel.translatesAutoresizingMaskIntoConstraints = false
-            
-            // Add image view and label to the custom view
-            imageContainerView.addSubview(imageView)
-            customView.addSubview(imageContainerView)
-            customView.addSubview(nameLabel)
-            
-            // Set constraints for the image view
-            NSLayoutConstraint.activate([
-                imageView.centerXAnchor.constraint(equalTo: imageContainerView.centerXAnchor),
-                imageView.centerYAnchor.constraint(equalTo: imageContainerView.centerYAnchor),
-                imageView.widthAnchor.constraint(equalToConstant: 30),
-                imageView.heightAnchor.constraint(equalToConstant: 30)
-            ])
-            
-            // Set constraints for the imageContainerView view
-            NSLayoutConstraint.activate([
-                imageContainerView.leadingAnchor.constraint(equalTo: customView.leadingAnchor, constant: 16),
-                imageContainerView.centerYAnchor.constraint(equalTo: customView.centerYAnchor),
-                imageContainerView.widthAnchor.constraint(equalToConstant: 40),
-                imageContainerView.heightAnchor.constraint(equalToConstant: 40)
-            ])
-            
-            // Set constraints for the label
-            NSLayoutConstraint.activate([
-                nameLabel.leadingAnchor.constraint(equalTo: imageContainerView.trailingAnchor, constant: 16),
-                nameLabel.centerYAnchor.constraint(equalTo: customView.centerYAnchor),
-                nameLabel.trailingAnchor.constraint(equalTo: customView.trailingAnchor, constant: -16)
-            ])
-            
-            // Set height constraint for the custom view
-            customView.heightAnchor.constraint(equalToConstant: 80).isActive = true
-            
-            // Add the custom view to the stack view
-            cardStackView.addArrangedSubview(customView)
-        }
-    }
     
     private func setup() {
         let viewController = self
@@ -186,6 +118,33 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
         interactor?.doSomething(request: request)
     }
     
+    private func setupCollectionView() {
+        
+        
+        /// Ingredient
+        collectionView.register(
+            UINib(nibName: "IngredientCollectionViewCell", bundle: .main),
+            forCellWithReuseIdentifier: "IngredientCollectionViewCell"
+        )
+    }
+    
+    private func createLayout() -> UICollectionViewCompositionalLayout {
+        let layout = UICollectionViewCompositionalLayout { [weak self] (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+            guard let self = self else { return nil }
+            
+            switch Sections(rawValue: sectionIndex) {
+            case .detail:
+                return self.createNSCollectionLayoutSectionDetail()
+            case .ingredients:
+                return self.createNSCollectionLayoutSectionIngredients()
+            case .none:
+                return nil
+            }
+        }
+        
+        return layout
+    }
+    
     // MARK: - Display
     
     func displaySomething(viewModel: FoodDetailModels.Something.ViewModel) {
@@ -196,9 +155,46 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
 
 }
 
+extension FoodDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return Sections.allCases.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == Sections.detail.rawValue {
+            return 1
+        }
+        
+        if section == Sections.ingredients.rawValue {
+            return 8
+        }
+        
+        return 0
+    }
+    
+    /// Set up cell
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.section == Sections.detail.rawValue {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodDetailSheetCollectionViewCell", for: indexPath) as! FoodDetailSheetCollectionViewCell
+            return cell
+        }
+        
+        if indexPath.section == Sections.ingredients.rawValue {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IngredientCollectionViewCell", for: indexPath) as! IngredientCollectionViewCell
+            return cell
+        }
+        
+        return UICollectionViewCell()
+    }
+}
+
 // MARK: - UIScrollViewDelegate
 
 extension FoodDetailViewController: UIScrollViewDelegate {
+    
+    // Make the effect of disappear header and stretch image
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y // down = -, up = +
         
@@ -223,7 +219,7 @@ extension FoodDetailViewController: UIScrollViewDelegate {
             let isUpDirection: Bool = differentBetweenSheetAndImage > 0
             
             if isUpDirection && !isHeaderShow {
-                // Divide by 2 for slower rate compare to sheet
+                // Divide by 3 for slower rate compare to sheet
                 // Make it negative for up direction
                 
                 foodImageViewTopPadding.constant = (differentBetweenSheetAndImage / 3) * -1
@@ -247,5 +243,82 @@ extension FoodDetailViewController: UIScrollViewDelegate {
         }
         
         headerView.layer.opacity = 0
+    }
+}
+
+extension FoodDetailViewController {
+    // Detail
+    private func createNSCollectionLayoutSectionDetail() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .estimated(407.0)
+            )
+        )
+        
+        item.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 0,
+            trailing: 0
+        )
+
+        let group = NSCollectionLayoutGroup.vertical(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .estimated(407.0)
+            ),
+            subitems: [item]
+        )
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .none // vertical align use main scroll
+        
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 0,
+            trailing: 0
+        )
+        
+        return section
+    }
+    
+    // Ingredients
+    private func createNSCollectionLayoutSectionIngredients() -> NSCollectionLayoutSection {
+        let padding: CGFloat = 32
+        let item = NSCollectionLayoutItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0), // fractional 1.0 as one item per row
+                heightDimension: .absolute(80 + padding) // vertical control the height by item instead
+            )
+        )
+        
+        item.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 0,
+            trailing: 0
+        )
+
+        let group = NSCollectionLayoutGroup.vertical(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .estimated(300) // vertical align need the group to extend as need
+            ),
+            subitems: [item]
+        )
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .none // vertical align use main scroll
+        
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 0,
+            trailing: 0
+        )
+        
+        return section
     }
 }
