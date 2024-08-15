@@ -9,6 +9,5 @@
 import UIKit
 
 class ProfileWorker {
-    func doSomeWork() {
-    }
+
 }

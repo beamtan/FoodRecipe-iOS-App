@@ -85,6 +85,13 @@
 		EFA42C752C6DC63E004ACBD5 /* EditorChoiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFA42C742C6DC63E004ACBD5 /* EditorChoiceCollectionViewCell.xib */; };
 		EFA42C792C6DC781004ACBD5 /* EditorChoiceHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA42C772C6DC781004ACBD5 /* EditorChoiceHeaderCollectionViewCell.swift */; };
 		EFA42C7A2C6DC781004ACBD5 /* EditorChoiceHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFA42C782C6DC781004ACBD5 /* EditorChoiceHeaderCollectionViewCell.xib */; };
+		EFA42C7E2C6DF48B004ACBD5 /* AccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA42C7C2C6DF48B004ACBD5 /* AccountCollectionViewCell.swift */; };
+		EFA42C7F2C6DF48B004ACBD5 /* AccountCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFA42C7D2C6DF48B004ACBD5 /* AccountCollectionViewCell.xib */; };
+		EFA42C832C6DF4B9004ACBD5 /* AccountTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA42C812C6DF4B9004ACBD5 /* AccountTitleCollectionViewCell.swift */; };
+		EFA42C842C6DF4B9004ACBD5 /* AccountTitleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFA42C822C6DF4B9004ACBD5 /* AccountTitleCollectionViewCell.xib */; };
+		EFA42C862C6DF5CC004ACBD5 /* ProfileFavCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFA42C852C6DF5CC004ACBD5 /* ProfileFavCollectionViewCell.xib */; };
+		EFA42C8A2C6DF932004ACBD5 /* ProfileFavHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA42C882C6DF932004ACBD5 /* ProfileFavHeaderCollectionViewCell.swift */; };
+		EFA42C8B2C6DF932004ACBD5 /* ProfileFavHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFA42C892C6DF932004ACBD5 /* ProfileFavHeaderCollectionViewCell.xib */; };
 		EFB5AF8B2C5E94190004075F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5AF8A2C5E94190004075F /* AppDelegate.swift */; };
 		EFB5AF8D2C5E94190004075F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5AF8C2C5E94190004075F /* SceneDelegate.swift */; };
 		EFB5AF8F2C5E94190004075F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5AF8E2C5E94190004075F /* MainViewController.swift */; };
@@ -224,6 +231,13 @@
 		EFA42C742C6DC63E004ACBD5 /* EditorChoiceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditorChoiceCollectionViewCell.xib; sourceTree = "<group>"; };
 		EFA42C772C6DC781004ACBD5 /* EditorChoiceHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorChoiceHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		EFA42C782C6DC781004ACBD5 /* EditorChoiceHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditorChoiceHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		EFA42C7C2C6DF48B004ACBD5 /* AccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewCell.swift; sourceTree = "<group>"; };
+		EFA42C7D2C6DF48B004ACBD5 /* AccountCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountCollectionViewCell.xib; sourceTree = "<group>"; };
+		EFA42C812C6DF4B9004ACBD5 /* AccountTitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		EFA42C822C6DF4B9004ACBD5 /* AccountTitleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountTitleCollectionViewCell.xib; sourceTree = "<group>"; };
+		EFA42C852C6DF5CC004ACBD5 /* ProfileFavCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileFavCollectionViewCell.xib; sourceTree = "<group>"; };
+		EFA42C882C6DF932004ACBD5 /* ProfileFavHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFavHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		EFA42C892C6DF932004ACBD5 /* ProfileFavHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileFavHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		EFB5AF872C5E94190004075F /* FoodRecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodRecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB5AF8A2C5E94190004075F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFB5AF8C2C5E94190004075F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -306,6 +320,8 @@
 		EF07595A2C66588200CA1F67 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				EFA42C802C6DF4A0004ACBD5 /* AccountTitle */,
+				EFA42C7B2C6DF455004ACBD5 /* Account */,
 				EFDABFC02C68D53900D594A7 /* ProfileFavCollectionView */,
 				EF0759752C66594000CA1F67 /* ProfileStoryboard.storyboard */,
 				EF07596B2C66590900CA1F67 /* ProfileViewController.swift */,
@@ -608,6 +624,42 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		EFA42C7B2C6DF455004ACBD5 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				EFA42C7D2C6DF48B004ACBD5 /* AccountCollectionViewCell.xib */,
+				EFA42C7C2C6DF48B004ACBD5 /* AccountCollectionViewCell.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		EFA42C802C6DF4A0004ACBD5 /* AccountTitle */ = {
+			isa = PBXGroup;
+			children = (
+				EFA42C822C6DF4B9004ACBD5 /* AccountTitleCollectionViewCell.xib */,
+				EFA42C812C6DF4B9004ACBD5 /* AccountTitleCollectionViewCell.swift */,
+			);
+			path = AccountTitle;
+			sourceTree = "<group>";
+		};
+		EFA42C872C6DF917004ACBD5 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				EFA42C892C6DF932004ACBD5 /* ProfileFavHeaderCollectionViewCell.xib */,
+				EFA42C882C6DF932004ACBD5 /* ProfileFavHeaderCollectionViewCell.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		EFA42C8C2C6DF977004ACBD5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EFA42C852C6DF5CC004ACBD5 /* ProfileFavCollectionViewCell.xib */,
+				EFDABFC12C68D55C00D594A7 /* ProfileFavCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		EFB5AF7E2C5E94190004075F = {
 			isa = PBXGroup;
 			children = (
@@ -755,7 +807,8 @@
 		EFDABFC02C68D53900D594A7 /* ProfileFavCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				EFDABFC12C68D55C00D594A7 /* ProfileFavCollectionViewCell.swift */,
+				EFA42C872C6DF917004ACBD5 /* Header */,
+				EFA42C8C2C6DF977004ACBD5 /* Cell */,
 			);
 			path = ProfileFavCollectionView;
 			sourceTree = "<group>";
@@ -902,12 +955,16 @@
 				EFA42C622C6DC0D7004ACBD5 /* SearchTextFieldCollectionViewCell.xib in Resources */,
 				EF0759742C66592F00CA1F67 /* NotificationStoryboard.storyboard in Resources */,
 				EF86657C2C653E7C0016023C /* GoogleService-Info.plist in Resources */,
+				EFA42C7F2C6DF48B004ACBD5 /* AccountCollectionViewCell.xib in Resources */,
 				EF09E4492C661F69004675DF /* HomeStoryboard.storyboard in Resources */,
 				EFA42C4D2C6D2D82004ACBD5 /* CategoryHeaderCollectionViewCell.xib in Resources */,
 				EFB5AF972C5E941A0004075F /* Base in Resources */,
+				EFA42C842C6DF4B9004ACBD5 /* AccountTitleCollectionViewCell.xib in Resources */,
 				EFA42C672C6DC1FF004ACBD5 /* SearchTitleCollectionViewCell.xib in Resources */,
 				EF8665842C66133F0016023C /* HomeTabbarStoryboard.storyboard in Resources */,
 				EFA42C752C6DC63E004ACBD5 /* EditorChoiceCollectionViewCell.xib in Resources */,
+				EFA42C8B2C6DF932004ACBD5 /* ProfileFavHeaderCollectionViewCell.xib in Resources */,
+				EFA42C862C6DF5CC004ACBD5 /* ProfileFavCollectionViewCell.xib in Resources */,
 				EFB5AF922C5E94190004075F /* Base in Resources */,
 				EF07597D2C66881000CA1F67 /* EmptyStoryboard.storyboard in Resources */,
 				EF78B02D2C6819B6003686F5 /* SofiaPro-Light.ttf in Resources */,
@@ -981,6 +1038,7 @@
 				EFC523992C629A94001467DC /* HomeInteractor.swift in Sources */,
 				EF15DEE12C5EC44700EF4294 /* CreateAccountWorker.swift in Sources */,
 				EFD355712C615183005CC6DA /* GoogleService.swift in Sources */,
+				EFA42C7E2C6DF48B004ACBD5 /* AccountCollectionViewCell.swift in Sources */,
 				EF15DEE22C5EC44700EF4294 /* CreateAccountRouter.swift in Sources */,
 				EF15DEE32C5EC44700EF4294 /* CreateAccountModels.swift in Sources */,
 				EF78B01F2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift in Sources */,
@@ -997,6 +1055,7 @@
 				EF0759782C667C6300CA1F67 /* TabbarViewController.swift in Sources */,
 				EF0759712C66590900CA1F67 /* ProfileViewController.swift in Sources */,
 				EF0759722C66590900CA1F67 /* ProfileInteractor.swift in Sources */,
+				EFA42C832C6DF4B9004ACBD5 /* AccountTitleCollectionViewCell.swift in Sources */,
 				EF15DEF02C5EC91500EF4294 /* AuthenticationPresenter.swift in Sources */,
 				EFA42C402C6D1718004ACBD5 /* CompositionLayoutHelper.swift in Sources */,
 				EF78B0222C67CA9B003686F5 /* CategoryCollectionViewCell.swift in Sources */,
@@ -1006,6 +1065,7 @@
 				EF15DEF42C5EC91500EF4294 /* AuthenticationViewController.swift in Sources */,
 				EF15DEF52C5EC91500EF4294 /* AuthenticationInteractor.swift in Sources */,
 				EF09E4552C66290F004675DF /* SearchPresenter.swift in Sources */,
+				EFA42C8A2C6DF932004ACBD5 /* ProfileFavHeaderCollectionViewCell.swift in Sources */,
 				EF09E4562C66290F004675DF /* SearchWorker.swift in Sources */,
 				EFDABFCA2C68E3EB00D594A7 /* FoodDetailPresenter.swift in Sources */,
 				EFDABFCB2C68E3EB00D594A7 /* FoodDetailWorker.swift in Sources */,

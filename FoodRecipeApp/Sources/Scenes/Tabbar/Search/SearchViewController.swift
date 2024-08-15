@@ -167,17 +167,6 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     
     func displaySomething(viewModel: SearchModels.Something.ViewModel) {
     }
-    
-    // MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -301,6 +290,8 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return UICollectionReusableView()
     }
 }
+
+// MARK: - NSCollectionLayoutSection Helper
 
 extension SearchViewController {
     // Search Title
@@ -486,7 +477,7 @@ extension SearchViewController {
     private func createNSCollectionLayoutSectionEditorChoice() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
+                widthDimension: .fractionalWidth(1.0), // fractional 1.0 as one item per row
                 heightDimension: .absolute(100) // vertical control the height by item instead
             )
         )

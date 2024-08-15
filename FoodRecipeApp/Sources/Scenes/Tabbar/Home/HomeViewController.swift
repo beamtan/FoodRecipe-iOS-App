@@ -269,7 +269,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
-// MARK: - Set Up CollectionView
+// MARK: - NSCollectionLayoutSection Helper
 
 extension HomeViewController {
     // Name
