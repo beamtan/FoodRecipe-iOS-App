@@ -151,18 +151,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        if isFeaturedCollectionView(collectionView) {
-//            return 2
-//        }
-//        
-//        if isCategoryCollectionView(collectionView) {
-//            return 4
-//        }
-//        
-//        if isPopularRecipeCollectionView(collectionView) {
-//            return 6
-//        }
-        
         if section == Sections.name.rawValue {
             return 1
         }
@@ -202,6 +190,22 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 name: categories[indexPath.row].name,
                 isSelectedCategory: categories[indexPath.row].isSelected
             )
+            
+            let category = categories[indexPath.row]
+            let name: String = category.name
+            let isSelected: Bool = category.isSelected
+            
+            cell.setUp(name: name, isSelectedCategory: isSelected)
+            
+            cell.categoryClosure = { [weak self] name in
+                guard let self else { return }
+                
+                categories.enumerated().forEach { (index, category) in
+                    self.categories[index].isSelected = (category.name == name) ? true : false
+                }
+                
+                collectionView.reloadSections([Sections.category.rawValue])
+            }
             
             return cell
         }
@@ -371,7 +375,9 @@ extension HomeViewController {
 
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalHeight(1.0),
+                widthDimension: .absolute(
+                    self.view.frame.width + (CGFloat(categories.count - 1) * 12.0 + 24)
+                ),
                 heightDimension: .absolute(41)
             ),
             subitems: [item]
@@ -395,6 +401,7 @@ extension HomeViewController {
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .absolute(62)
         )
+        
         let header = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,
             elementKind: UICollectionView.elementKindSectionHeader,
@@ -422,7 +429,12 @@ extension HomeViewController {
             trailing: 0
         )
 
-        let groupWidth = CGFloat(200 * 6 + 16 * 5) // 6 items of 200pt width + 5 spacings of 16pt each
+        let height: Int = 200
+        let popularRecipeCount: Int = 6
+        let popularRecipeSpacing: Int = popularRecipeCount - 1
+        let spacing: Int = 16
+        
+        let groupWidth = CGFloat(height * popularRecipeCount + spacing * popularRecipeSpacing) // 6 items of 200pt width + 5 spacings of 16pt each
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .absolute(groupWidth),
@@ -449,6 +461,7 @@ extension HomeViewController {
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .absolute(62)
         )
+        
         let header = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,
             elementKind: UICollectionView.elementKindSectionHeader,

@@ -23,6 +23,11 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
+    
     func setUp(name: String, isSelectedCategory: Bool) {
         categoryLabel.text = name
         categoryLabel.textColor = isSelectedCategory ? .white : .black

@@ -13,6 +13,11 @@ class FeaturedCardCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak private var featuredCardImageView: UIImageView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
+    
     func setUp(image: UIImage) {
         featuredCardImageView.image = image
     }

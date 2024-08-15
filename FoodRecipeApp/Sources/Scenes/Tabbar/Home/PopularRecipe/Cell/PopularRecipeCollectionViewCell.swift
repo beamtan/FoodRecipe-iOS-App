@@ -38,6 +38,11 @@ class PopularRecipeCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
+    
     @objc private func favouritePressed() {
         print("Fav")
     }

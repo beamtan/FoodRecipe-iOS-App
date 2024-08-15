@@ -79,11 +79,6 @@
             <point key="canvasLocation" x="403" y="-226"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="6CF-tN-5a9">
-            <size key="intrinsicContentSize" width="-1" height="83"/>
-        </designable>
-    </designables>
     <resources>
         <image name="bell" catalog="system" width="125" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>

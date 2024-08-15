@@ -27,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See All" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wR0-4Q-Agh">
-                                <rect key="frame" x="313.33333333333331" y="54.666666666666664" width="43.666666666666686" height="14.666666666666664"/>
+                                <rect key="frame" x="337.33333333333331" y="54.666666666666664" width="43.666666666666686" height="14.666666666666664"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="14"/>
                                 <color key="textColor" name="70B9BE"/>
                                 <nil key="highlightedColor"/>
@@ -37,7 +37,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="7da-VT-FOz" secondAttribute="bottom" constant="12" id="0Co-rn-scj"/>
                             <constraint firstItem="7da-VT-FOz" firstAttribute="leading" secondItem="sb0-yu-XTV" secondAttribute="leading" id="7V9-LU-8Gm"/>
-                            <constraint firstAttribute="trailing" secondItem="wR0-4Q-Agh" secondAttribute="trailing" constant="24" id="KA8-vk-gHH"/>
+                            <constraint firstAttribute="trailing" secondItem="wR0-4Q-Agh" secondAttribute="trailing" id="KA8-vk-gHH"/>
                             <constraint firstItem="7da-VT-FOz" firstAttribute="top" secondItem="sb0-yu-XTV" secondAttribute="top" constant="24" id="fLm-cI-p1N"/>
                             <constraint firstItem="wR0-4Q-Agh" firstAttribute="centerY" secondItem="7da-VT-FOz" secondAttribute="centerY" id="fki-mv-Ezl"/>
                         </constraints>
