@@ -11,6 +11,8 @@ import UIKit
 protocol HomeDisplayLogic: AnyObject {
     func displayInquirySearchFoodsByCategorySuccess(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel)
     func displayInquirySearchFoodsByCategoryFailure(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel)
+    
+    func displayPrepareRouteToFoodDetailSuccess()
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic {
@@ -27,8 +29,8 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     var interactor: HomeBusinessLogic?
     var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
     
-    var categories: HomeModels.Category = HomeModels.Category()
-    var foods: [HomeModels.SearchFoodsResponse.Result?] = []
+    private var categories: HomeModels.Category = HomeModels.Category()
+    private var foods: [HomeModels.SearchFoodsResponse.Result?] = []
     
     // MARK: - IBOutlet
     
@@ -99,9 +101,15 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         
     }
     
+    func displayPrepareRouteToFoodDetailSuccess() {
+        router?.routeToFoodDetail()
+    }
+    
     // MARK: - Navigation
     
-    
+    func prepareRouteToFoodDetail(foodId: String) {
+        interactor?.prepareRouteToFoodDetail(foodId: foodId)
+    }
 }
 
 // MARK: - Implementation View
@@ -251,14 +259,18 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if indexPath.section == Sections.popularRecipe.rawValue {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularRecipeCollectionViewCell", for: indexPath) as! PopularRecipeCollectionViewCell
             
-            if let meal = foods[safe: indexPath.row] {
-                cell.setup(meal: meal!)
+            if let food = foods[safe: indexPath.row] {
+                cell.setup(food: food!)
             }
             
             cell.foodClosure = { [weak self] in
                 guard let self else { return }
                     
-                router?.routeToFoodDetail()
+                
+                if let food = foods[safe: indexPath.row], let id = food?.id {
+                    let foodId: String = "\(id)"
+                    prepareRouteToFoodDetail(foodId: foodId)
+                }
             }
             
             return cell

@@ -10,7 +10,18 @@ import Foundation
 import Alamofire
 
 protocol ServiceProtocol {
-    func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request, completionHandler: @escaping (DataResponse<HomeModels.SearchFoodsResponse, AFError>) -> ())
+    func inquirySearchFoodsByCategory(
+        request: HomeModels.InquirySearchFoodsByCategory.Request,
+        completionHandler: @escaping (DataResponse<HomeModels.SearchFoodsResponse, AFError>) -> ()
+    )
+    func inquiryFoodDetail(
+        request: FoodDetailModels.InquiryFoodDetail.Request,
+        completionHandler: @escaping (DataResponse<FoodDetailModels.FoodDetailResponse, AFError>) -> ()
+    )
+    func inquiryFoodNutrition(
+        request: FoodDetailModels.InquiryFoodNutrition.Request,
+        completionHandler: @escaping (DataResponse<FoodDetailModels.FoodNutritionResponse, AFError>) -> ()
+    )
 }
 
 class Service: ServiceProtocol {
@@ -19,6 +30,8 @@ class Service: ServiceProtocol {
     init(client: HttpClient = HttpClient()) {
         self.httpClient = client
     }
+    
+    // MARK: - Home
     
     func inquirySearchFoodsByCategory(
         request: HomeModels.InquirySearchFoodsByCategory.Request,
@@ -37,6 +50,50 @@ class Service: ServiceProtocol {
         
         let urlString = components?.url?.absoluteString ?? ""
         
+        httpClient.request(
+            urlString,
+            method: .get,
+            interceptor: self,
+            completionHandler: completionHandler
+        )
+    }
+    
+    // MARK: - Food Detail
+    
+    func inquiryFoodDetail(
+        request: FoodDetailModels.InquiryFoodDetail.Request,
+        completionHandler: @escaping (
+            DataResponse<
+            FoodDetailModels.FoodDetailResponse,
+            AFError
+            >
+        ) -> ()
+    ) {
+        var components = URLComponents(string: Environment.SpoonacularEndpoint.GET_RECIPE_INFO_BY_ID(request.id))
+        components?.queryItems = [
+            URLQueryItem(name: "includeNutrition", value: true.string),
+        ]
+        
+        let urlString = components?.url?.absoluteString ?? ""
+        
+        httpClient.request(
+            urlString,
+            method: .get,
+            interceptor: self,
+            completionHandler: completionHandler
+        )
+    }
+    
+    func inquiryFoodNutrition(
+        request: FoodDetailModels.InquiryFoodNutrition.Request,
+        completionHandler: @escaping (
+            DataResponse<
+            FoodDetailModels.FoodNutritionResponse,
+            AFError
+            >
+        ) -> ()
+    ) {
+        let urlString = Environment.SpoonacularEndpoint.GET_RECIPE_NUTRITION_BY_ID(request.id)
         httpClient.request(
             urlString,
             method: .get,

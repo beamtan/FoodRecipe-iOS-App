@@ -9,25 +9,55 @@
 import UIKit
 
 protocol FoodDetailBusinessLogic {
-    func doSomething(request: FoodDetailModels.Something.Request)
+    func inquiryFoodDetail()
+    func inquiryFoodNutrition()
 }
 
 protocol FoodDetailDataStore {
-    //var name: String { get set }
+    var id: String { get set }
 }
 
 class FoodDetailInteractor: FoodDetailBusinessLogic, FoodDetailDataStore {
     var presenter: FoodDetailPresentationLogic?
     var worker: FoodDetailWorker?
-    //var name: String = ""
     
-    // MARK: Do something
+    var id: String = ""
     
-    func doSomething(request: FoodDetailModels.Something.Request) {
-        worker = FoodDetailWorker()
-        worker?.doSomeWork()
+    func inquiryFoodDetail() {
+        let service = Service()
+        let worker = FoodDetailWorker()
+        let request = FoodDetailModels.InquiryFoodDetail.Request(id: id)
         
-        let response = FoodDetailModels.Something.Response()
-        presenter?.presentSomething(response: response)
+        service.inquiryFoodDetail(request: request) { [weak self] (data) in
+            guard let self else { return }
+            
+            switch data.result {
+            case .success(let response):
+                let properResponse = worker.constructProperFoodDetailResponse(response: response)
+                let responsePresenter = FoodDetailModels.InquiryFoodDetail.Response(data: properResponse, error: nil)
+                presenter?.presentInquiryFoodDetail(response: responsePresenter)
+            case .failure(let error):
+                let response = FoodDetailModels.InquiryFoodDetail.Response(data: nil, error: error)
+                presenter?.presentInquiryFoodDetail(response: response)
+            }
+        }
+    }
+    
+    func inquiryFoodNutrition() {
+        let service = Service()
+        let request = FoodDetailModels.InquiryFoodNutrition.Request(id: id)
+        
+        service.inquiryFoodNutrition(request: request) { [weak self] (data) in
+            guard let self else { return }
+            
+            switch data.result {
+            case .success(let response):
+                let response = FoodDetailModels.InquiryFoodNutrition.Response(data: response, error: nil)
+                presenter?.presentInquiryFoodNutrition(response: response)
+            case .failure(let error):
+                let response = FoodDetailModels.InquiryFoodNutrition.Response(data: nil, error: error)
+                presenter?.presentInquiryFoodNutrition(response: response)
+            }
+        }
     }
 }

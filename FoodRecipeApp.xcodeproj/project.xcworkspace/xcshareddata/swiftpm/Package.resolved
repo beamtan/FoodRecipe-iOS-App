@@ -1,5 +1,5 @@
 {
-  "originHash" : "f5dac092b4d2fcddc34447c51aaaa394066db6e59303cf21a735b405d64043aa",
+  "originHash" : "37cc4d482f47e2303541b92c3924a1acfe09ed54c94954cd70d68257ec7e91b7",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -170,6 +170,15 @@
       "state" : {
         "revision" : "e17d61f26df0f0e06f58f6977ba05a097a720106",
         "version" : "1.27.1"
+      }
+    },
+    {
+      "identity" : "swifterswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwifterSwift/SwifterSwift.git",
+      "state" : {
+        "revision" : "39fa28c90a3ebe3d53f80289304fd880cf2c42d0",
+        "version" : "6.2.0"
       }
     },
     {

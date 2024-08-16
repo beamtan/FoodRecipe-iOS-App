@@ -10,6 +10,7 @@ import UIKit
 
 protocol HomePresentationLogic {
     func presentInquirySearchFoodsByCategory(response: HomeModels.InquirySearchFoodsByCategory.Response)
+    func presentPrepareRouteToFoodDetail()
 }
 
 class HomePresenter: HomePresentationLogic {
@@ -25,5 +26,11 @@ class HomePresenter: HomePresentationLogic {
         
         let viewModel = HomeModels.InquirySearchFoodsByCategory.ViewModel(data: response.data, error: nil)
         viewController?.displayInquirySearchFoodsByCategorySuccess(viewModel: viewModel)
+    }
+    
+    // MARK: - Prepare Routing
+    
+    func presentPrepareRouteToFoodDetail() {
+        viewController?.displayPrepareRouteToFoodDetailSuccess()
     }
 }

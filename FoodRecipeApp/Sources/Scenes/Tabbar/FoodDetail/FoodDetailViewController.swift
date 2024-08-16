@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol FoodDetailDisplayLogic: AnyObject {
-    func displaySomething(viewModel: FoodDetailModels.Something.ViewModel)
+    func displayInquiryFoodDetailSuccess(viewModel: FoodDetailModels.InquiryFoodDetail.ViewModel)
+    func displayInquiryFoodDetailFailure(viewModel: FoodDetailModels.InquiryFoodDetail.ViewModel)
+    
+    func displayInquiryFoodNutritionSuccess(viewModel: FoodDetailModels.InquiryFoodNutrition.ViewModel)
+    func displayInquiryFoodNutritionFailure(viewModel: FoodDetailModels.InquiryFoodNutrition.ViewModel)
 }
 
 class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
@@ -24,15 +29,19 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
     var interactor: FoodDetailBusinessLogic?
     var router: (NSObjectProtocol & FoodDetailRoutingLogic & FoodDetailDataPassing)?
     
+    private var food: FoodDetailModels.FoodDetailResponse? = nil
+    private var nutrition: FoodDetailModels.FoodNutritionResponse? = nil
+    
     // MARK: - IBOutlet
     
     @IBOutlet weak private var scrollView: UIScrollView!
+    @IBOutlet weak private var titleSolidBGHeaderLabel: UILabel!
     @IBOutlet weak private var foodImageView: UIImageView!
     
-    @IBOutlet weak private var foodImageViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var foodImageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var foodImageViewTopPadding: NSLayoutConstraint!
     
-    @IBOutlet weak private var headerView: UIView!
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var closeButtonClearBG: UIButton!
     @IBOutlet weak var closeButtonSolidBG: UIButton!
     
@@ -54,10 +63,11 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
         
         setupCollectionView()
         collectionView.collectionViewLayout = createLayout()
+        
+        inquiryFoodDetail()
     }
     
     // MARK: - IBAction
@@ -113,14 +123,97 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
         router.dataStore = interactor
     }
     
-    func doSomething() {
-        let request = FoodDetailModels.Something.Request()
-        interactor?.doSomething(request: request)
+    func updateFoodDetailUi() {
+        foodImageView.kf.indicatorType = .activity
+        foodImageView.kf.setImage(with: URL(string: food?.image ?? ""), placeholder: UIImage(named: "imagePlaceholder"))
+        
+        titleSolidBGHeaderLabel.text = food?.title
     }
     
+    // MARK: - Call Service
+    
+    private func inquiryFoodDetail() {
+        interactor?.inquiryFoodDetail()
+    }
+    
+    private func inquiryFoodNutrition() {
+        interactor?.inquiryFoodNutrition()
+    }
+    
+    // MARK: - Display
+    
+    func displayInquiryFoodDetailSuccess(viewModel: FoodDetailModels.InquiryFoodDetail.ViewModel) {
+        food = viewModel.data
+        
+        updateFoodDetailUi()
+        collectionView.reloadData()
+    }
+    
+    func displayInquiryFoodDetailFailure(viewModel: FoodDetailModels.InquiryFoodDetail.ViewModel) {
+        
+    }
+    
+    func displayInquiryFoodNutritionSuccess(viewModel: FoodDetailModels.InquiryFoodNutrition.ViewModel) {
+        nutrition = viewModel.data
+    }
+    
+    func displayInquiryFoodNutritionFailure(viewModel: FoodDetailModels.InquiryFoodNutrition.ViewModel) {
+        
+    }
+    
+    // MARK: - Navigation
+    
+
+}
+
+extension FoodDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return Sections.allCases.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == Sections.detail.rawValue {
+            return 1
+        }
+        
+        if section == Sections.ingredients.rawValue {
+            return food?.extendedIngredients?.count ?? 0
+        }
+        
+        return 0
+    }
+    
+    /// Set up cell
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.section == Sections.detail.rawValue {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodDetailSheetCollectionViewCell", for: indexPath) as! FoodDetailSheetCollectionViewCell
+            
+            if let food {
+                cell.setup(food: food)
+            }
+            
+            return cell
+        }
+        
+        if indexPath.section == Sections.ingredients.rawValue {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IngredientCollectionViewCell", for: indexPath) as! IngredientCollectionViewCell
+            
+            if let food, let extendedIngredients = food.extendedIngredients {
+                cell.setup(ingredient: extendedIngredients[indexPath.row])
+            }
+            
+            return cell
+        }
+        
+        return UICollectionViewCell()
+    }
+}
+
+// MARK: - Implementation View
+
+extension FoodDetailViewController {
     private func setupCollectionView() {
-        
-        
         /// Ingredient
         collectionView.register(
             UINib(nibName: "IngredientCollectionViewCell", bundle: .main),
@@ -143,182 +236,5 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
         }
         
         return layout
-    }
-    
-    // MARK: - Display
-    
-    func displaySomething(viewModel: FoodDetailModels.Something.ViewModel) {
-    }
-    
-    // MARK: - Navigation
-    
-
-}
-
-extension FoodDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return Sections.allCases.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == Sections.detail.rawValue {
-            return 1
-        }
-        
-        if section == Sections.ingredients.rawValue {
-            return 8
-        }
-        
-        return 0
-    }
-    
-    /// Set up cell
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == Sections.detail.rawValue {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodDetailSheetCollectionViewCell", for: indexPath) as! FoodDetailSheetCollectionViewCell
-            return cell
-        }
-        
-        if indexPath.section == Sections.ingredients.rawValue {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IngredientCollectionViewCell", for: indexPath) as! IngredientCollectionViewCell
-            return cell
-        }
-        
-        return UICollectionViewCell()
-    }
-}
-
-// MARK: - UIScrollViewDelegate
-
-extension FoodDetailViewController: UIScrollViewDelegate {
-    
-    // Make the effect of disappear header and stretch image
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y // down = -, up = +
-        
-        let originSheetY: CGFloat = -59.0
-        let intersectionPointOfSheetAndHeader: CGFloat = 93
-        
-        let isImageBeginStretch: Bool = offsetY < originSheetY
-        let isHeaderShow: Bool = offsetY > intersectionPointOfSheetAndHeader
-        let isHeaderViewAlreadyHidden: Bool = headerView.layer.opacity == 0
-        
-        // In which any way image will change by height or padding eventually
-        
-        if isImageBeginStretch {
-            // Stretching mean image is only getting bigger so the different should be positive only
-            
-            let differentBetweenSheetAndImage: CGFloat = abs(offsetY) - abs(originSheetY)
-            let imageOriginHeight: CGFloat = 280
-            
-            foodImageViewHeight.constant = imageOriginHeight + differentBetweenSheetAndImage
-        } else {
-            let differentBetweenSheetAndImage: CGFloat = offsetY - originSheetY
-            let isUpDirection: Bool = differentBetweenSheetAndImage > 0
-            
-            if isUpDirection && !isHeaderShow {
-                // Divide by 3 for slower rate compare to sheet
-                // Make it negative for up direction
-                
-                foodImageViewTopPadding.constant = (differentBetweenSheetAndImage / 3) * -1
-            }
-        }
-        
-        if isHeaderShow {
-            let differentSheetAndHeaderOverlap: CGFloat = abs(intersectionPointOfSheetAndHeader) - abs(offsetY)
-            
-            // To make opacity from the different point of y
-            // Divide by 100 to make the different smoothly with ratio as 0 is min opacity and 1 is max opacity
-            
-            headerView.layer.opacity = Float(min(abs(differentSheetAndHeaderOverlap) / 100, 1))
-            closeButtonSolidBG.layer.opacity = Float((1 - (abs(differentSheetAndHeaderOverlap) / 100)))
-            
-            return
-        }
-        
-        if isHeaderViewAlreadyHidden {
-            return
-        }
-        
-        headerView.layer.opacity = 0
-    }
-}
-
-extension FoodDetailViewController {
-    // Detail
-    private func createNSCollectionLayoutSectionDetail() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .estimated(407.0)
-            )
-        )
-        
-        item.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: 0,
-            bottom: 0,
-            trailing: 0
-        )
-
-        let group = NSCollectionLayoutGroup.vertical(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .estimated(407.0)
-            ),
-            subitems: [item]
-        )
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .none // vertical align use main scroll
-        
-        section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: 0,
-            bottom: 0,
-            trailing: 0
-        )
-        
-        return section
-    }
-    
-    // Ingredients
-    private func createNSCollectionLayoutSectionIngredients() -> NSCollectionLayoutSection {
-        let padding: CGFloat = 32
-        let item = NSCollectionLayoutItem(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0), // fractional 1.0 as one item per row
-                heightDimension: .absolute(80 + padding) // vertical control the height by item instead
-            )
-        )
-        
-        item.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: 0,
-            bottom: 0,
-            trailing: 0
-        )
-
-        let group = NSCollectionLayoutGroup.vertical(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .estimated(300) // vertical align need the group to extend as need
-            ),
-            subitems: [item]
-        )
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .none // vertical align use main scroll
-        
-        section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: 0,
-            bottom: 0,
-            trailing: 0
-        )
-        
-        return section
     }
 }

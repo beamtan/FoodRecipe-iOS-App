@@ -9,16 +9,34 @@
 import UIKit
 
 protocol FoodDetailPresentationLogic {
-    func presentSomething(response: FoodDetailModels.Something.Response)
+    func presentInquiryFoodDetail(response: FoodDetailModels.InquiryFoodDetail.Response)
+    func presentInquiryFoodNutrition(response: FoodDetailModels.InquiryFoodNutrition.Response)
 }
 
 class FoodDetailPresenter: FoodDetailPresentationLogic {
     weak var viewController: FoodDetailDisplayLogic?
     
-    // MARK: Do something
+    func presentInquiryFoodDetail(response: FoodDetailModels.InquiryFoodDetail.Response) {
+        guard response.error == nil else {
+            let viewModel = FoodDetailModels.InquiryFoodDetail.ViewModel(data: nil, error: response.error)
+            viewController?.displayInquiryFoodDetailFailure(viewModel: viewModel)
+            
+            return
+        }
+
+        let viewModel = FoodDetailModels.InquiryFoodDetail.ViewModel(data: response.data, error: nil)
+        viewController?.displayInquiryFoodDetailSuccess(viewModel: viewModel)
+    }
     
-    func presentSomething(response: FoodDetailModels.Something.Response) {
-        let viewModel = FoodDetailModels.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentInquiryFoodNutrition(response: FoodDetailModels.InquiryFoodNutrition.Response) {
+        guard response.error == nil else {
+            let viewModel = FoodDetailModels.InquiryFoodNutrition.ViewModel(data: nil, error: response.error)
+            viewController?.displayInquiryFoodNutritionFailure(viewModel: viewModel)
+            
+            return
+        }
+
+        let viewModel = FoodDetailModels.InquiryFoodNutrition.ViewModel(data: response.data, error: nil)
+        viewController?.displayInquiryFoodNutritionSuccess(viewModel: viewModel)
     }
 }

@@ -44,10 +44,10 @@ class PopularRecipeCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func setup(meal: HomeModels.SearchFoodsResponse.Result) {
+    func setup(food: HomeModels.SearchFoodsResponse.Result) {
         imageView.kf.indicatorType = .activity
-        imageView.kf.setImage(with: URL(string: meal.image ?? ""), placeholder: UIImage(named: "imagePlaceholder"))
-        titleLabel.text = meal.title
+        imageView.kf.setImage(with: URL(string: food.image ?? ""), placeholder: UIImage(named: "imagePlaceholder"))
+        titleLabel.text = food.title
     }
     
     @objc private func favouritePressed() {

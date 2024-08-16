@@ -67,7 +67,7 @@ struct HomeModels {
         }
     }
     
-    // MARK: - Spoonacular
+    // MARK: - Service Response: Spoonacular
     
     struct SearchFoodsResponse: Codable {
         let results: [Result]?
