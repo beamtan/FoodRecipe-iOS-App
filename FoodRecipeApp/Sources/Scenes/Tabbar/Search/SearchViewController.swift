@@ -372,10 +372,13 @@ extension SearchViewController {
     }
     
     // Category
-    private func createNSCollectionLayoutSectionCategory() -> NSCollectionLayoutSection {
+    func createNSCollectionLayoutSectionCategory() -> NSCollectionLayoutSection {
+        let cellWidth: CGFloat = 115.0
+        let padding: CGFloat = 12.0
+        
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .estimated(50),
+                widthDimension: .absolute(cellWidth),
                 heightDimension: .fractionalHeight(1.0)
             )
         )
@@ -389,9 +392,7 @@ extension SearchViewController {
 
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .absolute(
-                    self.view.frame.width + (CGFloat(categories.count - 1) * 12.0 + 24)
-                ),
+                widthDimension: .absolute(cellWidth + padding),
                 heightDimension: .absolute(41)
             ),
             subitems: [item]
@@ -400,7 +401,7 @@ extension SearchViewController {
         group.interItemSpacing = .fixed(12)
 
         let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .paging
+        section.orthogonalScrollingBehavior = .continuous
         
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 0,

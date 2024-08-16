@@ -247,9 +247,22 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 
                 categories.enumerated().forEach { (index, category) in
                     self.categories[index]?.isSelected = (category?.strCategory == name) ? true : false
+                    
+                    let indexPath = IndexPath(item: index, section: Sections.category.rawValue)
+                    collectionView.reloadItems(at: [indexPath])
                 }
                 
-                collectionView.reloadSections([Sections.category.rawValue])
+                if let selectedIndex = self.categories.firstIndex(where: { $0?.strCategory == name }) {
+                    let indexPath = IndexPath(item: selectedIndex, section: Sections.category.rawValue)
+                    
+                    collectionView.scrollToItem(
+                        at: indexPath,
+                        at: .centeredHorizontally,
+                        animated: true
+                    )
+                }
+                
+                inquirySearchFoodByCategory()
             }
             
             return cell
@@ -258,10 +271,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if indexPath.section == Sections.popularRecipe.rawValue {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularRecipeCollectionViewCell", for: indexPath) as! PopularRecipeCollectionViewCell
             
-            if foods.count > 0 {
-                if let meal = foods[indexPath.row] {
-                    cell.setup(meal: meal)
-                }
+            if let meal = foods[safe: indexPath.row] {
+                cell.setup(meal: meal!)
             }
             
             cell.foodClosure = { [weak self] in

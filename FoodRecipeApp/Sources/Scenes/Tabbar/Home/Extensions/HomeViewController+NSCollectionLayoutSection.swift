@@ -96,9 +96,12 @@ extension HomeViewController {
     
     // Category
     func createNSCollectionLayoutSectionCategory() -> NSCollectionLayoutSection {
+        let cellWidth: CGFloat = 115.0
+        let padding: CGFloat = 12.0
+        
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .estimated(50),
+                widthDimension: .absolute(cellWidth),
                 heightDimension: .fractionalHeight(1.0)
             )
         )
@@ -112,9 +115,7 @@ extension HomeViewController {
 
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .absolute(
-                    self.view.frame.width + (CGFloat(categories.count - 1) * 12.0 + 24)
-                ),
+                widthDimension: .absolute(cellWidth + padding),
                 heightDimension: .absolute(41)
             ),
             subitems: [item]
@@ -123,16 +124,14 @@ extension HomeViewController {
         group.interItemSpacing = .fixed(12)
 
         let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .paging
+        section.orthogonalScrollingBehavior = .continuous
         
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
             leading: 24,
             bottom: 0,
-            trailing: 0
+            trailing: 24
         )
-        
-        /// [Header] Add header to the section
         
         let headerSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),

@@ -117,6 +117,7 @@
 		EFD14EC82C6E4EDA0016F1B7 /* HomeViewController+NSCollectionLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD14EC72C6E4EDA0016F1B7 /* HomeViewController+NSCollectionLayoutSection.swift */; };
 		EFD14ECD2C6E699A0016F1B7 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD14ECC2C6E699A0016F1B7 /* Service.swift */; };
 		EFD14ECF2C6E82930016F1B7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EFD14ECE2C6E82930016F1B7 /* Kingfisher */; };
+		EFD14ED22C6F0F650016F1B7 /* ExtensionCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD14ED12C6F0F650016F1B7 /* ExtensionCollection.swift */; };
 		EFD3556A2C613C60005CC6DA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EFD355692C613C60005CC6DA /* FirebaseAuth */; };
 		EFD3556C2C613C60005CC6DA /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = EFD3556B2C613C60005CC6DA /* GoogleSignIn */; };
 		EFD3556E2C613C60005CC6DA /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFD3556D2C613C60005CC6DA /* GoogleSignInSwift */; };
@@ -271,6 +272,7 @@
 		EFD14EBE2C6E0EAB0016F1B7 /* IngredientCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientCollectionViewCell.xib; sourceTree = "<group>"; };
 		EFD14EC72C6E4EDA0016F1B7 /* HomeViewController+NSCollectionLayoutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+NSCollectionLayoutSection.swift"; sourceTree = "<group>"; };
 		EFD14ECC2C6E699A0016F1B7 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		EFD14ED12C6F0F650016F1B7 /* ExtensionCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCollection.swift; sourceTree = "<group>"; };
 		EFD355702C615183005CC6DA /* GoogleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleService.swift; sourceTree = "<group>"; };
 		EFDABFBB2C68BD2800D594A7 /* SearchPopularRecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopularRecipeCollectionViewCell.swift; sourceTree = "<group>"; };
 		EFDABFBE2C68C5A400D594A7 /* EditorChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -473,6 +475,7 @@
 		EF86657D2C6601890016023C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EFD14ED02C6F0F3F0016F1B7 /* Collection */,
 				EFC425C52C6AA09C004FF5BE /* Data */,
 			);
 			path = Extensions;
@@ -827,6 +830,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		EFD14ED02C6F0F3F0016F1B7 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				EFD14ED12C6F0F650016F1B7 /* ExtensionCollection.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
 		EFD3556F2C61514E005CC6DA /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -1109,6 +1120,7 @@
 				EFDABFCC2C68E3EB00D594A7 /* FoodDetailRouter.swift in Sources */,
 				EFD14EC82C6E4EDA0016F1B7 /* HomeViewController+NSCollectionLayoutSection.swift in Sources */,
 				EFD14EBB2C6E06790016F1B7 /* FoodDetailSheetCollectionViewCell.swift in Sources */,
+				EFD14ED22C6F0F650016F1B7 /* ExtensionCollection.swift in Sources */,
 				EFDABFCD2C68E3EB00D594A7 /* FoodDetailModels.swift in Sources */,
 				EFDABFCE2C68E3EB00D594A7 /* FoodDetailViewController.swift in Sources */,
 				EFDABFCF2C68E3EB00D594A7 /* FoodDetailInteractor.swift in Sources */,
