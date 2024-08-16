@@ -9,7 +9,6 @@
 import UIKit
 
 protocol HomeBusinessLogic {
-    func inquiryFoodCategories(request: HomeModels.InquiryFoodCategories.Request)
     func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request)
 }
 
@@ -20,23 +19,6 @@ protocol HomeDataStore {
 class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     var presenter: HomePresentationLogic?
     var worker: HomeWorker?
-    
-    func inquiryFoodCategories(request: HomeModels.InquiryFoodCategories.Request) {
-        let service = Service()
-        
-        service.inquiryFoodCategories { [weak self] (data) in
-            guard let self else { return }
-            
-            switch data.result {
-            case .success(let response):
-                let response = HomeModels.InquiryFoodCategories.Response(data: response, error: nil)
-                presenter?.presentInquiryCategories(response: response)
-            case .failure(let error):
-                let response = HomeModels.InquiryFoodCategories.Response(data: nil, error: error)
-                presenter?.presentInquiryCategories(response: response)
-            }
-        }
-    }
     
     func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request) {
         let service = Service()

@@ -10,8 +10,7 @@ import Foundation
 import Alamofire
 
 protocol ServiceProtocol {
-    func inquiryFoodCategories(completionHandler: @escaping (DataResponse<HomeModels.WelcomeResponse, AFError>) -> ())
-    func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request, completionHandler: @escaping (DataResponse<HomeModels.MealsResponse, AFError>) -> ())
+    func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request, completionHandler: @escaping (DataResponse<HomeModels.SearchFoodsResponse, AFError>) -> ())
 }
 
 class Service: ServiceProtocol {
@@ -21,13 +20,42 @@ class Service: ServiceProtocol {
         self.httpClient = client
     }
     
-    func inquiryFoodCategories(completionHandler: @escaping (DataResponse<HomeModels.WelcomeResponse, AFError>) -> ()) {
-        let url = String(format: Environment.Endpoint.CATEGORY)
-        httpClient.request(url, method: .get, completionHandler: completionHandler)
+    func inquirySearchFoodsByCategory(
+        request: HomeModels.InquirySearchFoodsByCategory.Request,
+        completionHandler: @escaping (
+            DataResponse<
+            HomeModels.SearchFoodsResponse,
+            AFError
+            >
+        ) -> ()
+    ) {
+        var components = URLComponents(string: Environment.SpoonacularEndpoint.GET_FOODS_BY_CATEGORY)
+        components?.queryItems = [
+            URLQueryItem(name: "query", value: request.category),
+            URLQueryItem(name: "number", value: "\(request.number)"),
+        ]
+        
+        let urlString = components?.url?.absoluteString ?? ""
+        
+        httpClient.request(
+            urlString,
+            method: .get,
+            interceptor: self,
+            completionHandler: completionHandler
+        )
     }
-    
-    func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request, completionHandler: @escaping (DataResponse<HomeModels.MealsResponse, AFError>) -> ()) {
-        let url = String(format: Environment.Endpoint.SEARCH_BY_CATEGORY + request.category)
-        httpClient.request(url, method: .get, completionHandler: completionHandler)
+}
+
+extension Service: RequestInterceptor {
+    func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
+        var request = urlRequest
+        
+        request.headers.add(name: "x-api-key", value: "6b4c126501ed4284855f54d3c7055e58")
+        
+        print("urlRequest: ---> \(String(describing: request.url))")
+        print("METHOD: ---> \(String(describing: request.httpMethod))")
+        print("Headers: ---> \(request.headers.dictionary)")
+        
+        completion(.success(request))
     }
 }

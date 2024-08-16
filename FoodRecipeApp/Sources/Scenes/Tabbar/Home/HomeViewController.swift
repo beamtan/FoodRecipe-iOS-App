@@ -9,9 +9,6 @@
 import UIKit
 
 protocol HomeDisplayLogic: AnyObject {
-    func displayInquiryFoodCategoriesSuccess(viewModel: HomeModels.InquiryFoodCategories.ViewModel)
-    func displayInquiryFoodCategoriesFailure(viewModel: HomeModels.InquiryFoodCategories.ViewModel)
-    
     func displayInquirySearchFoodsByCategorySuccess(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel)
     func displayInquirySearchFoodsByCategoryFailure(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel)
 }
@@ -30,15 +27,8 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     var interactor: HomeBusinessLogic?
     var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
     
-//    var categories: [HomeModels.Category] = [
-//        HomeModels.Category(name: "Breakfast", isSelected: true),
-//        HomeModels.Category(name: "Lunch", isSelected: false),
-//        HomeModels.Category(name: "Dinner", isSelected: false),
-//        HomeModels.Category(name: "Snack", isSelected: false),
-//    ]
-    
-    var categories: [HomeModels.WelcomeResponse.Category?] = []
-    var foods: [HomeModels.MealsResponse.Meals?] = []
+    var categories: HomeModels.Category = HomeModels.Category()
+    var foods: [HomeModels.SearchFoodsResponse.Result?] = []
     
     // MARK: - IBOutlet
     
@@ -64,7 +54,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         setupCollectionView()
         collectionView.collectionViewLayout = createLayout()
         
-        inquiryFoodCategories()
+        inquirySearchFoodByCategory()
     }
     
     // MARK: - IBAction
@@ -86,6 +76,37 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         router.dataStore = interactor
     }
     
+    // MARK: - Call Service
+    
+    func inquirySearchFoodByCategory() {
+        let selectedCategory: String = categories.categories.first(
+            where: { $0.isSelected }
+        )?.category.rawValue ?? ""
+        let totalFoodRequest: Int = 8
+        
+        let request = HomeModels.InquirySearchFoodsByCategory.Request(category: selectedCategory, number: totalFoodRequest)
+        interactor?.inquirySearchFoodsByCategory(request: request)
+    }
+    
+    // MARK: - Display
+    
+    func displayInquirySearchFoodsByCategorySuccess(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel) {
+        foods = viewModel.data?.results ?? []
+        collectionView.reloadSections([Sections.popularRecipe.rawValue])
+    }
+    
+    func displayInquirySearchFoodsByCategoryFailure(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel) {
+        
+    }
+    
+    // MARK: - Navigation
+    
+    
+}
+
+// MARK: - Implementation View
+
+extension HomeViewController {
     private func createLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { [weak self] (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
             guard let self else { return nil }
@@ -145,50 +166,9 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
             forCellWithReuseIdentifier: "PopularRecipeCollectionViewCell"
         )
     }
-    
-    // MARK: - Call Service
-    
-    func inquiryFoodCategories() {
-        let request = HomeModels.InquiryFoodCategories.Request()
-        interactor?.inquiryFoodCategories(request: request)
-    }
-    
-    func inquirySearchFoodByCategory() {
-        let selectedCategory: String = categories.first(
-            where: { $0?.isSelected ?? false }
-        )??.strCategory ?? ""
-        let request = HomeModels.InquirySearchFoodsByCategory.Request(category: selectedCategory)
-        interactor?.inquirySearchFoodsByCategory(request: request)
-    }
-    
-    // MARK: - Display
-    
-    func displayInquiryFoodCategoriesSuccess(viewModel: HomeModels.InquiryFoodCategories.ViewModel) {
-        categories = viewModel.data?.categories ?? []
-        categories[0]?.isSelected = true
-        
-        collectionView.reloadSections([Sections.category.rawValue])
-        
-        inquirySearchFoodByCategory()
-    }
-    
-    func displayInquiryFoodCategoriesFailure(viewModel: HomeModels.InquiryFoodCategories.ViewModel) {
-        
-    }
-    
-    func displayInquirySearchFoodsByCategorySuccess(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel) {
-        foods = viewModel.data?.meals ?? []
-        collectionView.reloadSections([Sections.popularRecipe.rawValue])
-    }
-    
-    func displayInquirySearchFoodsByCategoryFailure(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel) {
-        
-    }
-    
-    // MARK: - Navigation
-    
-    
 }
+
+// MARK: - UICollectionViewDelegate
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -205,7 +185,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
         if section == Sections.category.rawValue {
-            return categories.count
+            return categories.categories.count
         }
         
         if section == Sections.popularRecipe.rawValue {
@@ -215,7 +195,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return 0
     }
     
-    /// Set up cell
+    // MARK: - Set up cell
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == Sections.name.rawValue {
@@ -231,28 +211,28 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if indexPath.section == Sections.category.rawValue {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
             
+            let indexCategory = categories.categories[indexPath.row]
+            let categoryName: String = indexCategory.category.rawValue
+            let isCategorySelected: Bool = indexCategory.isSelected
+            
             cell.setUp(
-                name: categories[indexPath.row]?.strCategory ?? "",
-                isSelectedCategory: categories[indexPath.row]?.isSelected ?? false
+                name: categoryName,
+                isSelectedCategory: isCategorySelected
             )
-            
-            let category = categories[indexPath.row]
-            let name: String = category?.strCategory ?? ""
-            let isSelected: Bool = category?.isSelected ?? false
-            
-            cell.setUp(name: name, isSelectedCategory: isSelected)
             
             cell.categoryClosure = { [weak self] name in
                 guard let self else { return }
                 
-                categories.enumerated().forEach { (index, category) in
-                    self.categories[index]?.isSelected = (category?.strCategory == name) ? true : false
+                categories.categories.enumerated().forEach { (index, category) in
+                    self.categories.categories[index].isSelected = (category.category.rawValue == name) ? true : false
                     
                     let indexPath = IndexPath(item: index, section: Sections.category.rawValue)
                     collectionView.reloadItems(at: [indexPath])
                 }
                 
-                if let selectedIndex = self.categories.firstIndex(where: { $0?.strCategory == name }) {
+                if let selectedIndex = self.categories.categories.firstIndex(
+                    where: { $0.category.rawValue == name }
+                ) {
                     let indexPath = IndexPath(item: selectedIndex, section: Sections.category.rawValue)
                     
                     collectionView.scrollToItem(
@@ -287,7 +267,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return UICollectionViewCell()
     }
     
-    /// Set up header
+    // MARK: - Set up header
     
     func collectionView(
         _ collectionView: UICollectionView,

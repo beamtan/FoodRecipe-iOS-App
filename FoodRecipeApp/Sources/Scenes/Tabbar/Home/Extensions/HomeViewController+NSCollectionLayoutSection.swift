@@ -96,7 +96,7 @@ extension HomeViewController {
     
     // Category
     func createNSCollectionLayoutSectionCategory() -> NSCollectionLayoutSection {
-        let cellWidth: CGFloat = 115.0
+        let cellWidth: CGFloat = 130.0
         let padding: CGFloat = 12.0
         
         let item = NSCollectionLayoutItem(

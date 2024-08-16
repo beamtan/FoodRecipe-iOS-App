@@ -28,12 +28,12 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     var interactor: SearchBusinessLogic?
     var router: (NSObjectProtocol & SearchRoutingLogic & SearchDataPassing)?
     
-    private var categories: [HomeModels.Category] = [
-        HomeModels.Category(name: "Breakfast", isSelected: true),
-        HomeModels.Category(name: "Lunch", isSelected: false),
-        HomeModels.Category(name: "Dinner", isSelected: false),
-        HomeModels.Category(name: "Snack", isSelected: false),
-    ]
+//    private var categories: [HomeModels.Category] = [
+//        HomeModels.Category(name: "Breakfast", isSelected: true),
+//        HomeModels.Category(name: "Lunch", isSelected: false),
+//        HomeModels.Category(name: "Dinner", isSelected: false),
+//        HomeModels.Category(name: "Snack", isSelected: false),
+//    ]
     
     // MARK: - IBOutlet
     
@@ -184,7 +184,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
         
         if section == Sections.category.rawValue {
-            return categories.count
+            return 5
         }
         
         if section == Sections.popularRecipe.rawValue {
@@ -214,26 +214,26 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         if indexPath.section == Sections.category.rawValue {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
             
-            cell.setUp(
-                name: categories[indexPath.row].name,
-                isSelectedCategory: categories[indexPath.row].isSelected
-            )
+//            cell.setUp(
+//                name: categories[indexPath.row].name,
+//                isSelectedCategory: categories[indexPath.row].isSelected
+//            )
             
-            let category = categories[indexPath.row]
-            let name: String = category.name
-            let isSelected: Bool = category.isSelected
+//            let category = categories[indexPath.row]
+//            let name: String = category.name
+//            let isSelected: Bool = category.isSelected
+//            
+//            cell.setUp(name: name, isSelectedCategory: isSelected)
             
-            cell.setUp(name: name, isSelectedCategory: isSelected)
-            
-            cell.categoryClosure = { [weak self] name in
-                guard let self else { return }
-                
-                categories.enumerated().forEach { (index, category) in
-                    self.categories[index].isSelected = (category.name == name) ? true : false
-                }
-                
-                collectionView.reloadSections([Sections.category.rawValue])
-            }
+//            cell.categoryClosure = { [weak self] name in
+//                guard let self else { return }
+//                
+//                categories.enumerated().forEach { (index, category) in
+//                    self.categories[index].isSelected = (category.name == name) ? true : false
+//                }
+//                
+//                collectionView.reloadSections([Sections.category.rawValue])
+//            }
             
             return cell
         }

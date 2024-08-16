@@ -9,13 +9,21 @@
 import Foundation
 
 struct Environment {
-    static let baseUrl: String = "https://www.themealdb.com/"
+    static let themealdbBaseUrl: String = "https://www.themealdb.com/"
+    static let spoonacularBaseUrl: String = "https://api.spoonacular.com/recipes/"
 }
 
 extension Environment {
-    struct Endpoint {
-        static let CATEGORY: String = "\(Environment.baseUrl)api/json/v1/1/categories.php"
-        static let SEARCH_BY_CATEGORY: String = "\(Environment.baseUrl)api/json/v1/1/filter.php?c="
-        static let SEARCH_BY_NAME: String = "\(Environment.baseUrl)api/json/v1/1/search.php?s="
+    struct TheMealdbEndpoint {
+        static let CATEGORY: String = "\(Environment.themealdbBaseUrl)api/json/v1/1/categories.php"
+        static let SEARCH_BY_CATEGORY: String = "\(Environment.themealdbBaseUrl)api/json/v1/1/filter.php?c="
+        static let SEARCH_BY_NAME: String = "\(Environment.themealdbBaseUrl)api/json/v1/1/search.php?s="
+    }
+    
+    struct SpoonacularEndpoint {
+        static let GET_FOODS_BY_CATEGORY: String = "\(Environment.spoonacularBaseUrl)complexSearch?"
+        static let GET_RECIPE_INFO_BY_ID: (_ id: String) -> String = { id in
+            return "\(Environment.spoonacularBaseUrl)recipes/\(id)/nutritionWidget.json"
+        }
     }
 }

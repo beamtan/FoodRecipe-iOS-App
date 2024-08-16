@@ -10,54 +10,39 @@ import UIKit
 
 struct HomeModels {
     
-    struct InquiryFoodCategories {
-        struct Request {
-            
-        }
-        
-        struct Response {
-            let data: WelcomeResponse?
-            let error: Error?
-        }
-        
-        struct ViewModel {
-            let data: WelcomeResponse?
-            let error: Error?
-        }
-    }
-    
     struct InquirySearchFoodsByCategory {
         struct Request {
             let category: String
+            let number: Int
         }
         
         struct Response {
-            let data: MealsResponse?
+            let data: SearchFoodsResponse?
             let error: Error?
         }
         
         struct ViewModel {
-            let data: MealsResponse?
+            let data: SearchFoodsResponse?
             let error: Error?
         }
     }
     
     // MARK: - Image Data
     
-    struct Category {
-        var name: String
-        var isSelected: Bool
-    }
+//    struct Category {
+//        var name: String
+//        var isSelected: Bool
+//    }
+//    
+//    struct Recipe {
+//        let imageUrl: String
+//        let title: String
+//        let calorie: Int
+//        let time: String
+//        let isFavourite: Bool
+//    }
     
-    struct Recipe {
-        let imageUrl: String
-        let title: String
-        let calorie: Int
-        let time: String
-        let isFavourite: Bool
-    }
-    
-    // MARK: - Service Response
+    // MARK: - Service Response: themealdb
     
     struct WelcomeResponse: Codable {
         var categories: [Category?]?
@@ -79,6 +64,56 @@ struct HomeModels {
             let strMeal: String?
             let strMealThumb: String?
             let idMeal: String?
+        }
+    }
+    
+    // MARK: - Spoonacular
+    
+    struct SearchFoodsResponse: Codable {
+        let results: [Result]?
+        let offset, number, totalResults: Int?
+        
+        struct Result: Codable {
+            let id: Int?
+            let title: String?
+            let imageType: String?
+            let image: String?
+        }
+    }
+    
+    // Static Data for Category button
+    
+    struct Category: Codable {
+        var categories: [CategorySaved]
+        
+        struct CategorySaved: Codable {
+            let category: CategoryType
+            var isSelected: Bool
+        }
+        
+        enum CategoryType: String, Codable, CaseIterable {
+            case mainCourse = "Main Course"
+            case sideDish = "Side Dish"
+            case dessert = "Dessert"
+            case appetizer = "Appetizer"
+            case salad = "Salad"
+            case bread = "Bread"
+            case breakfast = "Breakfast"
+            case soup = "Soup"
+            case beverage = "Beverage"
+            case sauce = "Sauce"
+            case marinade = "Marinade"
+            case fingerFood = "Fingerfood"
+            case snack = "Snack"
+            case drink = "Drink"
+        }
+        
+        init() {
+            var categories = [CategorySaved]()
+            for (index, type) in CategoryType.allCases.enumerated() {
+                categories.append(CategorySaved(category: type, isSelected: index == 0))
+            }
+            self.categories = categories
         }
     }
 }

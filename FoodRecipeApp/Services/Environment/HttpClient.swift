@@ -20,10 +20,9 @@ final class HttpClient {
         interceptor: RequestInterceptor? = nil,
         completionHandler: @escaping(DataResponse<T, AFError>) -> ()
     ) {
-        
 #if DEBUG
         print("-------------------------------- NETWORK REQUEST LOG ---------------------------------------")
-//        print("headers: \(String(describing: headers))")
+        print("headers: \(String(describing: headers))")
         print("parameters:\n \(String(describing: parameters ?? [:]))")
 #endif
         
