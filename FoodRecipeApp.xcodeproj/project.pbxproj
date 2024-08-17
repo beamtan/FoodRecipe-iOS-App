@@ -135,6 +135,11 @@
 		EFDABFCE2C68E3EB00D594A7 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFC82C68E3EB00D594A7 /* FoodDetailViewController.swift */; };
 		EFDABFCF2C68E3EB00D594A7 /* FoodDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFC92C68E3EB00D594A7 /* FoodDetailInteractor.swift */; };
 		EFDABFD12C68E45000D594A7 /* FoodDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDABFD02C68E45000D594A7 /* FoodDetailStoryboard.storyboard */; };
+		EFF5847D2C6FF3F900FA56BC /* InstructionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF5847C2C6FF3F900FA56BC /* InstructionCollectionViewCell.xib */; };
+		EFF5847E2C6FF3F900FA56BC /* InstructionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5847B2C6FF3F900FA56BC /* InstructionCollectionViewCell.swift */; };
+		EFF585092C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF585072C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.swift */; };
+		EFF5850A2C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF585082C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.xib */; };
+		EFF5850D2C71515F00FA56BC /* ExtensionDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5850C2C71515F00FA56BC /* ExtensionDouble.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -289,6 +294,11 @@
 		EFDABFC82C68E3EB00D594A7 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		EFDABFC92C68E3EB00D594A7 /* FoodDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailInteractor.swift; sourceTree = "<group>"; };
 		EFDABFD02C68E45000D594A7 /* FoodDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodDetailStoryboard.storyboard; sourceTree = "<group>"; };
+		EFF5847B2C6FF3F900FA56BC /* InstructionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionCollectionViewCell.swift; sourceTree = "<group>"; };
+		EFF5847C2C6FF3F900FA56BC /* InstructionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionCollectionViewCell.xib; sourceTree = "<group>"; };
+		EFF585072C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailTypeAndTotalCollectionViewCell.swift; sourceTree = "<group>"; };
+		EFF585082C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodDetailTypeAndTotalCollectionViewCell.xib; sourceTree = "<group>"; };
+		EFF5850C2C71515F00FA56BC /* ExtensionDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDouble.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -478,9 +488,19 @@
 			path = SofiaPro;
 			sourceTree = "<group>";
 		};
+		EF86064C2C6FF03000E7349B /* Instruction */ = {
+			isa = PBXGroup;
+			children = (
+				EFF5847C2C6FF3F900FA56BC /* InstructionCollectionViewCell.xib */,
+				EFF5847B2C6FF3F900FA56BC /* InstructionCollectionViewCell.swift */,
+			);
+			path = Instruction;
+			sourceTree = "<group>";
+		};
 		EF86657D2C6601890016023C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EFF5850B2C71515000FA56BC /* Double */,
 				EFD14ED02C6F0F3F0016F1B7 /* Collection */,
 				EFC425C52C6AA09C004FF5BE /* Data */,
 			);
@@ -813,8 +833,10 @@
 		EFD14EB72C6E06570016F1B7 /* Sheet */ = {
 			isa = PBXGroup;
 			children = (
-				EFD14EB82C6E06790016F1B7 /* FoodDetailSheetCollectionViewCell.swift */,
+				EFF5847F2C6FF66400FA56BC /* Detail */,
+				EFF585062C7141F700FA56BC /* TypeAndTotal */,
 				EFD14EBC2C6E0E7F0016F1B7 /* Ingredient */,
+				EF86064C2C6FF03000E7349B /* Instruction */,
 			);
 			path = Sheet;
 			sourceTree = "<group>";
@@ -885,6 +907,31 @@
 				EFDABFC72C68E3EB00D594A7 /* FoodDetailModels.swift */,
 			);
 			path = FoodDetail;
+			sourceTree = "<group>";
+		};
+		EFF5847F2C6FF66400FA56BC /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				EFD14EB82C6E06790016F1B7 /* FoodDetailSheetCollectionViewCell.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		EFF585062C7141F700FA56BC /* TypeAndTotal */ = {
+			isa = PBXGroup;
+			children = (
+				EFF585082C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.xib */,
+				EFF585072C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.swift */,
+			);
+			path = TypeAndTotal;
+			sourceTree = "<group>";
+		};
+		EFF5850B2C71515000FA56BC /* Double */ = {
+			isa = PBXGroup;
+			children = (
+				EFF5850C2C71515F00FA56BC /* ExtensionDouble.swift */,
+			);
+			path = Double;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1015,9 +1062,11 @@
 				EF09E45C2C662926004675DF /* SearchStoryboard.storyboard in Resources */,
 				EFA42C722C6DC59A004ACBD5 /* SearchPopularRecipeHeaderCollectionViewCell.xib in Resources */,
 				EFA42C422C6D27F5004ACBD5 /* FeaturedCardCollectionViewCell.xib in Resources */,
+				EFF5850A2C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.xib in Resources */,
 				EFA42C622C6DC0D7004ACBD5 /* SearchTextFieldCollectionViewCell.xib in Resources */,
 				EF0759742C66592F00CA1F67 /* NotificationStoryboard.storyboard in Resources */,
 				EF86657C2C653E7C0016023C /* GoogleService-Info.plist in Resources */,
+				EFF5847D2C6FF3F900FA56BC /* InstructionCollectionViewCell.xib in Resources */,
 				EFA42C7F2C6DF48B004ACBD5 /* AccountCollectionViewCell.xib in Resources */,
 				EF09E4492C661F69004675DF /* HomeStoryboard.storyboard in Resources */,
 				EFA42C4D2C6D2D82004ACBD5 /* CategoryHeaderCollectionViewCell.xib in Resources */,
@@ -1071,6 +1120,7 @@
 				EFB5AF8F2C5E94190004075F /* MainViewController.swift in Sources */,
 				EFB5AF8B2C5E94190004075F /* AppDelegate.swift in Sources */,
 				EF15DED42C5EC41600EF4294 /* LoginPresenter.swift in Sources */,
+				EFF585092C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.swift in Sources */,
 				EFD14EC02C6E0EAB0016F1B7 /* IngredientCollectionViewCell.swift in Sources */,
 				EF8665822C6612EF0016023C /* HomeTabbarViewController.swift in Sources */,
 				EFA42C512C6D3320004ACBD5 /* NameHeaderViewCell.swift in Sources */,
@@ -1079,6 +1129,7 @@
 				EFC425C22C6A9FAE004FF5BE /* HttpClient.swift in Sources */,
 				EF15DED52C5EC41600EF4294 /* LoginWorker.swift in Sources */,
 				EF15DED62C5EC41600EF4294 /* LoginRouter.swift in Sources */,
+				EFF5850D2C71515F00FA56BC /* ExtensionDouble.swift in Sources */,
 				EF15DED72C5EC41600EF4294 /* LoginModels.swift in Sources */,
 				EFA42C572C6D340D004ACBD5 /* CategoryHeaderCollectionViewCell.swift in Sources */,
 				EF15DED82C5EC41600EF4294 /* LoginViewController.swift in Sources */,
@@ -1139,6 +1190,7 @@
 				EFDABFCB2C68E3EB00D594A7 /* FoodDetailWorker.swift in Sources */,
 				EFDABFCC2C68E3EB00D594A7 /* FoodDetailRouter.swift in Sources */,
 				EFD14EC82C6E4EDA0016F1B7 /* HomeViewController+NSCollectionLayoutSection.swift in Sources */,
+				EFF5847E2C6FF3F900FA56BC /* InstructionCollectionViewCell.swift in Sources */,
 				EFD14EBB2C6E06790016F1B7 /* FoodDetailSheetCollectionViewCell.swift in Sources */,
 				EFD14ED22C6F0F650016F1B7 /* ExtensionCollection.swift in Sources */,
 				EFDABFCD2C68E3EB00D594A7 /* FoodDetailModels.swift in Sources */,

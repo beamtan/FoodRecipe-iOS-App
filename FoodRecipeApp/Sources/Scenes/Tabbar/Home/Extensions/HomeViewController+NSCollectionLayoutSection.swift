@@ -99,10 +99,16 @@ extension HomeViewController {
         let cellWidth: CGFloat = 130.0
         let padding: CGFloat = 12.0
         
+        /// This is quite tricky by making the itemLayoutSize == groupLayoutSize will solve
+        /// problem of of dynamic width (solved).
+        ///
+        /// As set width dimension to .fractional(1) may look more properly way to do however will
+        /// cause layout to be buggy.
+        
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .absolute(cellWidth),
-                heightDimension: .fractionalHeight(1.0)
+                widthDimension: .estimated(cellWidth),
+                heightDimension: .absolute(41)
             )
         )
         
@@ -115,13 +121,11 @@ extension HomeViewController {
 
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .absolute(cellWidth + padding),
+                widthDimension: .estimated(cellWidth),
                 heightDimension: .absolute(41)
             ),
             subitems: [item]
         )
-        
-        group.interItemSpacing = .fixed(12)
 
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
@@ -132,6 +136,8 @@ extension HomeViewController {
             bottom: 0,
             trailing: 24
         )
+        
+        section.interGroupSpacing = padding
         
         let headerSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),

@@ -11,6 +11,11 @@ import SwifterSwift
 
 class FoodDetailSheetCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - Properties
+    
+    var ingredientClosure: (() -> ())?
+    var instructionClosure: (() -> ())?
+    
     // MARK: - IBOutlet
     
     @IBOutlet weak private var titleLabel: UILabel!
@@ -29,22 +34,41 @@ class FoodDetailSheetCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var caloriesLabel: UILabel!
     @IBOutlet weak private var fatLabel: UILabel!
     
-    @IBOutlet weak private var totalIngredientLabel: UILabel!
-    
     // MARK: - IBAction
     
     @IBAction func ingredientPressed(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1) { [weak self] in
+            guard let self else { return }
+            
+            instructionButton.backgroundColor = .E_6_EBF_2
+            instructionButton.titleLabel?.textColor = .black
+            
+            sender.backgroundColor = ._042628
+            sender.titleLabel?.textColor = .white
+        }
+        
+        ingredientClosure?()
     }
     
     @IBAction func instructionPressed(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1) { [weak self] in
+            guard let self else { return }
+            
+            ingredientButton.backgroundColor = .E_6_EBF_2
+            ingredientButton.titleLabel?.textColor = .black
+            
+            sender.backgroundColor = ._042628
+            sender.titleLabel?.textColor = .white
+        }
         
+        instructionClosure?()
     }
     
     // MARK: - Setup
     
     func setup(food: FoodDetailModels.FoodDetailResponse) {
         let totalIngredient: Int = food.extendedIngredients?.count ?? 0
-        let totalUnit: String = totalIngredient > 1 ? "Items" : "Item"
+        let spoonacularScore = food.spoonacularScore ?? 0.0
         
         let timeCook: Int = food.readyInMinutes ?? 0
         let displayTimeCook: String = timeCook > 1 ? "\(timeCook)" : "--"
@@ -72,9 +96,7 @@ class FoodDetailSheetCollectionViewCell: UICollectionViewCell {
         
         titleLabel.text = food.title
         timeCookLabel.text = "\(displayTimeCook) Min"
-        descriptionLabel.text = ""
-        totalIngredientLabel.text = "\(totalIngredient) \(totalUnit)"
-        
+        descriptionLabel.text = "Score: \(spoonacularScore.rounding(decimal: 2))"
         carbLabel.text = "\(displayCarb) \(displayCarbUnit)"
         proteinLabel.text = "\(displayProtein) \(displayProteinUnit)"
         caloriesLabel.text = "\(displayCalories) \(displayCaloriesUnit)"

@@ -59,20 +59,43 @@ class TabbarViewController: UITabBar {
     
     func createPath() -> CGPath {
         let height: CGFloat = 21
+        let curveHeight: CGFloat = 15
         let path = UIBezierPath()
-        let centerWidth = frame.width / 2
+        let centerWidth: CGFloat = frame.width / 2
+
+        // Start top left
+        path.move(to: CGPoint(x: 0, y: 0))
         
-        path.move(to: CGPoint(x: 0, y: 0)) // start top left
-        path.addLine(to: CGPoint(x: (centerWidth - height * 2), y: 0))
+        // Move to the first small curve point
         
+        path.addLine(to: CGPoint(x: centerWidth - height * 4, y: 0))
+        
+        // First small curve (before the main curve)
         path.addQuadCurve(
-            to: CGPoint(x: (centerWidth + height * 2), y: 0),
-            controlPoint: CGPoint(x: centerWidth, y: 67)
-        ) // center curve
+            to: CGPoint(x: (centerWidth - height * 2), y: curveHeight),
+            controlPoint: CGPoint(x: (centerWidth - height * 3), y: 0)
+        )
         
-        path.addLine(to: CGPoint(x: frame.width, y: 0)) // complete to top right
-        path.addLine(to: CGPoint(x: frame.width, y: frame.height)) // bottom right
-        path.addLine(to: CGPoint(x: 0, y: frame.height)) // bottom left
+        // Main quad curve
+        path.addQuadCurve(
+            to: CGPoint(x: (centerWidth + height * 2), y: curveHeight),
+            controlPoint: CGPoint(x: centerWidth, y: 67)
+        )
+        
+        // Second small curve (after the main curve)
+        path.addQuadCurve(
+            to: CGPoint(x: (centerWidth + height * 4), y: 0),
+            controlPoint: CGPoint(x: (centerWidth + height * 3), y: 0)
+        )
+        
+        // Complete to top right
+        path.addLine(to: CGPoint(x: frame.width, y: 0))
+        
+        // Bottom right
+        path.addLine(to: CGPoint(x: frame.width, y: frame.height))
+        
+        // Bottom left
+        path.addLine(to: CGPoint(x: 0, y: frame.height))
         
         path.close()
         

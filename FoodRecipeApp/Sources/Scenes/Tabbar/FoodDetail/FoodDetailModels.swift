@@ -10,6 +10,8 @@ import UIKit
 
 struct FoodDetailModels {
     
+    // MARK: - Call Service
+    
     struct InquiryFoodDetail {
         struct Request {
             let id: String
@@ -71,20 +73,17 @@ struct FoodDetailModels {
         let spoonacularScore: Double?
         let spoonacularSourceURL: String?
         
-        // MARK: - AnalyzedInstruction
         struct AnalyzedInstruction: Codable {
             let name: String?
             let steps: [Step]?
         }
 
-        // MARK: - Step
         struct Step: Codable {
             let number: Int?
             let step: String?
             let ingredients, equipment: [Ent]?
             let length: Length?
             
-            // MARK: - Ent
             struct Ent: Codable {
                 let id: Int
                 let name, localizedName: String?
@@ -92,14 +91,12 @@ struct FoodDetailModels {
                 let temperature: Length?
             }
             
-            // MARK: - Length
             struct Length: Codable {
                 let number: Int?
                 let unit: String?
             }
         }
 
-        // MARK: - ExtendedIngredient
         struct ExtendedIngredient: Codable, Hashable {
             var hashValue: Int { get { return id.hashValue } }
             let id: Int?
@@ -111,11 +108,9 @@ struct FoodDetailModels {
             let meta: [String]?
             let measures: Measures?
             
-            // MARK: - Measures
             struct Measures: Codable {
                 let us, metric: Metric?
                 
-                // MARK: - Metric
                 struct Metric: Codable {
                     let amount: Double?
                     let unitShort, unitLong: String?
@@ -133,7 +128,6 @@ struct FoodDetailModels {
             }
         }
         
-        // MARK: - Nutrition
         struct Nutrition: Codable {
             let nutrients, properties, flavonoids: [Flavonoid]?
             let ingredients: [Ingredient]?
@@ -166,8 +160,6 @@ struct FoodDetailModels {
         }
     }
     
-    // MARK: - Nutrition
-    
     struct FoodNutritionResponse: Codable {
         let calories, carbs, fat, protein: String?
         let bad, good: [Bad]?
@@ -178,7 +170,6 @@ struct FoodDetailModels {
         let expires: Int?
         let isStale: Bool?
         
-        // MARK: - Bad
         struct Bad: Codable {
             let amount: String?
             let indented: Bool?
@@ -186,12 +177,10 @@ struct FoodDetailModels {
             let percentOfDailyNeeds: Double?
         }
         
-        // MARK: - CaloricBreakdown
         struct CaloricBreakdown: Codable {
             let percentFat, percentCarbs, percentProtein: Double?
         }
         
-        // MARK: - Flavonoid
         struct Flavonoid: Codable {
             let name: String?
             let amount: Double?
@@ -199,7 +188,6 @@ struct FoodDetailModels {
             let percentOfDailyNeeds: Double?
         }
         
-        // MARK: - Ingredient
         struct Ingredient: Codable {
             let name: String?
             let amount: Double?
@@ -208,10 +196,16 @@ struct FoodDetailModels {
             let nutrients: [Flavonoid]?
         }
 
-        // MARK: - WeightPerServing
         struct WeightPerServing: Codable {
             let amount: Int?
             let unit: String?
         }
+    }
+    
+    // MARK: - Data Type
+    
+    enum FoodDetailType: String {
+        case ingredient = "Ingredients"
+        case instruction = "Instructions"
     }
 }

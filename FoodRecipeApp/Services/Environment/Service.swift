@@ -107,7 +107,7 @@ extension Service: RequestInterceptor {
     func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         var request = urlRequest
         
-        request.headers.add(name: "x-api-key", value: "6b4c126501ed4284855f54d3c7055e58")
+        request.headers.add(name: "x-api-key", value: "3bba1cad5cee4cfbbe6f5b1a6a6097e1")
         
         print("urlRequest: ---> \(String(describing: request.url))")
         print("METHOD: ---> \(String(describing: request.httpMethod))")

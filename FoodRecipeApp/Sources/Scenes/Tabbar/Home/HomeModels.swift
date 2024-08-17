@@ -27,21 +27,6 @@ struct HomeModels {
         }
     }
     
-    // MARK: - Image Data
-    
-//    struct Category {
-//        var name: String
-//        var isSelected: Bool
-//    }
-//    
-//    struct Recipe {
-//        let imageUrl: String
-//        let title: String
-//        let calorie: Int
-//        let time: String
-//        let isFavourite: Bool
-//    }
-    
     // MARK: - Service Response: themealdb
     
     struct WelcomeResponse: Codable {

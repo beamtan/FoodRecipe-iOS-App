@@ -21,7 +21,8 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
     
     enum Sections: Int, CaseIterable {
         case detail = 0
-        case ingredients = 1
+        case type = 1
+        case ingredients = 2
     }
     
     // MARK: - Properties
@@ -31,6 +32,8 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
     
     private var food: FoodDetailModels.FoodDetailResponse? = nil
     private var nutrition: FoodDetailModels.FoodNutritionResponse? = nil
+    
+    private var foodDetailType: FoodDetailModels.FoodDetailType = .ingredient
     
     // MARK: - IBOutlet
     
@@ -69,40 +72,6 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
         
         inquiryFoodDetail()
     }
-    
-    // MARK: - IBAction
-    
-//    @IBAction func ingredientsButtonPressed(_ sender: UIButton) {
-//        DispatchQueue.main.async { [weak self] in
-//            guard let self else { return }
-//            
-//            UIView.animate(withDuration: 0.1) { [weak self] in
-//                guard let self else { return }
-//                
-//                instructionsButton.backgroundColor = .E_6_EBF_2
-//                instructionsButton.titleLabel?.textColor = .black
-//                
-//                sender.backgroundColor = ._042628
-//                sender.titleLabel?.textColor = .white
-//            }
-//        }
-//    }
-//    
-//    @IBAction func instructionsButtonPressed(_ sender: UIButton) {
-//        DispatchQueue.main.async { [weak self] in
-//            guard let self else { return }
-//            
-//            UIView.animate(withDuration: 0.1) { [weak self] in
-//                guard let self else { return }
-//                
-//                ingredientsButton.backgroundColor = .E_6_EBF_2
-//                ingredientsButton.titleLabel?.textColor = .black
-//                
-//                sender.titleLabel?.textColor = .red
-//                sender.backgroundColor = ._042628
-//            }
-//        }
-//    }
     
     @IBAction func closePressed(_ sender: UIButton) {
         dismiss(animated: true)
@@ -176,8 +145,16 @@ extension FoodDetailViewController: UICollectionViewDelegate, UICollectionViewDa
             return 1
         }
         
-        if section == Sections.ingredients.rawValue {
+        if section == Sections.type.rawValue {
+            return 1
+        }
+        
+        if section == Sections.ingredients.rawValue && foodDetailType == .ingredient {
             return food?.extendedIngredients?.count ?? 0
+        }
+        
+        if section == Sections.ingredients.rawValue && foodDetailType == .instruction {
+            return food?.analyzedInstructions?.first?.steps?.count ?? 0
         }
         
         return 0
@@ -193,14 +170,52 @@ extension FoodDetailViewController: UICollectionViewDelegate, UICollectionViewDa
                 cell.setup(food: food)
             }
             
+            cell.ingredientClosure = { [weak self] in
+                guard let self else { return }
+                
+                foodDetailType = .ingredient
+                collectionView.reloadSections([Sections.ingredients.rawValue, Sections.type.rawValue])
+            }
+            
+            cell.instructionClosure = { [weak self] in
+                guard let self else { return }
+                
+                foodDetailType = .instruction
+                collectionView.reloadSections([Sections.ingredients.rawValue, Sections.type.rawValue])
+            }
+            
             return cell
         }
         
-        if indexPath.section == Sections.ingredients.rawValue {
+        if indexPath.section == Sections.type.rawValue {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodDetailTypeAndTotalCollectionViewCell", for: indexPath) as! FoodDetailTypeAndTotalCollectionViewCell
+            
+            if let food,
+               let extendedIngredients = food.extendedIngredients,
+               let step = food.analyzedInstructions?.first?.steps {
+                let total: Int = (foodDetailType == .ingredient) ? extendedIngredients.count : step.count
+                
+                cell.setup(type: foodDetailType.rawValue, total: total)
+            }
+            
+            return cell
+        }
+        
+        if indexPath.section == Sections.ingredients.rawValue && foodDetailType == .ingredient {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IngredientCollectionViewCell", for: indexPath) as! IngredientCollectionViewCell
             
             if let food, let extendedIngredients = food.extendedIngredients {
                 cell.setup(ingredient: extendedIngredients[indexPath.row])
+            }
+            
+            return cell
+        }
+        
+        if indexPath.section == Sections.ingredients.rawValue && foodDetailType == .instruction {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InstructionCollectionViewCell", for: indexPath) as! InstructionCollectionViewCell
+            
+            if let food, let step = food.analyzedInstructions?.first?.steps {
+                cell.setup(instruction: step[indexPath.row])
             }
             
             return cell
@@ -214,10 +229,20 @@ extension FoodDetailViewController: UICollectionViewDelegate, UICollectionViewDa
 
 extension FoodDetailViewController {
     private func setupCollectionView() {
+        // Type and total
+        collectionView.register(
+            UINib(nibName: "FoodDetailTypeAndTotalCollectionViewCell", bundle: .main),
+            forCellWithReuseIdentifier: "FoodDetailTypeAndTotalCollectionViewCell"
+        )
         /// Ingredient
         collectionView.register(
             UINib(nibName: "IngredientCollectionViewCell", bundle: .main),
             forCellWithReuseIdentifier: "IngredientCollectionViewCell"
+        )
+        /// Instruction
+        collectionView.register(
+            UINib(nibName: "InstructionCollectionViewCell", bundle: .main),
+            forCellWithReuseIdentifier: "InstructionCollectionViewCell"
         )
     }
     
@@ -228,8 +253,18 @@ extension FoodDetailViewController {
             switch Sections(rawValue: sectionIndex) {
             case .detail:
                 return self.createNSCollectionLayoutSectionDetail()
+            case .type:
+                return self.createNSCollectionLayoutSectionTypeAndTotal()
             case .ingredients:
-                return self.createNSCollectionLayoutSectionIngredients()
+                if foodDetailType == .ingredient {
+                    return self.createNSCollectionLayoutSectionIngredients()
+                }
+                
+                if foodDetailType == .instruction {
+                    return self.createNSCollectionLayoutSectionInstructions()
+                }
+                
+                return nil
             case .none:
                 return nil
             }

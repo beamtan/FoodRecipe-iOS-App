@@ -377,6 +377,7 @@
                                                                                 </button>
                                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QuJ-Ku-m94">
                                                                                     <rect key="frame" x="165" y="0.0" width="169" height="46"/>
+                                                                                    <color key="backgroundColor" name="E6EBF2"/>
                                                                                     <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="16"/>
                                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -384,7 +385,6 @@
                                                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     </state>
                                                                                     <buttonConfiguration key="configuration" style="plain" title="Instructions">
-                                                                                        <backgroundConfiguration key="background"/>
                                                                                         <fontDescription key="titleFontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="16"/>
                                                                                     </buttonConfiguration>
                                                                                     <userDefinedRuntimeAttributes>
@@ -413,28 +413,14 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUo-dm-sHN">
-                                                                    <rect key="frame" x="24" y="325" width="342" height="21"/>
-                                                                    <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="20"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkN-e1-m6I">
-                                                                    <rect key="frame" x="24" y="348" width="342" height="18.666666666666686"/>
-                                                                    <fontDescription key="fontDescription" name="SofiaPro-Regular" family="SofiaPro" pointSize="16"/>
-                                                                    <color key="textColor" name="748189"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstItem="bUo-dm-sHN" firstAttribute="top" secondItem="IPS-5e-ZwP" secondAttribute="bottom" constant="24" id="045-vR-Puy"/>
                                                                 <constraint firstItem="IPS-5e-ZwP" firstAttribute="leading" secondItem="EAb-QL-7Pa" secondAttribute="leading" constant="24" id="0u0-Pd-0V0"/>
+                                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="IPS-5e-ZwP" secondAttribute="bottom" id="1hP-Ne-db6"/>
                                                                 <constraint firstItem="3a8-io-ieE" firstAttribute="leading" secondItem="EAb-QL-7Pa" secondAttribute="leading" constant="24" id="2Xn-sY-HOU"/>
                                                                 <constraint firstItem="oeG-Bo-Mjq" firstAttribute="top" secondItem="UcR-57-PoU" secondAttribute="top" id="5Lx-BG-SQv"/>
                                                                 <constraint firstItem="4HG-VX-QqV" firstAttribute="top" secondItem="UcR-57-PoU" secondAttribute="bottom" constant="6" id="Df2-a2-hlj"/>
-                                                                <constraint firstAttribute="trailing" secondItem="bUo-dm-sHN" secondAttribute="trailing" constant="24" id="Fc7-Bf-KwD"/>
-                                                                <constraint firstAttribute="trailing" secondItem="tkN-e1-m6I" secondAttribute="trailing" constant="24" id="IxZ-pM-HAf"/>
                                                                 <constraint firstItem="Rp3-vA-RG0" firstAttribute="top" secondItem="EAb-QL-7Pa" secondAttribute="top" constant="12" id="Nfx-be-6MU"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Lqz-W8-O2k" secondAttribute="trailing" constant="24" id="OBX-mq-Qsy"/>
                                                                 <constraint firstItem="3a8-io-ieE" firstAttribute="top" secondItem="Lqz-W8-O2k" secondAttribute="bottom" constant="16" id="V48-2R-Nr7"/>
@@ -444,15 +430,11 @@
                                                                 <constraint firstItem="UcR-57-PoU" firstAttribute="top" secondItem="Rp3-vA-RG0" secondAttribute="bottom" constant="23" id="eSS-gC-GCe"/>
                                                                 <constraint firstItem="Lqz-W8-O2k" firstAttribute="leading" secondItem="EAb-QL-7Pa" secondAttribute="leading" constant="24" id="ewf-C1-R54"/>
                                                                 <constraint firstItem="oeG-Bo-Mjq" firstAttribute="leading" secondItem="UcR-57-PoU" secondAttribute="trailing" constant="8" id="gI3-xz-zeg"/>
-                                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tkN-e1-m6I" secondAttribute="bottom" constant="12" id="htr-pW-0Hn"/>
                                                                 <constraint firstAttribute="trailing" secondItem="IPS-5e-ZwP" secondAttribute="trailing" constant="24" id="iUJ-d5-gNR"/>
-                                                                <constraint firstItem="tkN-e1-m6I" firstAttribute="leading" secondItem="EAb-QL-7Pa" secondAttribute="leading" constant="24" id="j1O-lq-Z7D"/>
                                                                 <constraint firstAttribute="trailing" secondItem="4HG-VX-QqV" secondAttribute="trailing" constant="24" id="kxN-bj-x4o"/>
                                                                 <constraint firstItem="Rp3-vA-RG0" firstAttribute="centerX" secondItem="EAb-QL-7Pa" secondAttribute="centerX" id="nH2-bT-h5c"/>
                                                                 <constraint firstItem="Lqz-W8-O2k" firstAttribute="top" secondItem="4HG-VX-QqV" secondAttribute="bottom" constant="16" id="pag-DR-ogr"/>
                                                                 <constraint firstItem="4HG-VX-QqV" firstAttribute="leading" secondItem="EAb-QL-7Pa" secondAttribute="leading" constant="24" id="pn7-MT-lw4"/>
-                                                                <constraint firstItem="bUo-dm-sHN" firstAttribute="leading" secondItem="EAb-QL-7Pa" secondAttribute="leading" constant="24" id="xyx-iL-TwX"/>
-                                                                <constraint firstItem="tkN-e1-m6I" firstAttribute="top" secondItem="bUo-dm-sHN" secondAttribute="bottom" constant="2" id="yED-Ga-uez"/>
                                                                 <constraint firstItem="UcR-57-PoU" firstAttribute="leading" secondItem="EAb-QL-7Pa" secondAttribute="leading" constant="24" id="ywp-C8-O0U"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
@@ -496,7 +478,6 @@
                                             <outlet property="proteinTitleLabel" destination="jQe-3y-dpg" id="M7x-Jt-aWT"/>
                                             <outlet property="timeCookLabel" destination="kip-KR-sdb" id="WVs-G6-YE0"/>
                                             <outlet property="titleLabel" destination="UcR-57-PoU" id="YCB-U7-24h"/>
-                                            <outlet property="totalIngredientLabel" destination="tkN-e1-m6I" id="ZZd-KL-jeA"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
