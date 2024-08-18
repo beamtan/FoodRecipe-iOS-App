@@ -106,8 +106,13 @@ class Service: ServiceProtocol {
 extension Service: RequestInterceptor {
     func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         var request = urlRequest
+        var apiKey: String = ""
         
-        request.headers.add(name: "x-api-key", value: "3bba1cad5cee4cfbbe6f5b1a6a6097e1")
+        if let keyDictionary = Bundle.main.infoDictionary, let key = keyDictionary["ApiKey"] as? String {
+            apiKey = key
+        }
+        
+        request.headers.add(name: "x-api-key", value: "\(apiKey)")
         
         print("urlRequest: ---> \(String(describing: request.url))")
         print("METHOD: ---> \(String(describing: request.httpMethod))")

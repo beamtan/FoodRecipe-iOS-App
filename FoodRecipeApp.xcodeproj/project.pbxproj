@@ -299,6 +299,7 @@
 		EFF585072C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailTypeAndTotalCollectionViewCell.swift; sourceTree = "<group>"; };
 		EFF585082C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodDetailTypeAndTotalCollectionViewCell.xib; sourceTree = "<group>"; };
 		EFF5850C2C71515F00FA56BC /* ExtensionDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDouble.swift; sourceTree = "<group>"; };
+		EFF585102C724D4D00FA56BC /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -771,6 +772,7 @@
 				EFB5AF8A2C5E94190004075F /* AppDelegate.swift */,
 				EFB5AF8C2C5E94190004075F /* SceneDelegate.swift */,
 				EF86657B2C653E7C0016023C /* GoogleService-Info.plist */,
+				EFF585102C724D4D00FA56BC /* Config.xcconfig */,
 				EFB5AFBD2C5EACB50004075F /* Fonts */,
 			);
 			path = Resources;
@@ -1260,6 +1262,7 @@
 /* Begin XCBuildConfiguration section */
 		EFB5AFAF2C5E941B0004075F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFF585102C724D4D00FA56BC /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
