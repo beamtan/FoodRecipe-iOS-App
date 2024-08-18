@@ -51,6 +51,7 @@ extension FoodDetailViewController: UIScrollViewDelegate {
             
             headerView.layer.opacity = Float(min(abs(differentSheetAndHeaderOverlap) / 100, 1))
             closeButtonSolidBG.layer.opacity = Float((1 - (abs(differentSheetAndHeaderOverlap) / 100)))
+            likeButtonSolidBG.layer.opacity = Float((1 - (abs(differentSheetAndHeaderOverlap) / 100)))
             
             return
         }
@@ -60,5 +61,7 @@ extension FoodDetailViewController: UIScrollViewDelegate {
         }
         
         headerView.layer.opacity = 0
+        closeButtonSolidBG.layer.opacity = 1
+        likeButtonSolidBG.layer.opacity = 1
     }
 }

@@ -544,6 +544,25 @@
                                     <action selector="closePressed:" destination="cVu-pg-0gw" eventType="touchUpInside" id="TMS-28-7KQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUp-If-woE" userLabel="Like Button SolidBG">
+                                <rect key="frame" x="329" y="56" width="40" height="40"/>
+                                <color key="backgroundColor" name="E6EBF2"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ZjK-XZ-vet"/>
+                                    <constraint firstAttribute="width" constant="40" id="uXz-Wp-E4E"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="heartIcon"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="heartPressed:" destination="cVu-pg-0gw" eventType="touchUpInside" id="ndT-Yo-hBO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZVo-5l-hZD"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -557,8 +576,10 @@
                             <constraint firstItem="3aO-Yx-1YZ" firstAttribute="top" secondItem="kJA-pl-zcN" secondAttribute="top" id="LmR-jR-Hsr"/>
                             <constraint firstItem="NTR-Lc-s7a" firstAttribute="top" secondItem="lDr-Ve-Dqq" secondAttribute="top" id="UIL-iB-q11"/>
                             <constraint firstItem="6i3-Td-OAi" firstAttribute="leading" secondItem="ZVo-5l-hZD" secondAttribute="leading" id="V3j-wf-Zyx"/>
+                            <constraint firstItem="ZVo-5l-hZD" firstAttribute="trailing" secondItem="AUp-If-woE" secondAttribute="trailing" constant="24" id="bM9-oC-0dO"/>
                             <constraint firstItem="6i3-Td-OAi" firstAttribute="top" secondItem="lDr-Ve-Dqq" secondAttribute="top" id="j1g-se-p4f"/>
                             <constraint firstItem="txx-T7-J9S" firstAttribute="leading" secondItem="ZVo-5l-hZD" secondAttribute="leading" id="nde-gR-bnl"/>
+                            <constraint firstItem="AUp-If-woE" firstAttribute="centerY" secondItem="3aO-Yx-1YZ" secondAttribute="centerY" id="rNF-dP-m6h"/>
                             <constraint firstItem="ZVo-5l-hZD" firstAttribute="trailing" secondItem="6i3-Td-OAi" secondAttribute="trailing" id="y4v-VA-24u"/>
                         </constraints>
                     </view>
@@ -570,6 +591,7 @@
                         <outlet property="foodImageViewHeight" destination="KKg-qs-IVA" id="Ba1-h1-wHa"/>
                         <outlet property="foodImageViewTopPadding" destination="UIL-iB-q11" id="xKX-bp-6yL"/>
                         <outlet property="headerView" destination="txx-T7-J9S" id="1cD-Ly-dTK"/>
+                        <outlet property="likeButtonSolidBG" destination="AUp-If-woE" id="vHg-or-b2I"/>
                         <outlet property="scrollView" destination="6i3-Td-OAi" id="zYk-WK-gA4"/>
                         <outlet property="titleSolidBGHeaderLabel" destination="Cnd-0P-w7S" id="CmD-So-KdA"/>
                     </connections>
@@ -584,6 +606,7 @@
         <image name="carbIcon" width="24" height="24"/>
         <image name="fatIcon" width="24" height="24"/>
         <image name="fitness.timer" catalog="system" width="128" height="123"/>
+        <image name="heartIcon" width="24" height="24"/>
         <image name="imagePlaceholder" width="204" height="204"/>
         <image name="proteinIcon" width="24" height="24"/>
         <image name="xmark" catalog="system" width="128" height="113"/>

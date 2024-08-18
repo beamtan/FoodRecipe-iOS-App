@@ -47,6 +47,7 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var closeButtonClearBG: UIButton!
     @IBOutlet weak var closeButtonSolidBG: UIButton!
+    @IBOutlet weak var likeButtonSolidBG: UIButton!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -77,6 +78,10 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
         dismiss(animated: true)
     }
     
+    @IBAction func heartPressed(_ sender: UIButton) {
+        isFavouriteFood() ? unlikeFood() : likeFood()
+    }
+    
     // MARK: - General Function
     
     private func setup() {
@@ -92,11 +97,51 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
         router.dataStore = interactor
     }
     
-    func updateFoodDetailUi() {
+    private func updateFoodDetailUi() {
         foodImageView.kf.indicatorType = .activity
         foodImageView.kf.setImage(with: URL(string: food?.image ?? ""), placeholder: UIImage(named: "imagePlaceholder"))
         
         titleSolidBGHeaderLabel.text = food?.title
+        
+        if let heartIcon = UIImage(named: "heartIcon"),
+           let fullHeartIcon = UIImage(named: "fullHeartIcon")
+        {
+            let image = isFavouriteFood() ? fullHeartIcon : heartIcon
+            likeButtonSolidBG.setImage(image, for: .normal)
+        }
+    }
+    
+    private func isFavouriteFood() -> Bool {
+        let favFood = UserDefaultService.shared.getFavouriteFoods() ?? []
+        if !favFood.contains(where: { $0.id == food?.id }) {
+            return false
+        }
+        
+        return true
+    }
+    
+    private func unlikeFood() {
+        guard let food else { return }
+        
+        UserDefaultService.shared.removeFavouriteFood(food: food) { [weak self] in
+            guard let self else { return }
+            
+            if let image = UIImage(named: "heartIcon") {
+                likeButtonSolidBG.setImage(image, for: .normal)
+            }
+        }
+    }
+    
+    private func likeFood() {
+        guard let food else { return }
+        
+        UserDefaultService.shared.saveFavouriteFood(food: food) { [weak self] in
+            guard let self else { return }
+            
+            if let image = UIImage(named: "fullHeartIcon") {
+                likeButtonSolidBG.setImage(image, for: .normal)
+            }
+        }
     }
     
     // MARK: - Call Service

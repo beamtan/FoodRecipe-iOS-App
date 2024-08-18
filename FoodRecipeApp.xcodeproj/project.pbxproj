@@ -140,6 +140,9 @@
 		EFF585092C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF585072C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.swift */; };
 		EFF5850A2C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF585082C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.xib */; };
 		EFF5850D2C71515F00FA56BC /* ExtensionDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5850C2C71515F00FA56BC /* ExtensionDouble.swift */; };
+		EFF585162C725FD700FA56BC /* FavouriteFoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF585152C725FD700FA56BC /* FavouriteFoodModel.swift */; };
+		EFF5851A2C72635600FA56BC /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF585192C72635600FA56BC /* UserDefaultService.swift */; };
+		EFF5851B2C726FFE00FA56BC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFB5AF982C5E941A0004075F /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -300,6 +303,8 @@
 		EFF585082C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodDetailTypeAndTotalCollectionViewCell.xib; sourceTree = "<group>"; };
 		EFF5850C2C71515F00FA56BC /* ExtensionDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDouble.swift; sourceTree = "<group>"; };
 		EFF585102C724D4D00FA56BC /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		EFF585152C725FD700FA56BC /* FavouriteFoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteFoodModel.swift; sourceTree = "<group>"; };
+		EFF585192C72635600FA56BC /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -719,9 +724,11 @@
 			isa = PBXGroup;
 			children = (
 				EFB5AF982C5E941A0004075F /* Info.plist */,
+				EFF585122C725ED300FA56BC /* Configurations */,
 				EFB5AFBC2C5EAB470004075F /* Resources */,
 				EF86657D2C6601890016023C /* Extensions */,
 				EFA42C3E2C6D1604004ACBD5 /* Helpers */,
+				EFF585172C72621300FA56BC /* Common */,
 				EFD3556F2C61514E005CC6DA /* Services */,
 				EFB5AFBA2C5E9A570004075F /* Sources */,
 			);
@@ -772,7 +779,6 @@
 				EFB5AF8A2C5E94190004075F /* AppDelegate.swift */,
 				EFB5AF8C2C5E94190004075F /* SceneDelegate.swift */,
 				EF86657B2C653E7C0016023C /* GoogleService-Info.plist */,
-				EFF585102C724D4D00FA56BC /* Config.xcconfig */,
 				EFB5AFBD2C5EACB50004075F /* Fonts */,
 			);
 			path = Resources;
@@ -787,14 +793,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		EFC425BD2C6A9C1E004FF5BE /* Environment */ = {
+		EFC425BD2C6A9C1E004FF5BE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				EFC425BF2C6A9C51004FF5BE /* Environment.swift */,
 				EFD14ECC2C6E699A0016F1B7 /* Service.swift */,
 				EFC425C12C6A9FAE004FF5BE /* HttpClient.swift */,
-				EFC425BF2C6A9C51004FF5BE /* Environment.swift */,
 			);
-			path = Environment;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		EFC425BE2C6A9C2F004FF5BE /* Google */ = {
@@ -881,7 +887,8 @@
 			isa = PBXGroup;
 			children = (
 				EFC425BE2C6A9C2F004FF5BE /* Google */,
-				EFC425BD2C6A9C1E004FF5BE /* Environment */,
+				EFC425BD2C6A9C1E004FF5BE /* Network */,
+				EFF585182C72632600FA56BC /* UserDefault */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -934,6 +941,38 @@
 				EFF5850C2C71515F00FA56BC /* ExtensionDouble.swift */,
 			);
 			path = Double;
+			sourceTree = "<group>";
+		};
+		EFF585122C725ED300FA56BC /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				EFF585102C724D4D00FA56BC /* Config.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		EFF585132C725FA800FA56BC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EFF585152C725FD700FA56BC /* FavouriteFoodModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EFF585172C72621300FA56BC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EFF585132C725FA800FA56BC /* Models */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		EFF585182C72632600FA56BC /* UserDefault */ = {
+			isa = PBXGroup;
+			children = (
+				EFF585192C72635600FA56BC /* UserDefaultService.swift */,
+			);
+			path = UserDefault;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1157,6 +1196,7 @@
 				EFC523992C629A94001467DC /* HomeInteractor.swift in Sources */,
 				EF15DEE12C5EC44700EF4294 /* CreateAccountWorker.swift in Sources */,
 				EFD355712C615183005CC6DA /* GoogleService.swift in Sources */,
+				EFF585162C725FD700FA56BC /* FavouriteFoodModel.swift in Sources */,
 				EFA42C7E2C6DF48B004ACBD5 /* AccountCollectionViewCell.swift in Sources */,
 				EF15DEE22C5EC44700EF4294 /* CreateAccountRouter.swift in Sources */,
 				EFD14ED72C6FAEBD0016F1B7 /* FoodDetailViewController+UIScrollViewDelegate.swift in Sources */,
@@ -1174,6 +1214,7 @@
 				EFA42C662C6DC1FF004ACBD5 /* SearchTitleCollectionViewCell.swift in Sources */,
 				EF0759782C667C6300CA1F67 /* TabbarViewController.swift in Sources */,
 				EF0759712C66590900CA1F67 /* ProfileViewController.swift in Sources */,
+				EFF5851A2C72635600FA56BC /* UserDefaultService.swift in Sources */,
 				EF0759722C66590900CA1F67 /* ProfileInteractor.swift in Sources */,
 				EFA42C832C6DF4B9004ACBD5 /* AccountTitleCollectionViewCell.swift in Sources */,
 				EF15DEF02C5EC91500EF4294 /* AuthenticationPresenter.swift in Sources */,
