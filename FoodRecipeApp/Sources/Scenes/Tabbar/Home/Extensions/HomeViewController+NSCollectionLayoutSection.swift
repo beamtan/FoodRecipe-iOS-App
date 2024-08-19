@@ -157,10 +157,14 @@ extension HomeViewController {
     
     // Popular recipe
     func createNSCollectionLayoutSectionPopularRecipe() -> NSCollectionLayoutSection {
+        let cellWidth: CGFloat = 200
+        let cellHeight: CGFloat = 240
+        let padding: CGFloat = 12.0
+        
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .absolute(200),
-                heightDimension: .absolute(240)
+                widthDimension: .estimated(cellWidth),
+                heightDimension: .absolute(cellHeight)
             )
         )
         
@@ -170,22 +174,14 @@ extension HomeViewController {
             bottom: 0,
             trailing: 0
         )
-
-        let height: Int = 200
-        let popularRecipeCount: Int = 6
-        let popularRecipeSpacing: Int = popularRecipeCount - 1
-        let spacing: Int = 16
         
-        let groupWidth = CGFloat(height * popularRecipeCount + spacing * popularRecipeSpacing) // 6 items of 200pt width + 5 spacings of 16pt each
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .absolute(groupWidth),
-                heightDimension: .absolute(240)
+                widthDimension: .estimated(cellWidth),
+                heightDimension: .absolute(cellHeight)
             ),
             subitems: [item]
         )
-        
-        group.interItemSpacing = .fixed(16)
 
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .paging
@@ -196,6 +192,8 @@ extension HomeViewController {
             bottom: 0,
             trailing: 24
         )
+        
+        section.interGroupSpacing = padding
         
         /// [Header] Add header to the section
         

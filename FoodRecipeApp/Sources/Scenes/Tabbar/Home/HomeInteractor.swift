@@ -41,8 +41,6 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
         }
     }
     
-    
-    
     // MARK: - Prepare Routing
     
     func prepareRouteToFoodDetail(foodId: String) {

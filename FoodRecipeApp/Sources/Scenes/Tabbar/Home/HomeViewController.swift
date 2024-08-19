@@ -59,6 +59,12 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         inquirySearchFoodByCategory()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView.reloadSections([Sections.popularRecipe.rawValue])
+    }
+    
     // MARK: - IBAction
     
     

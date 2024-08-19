@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProfileDisplayLogic: AnyObject {
-    
+    func displayInquiryFavouriteFoods(viewModel: ProfileModels.InquiryFavouriteFoods.ViewModel)
 }
 
 class ProfileViewController: UIViewController, ProfileDisplayLogic {
@@ -24,6 +24,8 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
     
     var interactor: ProfileBusinessLogic?
     var router: (NSObjectProtocol & ProfileRoutingLogic & ProfileDataPassing)?
+    
+    private var favouriteFoods: [FoodDetailModels.FoodDetailResponse]?
     
     // MARK: - IBOutlet
     
@@ -62,6 +64,12 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
         
         setupCollectionView()
         collectionView.collectionViewLayout = createLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        inquiryFavouriteFoods()
     }
     
     // MARK: - IBAction
@@ -123,11 +131,20 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
             UINib(nibName: "ProfileFavCollectionViewCell", bundle: .main),
             forCellWithReuseIdentifier: "ProfileFavCollectionViewCell"
         )
-        
-        // MARK: - Display
-        
-        func displaySomething(viewModel: ProfileModels.Something.ViewModel) {
-        }
+    }
+    
+    // MARK: - Get Data
+    
+    func inquiryFavouriteFoods() {
+        let request = ProfileModels.InquiryFavouriteFoods.Request()
+        interactor?.inquiryFavouriteFoods(request: request)
+    }
+    
+    // MARK: - Display
+    
+    func displayInquiryFavouriteFoods(viewModel: ProfileModels.InquiryFavouriteFoods.ViewModel) {
+        favouriteFoods = viewModel.data
+        collectionView.reloadSections([Sections.favorites.rawValue])
     }
 }
 
@@ -146,7 +163,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
         
         if section == Sections.favorites.rawValue {
-            return 6
+            return favouriteFoods?.count ?? 0
         }
         
         return 0
@@ -167,6 +184,11 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         if indexPath.section == Sections.favorites.rawValue {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileFavCollectionViewCell", for: indexPath) as! ProfileFavCollectionViewCell
+            
+            if let favFood = favouriteFoods?[indexPath.row] {
+                cell.setup(favFood: favFood)
+            }
+            
             return cell
         }
         

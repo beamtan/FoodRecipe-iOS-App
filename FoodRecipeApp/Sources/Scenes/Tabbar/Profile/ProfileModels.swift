@@ -10,17 +10,17 @@ import UIKit
 
 struct ProfileModels {
     
-    struct Something {
+    struct InquiryFavouriteFoods {
         struct Request {
             
         }
         
         struct Response {
-            
+            let data: [FoodDetailModels.FoodDetailResponse]?
         }
         
         struct ViewModel {
-            
+            let data: [FoodDetailModels.FoodDetailResponse]?
         }
     }
 }

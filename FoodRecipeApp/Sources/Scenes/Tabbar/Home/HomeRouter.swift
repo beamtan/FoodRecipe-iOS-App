@@ -29,7 +29,6 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
             return
         }
         
-        
         passDataToFoodDetailViewController(source: dataStore, destination: &destinationDataStore)
         navigateToFoodDetail(source: viewController, destination: destination)
     }

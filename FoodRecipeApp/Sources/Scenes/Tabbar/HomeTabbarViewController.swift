@@ -53,5 +53,6 @@ class HomeTabbarViewController: UITabBarController, UITabBarControllerDelegate {
     
     @objc func middleButtonPressed() {
         print("im here")
+        UserDefaultService.shared.removeAll(completionHandler: nil)
     }
 }

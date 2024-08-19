@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProfileFavCollectionViewCell: UICollectionViewCell {
     static let identifier: String = "ProfileFavCollectionViewCell"
@@ -18,4 +19,16 @@ class ProfileFavCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var profileImageView: UIImageView!
     @IBOutlet weak private var nameLabel: UILabel!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+    
+    func setup(favFood: FoodDetailModels.FoodDetailResponse) {
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(with: URL(string: favFood.image ?? ""), placeholder: UIImage(named: "imagePlaceholder"))
+        
+        titleLabel.text = favFood.title
+        
+    }
 }

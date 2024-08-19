@@ -142,7 +142,6 @@
 		EFF5850D2C71515F00FA56BC /* ExtensionDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5850C2C71515F00FA56BC /* ExtensionDouble.swift */; };
 		EFF585162C725FD700FA56BC /* FavouriteFoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF585152C725FD700FA56BC /* FavouriteFoodModel.swift */; };
 		EFF5851A2C72635600FA56BC /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF585192C72635600FA56BC /* UserDefaultService.swift */; };
-		EFF5851B2C726FFE00FA56BC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFB5AF982C5E941A0004075F /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1080,6 +1079,7 @@
 				EF78B0262C680689003686F5 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				EF78B0272C680BDA003686F5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				EFD14ED82C6FDC910016F1B7 /* XCRemoteSwiftPackageReference "SwifterSwift" */,
+				EF0365C92C73BB4000965A66 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = EFB5AF882C5E94190004075F /* Products */;
 			projectDirPath = "";
@@ -1589,6 +1589,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EF0365C92C73BB4000965A66 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 		EF78B0262C680689003686F5 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";

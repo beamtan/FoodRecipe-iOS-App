@@ -21,7 +21,7 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
     
     enum Sections: Int, CaseIterable {
         case detail = 0
-        case type = 1
+        case totalAndType = 1
         case ingredients = 2
     }
     
@@ -74,12 +74,16 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
         inquiryFoodDetail()
     }
     
+    // MARK: - IBAction
+    
     @IBAction func closePressed(_ sender: UIButton) {
         dismiss(animated: true)
     }
     
     @IBAction func heartPressed(_ sender: UIButton) {
         isFavouriteFood() ? unlikeFood() : likeFood()
+        
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
     }
     
     // MARK: - General Function
@@ -190,7 +194,7 @@ extension FoodDetailViewController: UICollectionViewDelegate, UICollectionViewDa
             return 1
         }
         
-        if section == Sections.type.rawValue {
+        if section == Sections.totalAndType.rawValue {
             return 1
         }
         
@@ -219,27 +223,27 @@ extension FoodDetailViewController: UICollectionViewDelegate, UICollectionViewDa
                 guard let self else { return }
                 
                 foodDetailType = .ingredient
-                collectionView.reloadSections([Sections.ingredients.rawValue, Sections.type.rawValue])
+                collectionView.reloadSections([Sections.ingredients.rawValue, Sections.totalAndType.rawValue])
             }
             
             cell.instructionClosure = { [weak self] in
                 guard let self else { return }
                 
                 foodDetailType = .instruction
-                collectionView.reloadSections([Sections.ingredients.rawValue, Sections.type.rawValue])
+                collectionView.reloadSections([Sections.ingredients.rawValue, Sections.totalAndType.rawValue])
             }
             
             return cell
         }
         
-        if indexPath.section == Sections.type.rawValue {
+        if indexPath.section == Sections.totalAndType.rawValue {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodDetailTypeAndTotalCollectionViewCell", for: indexPath) as! FoodDetailTypeAndTotalCollectionViewCell
             
-            if let food,
-               let extendedIngredients = food.extendedIngredients,
-               let step = food.analyzedInstructions?.first?.steps {
-                let total: Int = (foodDetailType == .ingredient) ? extendedIngredients.count : step.count
+            if let food {
+                let totalExtendedIngredient: Int = food.extendedIngredients?.count ?? 0
+                let totalStep: Int = food.analyzedInstructions?.first?.steps?.count ?? 0
                 
+                let total: Int = (foodDetailType == .ingredient) ? totalExtendedIngredient : totalStep
                 cell.setup(type: foodDetailType.rawValue, total: total)
             }
             
@@ -298,7 +302,7 @@ extension FoodDetailViewController {
             switch Sections(rawValue: sectionIndex) {
             case .detail:
                 return self.createNSCollectionLayoutSectionDetail()
-            case .type:
+            case .totalAndType:
                 return self.createNSCollectionLayoutSectionTypeAndTotal()
             case .ingredients:
                 if foodDetailType == .ingredient {

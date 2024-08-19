@@ -46,6 +46,9 @@ class Service: ServiceProtocol {
         components?.queryItems = [
             URLQueryItem(name: "query", value: request.category),
             URLQueryItem(name: "number", value: "\(request.number)"),
+            URLQueryItem(name: "addRecipeNutrition", value: true.string),
+            URLQueryItem(name: "sort", value: "popularity"),
+            URLQueryItem(name: "sortDirection", value: "desc"),
         ]
         
         let urlString = components?.url?.absoluteString ?? ""

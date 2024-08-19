@@ -28,7 +28,7 @@ class FoodDetailSheetCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var proteinTitleLabel: UILabel!
     @IBOutlet weak private var caloriesTitleLabel: UILabel!
     @IBOutlet weak private var fatTitleLabel: UILabel!
-
+    
     @IBOutlet weak private var carbLabel: UILabel!
     @IBOutlet weak private var proteinLabel: UILabel!
     @IBOutlet weak private var caloriesLabel: UILabel!
@@ -37,29 +37,29 @@ class FoodDetailSheetCollectionViewCell: UICollectionViewCell {
     // MARK: - IBAction
     
     @IBAction func ingredientPressed(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.1) { [weak self] in
-            guard let self else { return }
-            
-            instructionButton.backgroundColor = .E_6_EBF_2
-            instructionButton.titleLabel?.textColor = .black
-            
+        UIView.transition(with: sender, duration: 0.3, options: .transitionCrossDissolve, animations: {
             sender.backgroundColor = ._042628
             sender.titleLabel?.textColor = .white
-        }
+        })
+        
+        UIView.transition(with: instructionButton, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            self.instructionButton.backgroundColor = .E_6_EBF_2
+            self.instructionButton.titleLabel?.textColor = .black
+        })
         
         ingredientClosure?()
     }
     
     @IBAction func instructionPressed(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.1) { [weak self] in
-            guard let self else { return }
-            
-            ingredientButton.backgroundColor = .E_6_EBF_2
-            ingredientButton.titleLabel?.textColor = .black
-            
+        UIView.transition(with: sender, duration: 0.3, options: .transitionCrossDissolve, animations: {
             sender.backgroundColor = ._042628
             sender.titleLabel?.textColor = .white
-        }
+        })
+        
+        UIView.transition(with: ingredientButton, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            self.ingredientButton.backgroundColor = .E_6_EBF_2
+            self.ingredientButton.titleLabel?.textColor = .black
+        })
         
         instructionClosure?()
     }
@@ -67,13 +67,12 @@ class FoodDetailSheetCollectionViewCell: UICollectionViewCell {
     // MARK: - Setup
     
     func setup(food: FoodDetailModels.FoodDetailResponse) {
-        let totalIngredient: Int = food.extendedIngredients?.count ?? 0
-        let spoonacularScore = food.spoonacularScore ?? 0.0
-        
         let timeCook: Int = food.readyInMinutes ?? 0
+        let credit: String = food.creditsText ?? "unknown"
         let displayTimeCook: String = timeCook > 1 ? "\(timeCook)" : "--"
         
         let nutrients: [FoodDetailModels.FoodDetailResponse.Nutrition.Flavonoid] = food.nutrition?.nutrients ?? []
+        
         let carb = nutrients.first(where: { $0.name == "Carbohydrates" })
         let protein = nutrients.first(where: { $0.name == "Protein" })
         let calories = nutrients.first(where: { $0.name == "Calories" })
@@ -96,7 +95,7 @@ class FoodDetailSheetCollectionViewCell: UICollectionViewCell {
         
         titleLabel.text = food.title
         timeCookLabel.text = "\(displayTimeCook) Min"
-        descriptionLabel.text = "Score: \(spoonacularScore.rounding(decimal: 2))"
+        descriptionLabel.text = "Credit: \(credit)"
         carbLabel.text = "\(displayCarb) \(displayCarbUnit)"
         proteinLabel.text = "\(displayProtein) \(displayProteinUnit)"
         caloriesLabel.text = "\(displayCalories) \(displayCaloriesUnit)"

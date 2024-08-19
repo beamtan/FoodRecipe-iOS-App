@@ -59,12 +59,62 @@ struct HomeModels {
         let offset, number, totalResults: Int?
         
         struct Result: Codable {
+            let vegetarian, vegan, glutenFree, dairyFree: Bool?
+            let veryHealthy, cheap, veryPopular, sustainable: Bool?
+            let lowFodmap: Bool?
+            let weightWatcherSmartPoints: Int?
+            let gaps: String?
+            let preparationMinutes, cookingMinutes: Int?
+            let aggregateLikes, healthScore: Int?
+            let creditsText, sourceName: String?
+            let pricePerServing: Double?
             let id: Int?
             let title: String?
-            let imageType: String?
+            let readyInMinutes, servings: Int?
+            let sourceURL: String?
             let image: String?
+            let imageType: String?
+            let nutrition: Nutrition?
+            let summary: String?
+            let cuisines, dishTypes, diets, occasions: [String]?
+            let spoonacularScore: Double?
+            let spoonacularSourceURL: String?
+            let license: String?
+            
+            struct Nutrition: Codable {
+                let nutrients, properties, flavonoids: [Flavonoid]?
+                let ingredients: [Ingredient]?
+                let caloricBreakdown: CaloricBreakdown?
+                let weightPerServing: WeightPerServing?
+                
+                struct Flavonoid: Codable {
+                    let name: String?
+                    let amount: Double?
+                    let unit: String?
+                    let percentOfDailyNeeds: Double?
+                }
+                
+                struct Ingredient: Codable {
+                    let id: Int?
+                    let name: String?
+                    let amount: Double?
+                    let unit: String?
+                    let nutrients: [Flavonoid]?
+                }
+                
+                struct CaloricBreakdown: Codable {
+                    let percentProtein, percentFat, percentCarbs: Double?
+                }
+                
+                struct WeightPerServing: Codable {
+                    let amount: Int?
+                    let unit: String?
+                }
+            }
         }
     }
+    
+    
     
     // Static Data for Category button
     

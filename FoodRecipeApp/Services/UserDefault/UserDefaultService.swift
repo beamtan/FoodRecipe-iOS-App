@@ -12,13 +12,16 @@ protocol UserDefaultServiceLogic {
     func getFavouriteFoods() -> [FoodDetailModels.FoodDetailResponse]?
     func saveFavouriteFood(food: FoodDetailModels.FoodDetailResponse, completionHandler: (() -> ())?)
     func removeFavouriteFood(food: FoodDetailModels.FoodDetailResponse, completionHandler: (() -> ())?)
+    func removeAll(completionHandler: (() -> ())?)
 }
 
 class UserDefaultService: UserDefaultServiceLogic {
     static let shared: UserDefaultServiceLogic = UserDefaultService()
     
+    private let myFavouriteFoodKey: String = "MyFavouriteFood"
+    
     func getFavouriteFoods() -> [FoodDetailModels.FoodDetailResponse]? {
-        guard let data = UserDefaults.standard.data(forKey: "MyFavouriteFood"),
+        guard let data = UserDefaults.standard.data(forKey: myFavouriteFoodKey),
               let favFood: [FoodDetailModels.FoodDetailResponse] = try? JSONDecoder().decode([FoodDetailModels.FoodDetailResponse].self, from: data) else {
             return nil
         }
@@ -37,12 +40,8 @@ class UserDefaultService: UserDefaultServiceLogic {
         }
         
         if let data = try? JSONEncoder().encode(favFoods) {
-            UserDefaults.standard.set(data, forKey: "MyFavouriteFood")
+            UserDefaults.standard.set(data, forKey: myFavouriteFoodKey)
             completionHandler?()
-        }
-        
-        if let favouriteFoods = getFavouriteFoods() {
-            print("Updated favourite foods: \(favouriteFoods.count) <new = \(food.title)")
         }
     }
     
@@ -57,12 +56,19 @@ class UserDefaultService: UserDefaultServiceLogic {
         favFoods.remove(at: removeIndex)
         
         if let data = try? JSONEncoder().encode(favFoods) {
-            UserDefaults.standard.set(data, forKey: "MyFavouriteFood")
+            UserDefaults.standard.set(data, forKey: myFavouriteFoodKey)
             completionHandler?()
         }
-        
-        if let favouriteFoods = getFavouriteFoods() {
-            print("Updated favourite foods: \(favouriteFoods.count) <new = \(food.title)")
+    }
+    
+    func removeAll(completionHandler: (() -> ())? = nil) {
+        guard let data = UserDefaults.standard.data(forKey: myFavouriteFoodKey),
+              let favFood: [FoodDetailModels.FoodDetailResponse] = try? JSONDecoder().decode([FoodDetailModels.FoodDetailResponse].self, from: data) else {
+            return
         }
+        
+        UserDefaults.standard.removeObject(forKey: myFavouriteFoodKey)
+        
+        return
     }
 }
