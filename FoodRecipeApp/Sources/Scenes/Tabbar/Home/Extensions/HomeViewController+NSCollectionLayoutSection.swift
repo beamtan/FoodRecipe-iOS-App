@@ -157,9 +157,9 @@ extension HomeViewController {
     
     // Popular recipe
     func createNSCollectionLayoutSectionPopularRecipe() -> NSCollectionLayoutSection {
-        let cellWidth: CGFloat = 200
+        let cellWidth: CGFloat = 220
         let cellHeight: CGFloat = 240
-        let padding: CGFloat = 12.0
+        let padding: CGFloat = 0
         
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(

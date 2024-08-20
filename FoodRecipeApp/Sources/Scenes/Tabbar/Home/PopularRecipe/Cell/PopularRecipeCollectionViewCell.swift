@@ -20,7 +20,6 @@ class PopularRecipeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var calorieLabel: UILabel!
     @IBOutlet weak private var timeLabel: UILabel!
     
-    @IBOutlet weak private var favouriteButtonView: UIView!
     @IBOutlet weak private var favouriteImageView: UIImageView! {
         didSet {
             let gesture = UITapGestureRecognizer(target: self, action: #selector(favouritePressed))
@@ -30,12 +29,9 @@ class PopularRecipeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cardView: UIView! {
         didSet {
             cardView.layer.shadowColor = UIColor.black.cgColor
-            cardView.layer.shadowOpacity = 0.1
-            cardView.layer.shadowOffset = CGSize(width: 0, height: 1)
-            cardView.layer.shadowRadius = 2
-            
-            let gesture = UITapGestureRecognizer(target: self, action: #selector(foodPressed))
-            cardView.addGestureRecognizer(gesture)
+            cardView.layer.shadowOpacity = 0.05
+            cardView.layer.shadowOffset = CGSize(width: 0, height: 4)
+            cardView.layer.shadowRadius = 4
         }
     }
     
