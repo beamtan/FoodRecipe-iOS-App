@@ -52,6 +52,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="house" catalog="system" selectedImage="house.fill" id="Zb6-0b-uL8"/>
+                    <navigationItem key="navigationItem" id="wMC-MO-aMh"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="5Wx-aS-wU8" id="rdM-Bx-px7"/>
@@ -59,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="icL-Rc-3xs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100" y="-121.12676056338029"/>
+            <point key="canvasLocation" x="2953.4351145038167" y="-121.12676056338029"/>
         </scene>
     </scenes>
     <resources>

@@ -20,6 +20,8 @@ class HomeTabbarViewController: UITabBarController, UITabBarControllerDelegate {
         
         tabBar.tintColor = ._70_B_9_BE
         tabBar.unselectedItemTintColor = UIColor.gray
+        
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
     func setupMiddleButton() {

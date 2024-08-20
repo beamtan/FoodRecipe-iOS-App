@@ -10,6 +10,7 @@ import UIKit
 
 @objc protocol HomeRoutingLogic {
     func routeToFoodDetail()
+    func routeToAllRecipe()
 }
 
 protocol HomeDataPassing {
@@ -33,6 +34,19 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
         navigateToFoodDetail(source: viewController, destination: destination)
     }
     
+    func routeToAllRecipe() {
+        guard let destination = UIStoryboard(name: "SeeAllFoodStoryboard", bundle: nil).instantiateViewController(withIdentifier: "SeeAllFoodViewController") as? SeeAllFoodViewController else { return }
+        
+        guard let viewController,
+              let dataStore,
+              var destinationDataStore = destination.router?.dataStore else {
+            return
+        }
+        
+        passDataToSeeAllFoodViewController(source: dataStore, destination: &destinationDataStore)
+        navigateToSeeAllFood(source: viewController, destination: destination)
+    }
+    
     // MARK: Navigation
     
     func navigateToFoodDetail(source: HomeViewController, destination: FoodDetailViewController) {
@@ -40,9 +54,21 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
         source.present(destination, animated: true)
     }
     
+    func navigateToSeeAllFood(source: HomeViewController, destination: SeeAllFoodViewController) {
+        if let navigationController = source.navigationController {
+            navigationController.pushViewController(destination, animated: true)
+        } else {
+            print("NavigationController is nil")
+        }
+    }
+    
     // MARK: Passing data
     
     func passDataToFoodDetailViewController(source: HomeDataStore, destination: inout FoodDetailDataStore) {
         destination.food = source.food
+    }
+    
+    func passDataToSeeAllFoodViewController(source: HomeDataStore, destination: inout SeeAllFoodDataStore) {
+//        destination.food = source.food
     }
 }

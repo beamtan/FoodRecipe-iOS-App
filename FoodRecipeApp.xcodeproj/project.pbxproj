@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF0365D42C75170E00965A66 /* SeeAllFoodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0365CE2C75170E00965A66 /* SeeAllFoodPresenter.swift */; };
+		EF0365D52C75170E00965A66 /* SeeAllFoodWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0365CF2C75170E00965A66 /* SeeAllFoodWorker.swift */; };
+		EF0365D62C75170E00965A66 /* SeeAllFoodRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0365D02C75170E00965A66 /* SeeAllFoodRouter.swift */; };
+		EF0365D72C75170E00965A66 /* SeeAllFoodModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0365D12C75170E00965A66 /* SeeAllFoodModels.swift */; };
+		EF0365D82C75170E00965A66 /* SeeAllFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0365D22C75170E00965A66 /* SeeAllFoodViewController.swift */; };
+		EF0365D92C75170E00965A66 /* SeeAllFoodInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0365D32C75170E00965A66 /* SeeAllFoodInteractor.swift */; };
+		EF0365DB2C75180500965A66 /* SeeAllFoodStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF0365DA2C75180500965A66 /* SeeAllFoodStoryboard.storyboard */; };
 		EF0759612C6658E900CA1F67 /* NotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07595B2C6658E900CA1F67 /* NotificationPresenter.swift */; };
 		EF0759622C6658E900CA1F67 /* NotificationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07595C2C6658E900CA1F67 /* NotificationWorker.swift */; };
 		EF0759632C6658E900CA1F67 /* NotificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07595D2C6658E900CA1F67 /* NotificationRouter.swift */; };
@@ -162,6 +169,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF0365CE2C75170E00965A66 /* SeeAllFoodPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodPresenter.swift; sourceTree = "<group>"; };
+		EF0365CF2C75170E00965A66 /* SeeAllFoodWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodWorker.swift; sourceTree = "<group>"; };
+		EF0365D02C75170E00965A66 /* SeeAllFoodRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodRouter.swift; sourceTree = "<group>"; };
+		EF0365D12C75170E00965A66 /* SeeAllFoodModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodModels.swift; sourceTree = "<group>"; };
+		EF0365D22C75170E00965A66 /* SeeAllFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodViewController.swift; sourceTree = "<group>"; };
+		EF0365D32C75170E00965A66 /* SeeAllFoodInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodInteractor.swift; sourceTree = "<group>"; };
+		EF0365DA2C75180500965A66 /* SeeAllFoodStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SeeAllFoodStoryboard.storyboard; sourceTree = "<group>"; };
 		EF07595B2C6658E900CA1F67 /* NotificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPresenter.swift; sourceTree = "<group>"; };
 		EF07595C2C6658E900CA1F67 /* NotificationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationWorker.swift; sourceTree = "<group>"; };
 		EF07595D2C6658E900CA1F67 /* NotificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRouter.swift; sourceTree = "<group>"; };
@@ -338,6 +352,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF0365CD2C75164E00965A66 /* SeeAllFood */ = {
+			isa = PBXGroup;
+			children = (
+				EF0365DA2C75180500965A66 /* SeeAllFoodStoryboard.storyboard */,
+				EF0365D22C75170E00965A66 /* SeeAllFoodViewController.swift */,
+				EF0365D32C75170E00965A66 /* SeeAllFoodInteractor.swift */,
+				EF0365CE2C75170E00965A66 /* SeeAllFoodPresenter.swift */,
+				EF0365CF2C75170E00965A66 /* SeeAllFoodWorker.swift */,
+				EF0365D02C75170E00965A66 /* SeeAllFoodRouter.swift */,
+				EF0365D12C75170E00965A66 /* SeeAllFoodModels.swift */,
+			);
+			path = SeeAllFood;
+			sourceTree = "<group>";
+		};
 		EF0759592C66586300CA1F67 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -524,6 +552,7 @@
 				EF07595A2C66588200CA1F67 /* Profile */,
 				EF0759792C6687E800CA1F67 /* Empty */,
 				EFDABFC32C68E3A600D594A7 /* FoodDetail */,
+				EF0365CD2C75164E00965A66 /* SeeAllFood */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
@@ -1120,6 +1149,7 @@
 				EFA42C862C6DF5CC004ACBD5 /* ProfileFavCollectionViewCell.xib in Resources */,
 				EFB5AF922C5E94190004075F /* Base in Resources */,
 				EF07597D2C66881000CA1F67 /* EmptyStoryboard.storyboard in Resources */,
+				EF0365DB2C75180500965A66 /* SeeAllFoodStoryboard.storyboard in Resources */,
 				EF78B02D2C6819B6003686F5 /* SofiaPro-Light.ttf in Resources */,
 				EF15DEF72C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard in Resources */,
 				EFA42C6D2C6DC2D1004ACBD5 /* SearchPopularRecipeCollectionViewCell.xib in Resources */,
@@ -1215,6 +1245,12 @@
 				EF0759782C667C6300CA1F67 /* TabbarViewController.swift in Sources */,
 				EF0759712C66590900CA1F67 /* ProfileViewController.swift in Sources */,
 				EFF5851A2C72635600FA56BC /* UserDefaultService.swift in Sources */,
+				EF0365D42C75170E00965A66 /* SeeAllFoodPresenter.swift in Sources */,
+				EF0365D52C75170E00965A66 /* SeeAllFoodWorker.swift in Sources */,
+				EF0365D62C75170E00965A66 /* SeeAllFoodRouter.swift in Sources */,
+				EF0365D72C75170E00965A66 /* SeeAllFoodModels.swift in Sources */,
+				EF0365D82C75170E00965A66 /* SeeAllFoodViewController.swift in Sources */,
+				EF0365D92C75170E00965A66 /* SeeAllFoodInteractor.swift in Sources */,
 				EF0759722C66590900CA1F67 /* ProfileInteractor.swift in Sources */,
 				EFA42C832C6DF4B9004ACBD5 /* AccountTitleCollectionViewCell.swift in Sources */,
 				EF15DEF02C5EC91500EF4294 /* AuthenticationPresenter.swift in Sources */,

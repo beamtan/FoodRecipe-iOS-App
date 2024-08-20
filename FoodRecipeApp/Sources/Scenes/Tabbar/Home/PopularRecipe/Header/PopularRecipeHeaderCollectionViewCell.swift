@@ -10,5 +10,16 @@ import UIKit
 
 class PopularRecipeHeaderCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak private var seeAllButtonView: UILabel!
+    var seeAllClosure: (() -> ())?
+    
+    @IBOutlet weak private var seeAllButtonView: UILabel! {
+        didSet {
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(seeAllPressed))
+            seeAllButtonView.addGestureRecognizer(gesture)
+        }
+    }
+    
+    @objc private func seeAllPressed() {
+        seeAllClosure?()
+    }
 }

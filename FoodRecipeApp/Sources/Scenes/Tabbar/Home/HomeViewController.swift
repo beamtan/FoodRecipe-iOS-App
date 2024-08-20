@@ -90,7 +90,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         let selectedCategory: String = categories.categories.first(
             where: { $0.isSelected }
         )?.category.rawValue ?? ""
-        let totalFoodRequest: Int = 8
+        let totalFoodRequest: Int = 4
         
         let request = HomeModels.InquirySearchFoodsByCategory.Request(category: selectedCategory, number: totalFoodRequest)
         interactor?.inquirySearchFoodsByCategory(request: request)
@@ -320,6 +320,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 withReuseIdentifier: "PopularRecipeHeaderCollectionViewCell",
                 for: indexPath
             ) as! PopularRecipeHeaderCollectionViewCell
+            
+            header.seeAllClosure = { [weak self] in
+                guard let self else { return }
+                
+                router?.routeToAllRecipe()
+            }
             
             return header
         }
