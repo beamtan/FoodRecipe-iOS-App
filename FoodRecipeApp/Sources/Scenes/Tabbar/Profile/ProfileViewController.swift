@@ -247,8 +247,6 @@ extension ProfileViewController {
             ),
             subitems: [item]
         )
-        
-        // Section = Section container: header, footer can be shown
 
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .paging
@@ -265,7 +263,8 @@ extension ProfileViewController {
     
     // Account
     private func createNSCollectionLayoutSectionAccount() -> NSCollectionLayoutSection {
-        /// item = cell
+        let sectionPadding: CGFloat = 24
+        let shadowPadding: CGFloat = 8
         
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
@@ -287,7 +286,7 @@ extension ProfileViewController {
         let group = NSCollectionLayoutGroup.vertical(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(100) // vertical align need the group to extend as need
+                heightDimension: .absolute(96) // vertical align need the group to extend as need
             ),
             subitems: [item]
         )
@@ -299,9 +298,9 @@ extension ProfileViewController {
         
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
-            leading: 24,
+            leading: sectionPadding - shadowPadding,
             bottom: 0,
-            trailing: 24
+            trailing: sectionPadding - shadowPadding
         )
         
         section.interGroupSpacing = 16 // vertical align full width will have multiple group in stead of item
@@ -311,7 +310,8 @@ extension ProfileViewController {
     
     // Favorites
     private func createNSCollectionLayoutSectionFavorites() -> NSCollectionLayoutSection {
-        /// item = cell
+        let sectionPadding: CGFloat = 24
+        let shadowPadding: CGFloat = 8
         
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
@@ -337,21 +337,41 @@ extension ProfileViewController {
             subitems: [item]
         )
         
-        group.interItemSpacing = .fixed(16)
+//        group.interItemSpacing = .fixed(16)
+        
+        group.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: sectionPadding - shadowPadding,
+            bottom: 0,
+            trailing: sectionPadding - shadowPadding
+        )
         
         /// Section = Section container: header, footer can be shown
 
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .none // vertical align use main scroll
         
-        section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: 24,
-            bottom: 0,
-            trailing: 24
+        section.interGroupSpacing = 0 // vertical align full width will have multiple group in stead of item
+        
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(62)
         )
         
-        section.interGroupSpacing = 16 // vertical align full width will have multiple group in stead of item
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        
+        header.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: sectionPadding,
+            bottom: 0,
+            trailing: sectionPadding
+        )
+        
+        section.boundarySupplementaryItems = [header]
         
         return section
     }

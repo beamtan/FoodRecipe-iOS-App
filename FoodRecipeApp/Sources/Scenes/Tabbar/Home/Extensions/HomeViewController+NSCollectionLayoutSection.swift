@@ -157,9 +157,10 @@ extension HomeViewController {
     
     // Popular recipe
     func createNSCollectionLayoutSectionPopularRecipe() -> NSCollectionLayoutSection {
-        let cellWidth: CGFloat = 220
+        let cellWidth: CGFloat = 200
         let cellHeight: CGFloat = 240
-        let padding: CGFloat = 0
+        let sectionPadding: CGFloat = 24
+        let shadowPadding: CGFloat = 8
         
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
@@ -188,12 +189,12 @@ extension HomeViewController {
         
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
-            leading: 24,
+            leading: sectionPadding - shadowPadding,
             bottom: 0,
-            trailing: 24
+            trailing: sectionPadding - shadowPadding
         )
         
-        section.interGroupSpacing = padding
+        section.interGroupSpacing = 0
         
         /// [Header] Add header to the section
         
@@ -206,6 +207,13 @@ extension HomeViewController {
             layoutSize: headerSize,
             elementKind: UICollectionView.elementKindSectionHeader,
             alignment: .top
+        )
+        
+        header.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: shadowPadding,
+            bottom: 0,
+            trailing: shadowPadding
         )
         
         section.boundarySupplementaryItems = [header]

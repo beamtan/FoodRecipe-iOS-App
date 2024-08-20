@@ -29,9 +29,9 @@ class PopularRecipeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cardView: UIView! {
         didSet {
             cardView.layer.shadowColor = UIColor.black.cgColor
-            cardView.layer.shadowOpacity = 0.05
-            cardView.layer.shadowOffset = CGSize(width: 0, height: 4)
-            cardView.layer.shadowRadius = 4
+            cardView.layer.shadowOpacity = 0.1
+            cardView.layer.shadowOffset = CGSize(width: 0, height: 0)
+            cardView.layer.shadowRadius = 5
             
             let gesture = UITapGestureRecognizer(target: self, action: #selector(foodPressed))
             cardView.addGestureRecognizer(gesture)
