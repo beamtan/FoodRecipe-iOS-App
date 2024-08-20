@@ -24,13 +24,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pV7-08-W2H">
-                        <rect key="frame" x="0.0" y="0.0" width="190" height="278"/>
+                        <rect key="frame" x="0.0" y="0.0" width="185" height="278"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ipH-1w-giz">
-                                <rect key="frame" x="8" y="8" width="174" height="262"/>
+                                <rect key="frame" x="8" y="8" width="169" height="262"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EggAvocado" translatesAutoresizingMaskIntoConstraints="NO" id="YvD-cc-6XO">
-                                        <rect key="frame" x="12" y="12" width="150" height="88"/>
+                                        <rect key="frame" x="12" y="12" width="145" height="88"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="88" id="TK2-mr-lSO"/>
                                         </constraints>
@@ -41,7 +41,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cde-uT-jcU">
-                                        <rect key="frame" x="124" y="22" width="28" height="28"/>
+                                        <rect key="frame" x="119" y="22" width="28" height="28"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fullHeartIcon" translatesAutoresizingMaskIntoConstraints="NO" id="IuB-Yk-i3z">
                                                 <rect key="frame" x="6" y="6" width="16" height="16"/>
@@ -66,23 +66,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easy homemade beef burger" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H78-u5-0oc">
-                                        <rect key="frame" x="12" y="111.99999999999999" width="160" height="33.333333333333329"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="160" id="T6O-3j-ERK"/>
-                                        </constraints>
+                                        <rect key="frame" x="12" y="111.99999999999999" width="145" height="33.333333333333329"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="girlDev" translatesAutoresizingMaskIntoConstraints="NO" id="s31-gq-FTh">
-                                        <rect key="frame" x="12" y="230" width="20" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="1ua-6z-L9c"/>
-                                            <constraint firstAttribute="height" constant="20" id="cHT-Xy-boj"/>
-                                        </constraints>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beamtan tangsanga" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWc-jI-XdB">
-                                        <rect key="frame" x="40" y="232" width="126" height="16.333333333333343"/>
+                                        <rect key="frame" x="12" y="233.66666666666666" width="145" height="16.333333333333343"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-Regular" family="SofiaPro" pointSize="14"/>
                                         <color key="textColor" name="97A2B0"/>
                                         <nil key="highlightedColor"/>
@@ -91,17 +81,15 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="H78-u5-0oc" firstAttribute="leading" secondItem="ipH-1w-giz" secondAttribute="leading" constant="12" id="2QD-IE-2dY"/>
-                                    <constraint firstItem="s31-gq-FTh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H78-u5-0oc" secondAttribute="bottom" constant="8" id="6TV-gt-eSz"/>
-                                    <constraint firstItem="pWc-jI-XdB" firstAttribute="centerY" secondItem="s31-gq-FTh" secondAttribute="centerY" id="8zS-j8-oyg"/>
                                     <constraint firstAttribute="trailing" secondItem="H78-u5-0oc" secondAttribute="trailing" constant="12" id="9dl-mc-YZI"/>
+                                    <constraint firstItem="pWc-jI-XdB" firstAttribute="leading" secondItem="ipH-1w-giz" secondAttribute="leading" constant="12" id="At1-2x-qbf"/>
+                                    <constraint firstAttribute="bottom" secondItem="pWc-jI-XdB" secondAttribute="bottom" constant="12" id="FKv-hK-reT"/>
                                     <constraint firstAttribute="trailing" secondItem="Cde-uT-jcU" secondAttribute="trailing" constant="22" id="FZS-F1-jXX"/>
                                     <constraint firstItem="YvD-cc-6XO" firstAttribute="leading" secondItem="ipH-1w-giz" secondAttribute="leading" constant="12" id="KG9-45-4pV"/>
-                                    <constraint firstAttribute="trailing" secondItem="pWc-jI-XdB" secondAttribute="trailing" constant="8" id="YAm-ec-2Fb"/>
-                                    <constraint firstItem="s31-gq-FTh" firstAttribute="leading" secondItem="ipH-1w-giz" secondAttribute="leading" constant="12" id="c1x-cj-7P0"/>
+                                    <constraint firstAttribute="trailing" secondItem="pWc-jI-XdB" secondAttribute="trailing" constant="12" id="YAm-ec-2Fb"/>
+                                    <constraint firstItem="pWc-jI-XdB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H78-u5-0oc" secondAttribute="bottom" constant="16" id="cKR-im-sHb"/>
                                     <constraint firstItem="Cde-uT-jcU" firstAttribute="top" secondItem="ipH-1w-giz" secondAttribute="top" constant="22" id="fdZ-hX-Xmj"/>
-                                    <constraint firstItem="pWc-jI-XdB" firstAttribute="leading" secondItem="s31-gq-FTh" secondAttribute="trailing" constant="8" id="fmY-t6-9x9"/>
                                     <constraint firstAttribute="trailing" secondItem="YvD-cc-6XO" secondAttribute="trailing" constant="12" id="lsU-q9-29M"/>
-                                    <constraint firstAttribute="bottom" secondItem="s31-gq-FTh" secondAttribute="bottom" constant="12" id="uSX-JT-FZ5"/>
                                     <constraint firstItem="H78-u5-0oc" firstAttribute="top" secondItem="YvD-cc-6XO" secondAttribute="bottom" constant="12" id="vm7-8Q-Gvs"/>
                                     <constraint firstItem="YvD-cc-6XO" firstAttribute="top" secondItem="ipH-1w-giz" secondAttribute="top" constant="12" id="xMp-bY-kWY"/>
                                 </constraints>
@@ -134,7 +122,6 @@
                 <outlet property="imageView" destination="YvD-cc-6XO" id="KlJ-7m-3Bc"/>
                 <outlet property="likeButtonView" destination="Cde-uT-jcU" id="l4b-6q-wMe"/>
                 <outlet property="nameLabel" destination="pWc-jI-XdB" id="pBJ-IO-4VH"/>
-                <outlet property="profileImageView" destination="s31-gq-FTh" id="XmP-am-8Zo"/>
                 <outlet property="titleLabel" destination="H78-u5-0oc" id="QTJ-cd-hsq"/>
             </connections>
             <point key="canvasLocation" x="183.96946564885496" y="-112.67605633802818"/>
@@ -143,7 +130,6 @@
     <resources>
         <image name="EggAvocado" width="132" height="88"/>
         <image name="fullHeartIcon" width="24" height="24"/>
-        <image name="girlDev" width="50" height="50"/>
         <namedColor name="3DA0A7">
             <color red="0.23899999260902405" green="0.62699997425079346" blue="0.65499997138977051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

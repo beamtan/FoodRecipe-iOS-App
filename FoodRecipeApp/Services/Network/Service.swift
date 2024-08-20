@@ -47,6 +47,8 @@ class Service: ServiceProtocol {
             URLQueryItem(name: "query", value: request.category),
             URLQueryItem(name: "number", value: "\(request.number)"),
             URLQueryItem(name: "addRecipeNutrition", value: true.string),
+            URLQueryItem(name: "addRecipeInstructions", value: true.string),
+            URLQueryItem(name: "fillIngredients", value: true.string),
             URLQueryItem(name: "sort", value: "popularity"),
             URLQueryItem(name: "sortDirection", value: "desc"),
         ]

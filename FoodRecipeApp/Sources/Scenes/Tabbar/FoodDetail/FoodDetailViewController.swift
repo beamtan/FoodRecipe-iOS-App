@@ -154,10 +154,6 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
         interactor?.inquiryFoodDetail()
     }
     
-    private func inquiryFoodNutrition() {
-        interactor?.inquiryFoodNutrition()
-    }
-    
     // MARK: - Display
     
     func displayInquiryFoodDetailSuccess(viewModel: FoodDetailModels.InquiryFoodDetail.ViewModel) {

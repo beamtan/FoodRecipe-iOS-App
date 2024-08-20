@@ -337,8 +337,6 @@ extension ProfileViewController {
             subitems: [item]
         )
         
-//        group.interItemSpacing = .fixed(16)
-        
         group.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
             leading: sectionPadding - shadowPadding,

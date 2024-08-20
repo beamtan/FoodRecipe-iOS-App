@@ -30,7 +30,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
     
     private var categories: HomeModels.Category = HomeModels.Category()
-    private var foods: [HomeModels.SearchFoodsResponse.Result?] = []
+    private var foods: [FoodDetailModels.FoodDetailResponse] = []
     
     // MARK: - IBOutlet
     
@@ -113,8 +113,8 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     
     // MARK: - Navigation
     
-    func prepareRouteToFoodDetail(foodId: String) {
-        interactor?.prepareRouteToFoodDetail(foodId: foodId)
+    func prepareRouteToFoodDetail(food: FoodDetailModels.FoodDetailResponse) {
+        interactor?.prepareRouteToFoodDetail(food: food)
     }
 }
 
@@ -266,16 +266,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularRecipeCollectionViewCell", for: indexPath) as! PopularRecipeCollectionViewCell
             
             if let food = foods[safe: indexPath.row] {
-                cell.setup(food: food!)
+                cell.setup(food: food)
             }
             
             cell.foodClosure = { [weak self] in
                 guard let self else { return }
                     
                 
-                if let food = foods[safe: indexPath.row], let id = food?.id {
-                    let foodId: String = "\(id)"
-                    prepareRouteToFoodDetail(foodId: foodId)
+                if let food = foods[safe: indexPath.row] {
+                    prepareRouteToFoodDetail(food: food)
                 }
             }
             

@@ -55,7 +55,7 @@ struct HomeModels {
     // MARK: - Service Response: Spoonacular
     
     struct SearchFoodsResponse: Codable {
-        let results: [Result]?
+        let results: [FoodDetailModels.FoodDetailResponse]?
         let offset, number, totalResults: Int?
         
         struct Result: Codable {

@@ -11,18 +11,19 @@ import UIKit
 protocol HomeBusinessLogic {
     func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request)
     
-    func prepareRouteToFoodDetail(foodId: String)
+    /// Route
+    func prepareRouteToFoodDetail(food: FoodDetailModels.FoodDetailResponse)
 }
 
 protocol HomeDataStore {
-    var foodId: String { get set }
+    var food: FoodDetailModels.FoodDetailResponse? { get set }
 }
 
 class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     var presenter: HomePresentationLogic?
     var worker: HomeWorker?
     
-    var foodId: String = ""
+    var food: FoodDetailModels.FoodDetailResponse?
     
     func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request) {
         let service = Service()
@@ -43,8 +44,8 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     
     // MARK: - Prepare Routing
     
-    func prepareRouteToFoodDetail(foodId: String) {
-        self.foodId = foodId
+    func prepareRouteToFoodDetail(food: FoodDetailModels.FoodDetailResponse) {
+        self.food = food
         presenter?.presentPrepareRouteToFoodDetail()
     }
 }

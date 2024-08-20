@@ -43,6 +43,6 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
     // MARK: Passing data
     
     func passDataToFoodDetailViewController(source: HomeDataStore, destination: inout FoodDetailDataStore) {
-        destination.id = source.foodId
+        destination.food = source.food
     }
 }

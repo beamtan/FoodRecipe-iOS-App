@@ -43,7 +43,7 @@ class PopularRecipeCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func setup(food: HomeModels.SearchFoodsResponse.Result) {
+    func setup(food: FoodDetailModels.FoodDetailResponse) {
         let calories = food.nutrition?.nutrients?.first(where: { $0.name == "Calories" })
         let caloriesAmount: Int = calories?.amount?.int ?? 0
         let caloriesUnit: String = calories?.unit ?? ""
