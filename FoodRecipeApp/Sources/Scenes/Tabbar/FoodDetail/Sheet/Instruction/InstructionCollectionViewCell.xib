@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,19 +24,19 @@
                                 <rect key="frame" x="24" y="8" width="339" height="69"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instruction" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOr-2i-UZk">
-                                        <rect key="frame" x="22" y="0.0" width="317" height="69"/>
+                                        <rect key="frame" x="28" y="0.0" width="311" height="69"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-Regular" family="SofiaPro" pointSize="16"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="0A2533"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQ7-Rr-4p7">
-                                        <rect key="frame" x="0.0" y="0.0" width="20" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="26" height="18.666666666666668"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="Ug9-qb-JAE"/>
+                                            <constraint firstAttribute="width" constant="26" id="Ug9-qb-JAE"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="SofiaPro-Regular" family="SofiaPro" pointSize="16"/>
+                                        <color key="textColor" name="0A2533"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -75,4 +76,9 @@
             <point key="canvasLocation" x="353.43511450381681" y="-1.7605633802816902"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="0A2533">
+            <color red="0.039000000804662704" green="0.14499999582767487" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

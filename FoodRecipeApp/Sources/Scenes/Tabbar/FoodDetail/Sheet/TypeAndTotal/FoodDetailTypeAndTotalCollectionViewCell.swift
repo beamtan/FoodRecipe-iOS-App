@@ -24,10 +24,16 @@ class FoodDetailTypeAndTotalCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Function
     
-    func setup(type: String, total: Int) {
-        let totalDisplay: String = total > 1 ? "items" : "item"
+    func setup(type: FoodDetailModels.FoodDetailType, total: Int) {
+        let totalDisplay: String
+        switch type {
+        case .ingredient:
+            totalDisplay = (total > 1) ? "items" : "item"
+        case .instruction:
+            totalDisplay = (total > 1) ? "steps" : "step"
+        }
         
-        foodDetailTypeLabel.text = type
+        foodDetailTypeLabel.text = type.rawValue
         totalItemLabel.text = "\(total) \(totalDisplay)"
     }
 }

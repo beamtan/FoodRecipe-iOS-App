@@ -32,6 +32,9 @@ class PopularRecipeCollectionViewCell: UICollectionViewCell {
             cardView.layer.shadowOpacity = 0.05
             cardView.layer.shadowOffset = CGSize(width: 0, height: 4)
             cardView.layer.shadowRadius = 4
+            
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(foodPressed))
+            cardView.addGestureRecognizer(gesture)
         }
     }
     

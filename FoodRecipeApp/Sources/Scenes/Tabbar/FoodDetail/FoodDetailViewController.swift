@@ -244,7 +244,7 @@ extension FoodDetailViewController: UICollectionViewDelegate, UICollectionViewDa
                 let totalStep: Int = food.analyzedInstructions?.first?.steps?.count ?? 0
                 
                 let total: Int = (foodDetailType == .ingredient) ? totalExtendedIngredient : totalStep
-                cell.setup(type: foodDetailType.rawValue, total: total)
+                cell.setup(type: foodDetailType, total: total)
             }
             
             return cell
