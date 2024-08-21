@@ -17,6 +17,7 @@ protocol HomeBusinessLogic {
 
 protocol HomeDataStore {
     var food: FoodDetailModels.FoodDetailResponse? { get set }
+    var category: HomeModels.Category.CategoryType? { get set }
 }
 
 class HomeInteractor: HomeBusinessLogic, HomeDataStore {
@@ -24,12 +25,16 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     var worker: HomeWorker?
     
     var food: FoodDetailModels.FoodDetailResponse?
+    var category: HomeModels.Category.CategoryType?
     
     func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request) {
         let service = Service()
+        category = HomeModels.Category.CategoryType.allCases.first(where: { $0.rawValue == request.category })
         
         service.inquirySearchFoodsByCategory(request: request) { [weak self] (data) in
             guard let self else { return }
+            
+            
             
             switch data.result {
             case .success(let response):

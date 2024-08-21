@@ -9,16 +9,27 @@
 import UIKit
 
 protocol SeeAllFoodPresentationLogic {
-    func presentSomething(response: SeeAllFoodModels.Something.Response)
+    func presentInquirySearchFoodsByCategory(response: HomeModels.InquirySearchFoodsByCategory.Response)
+    func presentGetCategoryValue(response: SeeAllFoodModels.Category.Response)
 }
 
 class SeeAllFoodPresenter: SeeAllFoodPresentationLogic {
     weak var viewController: SeeAllFoodDisplayLogic?
     
-    // MARK: Do something
+    func presentInquirySearchFoodsByCategory(response: HomeModels.InquirySearchFoodsByCategory.Response) {
+        guard response.error == nil else {
+            let viewModel = HomeModels.InquirySearchFoodsByCategory.ViewModel(data: nil, error: response.error)
+            viewController?.displayInquirySearchFoodsByCategoryFailure(viewModel: viewModel)
+            
+            return
+        }
+        
+        let viewModel = HomeModels.InquirySearchFoodsByCategory.ViewModel(data: response.data, error: nil)
+        viewController?.displayInquirySearchFoodsByCategorySuccess(viewModel: viewModel)
+    }
     
-    func presentSomething(response: SeeAllFoodModels.Something.Response) {
-        let viewModel = SeeAllFoodModels.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentGetCategoryValue(response: SeeAllFoodModels.Category.Response) {
+        let viewModel = SeeAllFoodModels.Category.ViewModel(category: response.category)
+        viewController?.displayGetCategoryValue(viewModel: viewModel)
     }
 }

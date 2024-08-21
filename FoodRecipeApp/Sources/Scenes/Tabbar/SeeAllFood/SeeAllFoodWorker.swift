@@ -9,6 +9,5 @@
 import UIKit
 
 class SeeAllFoodWorker {
-    func doSomeWork() {
-    }
+
 }

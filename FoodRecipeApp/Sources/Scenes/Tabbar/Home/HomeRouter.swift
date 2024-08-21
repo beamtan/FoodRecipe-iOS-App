@@ -69,6 +69,6 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
     }
     
     func passDataToSeeAllFoodViewController(source: HomeDataStore, destination: inout SeeAllFoodDataStore) {
-//        destination.food = source.food
+        destination.category = source.category
     }
 }

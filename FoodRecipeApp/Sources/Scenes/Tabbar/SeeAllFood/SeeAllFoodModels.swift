@@ -9,18 +9,17 @@
 import UIKit
 
 struct SeeAllFoodModels {
-    
-    struct Something {
+    struct Category {
         struct Request {
             
         }
         
         struct Response {
-            
+            let category: HomeModels.Category.CategoryType
         }
         
         struct ViewModel {
-            
+            let category: HomeModels.Category.CategoryType
         }
     }
 }

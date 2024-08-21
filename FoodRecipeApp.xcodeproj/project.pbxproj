@@ -60,6 +60,9 @@
 		EF15DEF42C5EC91500EF4294 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEEE2C5EC91500EF4294 /* AuthenticationViewController.swift */; };
 		EF15DEF52C5EC91500EF4294 /* AuthenticationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DEEF2C5EC91500EF4294 /* AuthenticationInteractor.swift */; };
 		EF15DEF72C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF15DEF62C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard */; };
+		EF1B1CBA2C76489100DFEB58 /* SeeAllFoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1B1CB82C76489100DFEB58 /* SeeAllFoodCollectionViewCell.swift */; };
+		EF1B1CBE2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1B1CBC2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.swift */; };
+		EF1B1CBF2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CBD2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.xib */; };
 		EF78B01F2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78B01E2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift */; };
 		EF78B0222C67CA9B003686F5 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78B0212C67CA9B003686F5 /* CategoryCollectionViewCell.swift */; };
 		EF78B0252C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78B0242C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift */; };
@@ -231,6 +234,9 @@
 		EF15DEEE2C5EC91500EF4294 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		EF15DEEF2C5EC91500EF4294 /* AuthenticationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInteractor.swift; sourceTree = "<group>"; };
 		EF15DEF62C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationStoryboard.storyboard; sourceTree = "<group>"; };
+		EF1B1CB82C76489100DFEB58 /* SeeAllFoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF1B1CBC2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF1B1CBD2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeeAllFoodHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		EF78B01E2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF78B0212C67CA9B003686F5 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF78B0242C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularRecipeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -355,6 +361,8 @@
 		EF0365CD2C75164E00965A66 /* SeeAllFood */ = {
 			isa = PBXGroup;
 			children = (
+				EF1B1CB72C76483400DFEB58 /* Header */,
+				EF1B1CB62C76480000DFEB58 /* Cell */,
 				EF0365DA2C75180500965A66 /* SeeAllFoodStoryboard.storyboard */,
 				EF0365D22C75170E00965A66 /* SeeAllFoodViewController.swift */,
 				EF0365D32C75170E00965A66 /* SeeAllFoodInteractor.swift */,
@@ -466,6 +474,23 @@
 				EF15DEDD2C5EC44700EF4294 /* CreateAccountModels.swift */,
 			);
 			path = CreateAccount;
+			sourceTree = "<group>";
+		};
+		EF1B1CB62C76480000DFEB58 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EF1B1CB82C76489100DFEB58 /* SeeAllFoodCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		EF1B1CB72C76483400DFEB58 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				EF1B1CBD2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.xib */,
+				EF1B1CBC2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		EF78B01D2C67BFF2003686F5 /* Featured */ = {
@@ -1126,6 +1151,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF1B1CBF2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.xib in Resources */,
 				EF78B02B2C681983003686F5 /* SofiaPro-Bold.ttf in Resources */,
 				EFB5AF942C5E941A0004075F /* Assets.xcassets in Resources */,
 				EF78B02F2C6819C8003686F5 /* SofiaPro-Regular.ttf in Resources */,
@@ -1193,6 +1219,7 @@
 				EF15DED42C5EC41600EF4294 /* LoginPresenter.swift in Sources */,
 				EFF585092C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.swift in Sources */,
 				EFD14EC02C6E0EAB0016F1B7 /* IngredientCollectionViewCell.swift in Sources */,
+				EF1B1CBA2C76489100DFEB58 /* SeeAllFoodCollectionViewCell.swift in Sources */,
 				EF8665822C6612EF0016023C /* HomeTabbarViewController.swift in Sources */,
 				EFA42C512C6D3320004ACBD5 /* NameHeaderViewCell.swift in Sources */,
 				EFA42C712C6DC59A004ACBD5 /* SearchPopularRecipeHeaderCollectionViewCell.swift in Sources */,
@@ -1236,6 +1263,7 @@
 				EFDABFC22C68D55C00D594A7 /* ProfileFavCollectionViewCell.swift in Sources */,
 				EF15DEE52C5EC44700EF4294 /* CreateAccountInteractor.swift in Sources */,
 				EF07596D2C66590900CA1F67 /* ProfilePresenter.swift in Sources */,
+				EF1B1CBE2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.swift in Sources */,
 				EFA42C5A2C6D3496004ACBD5 /* PopularRecipeHeaderCollectionViewCell.swift in Sources */,
 				EF07596E2C66590900CA1F67 /* ProfileWorker.swift in Sources */,
 				EF07596F2C66590900CA1F67 /* ProfileRouter.swift in Sources */,

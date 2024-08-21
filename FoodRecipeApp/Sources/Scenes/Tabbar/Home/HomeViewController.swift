@@ -92,7 +92,15 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         )?.category.rawValue ?? ""
         let totalFoodRequest: Int = 4
         
-        let request = HomeModels.InquirySearchFoodsByCategory.Request(category: selectedCategory, number: totalFoodRequest)
+        let request = HomeModels.InquirySearchFoodsByCategory.Request(
+            category: selectedCategory,
+            number: totalFoodRequest,
+            isAddRecipeNutrition: true,
+            isAddRecipeInstructions: true,
+            isFillIngredients: true,
+            sort: "popularity",
+            sortDirection: "desc"
+        )
         interactor?.inquirySearchFoodsByCategory(request: request)
     }
     

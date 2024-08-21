@@ -46,12 +46,20 @@ class Service: ServiceProtocol {
         components?.queryItems = [
             URLQueryItem(name: "query", value: request.category),
             URLQueryItem(name: "number", value: "\(request.number)"),
-            URLQueryItem(name: "addRecipeNutrition", value: true.string),
-            URLQueryItem(name: "addRecipeInstructions", value: true.string),
-            URLQueryItem(name: "fillIngredients", value: true.string),
-            URLQueryItem(name: "sort", value: "popularity"),
-            URLQueryItem(name: "sortDirection", value: "desc"),
+            URLQueryItem(name: "addRecipeNutrition", value: request.isAddRecipeNutrition.string),
+            URLQueryItem(name: "addRecipeInstructions", value: request.isAddRecipeInstructions.string),
+            URLQueryItem(name: "fillIngredients", value: request.isFillIngredients.string),
         ]
+        
+        if let sort = request.sort {
+            let queryItem = URLQueryItem(name: "sort", value: sort)
+            components?.queryItems?.append(queryItem)
+        }
+        //popularity
+        if let sortDirection = request.sortDirection {
+            let queryItem = URLQueryItem(name: "sortDirection", value: sortDirection)
+            components?.queryItems?.append(queryItem)
+        }
         
         let urlString = components?.url?.absoluteString ?? ""
         

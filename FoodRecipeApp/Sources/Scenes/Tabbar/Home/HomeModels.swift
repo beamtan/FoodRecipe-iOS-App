@@ -14,6 +14,11 @@ struct HomeModels {
         struct Request {
             let category: String
             let number: Int
+            let isAddRecipeNutrition: Bool
+            let isAddRecipeInstructions: Bool
+            let isFillIngredients: Bool
+            var sort: String? = nil
+            var sortDirection: String? = nil
         }
         
         struct Response {

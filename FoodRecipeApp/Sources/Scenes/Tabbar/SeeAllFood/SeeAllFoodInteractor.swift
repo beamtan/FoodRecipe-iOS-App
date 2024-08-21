@@ -9,25 +9,41 @@
 import UIKit
 
 protocol SeeAllFoodBusinessLogic {
-    func doSomething(request: SeeAllFoodModels.Something.Request)
+    func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request)
+    func getCategoryValue(request: SeeAllFoodModels.Category.Request)
 }
 
 protocol SeeAllFoodDataStore {
-    //var name: String { get set }
+    var category: HomeModels.Category.CategoryType? { get set }
 }
 
 class SeeAllFoodInteractor: SeeAllFoodBusinessLogic, SeeAllFoodDataStore {
     var presenter: SeeAllFoodPresentationLogic?
     var worker: SeeAllFoodWorker?
-    //var name: String = ""
     
-    // MARK: Do something
+    var category: HomeModels.Category.CategoryType?
     
-    func doSomething(request: SeeAllFoodModels.Something.Request) {
-        worker = SeeAllFoodWorker()
-        worker?.doSomeWork()
+    func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request) {
+        let service = Service()
         
-        let response = SeeAllFoodModels.Something.Response()
-        presenter?.presentSomething(response: response)
+        service.inquirySearchFoodsByCategory(request: request) { [weak self] (data) in
+            guard let self else { return }
+            
+            switch data.result {
+            case .success(let response):
+                let response = HomeModels.InquirySearchFoodsByCategory.Response(data: response, error: nil)
+                presenter?.presentInquirySearchFoodsByCategory(response: response)
+            case .failure(let error):
+                let response = HomeModels.InquirySearchFoodsByCategory.Response(data: nil, error: error)
+                presenter?.presentInquirySearchFoodsByCategory(response: response)
+            }
+        }
+    }
+    
+    func getCategoryValue(request: SeeAllFoodModels.Category.Request) {
+        guard let category else { return }
+        
+        let response = SeeAllFoodModels.Category.Response(category: category)
+        presenter?.presentGetCategoryValue(response: response)
     }
 }
