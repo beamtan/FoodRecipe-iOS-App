@@ -351,12 +351,37 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPS-5e-ZwP">
                                                                     <rect key="frame" x="24" y="247" width="342" height="54"/>
                                                                     <subviews>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vz8-Xf-BKX">
+                                                                            <rect key="frame" x="4" y="4" width="334" height="46"/>
+                                                                            <subviews>
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5t-wn-O93" userLabel="SlidingView">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="167" height="46"/>
+                                                                                    <color key="backgroundColor" name="042628"/>
+                                                                                    <userDefinedRuntimeAttributes>
+                                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                            <integer key="value" value="12"/>
+                                                                                        </userDefinedRuntimeAttribute>
+                                                                                    </userDefinedRuntimeAttributes>
+                                                                                </view>
+                                                                            </subviews>
+                                                                            <color key="backgroundColor" name="E6EBF2"/>
+                                                                            <constraints>
+                                                                                <constraint firstItem="j5t-wn-O93" firstAttribute="top" secondItem="vz8-Xf-BKX" secondAttribute="top" id="6fK-A7-a5Y"/>
+                                                                                <constraint firstItem="j5t-wn-O93" firstAttribute="width" secondItem="vz8-Xf-BKX" secondAttribute="width" multiplier="0.5" id="ZAH-k1-dvg"/>
+                                                                                <constraint firstItem="j5t-wn-O93" firstAttribute="leading" secondItem="vz8-Xf-BKX" secondAttribute="leading" id="kZ7-LE-yv0"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="j5t-wn-O93" secondAttribute="bottom" id="mER-Za-zDY"/>
+                                                                            </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                    <integer key="value" value="16"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </view>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="lHF-y4-eT6">
                                                                             <rect key="frame" x="4" y="4" width="334" height="46"/>
                                                                             <subviews>
                                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npX-Ew-Qnp">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="164" height="46"/>
-                                                                                    <color key="backgroundColor" name="042628"/>
                                                                                     <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="16"/>
                                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                     <state key="normal" title="Ingredients">
@@ -373,7 +398,6 @@
                                                                                 </button>
                                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QuJ-Ku-m94">
                                                                                     <rect key="frame" x="164" y="0.0" width="170" height="46"/>
-                                                                                    <color key="backgroundColor" name="E6EBF2"/>
                                                                                     <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="16"/>
                                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                     <state key="normal" title="Instructions">
@@ -394,9 +418,13 @@
                                                                     <color key="backgroundColor" name="E6EBF2"/>
                                                                     <constraints>
                                                                         <constraint firstItem="lHF-y4-eT6" firstAttribute="top" secondItem="IPS-5e-ZwP" secondAttribute="top" constant="4" id="18M-w8-tZ2"/>
+                                                                        <constraint firstItem="vz8-Xf-BKX" firstAttribute="top" secondItem="IPS-5e-ZwP" secondAttribute="top" constant="4" id="1Qq-dc-bDM"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="vz8-Xf-BKX" secondAttribute="bottom" constant="4" id="2fA-Js-KWi"/>
                                                                         <constraint firstAttribute="trailing" secondItem="lHF-y4-eT6" secondAttribute="trailing" constant="4" id="G7J-nv-P2y"/>
                                                                         <constraint firstItem="lHF-y4-eT6" firstAttribute="leading" secondItem="IPS-5e-ZwP" secondAttribute="leading" constant="4" id="OPd-mV-uKS"/>
+                                                                        <constraint firstItem="vz8-Xf-BKX" firstAttribute="leading" secondItem="IPS-5e-ZwP" secondAttribute="leading" constant="4" id="VX6-B1-fEX"/>
                                                                         <constraint firstAttribute="height" constant="54" id="cMT-nx-fdo"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="vz8-Xf-BKX" secondAttribute="trailing" constant="4" id="fSH-lx-cUg"/>
                                                                         <constraint firstAttribute="bottom" secondItem="lHF-y4-eT6" secondAttribute="bottom" constant="4" id="rGJ-vB-yP9"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
@@ -468,6 +496,7 @@
                                             <outlet property="instructionButton" destination="QuJ-Ku-m94" id="VhL-XM-wiF"/>
                                             <outlet property="proteinLabel" destination="u8h-xm-YHb" id="x8y-kU-1af"/>
                                             <outlet property="proteinTitleLabel" destination="jQe-3y-dpg" id="M7x-Jt-aWT"/>
+                                            <outlet property="slidingViewLeadingConstraint" destination="kZ7-LE-yv0" id="k3W-Kk-qPS"/>
                                             <outlet property="timeCookLabel" destination="kip-KR-sdb" id="WVs-G6-YE0"/>
                                             <outlet property="titleLabel" destination="UcR-57-PoU" id="YCB-U7-24h"/>
                                         </connections>

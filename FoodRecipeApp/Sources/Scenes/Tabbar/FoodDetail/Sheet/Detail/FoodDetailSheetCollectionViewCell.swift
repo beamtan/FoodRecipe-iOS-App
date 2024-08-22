@@ -23,6 +23,7 @@ class FoodDetailSheetCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var descriptionLabel: UILabel!
     @IBOutlet weak private var ingredientButton: UIButton!
     @IBOutlet weak private var instructionButton: UIButton!
+    @IBOutlet weak var slidingViewLeadingConstraint: NSLayoutConstraint!
     
     @IBOutlet weak private var carbTitleLabel: UILabel!
     @IBOutlet weak private var proteinTitleLabel: UILabel!
@@ -37,13 +38,12 @@ class FoodDetailSheetCollectionViewCell: UICollectionViewCell {
     // MARK: - IBAction
     
     @IBAction func ingredientPressed(_ sender: UIButton) {
+        animateSlidingView(to: sender)
         UIView.transition(with: sender, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            sender.backgroundColor = ._042628
             sender.setTitleColor(.white, for: .normal)
         })
         
         UIView.transition(with: instructionButton, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.instructionButton.backgroundColor = .clear
             self.instructionButton.setTitleColor(._0_A_2533, for: .normal)
         })
         
@@ -51,17 +51,22 @@ class FoodDetailSheetCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func instructionPressed(_ sender: UIButton) {
+        animateSlidingView(to: sender)
         UIView.transition(with: sender, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            sender.backgroundColor = ._042628
             sender.setTitleColor(.white, for: .normal)
         })
         
         UIView.transition(with: ingredientButton, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.ingredientButton.backgroundColor = .clear
             self.ingredientButton.setTitleColor(._0_A_2533, for: .normal)
         })
         
         instructionClosure?()
+    }
+    
+    func animateSlidingView(to button: UIButton) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.slidingViewLeadingConstraint.constant = button.frame.origin.x
+        })
     }
     
     // MARK: - Setup
