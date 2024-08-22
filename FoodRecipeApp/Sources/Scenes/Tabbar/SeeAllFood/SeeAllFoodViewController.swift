@@ -12,6 +12,8 @@ protocol SeeAllFoodDisplayLogic: AnyObject {
     func displayInquirySearchFoodsByCategorySuccess(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel)
     func displayInquirySearchFoodsByCategoryFailure(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel)
     func displayGetCategoryValue(viewModel: SeeAllFoodModels.Category.ViewModel)
+    
+    func displayPrepareRouteToFoodDetailSuccess()
 }
 
 class SeeAllFoodViewController: UIViewController, SeeAllFoodDisplayLogic {
@@ -133,6 +135,8 @@ class SeeAllFoodViewController: UIViewController, SeeAllFoodDisplayLogic {
                 trailing: sectionPadding
             )
             
+            header.pinToVisibleBounds = true
+            
             section.boundarySupplementaryItems = [header]
             
             return section
@@ -184,6 +188,16 @@ class SeeAllFoodViewController: UIViewController, SeeAllFoodDisplayLogic {
         category = viewModel.category
         inquirySearchFoodByCategory(selectedCategory: viewModel.category)
     }
+    
+    func displayPrepareRouteToFoodDetailSuccess() {
+        router?.routeToFoodDetail()
+    }
+    
+    // MARK: - Navigation
+    
+    func prepareRouteToFoodDetail(food: FoodDetailModels.FoodDetailResponse) {
+        interactor?.prepareRouteToFoodDetail(food: food)
+    }
 }
 
 // MARK: - UICollectionViewDelegate
@@ -198,6 +212,12 @@ extension SeeAllFoodViewController: UICollectionViewDelegate, UICollectionViewDa
         
         if let food = foods[safe: indexPath.row] {
             cell.setup(food: food)
+            
+            cell.cardPressClosure = { [weak self] in
+                guard let self else { return }
+                
+                prepareRouteToFoodDetail(food: food)
+            }
         }
         
         return cell

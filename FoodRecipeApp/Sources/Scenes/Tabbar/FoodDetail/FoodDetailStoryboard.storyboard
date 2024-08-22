@@ -354,18 +354,14 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="lHF-y4-eT6">
                                                                             <rect key="frame" x="4" y="4" width="334" height="46"/>
                                                                             <subviews>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npX-Ew-Qnp">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="165" height="46"/>
+                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npX-Ew-Qnp">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="164" height="46"/>
                                                                                     <color key="backgroundColor" name="042628"/>
                                                                                     <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="16"/>
-                                                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                     <state key="normal" title="Ingredients">
                                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     </state>
-                                                                                    <buttonConfiguration key="configuration" style="plain" title="Ingredients">
-                                                                                        <fontDescription key="titleFontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="16"/>
-                                                                                    </buttonConfiguration>
                                                                                     <userDefinedRuntimeAttributes>
                                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                             <integer key="value" value="14"/>
@@ -375,18 +371,14 @@
                                                                                         <action selector="ingredientPressed:" destination="ECa-jS-s9B" eventType="touchUpInside" id="3dY-3Y-TMV"/>
                                                                                     </connections>
                                                                                 </button>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QuJ-Ku-m94">
-                                                                                    <rect key="frame" x="165" y="0.0" width="169" height="46"/>
+                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QuJ-Ku-m94">
+                                                                                    <rect key="frame" x="164" y="0.0" width="170" height="46"/>
                                                                                     <color key="backgroundColor" name="E6EBF2"/>
                                                                                     <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="16"/>
-                                                                                    <color key="tintColor" name="0A2533"/>
                                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                     <state key="normal" title="Instructions">
-                                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="titleColor" name="0A2533"/>
                                                                                     </state>
-                                                                                    <buttonConfiguration key="configuration" style="plain" title="Instructions">
-                                                                                        <fontDescription key="titleFontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="16"/>
-                                                                                    </buttonConfiguration>
                                                                                     <userDefinedRuntimeAttributes>
                                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                             <integer key="value" value="14"/>

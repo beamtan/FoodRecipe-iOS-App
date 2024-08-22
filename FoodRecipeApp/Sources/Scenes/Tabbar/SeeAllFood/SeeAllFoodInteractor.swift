@@ -11,10 +11,13 @@ import UIKit
 protocol SeeAllFoodBusinessLogic {
     func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request)
     func getCategoryValue(request: SeeAllFoodModels.Category.Request)
+    
+    func prepareRouteToFoodDetail(food: FoodDetailModels.FoodDetailResponse)
 }
 
 protocol SeeAllFoodDataStore {
     var category: HomeModels.Category.CategoryType? { get set }
+    var food: FoodDetailModels.FoodDetailResponse? { get set }
 }
 
 class SeeAllFoodInteractor: SeeAllFoodBusinessLogic, SeeAllFoodDataStore {
@@ -22,6 +25,7 @@ class SeeAllFoodInteractor: SeeAllFoodBusinessLogic, SeeAllFoodDataStore {
     var worker: SeeAllFoodWorker?
     
     var category: HomeModels.Category.CategoryType?
+    var food: FoodDetailModels.FoodDetailResponse?
     
     func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request) {
         let service = Service()
@@ -45,5 +49,12 @@ class SeeAllFoodInteractor: SeeAllFoodBusinessLogic, SeeAllFoodDataStore {
         
         let response = SeeAllFoodModels.Category.Response(category: category)
         presenter?.presentGetCategoryValue(response: response)
+    }
+    
+    // MARK: - Prepare Routing
+    
+    func prepareRouteToFoodDetail(food: FoodDetailModels.FoodDetailResponse) {
+        self.food = food
+        presenter?.presentPrepareRouteToFoodDetail()
     }
 }

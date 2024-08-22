@@ -11,12 +11,17 @@ import Kingfisher
 
 class SeeAllFoodCollectionViewCell: UICollectionViewCell {
     
+    var cardPressClosure: (() -> ())?
+    
     @IBOutlet weak private var cardView: UIView! {
         didSet {
             cardView.layer.shadowColor = UIColor.black.cgColor
             cardView.layer.shadowOpacity = 0.1
             cardView.layer.shadowOffset = CGSize(width: 0, height: 0)
             cardView.layer.shadowRadius = 5
+            
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(cardViewPressed))
+            cardView.addGestureRecognizer(gesture)
         }
     }
     
@@ -57,5 +62,9 @@ class SeeAllFoodCollectionViewCell: UICollectionViewCell {
         }
         
         return true
+    }
+    
+    @objc private func cardViewPressed() {
+        cardPressClosure?()
     }
 }

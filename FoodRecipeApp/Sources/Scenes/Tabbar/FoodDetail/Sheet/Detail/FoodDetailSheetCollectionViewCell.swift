@@ -39,12 +39,12 @@ class FoodDetailSheetCollectionViewCell: UICollectionViewCell {
     @IBAction func ingredientPressed(_ sender: UIButton) {
         UIView.transition(with: sender, duration: 0.3, options: .transitionCrossDissolve, animations: {
             sender.backgroundColor = ._042628
-            sender.titleLabel?.textColor = .white
+            sender.setTitleColor(.white, for: .normal)
         })
         
         UIView.transition(with: instructionButton, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.instructionButton.backgroundColor = .E_6_EBF_2
-            self.instructionButton.titleLabel?.textColor = .black
+            self.instructionButton.backgroundColor = .clear
+            self.instructionButton.setTitleColor(._0_A_2533, for: .normal)
         })
         
         ingredientClosure?()
@@ -53,12 +53,12 @@ class FoodDetailSheetCollectionViewCell: UICollectionViewCell {
     @IBAction func instructionPressed(_ sender: UIButton) {
         UIView.transition(with: sender, duration: 0.3, options: .transitionCrossDissolve, animations: {
             sender.backgroundColor = ._042628
-            sender.titleLabel?.textColor = .white
+            sender.setTitleColor(.white, for: .normal)
         })
         
         UIView.transition(with: ingredientButton, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.ingredientButton.backgroundColor = .E_6_EBF_2
-            self.ingredientButton.titleLabel?.textColor = .black
+            self.ingredientButton.backgroundColor = .clear
+            self.ingredientButton.setTitleColor(._0_A_2533, for: .normal)
         })
         
         instructionClosure?()

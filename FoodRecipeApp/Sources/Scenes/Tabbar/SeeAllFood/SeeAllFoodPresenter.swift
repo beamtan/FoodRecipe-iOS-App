@@ -11,6 +11,8 @@ import UIKit
 protocol SeeAllFoodPresentationLogic {
     func presentInquirySearchFoodsByCategory(response: HomeModels.InquirySearchFoodsByCategory.Response)
     func presentGetCategoryValue(response: SeeAllFoodModels.Category.Response)
+    
+    func presentPrepareRouteToFoodDetail()
 }
 
 class SeeAllFoodPresenter: SeeAllFoodPresentationLogic {
@@ -31,5 +33,11 @@ class SeeAllFoodPresenter: SeeAllFoodPresentationLogic {
     func presentGetCategoryValue(response: SeeAllFoodModels.Category.Response) {
         let viewModel = SeeAllFoodModels.Category.ViewModel(category: response.category)
         viewController?.displayGetCategoryValue(viewModel: viewModel)
+    }
+    
+    // MARK: - Prepare Routing
+    
+    func presentPrepareRouteToFoodDetail() {
+        viewController?.displayPrepareRouteToFoodDetailSuccess()
     }
 }
