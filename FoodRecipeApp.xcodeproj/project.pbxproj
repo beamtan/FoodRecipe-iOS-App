@@ -63,6 +63,22 @@
 		EF1B1CBA2C76489100DFEB58 /* SeeAllFoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1B1CB82C76489100DFEB58 /* SeeAllFoodCollectionViewCell.swift */; };
 		EF1B1CBE2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1B1CBC2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.swift */; };
 		EF1B1CBF2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CBD2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.xib */; };
+		EF1B1CC22C78EB9600DFEB58 /* foods50Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CC12C78EB9600DFEB58 /* foods50Response.json */; };
+		EF1B1CC72C78EEAE00DFEB58 /* JsonReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1B1CC62C78EEAE00DFEB58 /* JsonReader.swift */; };
+		EF1B1CD72C78F74200DFEB58 /* soupTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CC82C78F74100DFEB58 /* soupTop6Response.json */; };
+		EF1B1CD82C78F74200DFEB58 /* marinadeTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CC92C78F74100DFEB58 /* marinadeTop6Response.json */; };
+		EF1B1CD92C78F74200DFEB58 /* breadTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CCA2C78F74100DFEB58 /* breadTop6Response.json */; };
+		EF1B1CDA2C78F74200DFEB58 /* dessertTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CCB2C78F74200DFEB58 /* dessertTop6Response.json */; };
+		EF1B1CDB2C78F74200DFEB58 /* appetizerTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CCC2C78F74200DFEB58 /* appetizerTop6Response.json */; };
+		EF1B1CDC2C78F74200DFEB58 /* saladTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CCD2C78F74200DFEB58 /* saladTop6Response.json */; };
+		EF1B1CDE2C78F74200DFEB58 /* sideDishTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CCF2C78F74200DFEB58 /* sideDishTop6Response.json */; };
+		EF1B1CDF2C78F74200DFEB58 /* mainCourseTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CD02C78F74200DFEB58 /* mainCourseTop6Response.json */; };
+		EF1B1CE12C78F74200DFEB58 /* breakfastTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CD22C78F74200DFEB58 /* breakfastTop6Response.json */; };
+		EF1B1CE22C78F74200DFEB58 /* beverageTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CD32C78F74200DFEB58 /* beverageTop6Response.json */; };
+		EF1B1CE32C78F74200DFEB58 /* snackrTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CD42C78F74200DFEB58 /* snackrTop6Response.json */; };
+		EF1B1CE42C78F74200DFEB58 /* drinkTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CD52C78F74200DFEB58 /* drinkTop6Response.json */; };
+		EF1B1CE52C78F74200DFEB58 /* fingerfoodTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CD62C78F74200DFEB58 /* fingerfoodTop6Response.json */; };
+		EF1B1CE72C79041A00DFEB58 /* sauceTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CE62C79041A00DFEB58 /* sauceTop6Response.json */; };
 		EF78B01F2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78B01E2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift */; };
 		EF78B0222C67CA9B003686F5 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78B0212C67CA9B003686F5 /* CategoryCollectionViewCell.swift */; };
 		EF78B0252C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78B0242C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift */; };
@@ -237,6 +253,22 @@
 		EF1B1CB82C76489100DFEB58 /* SeeAllFoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF1B1CBC2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF1B1CBD2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeeAllFoodHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		EF1B1CC12C78EB9600DFEB58 /* foods50Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = foods50Response.json; sourceTree = "<group>"; };
+		EF1B1CC62C78EEAE00DFEB58 /* JsonReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonReader.swift; sourceTree = "<group>"; };
+		EF1B1CC82C78F74100DFEB58 /* soupTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soupTop6Response.json; sourceTree = "<group>"; };
+		EF1B1CC92C78F74100DFEB58 /* marinadeTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = marinadeTop6Response.json; sourceTree = "<group>"; };
+		EF1B1CCA2C78F74100DFEB58 /* breadTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = breadTop6Response.json; sourceTree = "<group>"; };
+		EF1B1CCB2C78F74200DFEB58 /* dessertTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dessertTop6Response.json; sourceTree = "<group>"; };
+		EF1B1CCC2C78F74200DFEB58 /* appetizerTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = appetizerTop6Response.json; sourceTree = "<group>"; };
+		EF1B1CCD2C78F74200DFEB58 /* saladTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = saladTop6Response.json; sourceTree = "<group>"; };
+		EF1B1CCF2C78F74200DFEB58 /* sideDishTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sideDishTop6Response.json; sourceTree = "<group>"; };
+		EF1B1CD02C78F74200DFEB58 /* mainCourseTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mainCourseTop6Response.json; sourceTree = "<group>"; };
+		EF1B1CD22C78F74200DFEB58 /* breakfastTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = breakfastTop6Response.json; sourceTree = "<group>"; };
+		EF1B1CD32C78F74200DFEB58 /* beverageTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beverageTop6Response.json; sourceTree = "<group>"; };
+		EF1B1CD42C78F74200DFEB58 /* snackrTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = snackrTop6Response.json; sourceTree = "<group>"; };
+		EF1B1CD52C78F74200DFEB58 /* drinkTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = drinkTop6Response.json; sourceTree = "<group>"; };
+		EF1B1CD62C78F74200DFEB58 /* fingerfoodTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fingerfoodTop6Response.json; sourceTree = "<group>"; };
+		EF1B1CE62C79041A00DFEB58 /* sauceTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sauceTop6Response.json; sourceTree = "<group>"; };
 		EF78B01E2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF78B0212C67CA9B003686F5 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF78B0242C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularRecipeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -493,6 +525,28 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		EF1B1CC02C78EB3500DFEB58 /* Jsons */ = {
+			isa = PBXGroup;
+			children = (
+				EF1B1CCC2C78F74200DFEB58 /* appetizerTop6Response.json */,
+				EF1B1CD32C78F74200DFEB58 /* beverageTop6Response.json */,
+				EF1B1CCA2C78F74100DFEB58 /* breadTop6Response.json */,
+				EF1B1CD22C78F74200DFEB58 /* breakfastTop6Response.json */,
+				EF1B1CCB2C78F74200DFEB58 /* dessertTop6Response.json */,
+				EF1B1CD52C78F74200DFEB58 /* drinkTop6Response.json */,
+				EF1B1CD62C78F74200DFEB58 /* fingerfoodTop6Response.json */,
+				EF1B1CD02C78F74200DFEB58 /* mainCourseTop6Response.json */,
+				EF1B1CC92C78F74100DFEB58 /* marinadeTop6Response.json */,
+				EF1B1CE62C79041A00DFEB58 /* sauceTop6Response.json */,
+				EF1B1CCD2C78F74200DFEB58 /* saladTop6Response.json */,
+				EF1B1CCF2C78F74200DFEB58 /* sideDishTop6Response.json */,
+				EF1B1CD42C78F74200DFEB58 /* snackrTop6Response.json */,
+				EF1B1CC82C78F74100DFEB58 /* soupTop6Response.json */,
+				EF1B1CC12C78EB9600DFEB58 /* foods50Response.json */,
+			);
+			path = Jsons;
+			sourceTree = "<group>";
+		};
 		EF78B01D2C67BFF2003686F5 /* Featured */ = {
 			isa = PBXGroup;
 			children = (
@@ -593,6 +647,7 @@
 			isa = PBXGroup;
 			children = (
 				EFA42C3F2C6D1718004ACBD5 /* CompositionLayoutHelper.swift */,
+				EF1B1CC62C78EEAE00DFEB58 /* JsonReader.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -827,6 +882,7 @@
 		EFB5AFBC2C5EAB470004075F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EF1B1CC02C78EB3500DFEB58 /* Jsons */,
 				EFB5AF932C5E941A0004075F /* Assets.xcassets */,
 				EFB5AF952C5E941A0004075F /* LaunchScreen.storyboard */,
 				EFB5AF8A2C5E94190004075F /* AppDelegate.swift */,
@@ -1152,10 +1208,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF1B1CBF2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.xib in Resources */,
+				EF1B1CE72C79041A00DFEB58 /* sauceTop6Response.json in Resources */,
 				EF78B02B2C681983003686F5 /* SofiaPro-Bold.ttf in Resources */,
 				EFB5AF942C5E941A0004075F /* Assets.xcassets in Resources */,
 				EF78B02F2C6819C8003686F5 /* SofiaPro-Regular.ttf in Resources */,
 				EF09E45C2C662926004675DF /* SearchStoryboard.storyboard in Resources */,
+				EF1B1CE12C78F74200DFEB58 /* breakfastTop6Response.json in Resources */,
 				EFA42C722C6DC59A004ACBD5 /* SearchPopularRecipeHeaderCollectionViewCell.xib in Resources */,
 				EFA42C422C6D27F5004ACBD5 /* FeaturedCardCollectionViewCell.xib in Resources */,
 				EFF5850A2C71421700FA56BC /* FoodDetailTypeAndTotalCollectionViewCell.xib in Resources */,
@@ -1163,15 +1221,23 @@
 				EF0759742C66592F00CA1F67 /* NotificationStoryboard.storyboard in Resources */,
 				EF86657C2C653E7C0016023C /* GoogleService-Info.plist in Resources */,
 				EFF5847D2C6FF3F900FA56BC /* InstructionCollectionViewCell.xib in Resources */,
+				EF1B1CDB2C78F74200DFEB58 /* appetizerTop6Response.json in Resources */,
 				EFA42C7F2C6DF48B004ACBD5 /* AccountCollectionViewCell.xib in Resources */,
 				EF09E4492C661F69004675DF /* HomeStoryboard.storyboard in Resources */,
 				EFA42C4D2C6D2D82004ACBD5 /* CategoryHeaderCollectionViewCell.xib in Resources */,
 				EFB5AF972C5E941A0004075F /* Base in Resources */,
 				EFA42C842C6DF4B9004ACBD5 /* AccountTitleCollectionViewCell.xib in Resources */,
 				EFA42C672C6DC1FF004ACBD5 /* SearchTitleCollectionViewCell.xib in Resources */,
+				EF1B1CE32C78F74200DFEB58 /* snackrTop6Response.json in Resources */,
+				EF1B1CDA2C78F74200DFEB58 /* dessertTop6Response.json in Resources */,
+				EF1B1CE22C78F74200DFEB58 /* beverageTop6Response.json in Resources */,
 				EF8665842C66133F0016023C /* HomeTabbarStoryboard.storyboard in Resources */,
+				EF1B1CDE2C78F74200DFEB58 /* sideDishTop6Response.json in Resources */,
+				EF1B1CE52C78F74200DFEB58 /* fingerfoodTop6Response.json in Resources */,
+				EF1B1CC22C78EB9600DFEB58 /* foods50Response.json in Resources */,
 				EFA42C752C6DC63E004ACBD5 /* EditorChoiceCollectionViewCell.xib in Resources */,
 				EFA42C8B2C6DF932004ACBD5 /* ProfileFavHeaderCollectionViewCell.xib in Resources */,
+				EF1B1CD72C78F74200DFEB58 /* soupTop6Response.json in Resources */,
 				EFA42C862C6DF5CC004ACBD5 /* ProfileFavCollectionViewCell.xib in Resources */,
 				EFB5AF922C5E94190004075F /* Base in Resources */,
 				EF07597D2C66881000CA1F67 /* EmptyStoryboard.storyboard in Resources */,
@@ -1181,14 +1247,19 @@
 				EFA42C6D2C6DC2D1004ACBD5 /* SearchPopularRecipeCollectionViewCell.xib in Resources */,
 				EFA42C462C6D2A24004ACBD5 /* PopularRecipeCollectionViewCell.xib in Resources */,
 				EFA42C4F2C6D2E8C004ACBD5 /* PopularRecipeHeaderCollectionViewCell.xib in Resources */,
+				EF1B1CD82C78F74200DFEB58 /* marinadeTop6Response.json in Resources */,
 				EFA42C4B2C6D2C69004ACBD5 /* NameHeaderViewCell.xib in Resources */,
 				EF0759762C66594000CA1F67 /* ProfileStoryboard.storyboard in Resources */,
 				EFA42C442C6D298E004ACBD5 /* CategoryCollectionViewCell.xib in Resources */,
 				EFD14EBF2C6E0EAB0016F1B7 /* IngredientCollectionViewCell.xib in Resources */,
 				EFDABFD12C68E45000D594A7 /* FoodDetailStoryboard.storyboard in Resources */,
+				EF1B1CDF2C78F74200DFEB58 /* mainCourseTop6Response.json in Resources */,
 				EF15DEE92C5EC68F00EF4294 /* CreateAccountStoryboard.storyboard in Resources */,
+				EF1B1CE42C78F74200DFEB58 /* drinkTop6Response.json in Resources */,
+				EF1B1CDC2C78F74200DFEB58 /* saladTop6Response.json in Resources */,
 				EF15DEE72C5EC68000EF4294 /* LoginStoryboard.storyboard in Resources */,
 				EFA42C482C6D2B29004ACBD5 /* FeaturedHeaderCollectionViewCell.xib in Resources */,
+				EF1B1CD92C78F74200DFEB58 /* breadTop6Response.json in Resources */,
 				EFA42C7A2C6DC781004ACBD5 /* EditorChoiceHeaderCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1226,6 +1297,7 @@
 				EFA42C792C6DC781004ACBD5 /* EditorChoiceHeaderCollectionViewCell.swift in Sources */,
 				EFC425C22C6A9FAE004FF5BE /* HttpClient.swift in Sources */,
 				EF15DED52C5EC41600EF4294 /* LoginWorker.swift in Sources */,
+				EF1B1CC72C78EEAE00DFEB58 /* JsonReader.swift in Sources */,
 				EF15DED62C5EC41600EF4294 /* LoginRouter.swift in Sources */,
 				EFF5850D2C71515F00FA56BC /* ExtensionDouble.swift in Sources */,
 				EF15DED72C5EC41600EF4294 /* LoginModels.swift in Sources */,

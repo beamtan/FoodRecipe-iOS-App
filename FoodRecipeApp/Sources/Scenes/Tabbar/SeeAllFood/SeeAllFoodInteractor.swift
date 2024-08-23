@@ -9,9 +9,13 @@
 import UIKit
 
 protocol SeeAllFoodBusinessLogic {
+    // Call Service
     func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request)
+    
+    // Get Data Store
     func getCategoryValue(request: SeeAllFoodModels.Category.Request)
     
+    // Routing
     func prepareRouteToFoodDetail(food: FoodDetailModels.FoodDetailResponse)
 }
 
@@ -22,15 +26,15 @@ protocol SeeAllFoodDataStore {
 
 class SeeAllFoodInteractor: SeeAllFoodBusinessLogic, SeeAllFoodDataStore {
     var presenter: SeeAllFoodPresentationLogic?
-    var worker: SeeAllFoodWorker?
+    var worker: SeeAllFoodWorkerProtocol?
     
     var category: HomeModels.Category.CategoryType?
     var food: FoodDetailModels.FoodDetailResponse?
     
     func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request) {
-        let service = Service()
+        worker = MockSeeAllFoodWorker()
         
-        service.inquirySearchFoodsByCategory(request: request) { [weak self] (data) in
+        worker?.inquirySearchFoodsByCategory(request: request) { [weak self] (data) in
             guard let self else { return }
             
             switch data.result {

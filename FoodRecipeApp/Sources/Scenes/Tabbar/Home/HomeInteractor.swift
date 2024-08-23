@@ -22,19 +22,18 @@ protocol HomeDataStore {
 
 class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     var presenter: HomePresentationLogic?
-    var worker: HomeWorker?
+    var worker: HomeWorkerProtocol?
     
     var food: FoodDetailModels.FoodDetailResponse?
     var category: HomeModels.Category.CategoryType?
     
     func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request) {
-        let service = Service()
-        category = HomeModels.Category.CategoryType.allCases.first(where: { $0.rawValue == request.category })
+        worker = MockHomeWorker()
         
-        service.inquirySearchFoodsByCategory(request: request) { [weak self] (data) in
+        updateCategory(request: request)
+        
+        worker?.inquirySearchFoodsByCategory(request: request) { [weak self] (data) in
             guard let self else { return }
-            
-            
             
             switch data.result {
             case .success(let response):
@@ -45,6 +44,12 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
                 presenter?.presentInquirySearchFoodsByCategory(response: response)
             }
         }
+    }
+    
+    // MARK: - Update Function
+    
+    func updateCategory(request: HomeModels.InquirySearchFoodsByCategory.Request) {
+        category = HomeModels.Category.CategoryType.allCases.first(where: { $0.rawValue == request.category })
     }
     
     // MARK: - Prepare Routing
