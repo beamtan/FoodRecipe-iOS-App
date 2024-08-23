@@ -16,14 +16,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FoodDetailTypeAndTotalCollectionViewCell" id="gTV-IL-0wX" customClass="FoodDetailTypeAndTotalCollectionViewCell" customModule="FoodRecipeApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="371" height="106"/>
+            <rect key="frame" x="0.0" y="0.0" width="371" height="91"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="371" height="106"/>
+                <rect key="frame" x="0.0" y="0.0" width="371" height="91"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51D-L8-7P5">
-                        <rect key="frame" x="0.0" y="0.0" width="371" height="106"/>
+                        <rect key="frame" x="0.0" y="0.0" width="371" height="91"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QjT-F8-mGL">
                                 <rect key="frame" x="24" y="24" width="323" height="21"/>
@@ -58,12 +58,13 @@
                 <constraint firstItem="51D-L8-7P5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="gfS-bF-PfC"/>
                 <constraint firstAttribute="bottom" secondItem="51D-L8-7P5" secondAttribute="bottom" id="iHr-dM-gT1"/>
             </constraints>
-            <size key="customSize" width="371" height="106"/>
+            <size key="customSize" width="371" height="91"/>
             <connections>
+                <outlet property="customBackgroundView" destination="51D-L8-7P5" id="3rS-Ec-G99"/>
                 <outlet property="foodDetailTypeLabel" destination="QjT-F8-mGL" id="sfF-HU-hgU"/>
                 <outlet property="totalItemLabel" destination="8HF-4u-tVV" id="Sy5-we-kMj"/>
             </connections>
-            <point key="canvasLocation" x="159.54198473282443" y="7.042253521126761"/>
+            <point key="canvasLocation" x="159.54198473282443" y="1.7605633802816902"/>
         </collectionViewCell>
     </objects>
     <resources>

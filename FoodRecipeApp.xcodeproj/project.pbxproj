@@ -75,7 +75,7 @@
 		EF1B1CDF2C78F74200DFEB58 /* mainCourseTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CD02C78F74200DFEB58 /* mainCourseTop6Response.json */; };
 		EF1B1CE12C78F74200DFEB58 /* breakfastTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CD22C78F74200DFEB58 /* breakfastTop6Response.json */; };
 		EF1B1CE22C78F74200DFEB58 /* beverageTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CD32C78F74200DFEB58 /* beverageTop6Response.json */; };
-		EF1B1CE32C78F74200DFEB58 /* snackrTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CD42C78F74200DFEB58 /* snackrTop6Response.json */; };
+		EF1B1CE32C78F74200DFEB58 /* snackTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CD42C78F74200DFEB58 /* snackTop6Response.json */; };
 		EF1B1CE42C78F74200DFEB58 /* drinkTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CD52C78F74200DFEB58 /* drinkTop6Response.json */; };
 		EF1B1CE52C78F74200DFEB58 /* fingerfoodTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CD62C78F74200DFEB58 /* fingerfoodTop6Response.json */; };
 		EF1B1CE72C79041A00DFEB58 /* sauceTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CE62C79041A00DFEB58 /* sauceTop6Response.json */; };
@@ -265,7 +265,7 @@
 		EF1B1CD02C78F74200DFEB58 /* mainCourseTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mainCourseTop6Response.json; sourceTree = "<group>"; };
 		EF1B1CD22C78F74200DFEB58 /* breakfastTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = breakfastTop6Response.json; sourceTree = "<group>"; };
 		EF1B1CD32C78F74200DFEB58 /* beverageTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beverageTop6Response.json; sourceTree = "<group>"; };
-		EF1B1CD42C78F74200DFEB58 /* snackrTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = snackrTop6Response.json; sourceTree = "<group>"; };
+		EF1B1CD42C78F74200DFEB58 /* snackTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = snackTop6Response.json; sourceTree = "<group>"; };
 		EF1B1CD52C78F74200DFEB58 /* drinkTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = drinkTop6Response.json; sourceTree = "<group>"; };
 		EF1B1CD62C78F74200DFEB58 /* fingerfoodTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fingerfoodTop6Response.json; sourceTree = "<group>"; };
 		EF1B1CE62C79041A00DFEB58 /* sauceTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sauceTop6Response.json; sourceTree = "<group>"; };
@@ -540,7 +540,7 @@
 				EF1B1CE62C79041A00DFEB58 /* sauceTop6Response.json */,
 				EF1B1CCD2C78F74200DFEB58 /* saladTop6Response.json */,
 				EF1B1CCF2C78F74200DFEB58 /* sideDishTop6Response.json */,
-				EF1B1CD42C78F74200DFEB58 /* snackrTop6Response.json */,
+				EF1B1CD42C78F74200DFEB58 /* snackTop6Response.json */,
 				EF1B1CC82C78F74100DFEB58 /* soupTop6Response.json */,
 				EF1B1CC12C78EB9600DFEB58 /* foods50Response.json */,
 			);
@@ -1228,7 +1228,7 @@
 				EFB5AF972C5E941A0004075F /* Base in Resources */,
 				EFA42C842C6DF4B9004ACBD5 /* AccountTitleCollectionViewCell.xib in Resources */,
 				EFA42C672C6DC1FF004ACBD5 /* SearchTitleCollectionViewCell.xib in Resources */,
-				EF1B1CE32C78F74200DFEB58 /* snackrTop6Response.json in Resources */,
+				EF1B1CE32C78F74200DFEB58 /* snackTop6Response.json in Resources */,
 				EF1B1CDA2C78F74200DFEB58 /* dessertTop6Response.json in Resources */,
 				EF1B1CE22C78F74200DFEB58 /* beverageTop6Response.json in Resources */,
 				EF8665842C66133F0016023C /* HomeTabbarStoryboard.storyboard in Resources */,

@@ -12,6 +12,8 @@ class FoodDetailTypeAndTotalCollectionViewCell: UICollectionViewCell {
     
     // MARK: - IBOutlet
     
+    
+    @IBOutlet weak private var customBackgroundView: UIView!
     @IBOutlet weak private var foodDetailTypeLabel: UILabel!
     @IBOutlet weak private var totalItemLabel: UILabel!
     
@@ -20,6 +22,12 @@ class FoodDetailTypeAndTotalCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        customBackgroundView.backgroundColor = .white
     }
     
     // MARK: - Function

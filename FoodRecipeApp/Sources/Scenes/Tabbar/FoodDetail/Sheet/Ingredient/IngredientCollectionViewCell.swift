@@ -16,8 +16,7 @@ class IngredientCollectionViewCell: UICollectionViewCell {
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak private var customBackgroundView: UIView!
-    
+    @IBOutlet weak private var cardView: UIView!
     @IBOutlet weak private var imageView: UIImageView!
     @IBOutlet weak private var titleLabel: UILabel!
     
@@ -29,18 +28,25 @@ class IngredientCollectionViewCell: UICollectionViewCell {
         setupView()
     }
     
-    private func setupView() {
-        guard let customBackgroundView else {
-            return
-        }
+    override func prepareForReuse() {
+        super.prepareForReuse()
         
-        customBackgroundView.layer.shadowColor = UIColor.black.cgColor
-        customBackgroundView.layer.shadowOpacity = 0.1
-        customBackgroundView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        customBackgroundView.layer.shadowRadius = 4
+        imageView.image = nil
+        titleLabel.text = nil
     }
     
     // MARK: - Function
+    
+    private func setupView() {
+        guard let cardView else {
+            return
+        }
+        
+        cardView.layer.shadowColor = UIColor.black.cgColor
+        cardView.layer.shadowOpacity = 0.1
+        cardView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cardView.layer.shadowRadius = 5
+    }
     
     func setup(ingredient: FoodDetailModels.FoodDetailResponse.ExtendedIngredient) {
         let imageUrl: String = "https://img.spoonacular.com/ingredients_100x100/\(ingredient.image ?? "")"
@@ -49,5 +55,17 @@ class IngredientCollectionViewCell: UICollectionViewCell {
         imageView.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named: "imagePlaceholder"))
         
         titleLabel.text = ingredient.original
+    }
+    
+    override func preferredLayoutAttributesFitting(
+        _ layoutAttributes: UICollectionViewLayoutAttributes
+    ) -> UICollectionViewLayoutAttributes {
+        let imageWidth: CGFloat = 48.0
+        let imagePadding: CGFloat = 24.0 + 16.0
+        titleLabel.preferredMaxLayoutWidth = layoutAttributes.size.width - contentView.layoutMargins.left - contentView.layoutMargins.right - imageWidth - imagePadding
+        layoutAttributes.bounds.size.height = systemLayoutSizeFitting(
+            UIView.layoutFittingCompressedSize
+        ).height
+        return layoutAttributes
     }
 }

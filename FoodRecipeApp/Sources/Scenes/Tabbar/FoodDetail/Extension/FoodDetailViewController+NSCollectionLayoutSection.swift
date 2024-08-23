@@ -90,7 +90,7 @@ extension FoodDetailViewController {
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0), // fractional 1.0 as one item per row
-                heightDimension: .absolute(80 + padding) // vertical control the height by item instead
+                heightDimension: .estimated(300) // vertical control the height by item instead
             )
         )
         

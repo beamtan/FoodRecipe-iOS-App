@@ -9,6 +9,12 @@
 import UIKit
 
 class LoginWorker {
-    func doSomeWork() {
+    
+    func signIn() {
+        
+    }
+    
+    func signUp() {
+        
     }
 }

@@ -93,7 +93,8 @@
                                                                         <constraint firstItem="kip-KR-sdb" firstAttribute="centerY" secondItem="oeG-Bo-Mjq" secondAttribute="centerY" id="B4k-K8-OFW"/>
                                                                         <constraint firstItem="9MQ-HV-YF9" firstAttribute="leading" secondItem="oeG-Bo-Mjq" secondAttribute="leading" constant="6" id="Cwx-zg-gpl"/>
                                                                         <constraint firstAttribute="height" constant="25" id="Dwb-vT-Qlb"/>
-                                                                        <constraint firstAttribute="width" constant="72" id="LMv-tZ-PCP"/>
+                                                                        <constraint firstAttribute="width" priority="750" constant="72" id="PcS-c7-BPQ"/>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="72" id="XYa-cA-kUM"/>
                                                                         <constraint firstAttribute="trailing" secondItem="kip-KR-sdb" secondAttribute="trailing" id="XbI-cw-uBh"/>
                                                                         <constraint firstItem="9MQ-HV-YF9" firstAttribute="centerY" secondItem="oeG-Bo-Mjq" secondAttribute="centerY" id="ZSw-7y-HMb"/>
                                                                         <constraint firstItem="kip-KR-sdb" firstAttribute="leading" secondItem="9MQ-HV-YF9" secondAttribute="trailing" constant="6" id="y2u-eB-tIC"/>
@@ -373,7 +374,7 @@
                                                                             </constraints>
                                                                             <userDefinedRuntimeAttributes>
                                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                    <integer key="value" value="16"/>
+                                                                                    <integer key="value" value="12"/>
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
