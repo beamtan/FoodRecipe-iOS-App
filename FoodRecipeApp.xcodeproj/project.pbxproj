@@ -151,6 +151,7 @@
 		EFD3556C2C613C60005CC6DA /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = EFD3556B2C613C60005CC6DA /* GoogleSignIn */; };
 		EFD3556E2C613C60005CC6DA /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFD3556D2C613C60005CC6DA /* GoogleSignInSwift */; };
 		EFD355712C615183005CC6DA /* GoogleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD355702C615183005CC6DA /* GoogleService.swift */; };
+		EFD527832CB9C64200A7E0D9 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFD527822CB9C64200A7E0D9 /* IQKeyboardManagerSwift */; };
 		EFDABFBC2C68BD2800D594A7 /* SearchPopularRecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFBB2C68BD2800D594A7 /* SearchPopularRecipeCollectionViewCell.swift */; };
 		EFDABFBF2C68C5A400D594A7 /* EditorChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFBE2C68C5A400D594A7 /* EditorChoiceCollectionViewCell.swift */; };
 		EFDABFC22C68D55C00D594A7 /* ProfileFavCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDABFC12C68D55C00D594A7 /* ProfileFavCollectionViewCell.swift */; };
@@ -364,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFD14EDA2C6FDCA90016F1B7 /* SwifterSwift in Frameworks */,
+				EFD527832CB9C64200A7E0D9 /* IQKeyboardManagerSwift in Frameworks */,
 				EFD14ECF2C6E82930016F1B7 /* Kingfisher in Frameworks */,
 				EFC425C42C6A9FFF004FF5BE /* Alamofire in Frameworks */,
 				EF89885F2C5ED4090028FFD4 /* Tabman in Frameworks */,
@@ -1108,6 +1110,7 @@
 				EFC425C32C6A9FFF004FF5BE /* Alamofire */,
 				EFD14ECE2C6E82930016F1B7 /* Kingfisher */,
 				EFD14ED92C6FDCA90016F1B7 /* SwifterSwift */,
+				EFD527822CB9C64200A7E0D9 /* IQKeyboardManagerSwift */,
 			);
 			productName = FoodRecipeApp;
 			productReference = EFB5AF872C5E94190004075F /* FoodRecipeApp.app */;
@@ -1190,6 +1193,7 @@
 				EF78B0272C680BDA003686F5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				EFD14ED82C6FDC910016F1B7 /* XCRemoteSwiftPackageReference "SwifterSwift" */,
 				EF0365C92C73BB4000965A66 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EFD527812CB9C5BC00A7E0D9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = EFB5AF882C5E94190004075F /* Products */;
 			projectDirPath = "";
@@ -1781,6 +1785,14 @@
 				minimumVersion = 7.1.0;
 			};
 		};
+		EFD527812CB9C5BC00A7E0D9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1818,6 +1830,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EFD355662C613799005CC6DA /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		EFD527822CB9C64200A7E0D9 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFD527812CB9C5BC00A7E0D9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

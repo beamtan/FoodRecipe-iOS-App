@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 
 protocol HomeWorkerProtocol {
+    // MARK: - Call Service
+    
     func inquirySearchFoodsByCategory(
         request: HomeModels.InquirySearchFoodsByCategory.Request,
         completionHandler: @escaping (
@@ -28,6 +30,8 @@ class HomeWorker: HomeWorkerProtocol {
         service.inquirySearchFoodsByCategory(request: request, completionHandler: completionHandler)
     }
 }
+
+// MARK: - Mock Data
 
 class MockHomeWorker: HomeWorkerProtocol {
     func inquirySearchFoodsByCategory(
