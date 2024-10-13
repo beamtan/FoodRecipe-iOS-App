@@ -31,6 +31,8 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     private var categories: HomeModels.Category = HomeModels.Category()
     private var foods: [FoodDetailModels.FoodDetailResponse] = []
     
+    // MARK: - IBOutlet
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Object lifecycle

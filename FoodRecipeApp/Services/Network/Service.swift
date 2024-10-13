@@ -31,7 +31,7 @@ class Service: ServiceProtocol {
         self.httpClient = client
     }
     
-    // MARK: - Home
+    // MARK: - Search
     
     func inquirySearchFoodsByQueryText(
         request: HomeModels.InquirySearchFoodsByQueryText.Request,
@@ -52,6 +52,7 @@ class Service: ServiceProtocol {
             let queryItem = URLQueryItem(name: "sort", value: sort)
             components?.queryItems?.append(queryItem)
         }
+        
         //popularity
         if let sortDirection = request.sortDirection {
             let queryItem = URLQueryItem(name: "sortDirection", value: sortDirection)
@@ -95,6 +96,26 @@ class Service: ServiceProtocol {
     }
     
     func inquiryFoodNutrition(
+        request: FoodDetailModels.InquiryFoodNutrition.Request,
+        completionHandler: @escaping (
+            DataResponse<
+            FoodDetailModels.FoodNutritionResponse,
+            AFError
+            >
+        ) -> ()
+    ) {
+        let urlString = Environment.SpoonacularEndpoint.GET_RECIPE_NUTRITION_BY_ID(request.id)
+        httpClient.request(
+            urlString,
+            method: .get,
+            interceptor: self,
+            completionHandler: completionHandler
+        )
+    }
+    
+    // MARK: - Random Recipe
+    
+    func inquiryRandomRecipes(
         request: FoodDetailModels.InquiryFoodNutrition.Request,
         completionHandler: @escaping (
             DataResponse<

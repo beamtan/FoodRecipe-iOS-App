@@ -9,5 +9,4 @@
 import UIKit
 
 class ProfileWorker {
-
 }

@@ -28,5 +28,6 @@ extension Environment {
         static let GET_RECIPE_NUTRITION_BY_ID: (_ id: String) -> String = { id in
             return "\(Environment.spoonacularBaseUrl)\(id)/nutritionWidget.json"
         }
+        static let GET_RANDOM_RECIPES: String = "\(Environment.spoonacularBaseUrl)/random"
     }
 }

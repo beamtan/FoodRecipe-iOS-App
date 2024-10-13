@@ -12,7 +12,5 @@ class SearchTitleCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
-
 }

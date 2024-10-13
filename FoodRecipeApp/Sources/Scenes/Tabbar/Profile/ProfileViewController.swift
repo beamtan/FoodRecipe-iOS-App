@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProfileDisplayLogic: AnyObject {
-    func displayInquiryFavouriteFoods(viewModel: ProfileModels.InquiryFavouriteFoods.ViewModel)
+    
 }
 
 class ProfileViewController: UIViewController, ProfileDisplayLogic {
@@ -17,31 +17,12 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
     enum Sections: Int, CaseIterable {
         case accountTitle = 0
         case account = 1
-        case favorites = 2
     }
     
     // MARK: - Properties
     
     var interactor: ProfileBusinessLogic?
     var router: (NSObjectProtocol & ProfileRoutingLogic & ProfileDataPassing)?
-    
-    private var favouriteFoods: [FoodDetailModels.FoodDetailResponse]?
-    
-    // MARK: - IBOutlet
-    
-    //    @IBOutlet weak private var profileCardView: UIView! {
-    //        didSet {
-    //            profileCardView.layer.shadowColor = UIColor.black.cgColor
-    //            profileCardView.layer.shadowOpacity = 0.1
-    //            profileCardView.layer.shadowOffset = CGSize(width: 0, height: 1)
-    //            profileCardView.layer.shadowRadius = 2
-    //        }
-    //    }
-    //    @IBOutlet weak private var profileImageView: UIImageView!
-    //    @IBOutlet weak private var profileNameLabel: UILabel!
-    //    @IBOutlet weak private var profileRole: UILabel!
-    //
-    //    @IBOutlet weak var profileFavCollectionView: UICollectionView!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -68,8 +49,6 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        inquiryFavouriteFoods()
     }
     
     // MARK: - IBAction
@@ -100,8 +79,6 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
                 return createNSCollectionLayoutSectionAccountTitle()
             case .account:
                 return createNSCollectionLayoutSectionAccount()
-            case .favorites:
-                return createNSCollectionLayoutSectionFavorites()
             case .none:
                 return nil
             }
@@ -120,32 +97,10 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
             UINib(nibName: "AccountCollectionViewCell", bundle: .main),
             forCellWithReuseIdentifier: "AccountCollectionViewCell"
         )
-        
-        /// My Favorites
-        collectionView.register(
-            UINib(nibName: "ProfileFavHeaderCollectionViewCell", bundle: .main),
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: "ProfileFavHeaderCollectionViewCell"
-        )
-        collectionView.register(
-            UINib(nibName: "ProfileFavCollectionViewCell", bundle: .main),
-            forCellWithReuseIdentifier: "ProfileFavCollectionViewCell"
-        )
-    }
-    
-    // MARK: - Get Data
-    
-    func inquiryFavouriteFoods() {
-        let request = ProfileModels.InquiryFavouriteFoods.Request()
-        interactor?.inquiryFavouriteFoods(request: request)
     }
     
     // MARK: - Display
     
-    func displayInquiryFavouriteFoods(viewModel: ProfileModels.InquiryFavouriteFoods.ViewModel) {
-        favouriteFoods = viewModel.data
-        collectionView.reloadSections([Sections.favorites.rawValue])
-    }
 }
 
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -160,10 +115,6 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         if section == Sections.account.rawValue {
             return 1
-        }
-        
-        if section == Sections.favorites.rawValue {
-            return favouriteFoods?.count ?? 0
         }
         
         return 0
@@ -182,38 +133,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             return cell
         }
         
-        if indexPath.section == Sections.favorites.rawValue {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileFavCollectionViewCell", for: indexPath) as! ProfileFavCollectionViewCell
-            
-            if let favFood = favouriteFoods?[indexPath.row] {
-                cell.setup(favFood: favFood)
-            }
-            
-            return cell
-        }
-        
         return UICollectionViewCell()
-    }
-    
-    /// Set up header
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        viewForSupplementaryElementOfKind kind: String,
-        at indexPath: IndexPath
-    ) -> UICollectionReusableView {
-        if kind == UICollectionView.elementKindSectionHeader &&
-            indexPath.section == Sections.favorites.rawValue {
-            let header = collectionView.dequeueReusableSupplementaryView(
-                ofKind: kind,
-                withReuseIdentifier: "ProfileFavHeaderCollectionViewCell",
-                for: indexPath
-            ) as! ProfileFavHeaderCollectionViewCell
-            
-            return header
-        }
-        
-        return UICollectionReusableView()
     }
 }
 

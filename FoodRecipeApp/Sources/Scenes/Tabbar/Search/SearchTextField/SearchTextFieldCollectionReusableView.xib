@@ -28,7 +28,7 @@
                                         <constraint firstAttribute="width" constant="20" id="ZWy-5s-GXC"/>
                                     </constraints>
                                 </imageView>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Menu, Categories" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5KK-u6-1zY">
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Recipe, Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5KK-u6-1zY">
                                     <rect key="frame" x="52" y="19" width="288" height="23"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="23" id="G8L-4V-j9D"/>
