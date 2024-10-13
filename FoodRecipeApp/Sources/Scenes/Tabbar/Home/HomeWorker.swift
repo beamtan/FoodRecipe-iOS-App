@@ -10,10 +10,11 @@ import UIKit
 import Alamofire
 
 protocol HomeWorkerProtocol {
+    
     // MARK: - Call Service
     
-    func inquirySearchFoodsByCategory(
-        request: HomeModels.InquirySearchFoodsByCategory.Request,
+    func inquirySearchFoodsByQuery(
+        request: HomeModels.InquirySearchFoodsByQueryText.Request,
         completionHandler: @escaping (
             (DataResponse<HomeModels.SearchFoodsResponse, AFError>) -> ()
         )
@@ -21,24 +22,24 @@ protocol HomeWorkerProtocol {
 }
 
 class HomeWorker: HomeWorkerProtocol {
-    func inquirySearchFoodsByCategory(
-        request: HomeModels.InquirySearchFoodsByCategory.Request,
+    func inquirySearchFoodsByQuery(
+        request: HomeModels.InquirySearchFoodsByQueryText.Request,
         completionHandler: @escaping ((DataResponse<HomeModels.SearchFoodsResponse, AFError>) -> ())
     ) {
         let service = Service()
         
-        service.inquirySearchFoodsByCategory(request: request, completionHandler: completionHandler)
+        service.inquirySearchFoodsByQueryText(request: request, completionHandler: completionHandler)
     }
 }
 
 // MARK: - Mock Data
 
 class MockHomeWorker: HomeWorkerProtocol {
-    func inquirySearchFoodsByCategory(
-        request: HomeModels.InquirySearchFoodsByCategory.Request,
+    func inquirySearchFoodsByQuery(
+        request: HomeModels.InquirySearchFoodsByQueryText.Request,
         completionHandler: @escaping ((DataResponse<HomeModels.SearchFoodsResponse, AFError>) -> ())
     ) {
-        let mockData = getData(category: request.category)
+        let mockData = getData(category: request.query)
         let jsonData = try! JSONEncoder().encode(mockData)
         
         let url = URL(string: "https://example.com/api/search-foods")!

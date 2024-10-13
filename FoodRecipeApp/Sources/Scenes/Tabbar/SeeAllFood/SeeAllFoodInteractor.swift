@@ -10,7 +10,7 @@ import UIKit
 
 protocol SeeAllFoodBusinessLogic {
     // Call Service
-    func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request)
+    func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByQueryText.Request)
     
     // Get Data Store
     func getCategoryValue(request: SeeAllFoodModels.Category.Request)
@@ -31,7 +31,7 @@ class SeeAllFoodInteractor: SeeAllFoodBusinessLogic, SeeAllFoodDataStore {
     var category: HomeModels.Category.CategoryType?
     var food: FoodDetailModels.FoodDetailResponse?
     
-    func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByCategory.Request) {
+    func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByQueryText.Request) {
         worker = MockSeeAllFoodWorker()
         
         worker?.inquirySearchFoodsByCategory(request: request) { [weak self] (data) in
@@ -39,10 +39,10 @@ class SeeAllFoodInteractor: SeeAllFoodBusinessLogic, SeeAllFoodDataStore {
             
             switch data.result {
             case .success(let response):
-                let response = HomeModels.InquirySearchFoodsByCategory.Response(data: response, error: nil)
+                let response = HomeModels.InquirySearchFoodsByQueryText.Response(data: response, error: nil)
                 presenter?.presentInquirySearchFoodsByCategory(response: response)
             case .failure(let error):
-                let response = HomeModels.InquirySearchFoodsByCategory.Response(data: nil, error: error)
+                let response = HomeModels.InquirySearchFoodsByQueryText.Response(data: nil, error: error)
                 presenter?.presentInquirySearchFoodsByCategory(response: response)
             }
         }

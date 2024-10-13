@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import Alamofire
 
-class SearchWorker {
-    func doSomeWork() {
+class SearchWorker: HomeWorkerProtocol {
+    func inquirySearchFoodsByQuery(
+        request: HomeModels.InquirySearchFoodsByQueryText.Request,
+        completionHandler: @escaping ((DataResponse<HomeModels.SearchFoodsResponse, AFError>) -> ())
+    ) {
+        let service = Service()
+        
+        service.inquirySearchFoodsByQueryText(request: request, completionHandler: completionHandler)
     }
 }

@@ -9,16 +9,30 @@
 import UIKit
 
 protocol SearchPresentationLogic {
-    func presentSomething(response: SearchModels.Something.Response)
+    func presentSearchFoodsByQuery(response: HomeModels.InquirySearchFoodsByQueryText.Response)
+    
+    /// Route
+    func presentPrepareRouteToFoodDetail()
 }
 
 class SearchPresenter: SearchPresentationLogic {
     weak var viewController: SearchDisplayLogic?
     
-    // MARK: Do something
+    func presentSearchFoodsByQuery(response: HomeModels.InquirySearchFoodsByQueryText.Response) {
+        guard response.error == nil else {
+            let viewModel = HomeModels.InquirySearchFoodsByQueryText.ViewModel(data: nil, error: response.error)
+            viewController?.displaySearchFoodsByQueryFailure(viewModel: viewModel)
+            
+            return
+        }
+        
+        let viewModel = HomeModels.InquirySearchFoodsByQueryText.ViewModel(data: response.data, error: nil)
+        viewController?.displaySearchFoodsByQuerySuccess(viewModel: viewModel)
+    }
     
-    func presentSomething(response: SearchModels.Something.Response) {
-        let viewModel = SearchModels.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    // MARK: - Prepare Routing
+    
+    func presentPrepareRouteToFoodDetail() {
+        viewController?.displayPrepareRouteToFoodDetailSuccess()
     }
 }

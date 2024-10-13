@@ -10,8 +10,8 @@ import Foundation
 import Alamofire
 
 protocol ServiceProtocol {
-    func inquirySearchFoodsByCategory(
-        request: HomeModels.InquirySearchFoodsByCategory.Request,
+    func inquirySearchFoodsByQueryText(
+        request: HomeModels.InquirySearchFoodsByQueryText.Request,
         completionHandler: @escaping (DataResponse<HomeModels.SearchFoodsResponse, AFError>) -> ()
     )
     func inquiryFoodDetail(
@@ -33,18 +33,15 @@ class Service: ServiceProtocol {
     
     // MARK: - Home
     
-    func inquirySearchFoodsByCategory(
-        request: HomeModels.InquirySearchFoodsByCategory.Request,
+    func inquirySearchFoodsByQueryText(
+        request: HomeModels.InquirySearchFoodsByQueryText.Request,
         completionHandler: @escaping (
-            DataResponse<
-            HomeModels.SearchFoodsResponse,
-            AFError
-            >
+            DataResponse<HomeModels.SearchFoodsResponse, AFError>
         ) -> ()
     ) {
-        var components = URLComponents(string: Environment.SpoonacularEndpoint.GET_FOODS_BY_CATEGORY)
+        var components = URLComponents(string: Environment.SpoonacularEndpoint.GET_FOODS_BY_SEARCH_QUERY)
         components?.queryItems = [
-            URLQueryItem(name: "query", value: request.category),
+            URLQueryItem(name: "query", value: request.query),
             URLQueryItem(name: "number", value: "\(request.number)"),
             URLQueryItem(name: "addRecipeNutrition", value: request.isAddRecipeNutrition.string),
             URLQueryItem(name: "addRecipeInstructions", value: request.isAddRecipeInstructions.string),

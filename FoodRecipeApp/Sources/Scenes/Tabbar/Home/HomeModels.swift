@@ -10,9 +10,9 @@ import UIKit
 
 struct HomeModels {
     
-    struct InquirySearchFoodsByCategory {
+    struct InquirySearchFoodsByQueryText {
         struct Request {
-            let category: String
+            let query: String
             let number: Int
             let isAddRecipeNutrition: Bool
             let isAddRecipeInstructions: Bool

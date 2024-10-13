@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol SearchRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToFoodDetail()
 }
 
 protocol SearchDataPassing {
@@ -20,31 +20,29 @@ class SearchRouter: NSObject, SearchRoutingLogic, SearchDataPassing {
     weak var viewController: SearchViewController?
     var dataStore: SearchDataStore?
     
-    // MARK: Routing
-    
-    //func routeToSomewhere(segue: UIStoryboardSegue?) {
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
+    func routeToFoodDetail() {
+        guard let destination = UIStoryboard(name: "FoodDetailStoryboard", bundle: nil).instantiateViewController(withIdentifier: "FoodDetailViewController") as? FoodDetailViewController else { return }
+        
+        guard let viewController,
+              let dataStore,
+              var destinationDataStore = destination.router?.dataStore else {
+            return
+        }
+        
+        passDataToFoodDetailViewController(source: dataStore, destination: &destinationDataStore)
+        navigateToFoodDetail(source: viewController, destination: destination)
+    }
     
     // MARK: Navigation
     
-    //func navigateToSomewhere(source: SearchViewController, destination: SomewhereViewController) {
-    //  source.show(destination, sender: nil)
-    //}
+    func navigateToFoodDetail(source: SearchViewController, destination: FoodDetailViewController) {
+        destination.modalPresentationStyle = .overFullScreen
+        source.present(destination, animated: true)
+    }
     
     // MARK: Passing data
     
-    //func passDataToSomewhere(source: SearchDataStore, destination: inout SomewhereDataStore) {
-    //  destination.name = source.name
-    //}
+    func passDataToFoodDetailViewController(source: SearchDataStore, destination: inout FoodDetailDataStore) {
+        destination.food = source.food
+    }
 }

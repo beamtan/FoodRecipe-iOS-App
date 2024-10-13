@@ -9,9 +9,10 @@
 import UIKit
 
 protocol HomeDisplayLogic: AnyObject {
-    func displayInquirySearchFoodsByCategorySuccess(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel)
-    func displayInquirySearchFoodsByCategoryFailure(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel)
+    func displayInquirySearchFoodsByCategorySuccess(viewModel: HomeModels.InquirySearchFoodsByQueryText.ViewModel)
+    func displayInquirySearchFoodsByCategoryFailure(viewModel: HomeModels.InquirySearchFoodsByQueryText.ViewModel)
     
+    /// Route
     func displayPrepareRouteToFoodDetailSuccess()
 }
 
@@ -92,8 +93,8 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         )?.category.rawValue ?? ""
         let totalFoodRequest: Int = 4
         
-        let request = HomeModels.InquirySearchFoodsByCategory.Request(
-            category: selectedCategory,
+        let request = HomeModels.InquirySearchFoodsByQueryText.Request(
+            query: selectedCategory,
             number: totalFoodRequest,
             isAddRecipeNutrition: true,
             isAddRecipeInstructions: true,
@@ -106,12 +107,12 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     
     // MARK: - Display
     
-    func displayInquirySearchFoodsByCategorySuccess(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel) {
+    func displayInquirySearchFoodsByCategorySuccess(viewModel: HomeModels.InquirySearchFoodsByQueryText.ViewModel) {
         foods = viewModel.data?.results ?? []
         collectionView.reloadSections([Sections.popularRecipe.rawValue])
     }
     
-    func displayInquirySearchFoodsByCategoryFailure(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel) {
+    func displayInquirySearchFoodsByCategoryFailure(viewModel: HomeModels.InquirySearchFoodsByQueryText.ViewModel) {
         
     }
     

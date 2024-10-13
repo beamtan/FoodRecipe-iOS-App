@@ -9,8 +9,8 @@
 import UIKit
 
 protocol SeeAllFoodDisplayLogic: AnyObject {
-    func displayInquirySearchFoodsByCategorySuccess(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel)
-    func displayInquirySearchFoodsByCategoryFailure(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel)
+    func displayInquirySearchFoodsByCategorySuccess(viewModel: HomeModels.InquirySearchFoodsByQueryText.ViewModel)
+    func displayInquirySearchFoodsByCategoryFailure(viewModel: HomeModels.InquirySearchFoodsByQueryText.ViewModel)
     func displayGetCategoryValue(viewModel: SeeAllFoodModels.Category.ViewModel)
     
     func displayPrepareRouteToFoodDetailSuccess()
@@ -162,8 +162,8 @@ class SeeAllFoodViewController: UIViewController, SeeAllFoodDisplayLogic {
     func inquirySearchFoodByCategory(selectedCategory: HomeModels.Category.CategoryType) {
         let totalFoodRequest: Int = 30
         
-        let request = HomeModels.InquirySearchFoodsByCategory.Request(
-            category: selectedCategory.rawValue,
+        let request = HomeModels.InquirySearchFoodsByQueryText.Request(
+            query: selectedCategory.rawValue,
             number: totalFoodRequest,
             isAddRecipeNutrition: true,
             isAddRecipeInstructions: true,
@@ -175,12 +175,12 @@ class SeeAllFoodViewController: UIViewController, SeeAllFoodDisplayLogic {
     
     // MARK: - Display
     
-    func displayInquirySearchFoodsByCategorySuccess(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel) {
+    func displayInquirySearchFoodsByCategorySuccess(viewModel: HomeModels.InquirySearchFoodsByQueryText.ViewModel) {
         foods = viewModel.data?.results ?? []
         collectionView.reloadData()
     }
     
-    func displayInquirySearchFoodsByCategoryFailure(viewModel: HomeModels.InquirySearchFoodsByCategory.ViewModel) {
+    func displayInquirySearchFoodsByCategoryFailure(viewModel: HomeModels.InquirySearchFoodsByQueryText.ViewModel) {
         
     }
     

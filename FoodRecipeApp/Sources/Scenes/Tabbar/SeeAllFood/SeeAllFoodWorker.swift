@@ -11,7 +11,7 @@ import Alamofire
 
 protocol SeeAllFoodWorkerProtocol {
     func inquirySearchFoodsByCategory(
-        request: HomeModels.InquirySearchFoodsByCategory.Request,
+        request: HomeModels.InquirySearchFoodsByQueryText.Request,
         completionHandler: @escaping (
             (DataResponse<HomeModels.SearchFoodsResponse, AFError>) -> ()
         )
@@ -20,18 +20,18 @@ protocol SeeAllFoodWorkerProtocol {
 
 class SeeAllFoodWorker: SeeAllFoodWorkerProtocol {
     func inquirySearchFoodsByCategory(
-        request: HomeModels.InquirySearchFoodsByCategory.Request,
+        request: HomeModels.InquirySearchFoodsByQueryText.Request,
         completionHandler: @escaping ((DataResponse<HomeModels.SearchFoodsResponse, AFError>) -> ())
     ) {
         let service = Service()
         
-        service.inquirySearchFoodsByCategory(request: request, completionHandler: completionHandler)
+        service.inquirySearchFoodsByQueryText(request: request, completionHandler: completionHandler)
     }
 }
 
 class MockSeeAllFoodWorker: SeeAllFoodWorkerProtocol {
     func inquirySearchFoodsByCategory(
-        request: HomeModels.InquirySearchFoodsByCategory.Request,
+        request: HomeModels.InquirySearchFoodsByQueryText.Request,
         completionHandler: @escaping ((DataResponse<HomeModels.SearchFoodsResponse, AFError>) -> ())
     ) {
         let mockData = getData()

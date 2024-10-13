@@ -21,7 +21,7 @@ extension Environment {
     }
     
     struct SpoonacularEndpoint {
-        static let GET_FOODS_BY_CATEGORY: String = "\(Environment.spoonacularBaseUrl)complexSearch?"
+        static let GET_FOODS_BY_SEARCH_QUERY: String = "\(Environment.spoonacularBaseUrl)complexSearch?"
         static let GET_RECIPE_INFO_BY_ID: (_ id: String) -> String = { id in
             return "\(Environment.spoonacularBaseUrl)\(id)/information"
         }

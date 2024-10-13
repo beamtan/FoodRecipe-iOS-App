@@ -1,18 +1,18 @@
 //
-//  HomeViewController+NSCollectionLayoutSection.swift
+//  SearchViewController+NSCollection.swift
 //  FoodRecipeApp
 //
-//  Created by Chayakan Tangsanga on 15/8/2567 BE.
+//  Created by Chayakan Tangsanga on 12/10/2567 BE.
 //  Copyright © 2567 BE BeamtanDev Co. All rights reserved.
 //
 
 import UIKit
 
-extension HomeViewController {
+extension SearchViewController {
     
-    // MARK: - Name
+    // MARK: - Title
     
-    func createNSCollectionLayoutSectionName() -> NSCollectionLayoutSection {
+    func createNSCollectionLayoutSectionSearchTitle() -> NSCollectionLayoutSection {
         /// item = cell dimension
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
@@ -32,7 +32,7 @@ extension HomeViewController {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(52)
+                heightDimension: .absolute(64)
             ),
             subitems: [item]
         )
@@ -40,16 +40,23 @@ extension HomeViewController {
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .paging
         
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 0,
+            trailing: 0
+        )
+        
         return section
     }
     
-    // MARK: - Featured
+    // MARK: - Search TextField
     
-    func createNSCollectionLayoutSectionFeatured() -> NSCollectionLayoutSection {
+    func createNSCollectionLayoutSectionSearchTextField() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .absolute(264),
-                heightDimension: .fractionalHeight(1.0)
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(41)
             )
         )
         
@@ -60,39 +67,24 @@ extension HomeViewController {
             trailing: 0
         )
 
+        let bottomPadding: CGFloat = 24
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .absolute(296),
-                heightDimension: .absolute(172)
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(54 + bottomPadding)
             ),
             subitems: [item]
         )
-        
-        group.interItemSpacing = .fixed(16)
 
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .paging
         
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
-            leading: 24,
+            leading: 0,
             bottom: 0,
             trailing: 0
         )
-        
-        /// [Header] Add header to the section
-        
-        let headerSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(62)
-        )
-        let header = NSCollectionLayoutBoundarySupplementaryItem(
-            layoutSize: headerSize,
-            elementKind: UICollectionView.elementKindSectionHeader,
-            alignment: .top
-        )
-        
-        section.boundarySupplementaryItems = [header]
         
         return section
     }
@@ -143,34 +135,19 @@ extension HomeViewController {
         
         section.interGroupSpacing = padding
         
-        let headerSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(62)
-        )
-        
-        let header = NSCollectionLayoutBoundarySupplementaryItem(
-            layoutSize: headerSize,
-            elementKind: UICollectionView.elementKindSectionHeader,
-            alignment: .top
-        )
-        
-        section.boundarySupplementaryItems = [header]
-        
         return section
     }
     
-    // MARK: - Popular Recipes
+    // MARK: - Search Results
     
-    func createNSCollectionLayoutSectionPopularRecipe() -> NSCollectionLayoutSection {
-        let cellWidth: CGFloat = 200
-        let cellHeight: CGFloat = 240
+    func createNSCollectionLayoutSectionSearchResult() -> NSCollectionLayoutSection {
         let sectionPadding: CGFloat = 24
         let shadowPadding: CGFloat = 8
         
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .estimated(cellWidth),
-                heightDimension: .absolute(cellHeight)
+                widthDimension: .fractionalWidth(0.5), // two item per row
+                heightDimension: .absolute(200)  // vertical control the height by item instead
             )
         )
         
@@ -181,31 +158,33 @@ extension HomeViewController {
             trailing: 0
         )
         
+        /// Group = cell container
+
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .estimated(cellWidth),
-                heightDimension: .absolute(cellHeight)
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .estimated(300) // vertical align need the group to extend as need
             ),
             subitems: [item]
         )
-
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .paging
         
-        section.contentInsets = NSDirectionalEdgeInsets(
+        group.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
             leading: sectionPadding - shadowPadding,
             bottom: 0,
             trailing: sectionPadding - shadowPadding
         )
         
-        section.interGroupSpacing = 0
+        /// Section = Section container: header, footer can be shown
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .none // vertical align use main scroll
         
-        /// [Header] Add header to the section
+        section.interGroupSpacing = 0 // vertical align full width will have multiple group in stead of item
         
         let headerSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(62)
+            heightDimension: .absolute(79)
         )
         
         let header = NSCollectionLayoutBoundarySupplementaryItem(
@@ -216,10 +195,12 @@ extension HomeViewController {
         
         header.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
-            leading: shadowPadding,
+            leading: 0,
             bottom: 0,
-            trailing: shadowPadding
+            trailing: 0
         )
+        
+        header.pinToVisibleBounds = true
         
         section.boundarySupplementaryItems = [header]
         

@@ -9,18 +9,4 @@
 import UIKit
 
 struct SearchModels {
-    
-    struct Something {
-        struct Request {
-            
-        }
-        
-        struct Response {
-            
-        }
-        
-        struct ViewModel {
-            
-        }
-    }
 }
