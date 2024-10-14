@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
     enum Sections: Int, CaseIterable {
         case accountTitle = 0
         case account = 1
+        case setting = 2
     }
     
     // MARK: - Properties
@@ -79,6 +80,8 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
                 return createNSCollectionLayoutSectionAccountTitle()
             case .account:
                 return createNSCollectionLayoutSectionAccount()
+            case .setting:
+                return createNSCollectionLayoutSectionSetting()
             case .none:
                 return nil
             }
@@ -96,6 +99,12 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
         collectionView.register(
             UINib(nibName: "AccountCollectionViewCell", bundle: .main),
             forCellWithReuseIdentifier: "AccountCollectionViewCell"
+        )
+        
+        /// Setting
+        collectionView.register(
+            UINib(nibName: "ProfileSettingCollectionViewCell", bundle: .main),
+            forCellWithReuseIdentifier: "ProfileSettingCollectionViewCell"
         )
     }
     
@@ -117,6 +126,10 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             return 1
         }
         
+        if section == Sections.setting.rawValue {
+            return 10
+        }
+        
         return 0
     }
     
@@ -133,6 +146,11 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             return cell
         }
         
+        if indexPath.section == Sections.setting.rawValue {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileSettingCollectionViewCell", for: indexPath) as! ProfileSettingCollectionViewCell
+            return cell
+        }
+        
         return UICollectionViewCell()
     }
 }
@@ -140,7 +158,9 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
 // MARK: - NSCollectionLayoutSection Helper
 
 extension ProfileViewController {
-    // AccountTitle
+    
+    // MARK: - Title
+    
     private func createNSCollectionLayoutSectionAccountTitle() -> NSCollectionLayoutSection {
         /// item = cell
         
@@ -181,7 +201,8 @@ extension ProfileViewController {
         return section
     }
     
-    // Account
+    // MARK: - Account
+    
     private func createNSCollectionLayoutSectionAccount() -> NSCollectionLayoutSection {
         let sectionPadding: CGFloat = 24
         let shadowPadding: CGFloat = 8
@@ -228,15 +249,16 @@ extension ProfileViewController {
         return section
     }
     
-    // Favorites
-    private func createNSCollectionLayoutSectionFavorites() -> NSCollectionLayoutSection {
+    // MARK: - Setting
+    
+    private func createNSCollectionLayoutSectionSetting() -> NSCollectionLayoutSection {
         let sectionPadding: CGFloat = 24
         let shadowPadding: CGFloat = 8
         
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(0.5), // two item per row
-                heightDimension: .absolute(200)  // vertical control the height by item instead
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalHeight(1.0) // vertical control the height by item instead
             )
         )
         
@@ -245,51 +267,32 @@ extension ProfileViewController {
             leading: 0,
             bottom: 0,
             trailing: 0
+            
         )
         
         /// Group = cell container
 
-        let group = NSCollectionLayoutGroup.horizontal(
+        let group = NSCollectionLayoutGroup.vertical(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .estimated(300) // vertical align need the group to extend as need
+                heightDimension: .absolute(50) // vertical align need the group to extend as need
             ),
             subitems: [item]
         )
         
-        group.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: sectionPadding - shadowPadding,
-            bottom: 0,
-            trailing: sectionPadding - shadowPadding
-        )
+        // Section = Section container: header, footer can be shown
         
-        /// Section = Section container: header, footer can be shown
-
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .none // vertical align use main scroll
         
-        section.interGroupSpacing = 0 // vertical align full width will have multiple group in stead of item
-        
-        let headerSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(62)
-        )
-        
-        let header = NSCollectionLayoutBoundarySupplementaryItem(
-            layoutSize: headerSize,
-            elementKind: UICollectionView.elementKindSectionHeader,
-            alignment: .top
-        )
-        
-        header.contentInsets = NSDirectionalEdgeInsets(
+        section.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
-            leading: sectionPadding,
+            leading: 0,
             bottom: 0,
-            trailing: sectionPadding
+            trailing: 0
         )
         
-        section.boundarySupplementaryItems = [header]
+        section.interGroupSpacing = 0 // vertical align full width will have multiple group in stead of item
         
         return section
     }

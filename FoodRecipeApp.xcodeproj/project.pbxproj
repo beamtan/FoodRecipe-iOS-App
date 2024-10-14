@@ -83,6 +83,8 @@
 		EF4FBDAE2CBC6A5B00713E3A /* SavedRecipeViewController+NSCollectionLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FBDAD2CBC6A4900713E3A /* SavedRecipeViewController+NSCollectionLayoutSection.swift */; };
 		EF4FBDB12CBC6C5000713E3A /* SavedRecipeTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FBDAF2CBC6C5000713E3A /* SavedRecipeTitleCollectionViewCell.swift */; };
 		EF4FBDB22CBC6C5000713E3A /* SavedRecipeTitleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4FBDB02CBC6C5000713E3A /* SavedRecipeTitleCollectionViewCell.xib */; };
+		EF4FBDB62CBC7E8800713E3A /* ProfileSettingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4FBDB52CBC7E8800713E3A /* ProfileSettingCollectionViewCell.xib */; };
+		EF4FBDB72CBC7E8800713E3A /* ProfileSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FBDB42CBC7E8800713E3A /* ProfileSettingCollectionViewCell.swift */; };
 		EF78B01F2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78B01E2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift */; };
 		EF78B0222C67CA9B003686F5 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78B0212C67CA9B003686F5 /* CategoryCollectionViewCell.swift */; };
 		EF78B0252C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78B0242C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift */; };
@@ -272,6 +274,8 @@
 		EF4FBDAD2CBC6A4900713E3A /* SavedRecipeViewController+NSCollectionLayoutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedRecipeViewController+NSCollectionLayoutSection.swift"; sourceTree = "<group>"; };
 		EF4FBDAF2CBC6C5000713E3A /* SavedRecipeTitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeTitleCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF4FBDB02CBC6C5000713E3A /* SavedRecipeTitleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedRecipeTitleCollectionViewCell.xib; sourceTree = "<group>"; };
+		EF4FBDB42CBC7E8800713E3A /* ProfileSettingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF4FBDB52CBC7E8800713E3A /* ProfileSettingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileSettingCollectionViewCell.xib; sourceTree = "<group>"; };
 		EF78B01E2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF78B0212C67CA9B003686F5 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF78B0242C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularRecipeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -409,6 +413,7 @@
 			children = (
 				EFA42C802C6DF4A0004ACBD5 /* AccountTitle */,
 				EFA42C7B2C6DF455004ACBD5 /* Account */,
+				EF4FBDB32CBC7CC000713E3A /* Setting */,
 				EF0759752C66594000CA1F67 /* ProfileStoryboard.storyboard */,
 				EF07596B2C66590900CA1F67 /* ProfileViewController.swift */,
 				EF07596C2C66590900CA1F67 /* ProfileInteractor.swift */,
@@ -562,6 +567,15 @@
 				EF4FBDAD2CBC6A4900713E3A /* SavedRecipeViewController+NSCollectionLayoutSection.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EF4FBDB32CBC7CC000713E3A /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				EF4FBDB52CBC7E8800713E3A /* ProfileSettingCollectionViewCell.xib */,
+				EF4FBDB42CBC7E8800713E3A /* ProfileSettingCollectionViewCell.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		EF78B01D2C67BFF2003686F5 /* Featured */ = {
@@ -1247,6 +1261,7 @@
 				EF07597D2C66881000CA1F67 /* EmptyStoryboard.storyboard in Resources */,
 				EF0365DB2C75180500965A66 /* SeeAllFoodStoryboard.storyboard in Resources */,
 				EF78B02D2C6819B6003686F5 /* SofiaPro-Light.ttf in Resources */,
+				EF4FBDB62CBC7E8800713E3A /* ProfileSettingCollectionViewCell.xib in Resources */,
 				EF15DEF72C5EC94A00EF4294 /* AuthenticationStoryboard.storyboard in Resources */,
 				EFA42C462C6D2A24004ACBD5 /* PopularRecipeCollectionViewCell.xib in Resources */,
 				EFA42C4F2C6D2E8C004ACBD5 /* PopularRecipeHeaderCollectionViewCell.xib in Resources */,
@@ -1306,6 +1321,7 @@
 				EFF5850D2C71515F00FA56BC /* ExtensionDouble.swift in Sources */,
 				EF15DED72C5EC41600EF4294 /* LoginModels.swift in Sources */,
 				EFA42C572C6D340D004ACBD5 /* CategoryHeaderCollectionViewCell.swift in Sources */,
+				EF4FBDB72CBC7E8800713E3A /* ProfileSettingCollectionViewCell.swift in Sources */,
 				EF15DED82C5EC41600EF4294 /* LoginViewController.swift in Sources */,
 				EF15DED92C5EC41600EF4294 /* LoginInteractor.swift in Sources */,
 				EFA42C542C6D33BC004ACBD5 /* FeaturedHeaderCollectionViewCell.swift in Sources */,
