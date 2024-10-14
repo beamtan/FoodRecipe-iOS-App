@@ -18,6 +18,27 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
         case accountTitle = 0
         case account = 1
         case setting = 2
+        case logout = 3
+    }
+    
+    enum Settings: Int, CaseIterable {
+        case setting1
+        case setting2
+        case setting3
+        case setting4
+        
+        var displayName: String {
+            switch self {
+            case .setting1:
+                return "Setting 1"
+            case .setting2:
+                return "Setting 2"
+            case .setting3:
+                return "Setting 3"
+            case .setting4:
+                return "Setting 4"
+            }
+        }
     }
     
     // MARK: - Properties
@@ -82,6 +103,8 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
                 return createNSCollectionLayoutSectionAccount()
             case .setting:
                 return createNSCollectionLayoutSectionSetting()
+            case .logout:
+                return createNSCollectionLayoutSectionLogout()
             case .none:
                 return nil
             }
@@ -106,6 +129,12 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
             UINib(nibName: "ProfileSettingCollectionViewCell", bundle: .main),
             forCellWithReuseIdentifier: "ProfileSettingCollectionViewCell"
         )
+        
+        /// Logout
+        collectionView.register(
+            UINib(nibName: "LogoutCollectionViewCell", bundle: .main),
+            forCellWithReuseIdentifier: "LogoutCollectionViewCell"
+        )
     }
     
     // MARK: - Display
@@ -127,7 +156,11 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
         
         if section == Sections.setting.rawValue {
-            return 10
+            return Settings.allCases.count
+        }
+        
+        if section == Sections.logout.rawValue {
+            return 1
         }
         
         return 0
@@ -148,152 +181,34 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         if indexPath.section == Sections.setting.rawValue {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileSettingCollectionViewCell", for: indexPath) as! ProfileSettingCollectionViewCell
+            
+            if let setting = Settings(rawValue: indexPath.row) {
+                cell.setup(labelText: setting.displayName)
+            }
+            
+            if indexPath.row == 0 {
+                cell.makeTopRoundCorner()
+            }
+            
+            if indexPath.row == Settings.allCases.count - 1 {
+                cell.makeBottomRoundCorner()
+            }
+            
+            return cell
+        }
+        
+        if indexPath.section == Sections.logout.rawValue {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LogoutCollectionViewCell", for: indexPath) as! LogoutCollectionViewCell
+            
+            cell.logoutClosure = { [weak self] in
+                guard let self else { return }
+                
+                router?.routeToLogin()
+            }
+            
             return cell
         }
         
         return UICollectionViewCell()
-    }
-}
-
-// MARK: - NSCollectionLayoutSection Helper
-
-extension ProfileViewController {
-    
-    // MARK: - Title
-    
-    private func createNSCollectionLayoutSectionAccountTitle() -> NSCollectionLayoutSection {
-        /// item = cell
-        
-        let item = NSCollectionLayoutItem(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(1.0)
-            )
-        )
-        
-        item.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: 0,
-            bottom: 0,
-            trailing: 0
-        )
-        
-        /// Group = cell container
-        
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(64)
-            ),
-            subitems: [item]
-        )
-
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .paging
-        
-        section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: 0,
-            bottom: 0,
-            trailing: 0
-        )
-        
-        return section
-    }
-    
-    // MARK: - Account
-    
-    private func createNSCollectionLayoutSectionAccount() -> NSCollectionLayoutSection {
-        let sectionPadding: CGFloat = 24
-        let shadowPadding: CGFloat = 8
-        
-        let item = NSCollectionLayoutItem(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(1.0) // vertical control the height by item instead
-            )
-        )
-        
-        item.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: 0,
-            bottom: 0,
-            trailing: 0
-            
-        )
-        
-        /// Group = cell container
-
-        let group = NSCollectionLayoutGroup.vertical(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(96) // vertical align need the group to extend as need
-            ),
-            subitems: [item]
-        )
-        
-        // Section = Section container: header, footer can be shown
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .none // vertical align use main scroll
-        
-        section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: sectionPadding - shadowPadding,
-            bottom: 0,
-            trailing: sectionPadding - shadowPadding
-        )
-        
-        section.interGroupSpacing = 16 // vertical align full width will have multiple group in stead of item
-        
-        return section
-    }
-    
-    // MARK: - Setting
-    
-    private func createNSCollectionLayoutSectionSetting() -> NSCollectionLayoutSection {
-        let sectionPadding: CGFloat = 24
-        let shadowPadding: CGFloat = 8
-        
-        let item = NSCollectionLayoutItem(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(1.0) // vertical control the height by item instead
-            )
-        )
-        
-        item.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: 0,
-            bottom: 0,
-            trailing: 0
-            
-        )
-        
-        /// Group = cell container
-
-        let group = NSCollectionLayoutGroup.vertical(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(50) // vertical align need the group to extend as need
-            ),
-            subitems: [item]
-        )
-        
-        // Section = Section container: header, footer can be shown
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .none // vertical align use main scroll
-        
-        section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: 0,
-            bottom: 0,
-            trailing: 0
-        )
-        
-        section.interGroupSpacing = 0 // vertical align full width will have multiple group in stead of item
-        
-        return section
     }
 }

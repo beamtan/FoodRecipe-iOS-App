@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
     }
     
-    func changeRootViewController(vc: UIViewController) {
+    func changeRootViewController(vc: UIViewController, animation: UIView.AnimationOptions) {
         guard let window = window else {
             return
         }
@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UIView.transition(
             with: window,
             duration: 0.5,
-            options: .transitionFlipFromLeft,
+            options: animation,
             animations: nil,
             completion: nil
         )

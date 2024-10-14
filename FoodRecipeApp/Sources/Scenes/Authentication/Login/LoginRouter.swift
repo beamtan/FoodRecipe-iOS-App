@@ -35,7 +35,7 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     func navigateToHome(source: LoginViewController, destination: HomeTabbarViewController) {
         let navigationController = UINavigationController(rootViewController: destination)
         
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(vc: navigationController)
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(vc: navigationController, animation: .transitionFlipFromLeft)
     }
     
     // MARK: Passing data

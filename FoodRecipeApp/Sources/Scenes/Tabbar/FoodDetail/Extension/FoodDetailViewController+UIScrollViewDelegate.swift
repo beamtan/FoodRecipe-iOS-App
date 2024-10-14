@@ -40,9 +40,6 @@ extension FoodDetailViewController: UIScrollViewDelegate {
                 // Make it negative for up direction
                 
                 foodImageViewTopPadding.constant = (differentBetweenSheetAndImage / 3) * -1
-            } else {
-                let imageOriginHeight: CGFloat = 280
-                foodImageViewTopPadding.constant = 0
             }
         }
         

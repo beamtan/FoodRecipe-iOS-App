@@ -85,6 +85,9 @@
 		EF4FBDB22CBC6C5000713E3A /* SavedRecipeTitleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4FBDB02CBC6C5000713E3A /* SavedRecipeTitleCollectionViewCell.xib */; };
 		EF4FBDB62CBC7E8800713E3A /* ProfileSettingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4FBDB52CBC7E8800713E3A /* ProfileSettingCollectionViewCell.xib */; };
 		EF4FBDB72CBC7E8800713E3A /* ProfileSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FBDB42CBC7E8800713E3A /* ProfileSettingCollectionViewCell.swift */; };
+		EF4FBDBA2CBD923500713E3A /* ProfileViewController+NSCollectionLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FBDB92CBD922A00713E3A /* ProfileViewController+NSCollectionLayoutSection.swift */; };
+		EF4FBDBE2CBDA11D00713E3A /* LogoutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FBDBC2CBDA11D00713E3A /* LogoutCollectionViewCell.swift */; };
+		EF4FBDBF2CBDA11D00713E3A /* LogoutCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4FBDBD2CBDA11D00713E3A /* LogoutCollectionViewCell.xib */; };
 		EF78B01F2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78B01E2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift */; };
 		EF78B0222C67CA9B003686F5 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78B0212C67CA9B003686F5 /* CategoryCollectionViewCell.swift */; };
 		EF78B0252C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78B0242C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift */; };
@@ -276,6 +279,9 @@
 		EF4FBDB02CBC6C5000713E3A /* SavedRecipeTitleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedRecipeTitleCollectionViewCell.xib; sourceTree = "<group>"; };
 		EF4FBDB42CBC7E8800713E3A /* ProfileSettingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF4FBDB52CBC7E8800713E3A /* ProfileSettingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileSettingCollectionViewCell.xib; sourceTree = "<group>"; };
+		EF4FBDB92CBD922A00713E3A /* ProfileViewController+NSCollectionLayoutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+NSCollectionLayoutSection.swift"; sourceTree = "<group>"; };
+		EF4FBDBC2CBDA11D00713E3A /* LogoutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF4FBDBD2CBDA11D00713E3A /* LogoutCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoutCollectionViewCell.xib; sourceTree = "<group>"; };
 		EF78B01E2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF78B0212C67CA9B003686F5 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF78B0242C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularRecipeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -411,9 +417,11 @@
 		EF07595A2C66588200CA1F67 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				EF4FBDB82CBD921200713E3A /* Extensions */,
 				EFA42C802C6DF4A0004ACBD5 /* AccountTitle */,
 				EFA42C7B2C6DF455004ACBD5 /* Account */,
 				EF4FBDB32CBC7CC000713E3A /* Setting */,
+				EF4FBDBB2CBDA0FD00713E3A /* Logout */,
 				EF0759752C66594000CA1F67 /* ProfileStoryboard.storyboard */,
 				EF07596B2C66590900CA1F67 /* ProfileViewController.swift */,
 				EF07596C2C66590900CA1F67 /* ProfileInteractor.swift */,
@@ -576,6 +584,23 @@
 				EF4FBDB42CBC7E8800713E3A /* ProfileSettingCollectionViewCell.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		EF4FBDB82CBD921200713E3A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EF4FBDB92CBD922A00713E3A /* ProfileViewController+NSCollectionLayoutSection.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EF4FBDBB2CBDA0FD00713E3A /* Logout */ = {
+			isa = PBXGroup;
+			children = (
+				EF4FBDBC2CBDA11D00713E3A /* LogoutCollectionViewCell.swift */,
+				EF4FBDBD2CBDA11D00713E3A /* LogoutCollectionViewCell.xib */,
+			);
+			path = Logout;
 			sourceTree = "<group>";
 		};
 		EF78B01D2C67BFF2003686F5 /* Featured */ = {
@@ -1229,6 +1254,7 @@
 			files = (
 				EF1B1CBF2C7648D000DFEB58 /* SeeAllFoodHeaderCollectionViewCell.xib in Resources */,
 				EF1B1CE72C79041A00DFEB58 /* sauceTop6Response.json in Resources */,
+				EF4FBDBF2CBDA11D00713E3A /* LogoutCollectionViewCell.xib in Resources */,
 				EF78B02B2C681983003686F5 /* SofiaPro-Bold.ttf in Resources */,
 				EFB5AF942C5E941A0004075F /* Assets.xcassets in Resources */,
 				EF78B02F2C6819C8003686F5 /* SofiaPro-Regular.ttf in Resources */,
@@ -1370,6 +1396,7 @@
 				EF0365D62C75170E00965A66 /* SeeAllFoodRouter.swift in Sources */,
 				EF0365D72C75170E00965A66 /* SeeAllFoodModels.swift in Sources */,
 				EF0365D82C75170E00965A66 /* SeeAllFoodViewController.swift in Sources */,
+				EF4FBDBE2CBDA11D00713E3A /* LogoutCollectionViewCell.swift in Sources */,
 				EF0365D92C75170E00965A66 /* SeeAllFoodInteractor.swift in Sources */,
 				EF0759722C66590900CA1F67 /* ProfileInteractor.swift in Sources */,
 				EFA42C832C6DF4B9004ACBD5 /* AccountTitleCollectionViewCell.swift in Sources */,
@@ -1387,6 +1414,7 @@
 				EFA42C8A2C6DF932004ACBD5 /* ProfileFavHeaderCollectionViewCell.swift in Sources */,
 				EF09E4562C66290F004675DF /* SearchWorker.swift in Sources */,
 				EFDABFCA2C68E3EB00D594A7 /* FoodDetailPresenter.swift in Sources */,
+				EF4FBDBA2CBD923500713E3A /* ProfileViewController+NSCollectionLayoutSection.swift in Sources */,
 				EFDABFCB2C68E3EB00D594A7 /* FoodDetailWorker.swift in Sources */,
 				EFDABFCC2C68E3EB00D594A7 /* FoodDetailRouter.swift in Sources */,
 				EFD14EC82C6E4EDA0016F1B7 /* HomeViewController+NSCollectionLayoutSection.swift in Sources */,

@@ -66,6 +66,10 @@
                 <constraint firstAttribute="bottom" secondItem="MgT-G5-0Ev" secondAttribute="bottom" id="zUx-g4-c9f"/>
             </constraints>
             <size key="customSize" width="321" height="54"/>
+            <connections>
+                <outlet property="cardView" destination="0xv-6m-Jju" id="c27-Di-dev"/>
+                <outlet property="label" destination="zB6-7A-3ZI" id="GhZ-xW-e5W"/>
+            </connections>
             <point key="canvasLocation" x="226.71755725190837" y="-9.8591549295774659"/>
         </collectionViewCell>
     </objects>

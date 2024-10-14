@@ -9,10 +9,27 @@
 import UIKit
 
 class ProfileSettingCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak private var cardView: UIView!
+    @IBOutlet weak private var label: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
+    func setup(labelText: String) {
+        label.text = labelText
+    }
+    
+    func makeTopRoundCorner() {
+        cardView.clipsToBounds = true
+        cardView.layer.cornerRadius = 16
+        cardView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+    }
+    
+    func makeBottomRoundCorner() {
+        cardView.clipsToBounds = true
+        cardView.layer.cornerRadius = 16
+        cardView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+    }
 }
