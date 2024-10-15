@@ -72,6 +72,12 @@
 		EF1B1CE42C78F74200DFEB58 /* drinkTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CD52C78F74200DFEB58 /* drinkTop6Response.json */; };
 		EF1B1CE52C78F74200DFEB58 /* fingerfoodTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CD62C78F74200DFEB58 /* fingerfoodTop6Response.json */; };
 		EF1B1CE72C79041A00DFEB58 /* sauceTop6Response.json in Resources */ = {isa = PBXBuildFile; fileRef = EF1B1CE62C79041A00DFEB58 /* sauceTop6Response.json */; };
+		EF2A65F72CBEE12E006752E8 /* animationLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = EF2A65F62CBEE12E006752E8 /* animationLoading.json */; };
+		EF2A65FA2CBEE26E006752E8 /* LottieLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A65F92CBEE26E006752E8 /* LottieLoadingView.swift */; };
+		EF2A65FD2CBEE40A006752E8 /* LottieLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2A65FC2CBEE40A006752E8 /* LottieLoadingView.xib */; };
+		EF2A66002CBEE5BF006752E8 /* SwiftMessages in Frameworks */ = {isa = PBXBuildFile; productRef = EF2A65FF2CBEE5BF006752E8 /* SwiftMessages */; };
+		EF2A66032CBEE736006752E8 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A66022CBEE6FD006752E8 /* ExtensionUIViewController.swift */; };
+		EF2A66052CBEEEBF006752E8 /* animationCook.json in Resources */ = {isa = PBXBuildFile; fileRef = EF2A66042CBEEEBF006752E8 /* animationCook.json */; };
 		EF4FBD972CBBE95100713E3A /* SearchTextFieldCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FBD962CBBE95100713E3A /* SearchTextFieldCollectionReusableView.swift */; };
 		EF4FBD9F2CBC653E00713E3A /* SavedRecipeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FBD9E2CBC653E00713E3A /* SavedRecipeWorker.swift */; };
 		EF4FBDA02CBC653E00713E3A /* SavedRecipeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FBD9C2CBC653E00713E3A /* SavedRecipeRouter.swift */; };
@@ -98,6 +104,7 @@
 		EF8665822C6612EF0016023C /* HomeTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8665812C6612EF0016023C /* HomeTabbarViewController.swift */; };
 		EF8665842C66133F0016023C /* HomeTabbarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF8665832C66133F0016023C /* HomeTabbarStoryboard.storyboard */; };
 		EF89885F2C5ED4090028FFD4 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = EF89885E2C5ED4090028FFD4 /* Tabman */; };
+		EF97412A2CBEDFD70006A3CA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = EF9741292CBEDFD70006A3CA /* Lottie */; };
 		EFA42C402C6D1718004ACBD5 /* CompositionLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA42C3F2C6D1718004ACBD5 /* CompositionLayoutHelper.swift */; };
 		EFA42C422C6D27F5004ACBD5 /* FeaturedCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFA42C412C6D27F5004ACBD5 /* FeaturedCardCollectionViewCell.xib */; };
 		EFA42C442C6D298E004ACBD5 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFA42C432C6D298E004ACBD5 /* CategoryCollectionViewCell.xib */; };
@@ -266,6 +273,11 @@
 		EF1B1CD52C78F74200DFEB58 /* drinkTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = drinkTop6Response.json; sourceTree = "<group>"; };
 		EF1B1CD62C78F74200DFEB58 /* fingerfoodTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fingerfoodTop6Response.json; sourceTree = "<group>"; };
 		EF1B1CE62C79041A00DFEB58 /* sauceTop6Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sauceTop6Response.json; sourceTree = "<group>"; };
+		EF2A65F62CBEE12E006752E8 /* animationLoading.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = animationLoading.json; sourceTree = "<group>"; };
+		EF2A65F92CBEE26E006752E8 /* LottieLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieLoadingView.swift; sourceTree = "<group>"; };
+		EF2A65FC2CBEE40A006752E8 /* LottieLoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieLoadingView.xib; sourceTree = "<group>"; };
+		EF2A66022CBEE6FD006752E8 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
+		EF2A66042CBEEEBF006752E8 /* animationCook.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = animationCook.json; sourceTree = "<group>"; };
 		EF4FBD962CBBE95100713E3A /* SearchTextFieldCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextFieldCollectionReusableView.swift; sourceTree = "<group>"; };
 		EF4FBD992CBC653E00713E3A /* SavedRecipeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeInteractor.swift; sourceTree = "<group>"; };
 		EF4FBD9A2CBC653E00713E3A /* SavedRecipeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeModels.swift; sourceTree = "<group>"; };
@@ -372,7 +384,9 @@
 			files = (
 				EFD14EDA2C6FDCA90016F1B7 /* SwifterSwift in Frameworks */,
 				EFD527832CB9C64200A7E0D9 /* IQKeyboardManagerSwift in Frameworks */,
+				EF97412A2CBEDFD70006A3CA /* Lottie in Frameworks */,
 				EFD14ECF2C6E82930016F1B7 /* Kingfisher in Frameworks */,
+				EF2A66002CBEE5BF006752E8 /* SwiftMessages in Frameworks */,
 				EFC425C42C6A9FFF004FF5BE /* Alamofire in Frameworks */,
 				EF89885F2C5ED4090028FFD4 /* Tabman in Frameworks */,
 				EFD3556A2C613C60005CC6DA /* FirebaseAuth in Frameworks */,
@@ -524,23 +538,43 @@
 		EF1B1CC02C78EB3500DFEB58 /* Jsons */ = {
 			isa = PBXGroup;
 			children = (
-				EF1B1CCC2C78F74200DFEB58 /* appetizerTop6Response.json */,
-				EF1B1CD32C78F74200DFEB58 /* beverageTop6Response.json */,
-				EF1B1CCA2C78F74100DFEB58 /* breadTop6Response.json */,
-				EF1B1CD22C78F74200DFEB58 /* breakfastTop6Response.json */,
-				EF1B1CCB2C78F74200DFEB58 /* dessertTop6Response.json */,
-				EF1B1CD52C78F74200DFEB58 /* drinkTop6Response.json */,
-				EF1B1CD62C78F74200DFEB58 /* fingerfoodTop6Response.json */,
-				EF1B1CD02C78F74200DFEB58 /* mainCourseTop6Response.json */,
-				EF1B1CC92C78F74100DFEB58 /* marinadeTop6Response.json */,
-				EF1B1CE62C79041A00DFEB58 /* sauceTop6Response.json */,
-				EF1B1CCD2C78F74200DFEB58 /* saladTop6Response.json */,
-				EF1B1CCF2C78F74200DFEB58 /* sideDishTop6Response.json */,
-				EF1B1CD42C78F74200DFEB58 /* snackTop6Response.json */,
-				EF1B1CC82C78F74100DFEB58 /* soupTop6Response.json */,
-				EF1B1CC12C78EB9600DFEB58 /* foods50Response.json */,
+				EF2A65F52CBEE0E7006752E8 /* Lottie */,
+				EF97412B2CBEE06D0006A3CA /* Food */,
 			);
 			path = Jsons;
+			sourceTree = "<group>";
+		};
+		EF2A65F52CBEE0E7006752E8 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				EF2A65F62CBEE12E006752E8 /* animationLoading.json */,
+				EF2A66042CBEEEBF006752E8 /* animationCook.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		EF2A65F82CBEE259006752E8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EF2A65FB2CBEE3CF006752E8 /* LoadingViews */ = {
+			isa = PBXGroup;
+			children = (
+				EF2A65FC2CBEE40A006752E8 /* LottieLoadingView.xib */,
+				EF2A65F92CBEE26E006752E8 /* LottieLoadingView.swift */,
+			);
+			path = LoadingViews;
+			sourceTree = "<group>";
+		};
+		EF2A66012CBEE6F5006752E8 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EF2A66022CBEE6FD006752E8 /* ExtensionUIViewController.swift */,
+			);
+			path = UIViewController;
 			sourceTree = "<group>";
 		};
 		EF4FBD982CBC650A00713E3A /* SavedRecipe */ = {
@@ -668,6 +702,7 @@
 		EF86657D2C6601890016023C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EF2A66012CBEE6F5006752E8 /* UIViewController */,
 				EFF5850B2C71515000FA56BC /* Double */,
 				EFD14ED02C6F0F3F0016F1B7 /* Collection */,
 				EFC425C52C6AA09C004FF5BE /* Data */,
@@ -697,6 +732,28 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF97412B2CBEE06D0006A3CA /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				EF1B1CCC2C78F74200DFEB58 /* appetizerTop6Response.json */,
+				EF1B1CD32C78F74200DFEB58 /* beverageTop6Response.json */,
+				EF1B1CCA2C78F74100DFEB58 /* breadTop6Response.json */,
+				EF1B1CD22C78F74200DFEB58 /* breakfastTop6Response.json */,
+				EF1B1CCB2C78F74200DFEB58 /* dessertTop6Response.json */,
+				EF1B1CD52C78F74200DFEB58 /* drinkTop6Response.json */,
+				EF1B1CD62C78F74200DFEB58 /* fingerfoodTop6Response.json */,
+				EF1B1CD02C78F74200DFEB58 /* mainCourseTop6Response.json */,
+				EF1B1CC92C78F74100DFEB58 /* marinadeTop6Response.json */,
+				EF1B1CE62C79041A00DFEB58 /* sauceTop6Response.json */,
+				EF1B1CCD2C78F74200DFEB58 /* saladTop6Response.json */,
+				EF1B1CCF2C78F74200DFEB58 /* sideDishTop6Response.json */,
+				EF1B1CD42C78F74200DFEB58 /* snackTop6Response.json */,
+				EF1B1CC82C78F74100DFEB58 /* soupTop6Response.json */,
+				EF1B1CC12C78EB9600DFEB58 /* foods50Response.json */,
+			);
+			path = Food;
 			sourceTree = "<group>";
 		};
 		EFA42C3E2C6D1604004ACBD5 /* Helpers */ = {
@@ -900,13 +957,13 @@
 		EFB5AFBC2C5EAB470004075F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EF1B1CC02C78EB3500DFEB58 /* Jsons */,
 				EFB5AF932C5E941A0004075F /* Assets.xcassets */,
 				EFB5AF952C5E941A0004075F /* LaunchScreen.storyboard */,
 				EFB5AF8A2C5E94190004075F /* AppDelegate.swift */,
 				EFB5AF8C2C5E94190004075F /* SceneDelegate.swift */,
 				EF86657B2C653E7C0016023C /* GoogleService-Info.plist */,
 				EFB5AFBD2C5EACB50004075F /* Fonts */,
+				EF1B1CC02C78EB3500DFEB58 /* Jsons */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1114,6 +1171,8 @@
 		EFF585172C72621300FA56BC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EF2A65FB2CBEE3CF006752E8 /* LoadingViews */,
+				EF2A65F82CBEE259006752E8 /* Views */,
 				EFF585132C725FA800FA56BC /* Models */,
 			);
 			path = Common;
@@ -1152,6 +1211,8 @@
 				EFD14ECE2C6E82930016F1B7 /* Kingfisher */,
 				EFD14ED92C6FDCA90016F1B7 /* SwifterSwift */,
 				EFD527822CB9C64200A7E0D9 /* IQKeyboardManagerSwift */,
+				EF9741292CBEDFD70006A3CA /* Lottie */,
+				EF2A65FF2CBEE5BF006752E8 /* SwiftMessages */,
 			);
 			productName = FoodRecipeApp;
 			productReference = EFB5AF872C5E94190004075F /* FoodRecipeApp.app */;
@@ -1235,6 +1296,8 @@
 				EFD14ED82C6FDC910016F1B7 /* XCRemoteSwiftPackageReference "SwifterSwift" */,
 				EF0365C92C73BB4000965A66 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				EFD527812CB9C5BC00A7E0D9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				EF9741282CBEDF5B0006A3CA /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				EF2A65FE2CBEE5B2006752E8 /* XCRemoteSwiftPackageReference "SwiftMessages" */,
 			);
 			productRefGroup = EFB5AF882C5E94190004075F /* Products */;
 			projectDirPath = "";
@@ -1281,6 +1344,7 @@
 				EF1B1CE52C78F74200DFEB58 /* fingerfoodTop6Response.json in Resources */,
 				EF1B1CC22C78EB9600DFEB58 /* foods50Response.json in Resources */,
 				EFA42C8B2C6DF932004ACBD5 /* ProfileFavHeaderCollectionViewCell.xib in Resources */,
+				EF2A66052CBEEEBF006752E8 /* animationCook.json in Resources */,
 				EF1B1CD72C78F74200DFEB58 /* soupTop6Response.json in Resources */,
 				EFA42C862C6DF5CC004ACBD5 /* ProfileFavCollectionViewCell.xib in Resources */,
 				EFB5AF922C5E94190004075F /* Base in Resources */,
@@ -1292,10 +1356,12 @@
 				EFA42C462C6D2A24004ACBD5 /* PopularRecipeCollectionViewCell.xib in Resources */,
 				EFA42C4F2C6D2E8C004ACBD5 /* PopularRecipeHeaderCollectionViewCell.xib in Resources */,
 				EF1B1CD82C78F74200DFEB58 /* marinadeTop6Response.json in Resources */,
+				EF2A65FD2CBEE40A006752E8 /* LottieLoadingView.xib in Resources */,
 				EFA42C4B2C6D2C69004ACBD5 /* NameHeaderViewCell.xib in Resources */,
 				EF0759762C66594000CA1F67 /* ProfileStoryboard.storyboard in Resources */,
 				EFA42C442C6D298E004ACBD5 /* CategoryCollectionViewCell.xib in Resources */,
 				EFD14EBF2C6E0EAB0016F1B7 /* IngredientCollectionViewCell.xib in Resources */,
+				EF2A65F72CBEE12E006752E8 /* animationLoading.json in Resources */,
 				EFDABFD12C68E45000D594A7 /* FoodDetailStoryboard.storyboard in Resources */,
 				EF1B1CDF2C78F74200DFEB58 /* mainCourseTop6Response.json in Resources */,
 				EF15DEE92C5EC68F00EF4294 /* CreateAccountStoryboard.storyboard in Resources */,
@@ -1368,6 +1434,7 @@
 				EFF585162C725FD700FA56BC /* FavouriteFoodModel.swift in Sources */,
 				EFA42C7E2C6DF48B004ACBD5 /* AccountCollectionViewCell.swift in Sources */,
 				EF15DEE22C5EC44700EF4294 /* CreateAccountRouter.swift in Sources */,
+				EF2A66032CBEE736006752E8 /* ExtensionUIViewController.swift in Sources */,
 				EFD14ED72C6FAEBD0016F1B7 /* FoodDetailViewController+UIScrollViewDelegate.swift in Sources */,
 				EF15DEE32C5EC44700EF4294 /* CreateAccountModels.swift in Sources */,
 				EF78B01F2C67C11F003686F5 /* FeaturedCardCollectionViewCell.swift in Sources */,
@@ -1396,6 +1463,7 @@
 				EF0365D62C75170E00965A66 /* SeeAllFoodRouter.swift in Sources */,
 				EF0365D72C75170E00965A66 /* SeeAllFoodModels.swift in Sources */,
 				EF0365D82C75170E00965A66 /* SeeAllFoodViewController.swift in Sources */,
+				EF2A65FA2CBEE26E006752E8 /* LottieLoadingView.swift in Sources */,
 				EF4FBDBE2CBDA11D00713E3A /* LogoutCollectionViewCell.swift in Sources */,
 				EF0365D92C75170E00965A66 /* SeeAllFoodInteractor.swift in Sources */,
 				EF0759722C66590900CA1F67 /* ProfileInteractor.swift in Sources */,
@@ -1781,6 +1849,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		EF2A65FE2CBEE5B2006752E8 /* XCRemoteSwiftPackageReference "SwiftMessages" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftKickMobile/SwiftMessages.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.1;
+			};
+		};
 		EF78B0262C680689003686F5 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1795,6 +1871,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.12.0;
+			};
+		};
+		EF9741282CBEDF5B0006A3CA /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
 			};
 		};
 		EFA808DC2C5ED1F000FBE989 /* XCRemoteSwiftPackageReference "Tabman" */ = {
@@ -1840,10 +1924,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EF2A65FF2CBEE5BF006752E8 /* SwiftMessages */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF2A65FE2CBEE5B2006752E8 /* XCRemoteSwiftPackageReference "SwiftMessages" */;
+			productName = SwiftMessages;
+		};
 		EF89885E2C5ED4090028FFD4 /* Tabman */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EFA808DC2C5ED1F000FBE989 /* XCRemoteSwiftPackageReference "Tabman" */;
 			productName = Tabman;
+		};
+		EF9741292CBEDFD70006A3CA /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF9741282CBEDF5B0006A3CA /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		EFC425C32C6A9FFF004FF5BE /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

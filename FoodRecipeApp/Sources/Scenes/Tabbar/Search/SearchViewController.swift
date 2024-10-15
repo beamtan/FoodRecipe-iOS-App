@@ -114,6 +114,8 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     // MARK: - Call Service
     
     private func inquirySearchFood(_ text: String) {
+        startLoadingLottie()
+        
         let request = HomeModels.InquirySearchFoodsByQueryText.Request(
             query: text,
             number: 10,
@@ -130,10 +132,12 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     func displaySearchFoodsByQuerySuccess(viewModel: HomeModels.InquirySearchFoodsByQueryText.ViewModel) {
         foods = viewModel.data?.results ?? []
         collectionView.reloadSections([Sections.searchResult.rawValue])
+        
+        stopLoadingLottie()
     }
     
     func displaySearchFoodsByQueryFailure(viewModel: HomeModels.InquirySearchFoodsByQueryText.ViewModel) {
-        
+        stopLoadingLottie()
     }
     
     func displayPrepareRouteToFoodDetailSuccess() {
