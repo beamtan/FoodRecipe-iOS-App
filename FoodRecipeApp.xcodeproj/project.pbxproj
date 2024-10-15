@@ -597,8 +597,8 @@
 		EF4FBDBB2CBDA0FD00713E3A /* Logout */ = {
 			isa = PBXGroup;
 			children = (
-				EF4FBDBC2CBDA11D00713E3A /* LogoutCollectionViewCell.swift */,
 				EF4FBDBD2CBDA11D00713E3A /* LogoutCollectionViewCell.xib */,
+				EF4FBDBC2CBDA11D00713E3A /* LogoutCollectionViewCell.swift */,
 			);
 			path = Logout;
 			sourceTree = "<group>";

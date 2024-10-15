@@ -29,18 +29,27 @@ class ProfileFavCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var likeButtonView: UIView!
     
     @IBOutlet weak private var titleLabel: UILabel!
-    @IBOutlet weak private var profileImageView: UIImageView!
-    @IBOutlet weak private var nameLabel: UILabel!
+    @IBOutlet weak private var calorieLabel: UILabel!
+    @IBOutlet weak private var timeLabel: UILabel!
     
     override func prepareForReuse() {
         super.prepareForReuse()
     }
     
     func setup(favFood: FoodDetailModels.FoodDetailResponse) {
+        let calories = favFood.nutrition?.nutrients?.first(where: { $0.name == "Calories" })
+        let caloriesAmount: Int = calories?.amount?.int ?? 0
+        let caloriesUnit: String = calories?.unit ?? ""
+        
+        let time: String = favFood.readyInMinutes == nil ? "--" : "\(favFood.readyInMinutes ?? 0)"
+        
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: URL(string: favFood.image ?? ""), placeholder: UIImage(named: "imagePlaceholder"))
         
         titleLabel.text = favFood.title
+        
+        calorieLabel.text = "\(caloriesAmount)"
+        timeLabel.text = "\(time) Min"
     }
     
     @objc private func foodPressed() {

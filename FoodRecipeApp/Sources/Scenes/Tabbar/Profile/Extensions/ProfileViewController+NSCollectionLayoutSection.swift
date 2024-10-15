@@ -100,7 +100,7 @@ extension ProfileViewController {
         return section
     }
     
-    // MARK: - Setting
+    // MARK: - Settings
     
     func createNSCollectionLayoutSectionSetting() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(
@@ -134,7 +134,7 @@ extension ProfileViewController {
         section.orthogonalScrollingBehavior = .none // vertical align use main scroll
         
         section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
+            top: 16,
             leading: 0,
             bottom: 0,
             trailing: 0

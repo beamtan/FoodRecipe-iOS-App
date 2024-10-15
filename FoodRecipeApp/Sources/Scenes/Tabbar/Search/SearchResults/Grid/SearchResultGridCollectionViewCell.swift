@@ -16,6 +16,9 @@ class SearchResultGridCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak private var imageView: UIImageView!
     @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var calorieLabel: UILabel!
+    @IBOutlet weak private var timeLabel: UILabel!
+    
     @IBOutlet weak var cardView: UIView! {
         didSet {
             cardView.layer.shadowColor = UIColor.black.cgColor
@@ -44,6 +47,8 @@ class SearchResultGridCollectionViewCell: UICollectionViewCell {
         imageView.kf.setImage(with: URL(string: food.image ?? ""), placeholder: UIImage(named: "imagePlaceholder"))
         
         titleLabel.text = food.title
+        calorieLabel.text = "\(caloriesAmount)"
+        timeLabel.text = "\(time) Min"
     }
     
     @objc private func foodPressed() {

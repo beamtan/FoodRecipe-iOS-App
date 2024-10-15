@@ -26,17 +26,20 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
         case setting2
         case setting3
         case setting4
+        case setting5
         
         var displayName: String {
             switch self {
             case .setting1:
-                return "Setting 1"
+                return "Notifications"
             case .setting2:
-                return "Setting 2"
+                return "Privacy & Security"
             case .setting3:
-                return "Setting 3"
+                return "Help & Support"
             case .setting4:
-                return "Setting 4"
+                return "Appearance"
+            case .setting5:
+                return "Languages"
             }
         }
     }

@@ -47,7 +47,7 @@ class SeeAllFoodCollectionViewCell: UICollectionViewCell {
         imageView.kf.setImage(with: URL(string: food.image ?? ""), placeholder: UIImage(named: "imagePlaceholder"))
         
         titleLabel.text = food.title
-        calorieLabel.text = "\(caloriesAmount) \(caloriesUnit)"
+        calorieLabel.text = "\(caloriesAmount)"
         timeLabel.text = "\(time) Min"
         
         if let id = food.id {

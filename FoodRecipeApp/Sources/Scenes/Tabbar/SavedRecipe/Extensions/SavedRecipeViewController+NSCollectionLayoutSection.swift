@@ -53,13 +53,14 @@ extension SavedRecipeViewController {
     // MARK: - Favorites
     
     func createNSCollectionLayoutSectionFavorites() -> NSCollectionLayoutSection {
+        let cellWidth: CGFloat = 200
         let sectionPadding: CGFloat = 24
         let shadowPadding: CGFloat = 8
         
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(0.5), // two item per row
-                heightDimension: .absolute(200)  // vertical control the height by item instead
+                heightDimension: .absolute(cellWidth)  // vertical control the height by item instead
             )
         )
         

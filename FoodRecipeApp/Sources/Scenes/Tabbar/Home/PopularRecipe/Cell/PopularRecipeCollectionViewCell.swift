@@ -48,7 +48,7 @@ class PopularRecipeCollectionViewCell: UICollectionViewCell {
         let caloriesAmount: Int = calories?.amount?.int ?? 0
         let caloriesUnit: String = calories?.unit ?? ""
         
-        let time: String = food.readyInMinutes == nil ? "--" : "\(food.readyInMinutes!)"
+        let time: String = food.readyInMinutes == nil ? "--" : "\(food.readyInMinutes ?? 0)"
         
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: URL(string: food.image ?? ""), placeholder: UIImage(named: "imagePlaceholder"))
