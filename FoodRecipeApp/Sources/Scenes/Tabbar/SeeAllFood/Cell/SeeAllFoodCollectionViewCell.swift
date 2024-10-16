@@ -49,10 +49,10 @@ class SeeAllFoodCollectionViewCell: UICollectionViewCell {
         titleLabel.text = food.title
         calorieLabel.text = "\(caloriesAmount)"
         timeLabel.text = "\(time) Min"
-        
-        if let id = food.id {
-            favouriteImageView.image = isFavouriteFood(id: id) ? UIImage(named: "fullHeartIcon") : UIImage(named: "heartIcon")
-        }
+
+//        if let id = food.id {
+//            favouriteImageView.image = isFavouriteFood(id: id) ? UIImage(named: "fullHeartIcon") : UIImage(named: "heartIcon")
+//        }
     }
     
     private func isFavouriteFood(id: Int) -> Bool {

@@ -81,7 +81,7 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
     }
     
     @IBAction func heartPressed(_ sender: UIButton) {
-        isFavouriteFood() ? unlikeFood() : likeFood()
+        isFavoriteFood() ? unlikeFood() : likeFood()
         
         UIImpactFeedbackGenerator(style: .medium).impactOccurred()
     }
@@ -107,15 +107,19 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
         
         titleSolidBGHeaderLabel.text = food?.title
         
-        if let heartIcon = UIImage(named: "heartIcon"),
-           let fullHeartIcon = UIImage(named: "fullHeartIcon")
+        if let heartIcon = UIImage(systemName: "heart"),
+           let fullHeartIcon = UIImage(systemName: "heart.fill")
         {
-            let image = isFavouriteFood() ? fullHeartIcon : heartIcon
-            likeButtonSolidBG.setImage(image, for: .normal)
+            let image = isFavoriteFood() ? fullHeartIcon : heartIcon
+            let color: UIColor = isFavoriteFood() ? .red : .black
+            
+            let tintedImage = image.withRenderingMode(.alwaysTemplate)
+            likeButtonSolidBG.setImage(tintedImage, for: .normal)
+            likeButtonSolidBG.tintColor = color
         }
     }
     
-    private func isFavouriteFood() -> Bool {
+    private func isFavoriteFood() -> Bool {
         let favFood = UserDefaultService.shared.getFavouriteFoods() ?? []
         if !favFood.contains(where: { $0.id == food?.id }) {
             return false
@@ -130,8 +134,10 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
         UserDefaultService.shared.removeFavouriteFood(food: food) { [weak self] in
             guard let self else { return }
             
-            if let image = UIImage(named: "heartIcon") {
+            if let image = UIImage(systemName: "heart") {
+                
                 likeButtonSolidBG.setImage(image, for: .normal)
+                likeButtonSolidBG.tintColor = .black
             }
         }
     }
@@ -142,8 +148,10 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
         UserDefaultService.shared.saveFavouriteFood(food: food) { [weak self] in
             guard let self else { return }
             
-            if let image = UIImage(named: "fullHeartIcon") {
+            if let image =  UIImage(systemName: "heart.fill") {
+                
                 likeButtonSolidBG.setImage(image, for: .normal)
+                likeButtonSolidBG.tintColor = .red
             }
         }
     }

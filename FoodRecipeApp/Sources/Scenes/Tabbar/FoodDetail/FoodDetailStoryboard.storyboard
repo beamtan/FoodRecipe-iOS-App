@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -80,7 +80,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fitness.timer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9MQ-HV-YF9">
-                                                                            <rect key="frame" x="6" y="5.6666666666666554" width="16" height="14.666666666666666"/>
+                                                                            <rect key="frame" x="6" y="5.3333333333333233" width="16" height="14.66666666666667"/>
                                                                             <color key="tintColor" name="748189"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="16" id="IG7-cT-lIl"/>
@@ -566,7 +566,7 @@
                                     <action selector="closePressed:" destination="cVu-pg-0gw" eventType="touchUpInside" id="TMS-28-7KQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUp-If-woE" userLabel="Like Button SolidBG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUp-If-woE" userLabel="Like Button SolidBG">
                                 <rect key="frame" x="329" y="56" width="40" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -575,7 +575,7 @@
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="heartIcon"/>
+                                <buttonConfiguration key="configuration" style="tinted" image="heart" catalog="system"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="10"/>
@@ -628,7 +628,7 @@
         <image name="carbIcon" width="24" height="24"/>
         <image name="fatIcon" width="24" height="24"/>
         <image name="fitness.timer" catalog="system" width="128" height="123"/>
-        <image name="heartIcon" width="24" height="24"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="imagePlaceholder" width="204" height="204"/>
         <image name="proteinIcon" width="24" height="24"/>
         <image name="xmark" catalog="system" width="128" height="113"/>

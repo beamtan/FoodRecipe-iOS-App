@@ -39,7 +39,6 @@ class ProfileFavCollectionViewCell: UICollectionViewCell {
     func setup(favFood: FoodDetailModels.FoodDetailResponse) {
         let calories = favFood.nutrition?.nutrients?.first(where: { $0.name == "Calories" })
         let caloriesAmount: Int = calories?.amount?.int ?? 0
-        let caloriesUnit: String = calories?.unit ?? ""
         
         let time: String = favFood.readyInMinutes == nil ? "--" : "\(favFood.readyInMinutes ?? 0)"
         
