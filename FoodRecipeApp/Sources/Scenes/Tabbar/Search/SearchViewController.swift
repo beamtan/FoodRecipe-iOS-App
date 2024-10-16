@@ -192,14 +192,14 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchTitleCollectionViewCell", for: indexPath) as! SearchTitleCollectionViewCell
             
             cell.gridButtonClosured = { [weak self] in
-                guard let self else { return }
+                guard let self, currentLayout == .table else { return }
                 
                 currentLayout = .grid
                 collectionView.reloadSections([Sections.searchResult.rawValue])
             }
             
             cell.tableButtonClosured = { [weak self] in
-                guard let self else { return }
+                guard let self, currentLayout == .grid else { return }
                 
                 currentLayout = .table
                 collectionView.reloadSections([Sections.searchResult.rawValue])

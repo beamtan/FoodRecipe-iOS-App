@@ -39,8 +39,8 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
     
     @IBOutlet weak private var scrollView: UIScrollView!
     @IBOutlet weak private var titleSolidBGHeaderLabel: UILabel!
-    @IBOutlet weak private var foodImageView: UIImageView!
     
+    @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodImageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var foodImageViewTopPadding: NSLayoutConstraint!
     

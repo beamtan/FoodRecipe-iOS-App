@@ -49,9 +49,21 @@ extension FoodDetailViewController: UIScrollViewDelegate {
             // To make opacity from the different point of y
             // Divide by 100 to make the different smoothly with ratio as 0 is min opacity and 1 is max opacity
             
-            headerView.layer.opacity = Float(min(abs(differentSheetAndHeaderOverlap) / 100, 1))
-            closeButtonSolidBG.layer.opacity = Float((1 - (abs(differentSheetAndHeaderOverlap) / 100)))
-            likeButtonSolidBG.layer.opacity = Float((1 - (abs(differentSheetAndHeaderOverlap) / 50))) // 50 because need to be hidden faster than close button
+            let dynamicHeaderOpacity: Float = Float(min(abs(differentSheetAndHeaderOverlap) / 100, 1))
+            let dynamicCloseButtonOpacity: Float = Float((1 - (abs(differentSheetAndHeaderOverlap) / 100)))
+            let dynamicLikeButtonOpacity: Float = Float((1 - (abs(differentSheetAndHeaderOverlap) / 50))) // 50 because need to be hidden faster than close button
+            
+            headerView.layer.opacity = dynamicHeaderOpacity
+            closeButtonSolidBG.layer.opacity = dynamicCloseButtonOpacity
+            likeButtonSolidBG.layer.opacity = dynamicLikeButtonOpacity
+            
+            if dynamicHeaderOpacity == 1 && !foodImageView.isHidden {
+                foodImageView.isHidden = true
+            }
+            
+            if dynamicHeaderOpacity < 1 && foodImageView.isHidden {
+                foodImageView.isHidden = false
+            }
             
             return
         }
@@ -60,8 +72,20 @@ extension FoodDetailViewController: UIScrollViewDelegate {
             return
         }
         
-        headerView.layer.opacity = 0
-        closeButtonSolidBG.layer.opacity = 1
-        likeButtonSolidBG.layer.opacity = 1
+        if foodImageView.isHidden {
+            foodImageView.isHidden = false
+        }
+        
+        if headerView.layer.opacity != 0 {
+            headerView.layer.opacity = 0
+        }
+        
+        if closeButtonSolidBG.layer.opacity != 1 {
+            closeButtonSolidBG.layer.opacity = 1
+        }
+        
+        if likeButtonSolidBG.layer.opacity != 1 {
+            likeButtonSolidBG.layer.opacity = 1
+        }
     }
 }
