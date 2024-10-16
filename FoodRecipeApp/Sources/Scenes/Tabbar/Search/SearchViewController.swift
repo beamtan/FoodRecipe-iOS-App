@@ -17,19 +17,25 @@ protocol SearchDisplayLogic: AnyObject {
 }
 
 class SearchViewController: UIViewController, SearchDisplayLogic {
+
+    // MARK: - Properties
     
     enum Sections: Int, CaseIterable {
         case searchTitle = 0
         case searchResult = 1
     }
-
-    // MARK: - Properties
+    
+    enum Layout {
+        case grid
+        case table
+    }
     
     var interactor: SearchBusinessLogic?
     var router: (NSObjectProtocol & SearchRoutingLogic & SearchDataPassing)?
     
     private var categories: HomeModels.Category = HomeModels.Category()
     private var foods: [FoodDetailModels.FoodDetailResponse] = []
+    private var currentLayout: Layout = .grid
     
     // MARK: - IBOutlet
     
@@ -83,7 +89,12 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
             case .searchTitle:
                 return createNSCollectionLayoutSectionSearchTitle()
             case .searchResult:
-                return createNSCollectionLayoutSectionSearchResult()
+                if currentLayout == .grid {
+                    return createNSCollectionLayoutSectionSearchResultGrid()
+                } else {
+                    return createNSCollectionLayoutSectionSearchResultTable()
+                }
+                
             case .none:
                 return nil
             }
@@ -108,6 +119,10 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         collectionView.register(
             UINib(nibName: "SearchResultGridCollectionViewCell", bundle: .main),
             forCellWithReuseIdentifier: "SearchResultGridCollectionViewCell"
+        )
+        collectionView.register(
+            UINib(nibName: "SearchResultTableCollectionViewCell", bundle: .main),
+            forCellWithReuseIdentifier: "SearchResultTableCollectionViewCell"
         )
     }
     
@@ -176,26 +191,61 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         if indexPath.section == Sections.searchTitle.rawValue {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchTitleCollectionViewCell", for: indexPath) as! SearchTitleCollectionViewCell
             
+            cell.gridButtonClosured = { [weak self] in
+                guard let self else { return }
+                
+                currentLayout = .grid
+                collectionView.reloadSections([Sections.searchResult.rawValue])
+            }
+            
+            cell.tableButtonClosured = { [weak self] in
+                guard let self else { return }
+                
+                currentLayout = .table
+                collectionView.reloadSections([Sections.searchResult.rawValue])
+            }
+            
             return cell
         }
         
         if indexPath.section == Sections.searchResult.rawValue {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultGridCollectionViewCell", for: indexPath) as! SearchResultGridCollectionViewCell
-            
-            if let food = foods[safe: indexPath.row] {
-                cell.setup(food: food)
-            }
-            
-            cell.foodClosure = { [weak self] in
-                guard let self else { return }
-                    
+            if currentLayout == .grid {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultGridCollectionViewCell", for: indexPath) as! SearchResultGridCollectionViewCell
                 
                 if let food = foods[safe: indexPath.row] {
-                    prepareRouteToFoodDetail(food: food)
+                    cell.setup(food: food)
                 }
+                
+                cell.foodClosure = { [weak self] in
+                    guard let self else { return }
+                    
+                    
+                    if let food = foods[safe: indexPath.row] {
+                        prepareRouteToFoodDetail(food: food)
+                    }
+                }
+                
+                return cell
             }
             
-            return cell
+            if currentLayout == .table {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultTableCollectionViewCell", for: indexPath) as! SearchResultTableCollectionViewCell
+                
+                if let food = foods[safe: indexPath.row] {
+                    cell.setup(food: food)
+                }
+                
+                cell.foodClosure = { [weak self] in
+                    guard let self else { return }
+                    
+                    
+                    if let food = foods[safe: indexPath.row] {
+                        prepareRouteToFoodDetail(food: food)
+                    }
+                }
+                
+                return cell
+            }
         }
         
         return UICollectionViewCell()

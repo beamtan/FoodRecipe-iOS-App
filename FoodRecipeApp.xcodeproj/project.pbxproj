@@ -179,6 +179,8 @@
 		EFF5850D2C71515F00FA56BC /* ExtensionDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5850C2C71515F00FA56BC /* ExtensionDouble.swift */; };
 		EFF585162C725FD700FA56BC /* FavouriteFoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF585152C725FD700FA56BC /* FavouriteFoodModel.swift */; };
 		EFF5851A2C72635600FA56BC /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF585192C72635600FA56BC /* UserDefaultService.swift */; };
+		EFFF0FD82CBFC7C80090B520 /* SearchResultTableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFF0FD62CBFC7C80090B520 /* SearchResultTableCollectionViewCell.swift */; };
+		EFFF0FD92CBFC7C80090B520 /* SearchResultTableCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFFF0FD72CBFC7C80090B520 /* SearchResultTableCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -375,6 +377,8 @@
 		EFF585102C724D4D00FA56BC /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		EFF585152C725FD700FA56BC /* FavouriteFoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteFoodModel.swift; sourceTree = "<group>"; };
 		EFF585192C72635600FA56BC /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
+		EFFF0FD62CBFC7C80090B520 /* SearchResultTableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableCollectionViewCell.swift; sourceTree = "<group>"; };
+		EFFF0FD72CBFC7C80090B520 /* SearchResultTableCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTableCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1089,6 +1093,7 @@
 			isa = PBXGroup;
 			children = (
 				EFD527882CBAE80B00A7E0D9 /* Grid */,
+				EFFF0FD52CBFC77D0090B520 /* Table */,
 			);
 			path = SearchResults;
 			sourceTree = "<group>";
@@ -1184,6 +1189,15 @@
 				EFF585192C72635600FA56BC /* UserDefaultService.swift */,
 			);
 			path = UserDefault;
+			sourceTree = "<group>";
+		};
+		EFFF0FD52CBFC77D0090B520 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				EFFF0FD72CBFC7C80090B520 /* SearchResultTableCollectionViewCell.xib */,
+				EFFF0FD62CBFC7C80090B520 /* SearchResultTableCollectionViewCell.swift */,
+			);
+			path = Table;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1371,6 +1385,7 @@
 				EF4FBDA62CBC655100713E3A /* SavedRecipeStoryboard.storyboard in Resources */,
 				EF15DEE72C5EC68000EF4294 /* LoginStoryboard.storyboard in Resources */,
 				EFA42C482C6D2B29004ACBD5 /* FeaturedHeaderCollectionViewCell.xib in Resources */,
+				EFFF0FD92CBFC7C80090B520 /* SearchResultTableCollectionViewCell.xib in Resources */,
 				EF1B1CD92C78F74200DFEB58 /* breadTop6Response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1475,6 +1490,7 @@
 				EF15DEF12C5EC91500EF4294 /* AuthenticationWorker.swift in Sources */,
 				EFD14ECD2C6E699A0016F1B7 /* Service.swift in Sources */,
 				EF15DEF22C5EC91500EF4294 /* AuthenticationRouter.swift in Sources */,
+				EFFF0FD82CBFC7C80090B520 /* SearchResultTableCollectionViewCell.swift in Sources */,
 				EF15DEF32C5EC91500EF4294 /* AuthenticationModels.swift in Sources */,
 				EF15DEF42C5EC91500EF4294 /* AuthenticationViewController.swift in Sources */,
 				EF15DEF52C5EC91500EF4294 /* AuthenticationInteractor.swift in Sources */,
