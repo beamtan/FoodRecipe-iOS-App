@@ -24,10 +24,16 @@ class SavedRecipeViewController: UIViewController, SavedRecipeDisplayLogic {
         case favorites = 1
     }
     
+    enum Layout {
+        case grid
+        case table
+    }
+    
     var interactor: SavedRecipeBusinessLogic?
     var router: (NSObjectProtocol & SavedRecipeRoutingLogic & SavedRecipeDataPassing)?
     
     private var favoriteFoods: [FoodDetailModels.FoodDetailResponse]?
+    private var currentLayout: Layout = .grid
     
     // MARK: - IBOutlet
     
@@ -87,7 +93,7 @@ class SavedRecipeViewController: UIViewController, SavedRecipeDisplayLogic {
             forCellWithReuseIdentifier: "SavedRecipeTitleCollectionViewCell"
         )
         
-        /// My Favorites
+        /// My Favorites List
         collectionView.register(
             UINib(nibName: "ProfileFavHeaderCollectionViewCell", bundle: .main),
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
@@ -96,6 +102,10 @@ class SavedRecipeViewController: UIViewController, SavedRecipeDisplayLogic {
         collectionView.register(
             UINib(nibName: "ProfileFavCollectionViewCell", bundle: .main),
             forCellWithReuseIdentifier: "ProfileFavCollectionViewCell"
+        )
+        collectionView.register(
+            UINib(nibName: "SavedRecipeTableCollectionViewCell", bundle: .main),
+            forCellWithReuseIdentifier: "SavedRecipeTableCollectionViewCell"
         )
     }
     
@@ -107,7 +117,11 @@ class SavedRecipeViewController: UIViewController, SavedRecipeDisplayLogic {
             case .title:
                 return createNSCollectionLayoutSectionTitle()
             case .favorites:
-                return createNSCollectionLayoutSectionFavorites()
+                if currentLayout == .grid {
+                    return createNSCollectionLayoutSectionFavorites()
+                } else {
+                    return createNSCollectionLayoutSectionFavoritesTable()
+                }
             case .none:
                 return nil
             }
@@ -162,26 +176,59 @@ extension SavedRecipeViewController: UICollectionViewDelegate, UICollectionViewD
         if indexPath.section == Sections.title.rawValue {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SavedRecipeTitleCollectionViewCell", for: indexPath) as! SavedRecipeTitleCollectionViewCell
             
+            cell.gridButtonClosured = { [weak self] in
+                guard let self, currentLayout == .table else { return }
+                
+                currentLayout = .grid
+                collectionView.reloadSections([Sections.favorites.rawValue])
+            }
+            
+            cell.tableButtonClosured = { [weak self] in
+                guard let self, currentLayout == .grid else { return }
+                
+                currentLayout = .table
+                collectionView.reloadSections([Sections.favorites.rawValue])
+            }
+            
             return cell
         }
         
         if indexPath.section == Sections.favorites.rawValue {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileFavCollectionViewCell", for: indexPath) as! ProfileFavCollectionViewCell
-            
-            if let favFood = favoriteFoods?[indexPath.row] {
-                cell.setup(favFood: favFood)
-            }
-            
-            cell.foodClosure = { [weak self] in
-                guard let self else { return }
+            if currentLayout == .grid {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileFavCollectionViewCell", for: indexPath) as! ProfileFavCollectionViewCell
+                
+                if let favFood = favoriteFoods?[indexPath.row] {
+                    cell.setup(favFood: favFood)
+                }
+                
+                cell.foodClosure = { [weak self] in
+                    guard let self else { return }
                     
+                    
+                    if let food = favoriteFoods?[safe: indexPath.row] {
+                        prepareRouteToFoodDetail(food: food)
+                    }
+                }
+                
+                return cell
+            } else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SavedRecipeTableCollectionViewCell", for: indexPath) as! SavedRecipeTableCollectionViewCell
                 
                 if let food = favoriteFoods?[safe: indexPath.row] {
-                    prepareRouteToFoodDetail(food: food)
+                    cell.setup(food: food)
                 }
+                
+                cell.foodClosure = { [weak self] in
+                    guard let self else { return }
+                    
+                    
+                    if let food = favoriteFoods?[safe: indexPath.row] {
+                        prepareRouteToFoodDetail(food: food)
+                    }
+                }
+                
+                return cell
             }
-            
-            return cell
         }
         
         return UICollectionViewCell()

@@ -116,6 +116,7 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
             let tintedImage = image.withRenderingMode(.alwaysTemplate)
             likeButtonSolidBG.setImage(tintedImage, for: .normal)
             likeButtonSolidBG.tintColor = color
+            likeButtonSolidBG.backgroundColor = .white
         }
     }
     
@@ -138,6 +139,7 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
                 
                 likeButtonSolidBG.setImage(image, for: .normal)
                 likeButtonSolidBG.tintColor = .black
+                likeButtonSolidBG.backgroundColor = .E_6_EBF_2
             }
         }
     }
@@ -152,6 +154,7 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
                 
                 likeButtonSolidBG.setImage(image, for: .normal)
                 likeButtonSolidBG.tintColor = .red
+                likeButtonSolidBG.backgroundColor = .E_3_C_3_C_6
             }
         }
     }

@@ -78,6 +78,8 @@
 		EF2A66002CBEE5BF006752E8 /* SwiftMessages in Frameworks */ = {isa = PBXBuildFile; productRef = EF2A65FF2CBEE5BF006752E8 /* SwiftMessages */; };
 		EF2A66032CBEE736006752E8 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A66022CBEE6FD006752E8 /* ExtensionUIViewController.swift */; };
 		EF2A66052CBEEEBF006752E8 /* animationCook.json in Resources */ = {isa = PBXBuildFile; fileRef = EF2A66042CBEEEBF006752E8 /* animationCook.json */; };
+		EF3FA4682CC025B000EE2B57 /* SavedRecipeTableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3FA4662CC025B000EE2B57 /* SavedRecipeTableCollectionViewCell.swift */; };
+		EF3FA4692CC025B000EE2B57 /* SavedRecipeTableCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF3FA4672CC025B000EE2B57 /* SavedRecipeTableCollectionViewCell.xib */; };
 		EF4FBD972CBBE95100713E3A /* SearchTextFieldCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FBD962CBBE95100713E3A /* SearchTextFieldCollectionReusableView.swift */; };
 		EF4FBD9F2CBC653E00713E3A /* SavedRecipeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FBD9E2CBC653E00713E3A /* SavedRecipeWorker.swift */; };
 		EF4FBDA02CBC653E00713E3A /* SavedRecipeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FBD9C2CBC653E00713E3A /* SavedRecipeRouter.swift */; };
@@ -280,6 +282,8 @@
 		EF2A65FC2CBEE40A006752E8 /* LottieLoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieLoadingView.xib; sourceTree = "<group>"; };
 		EF2A66022CBEE6FD006752E8 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
 		EF2A66042CBEEEBF006752E8 /* animationCook.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = animationCook.json; sourceTree = "<group>"; };
+		EF3FA4662CC025B000EE2B57 /* SavedRecipeTableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeTableCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF3FA4672CC025B000EE2B57 /* SavedRecipeTableCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedRecipeTableCollectionViewCell.xib; sourceTree = "<group>"; };
 		EF4FBD962CBBE95100713E3A /* SearchTextFieldCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextFieldCollectionReusableView.swift; sourceTree = "<group>"; };
 		EF4FBD992CBC653E00713E3A /* SavedRecipeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeInteractor.swift; sourceTree = "<group>"; };
 		EF4FBD9A2CBC653E00713E3A /* SavedRecipeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeModels.swift; sourceTree = "<group>"; };
@@ -581,6 +585,24 @@
 			path = UIViewController;
 			sourceTree = "<group>";
 		};
+		EF3FA4642CC0257500EE2B57 /* TableLayout */ = {
+			isa = PBXGroup;
+			children = (
+				EF3FA4672CC025B000EE2B57 /* SavedRecipeTableCollectionViewCell.xib */,
+				EF3FA4662CC025B000EE2B57 /* SavedRecipeTableCollectionViewCell.swift */,
+			);
+			path = TableLayout;
+			sourceTree = "<group>";
+		};
+		EF3FA4652CC0258000EE2B57 /* GridLayout */ = {
+			isa = PBXGroup;
+			children = (
+				EFA42C852C6DF5CC004ACBD5 /* ProfileFavCollectionViewCell.xib */,
+				EFDABFC12C68D55C00D594A7 /* ProfileFavCollectionViewCell.swift */,
+			);
+			path = GridLayout;
+			sourceTree = "<group>";
+		};
 		EF4FBD982CBC650A00713E3A /* SavedRecipe */ = {
 			isa = PBXGroup;
 			children = (
@@ -880,8 +902,8 @@
 		EFA42C8C2C6DF977004ACBD5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				EFA42C852C6DF5CC004ACBD5 /* ProfileFavCollectionViewCell.xib */,
-				EFDABFC12C68D55C00D594A7 /* ProfileFavCollectionViewCell.swift */,
+				EF3FA4652CC0258000EE2B57 /* GridLayout */,
+				EF3FA4642CC0257500EE2B57 /* TableLayout */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1383,6 +1405,7 @@
 				EF1B1CDC2C78F74200DFEB58 /* saladTop6Response.json in Resources */,
 				EF4FBDB22CBC6C5000713E3A /* SavedRecipeTitleCollectionViewCell.xib in Resources */,
 				EF4FBDA62CBC655100713E3A /* SavedRecipeStoryboard.storyboard in Resources */,
+				EF3FA4692CC025B000EE2B57 /* SavedRecipeTableCollectionViewCell.xib in Resources */,
 				EF15DEE72C5EC68000EF4294 /* LoginStoryboard.storyboard in Resources */,
 				EFA42C482C6D2B29004ACBD5 /* FeaturedHeaderCollectionViewCell.xib in Resources */,
 				EFFF0FD92CBFC7C80090B520 /* SearchResultTableCollectionViewCell.xib in Resources */,
@@ -1432,6 +1455,7 @@
 				EF15DED82C5EC41600EF4294 /* LoginViewController.swift in Sources */,
 				EF15DED92C5EC41600EF4294 /* LoginInteractor.swift in Sources */,
 				EFA42C542C6D33BC004ACBD5 /* FeaturedHeaderCollectionViewCell.swift in Sources */,
+				EF3FA4682CC025B000EE2B57 /* SavedRecipeTableCollectionViewCell.swift in Sources */,
 				EF78B0252C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift in Sources */,
 				EF4FBD972CBBE95100713E3A /* SearchTextFieldCollectionReusableView.swift in Sources */,
 				EF15DEE02C5EC44700EF4294 /* CreateAccountPresenter.swift in Sources */,

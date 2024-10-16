@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -39,9 +40,11 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.grid.2x2.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iOx-a8-ale">
                                                 <rect key="frame" x="0.0" y="1.3333333333333321" width="25" height="15.666666666666668"/>
+                                                <color key="tintColor" name="0A2533"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tablecells" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qEu-n3-Czg">
                                                 <rect key="frame" x="25" y="1.6666666666666643" width="25" height="15.000000000000004"/>
+                                                <color key="tintColor" name="0A2533"/>
                                             </imageView>
                                         </subviews>
                                     </stackView>
@@ -57,7 +60,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="16"/>
+                                        <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -92,6 +95,9 @@
     <resources>
         <image name="circle.grid.2x2.fill" catalog="system" width="128" height="111"/>
         <image name="tablecells" catalog="system" width="128" height="93"/>
+        <namedColor name="0A2533">
+            <color red="0.039000000804662704" green="0.14499999582767487" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

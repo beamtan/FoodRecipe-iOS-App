@@ -22,11 +22,11 @@ class UserDefaultService: UserDefaultServiceLogic {
     
     func getFavouriteFoods() -> [FoodDetailModels.FoodDetailResponse]? {
         guard let data = UserDefaults.standard.data(forKey: myFavouriteFoodKey),
-              let favFood: [FoodDetailModels.FoodDetailResponse] = try? JSONDecoder().decode([FoodDetailModels.FoodDetailResponse].self, from: data) else {
+              let favFoods: [FoodDetailModels.FoodDetailResponse] = try? JSONDecoder().decode([FoodDetailModels.FoodDetailResponse].self, from: data) else {
             return nil
         }
         
-        return favFood
+        return favFoods
     }
     
     func saveFavouriteFood(food: FoodDetailModels.FoodDetailResponse, completionHandler: (() -> ())? = nil) {
