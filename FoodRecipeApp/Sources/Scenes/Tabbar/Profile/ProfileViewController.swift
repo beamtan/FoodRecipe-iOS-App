@@ -27,11 +27,12 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
         case setting3
         case setting4
         case setting5
+        case setting6
         
         var displayName: String {
             switch self {
             case .setting1:
-                return "Notifications"
+                return "Edit Profile"
             case .setting2:
                 return "Privacy & Security"
             case .setting3:
@@ -40,6 +41,8 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
                 return "Appearance"
             case .setting5:
                 return "Languages"
+            case .setting6:
+                return "Notification"
             }
         }
     }
@@ -187,6 +190,14 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             
             if let setting = Settings(rawValue: indexPath.row) {
                 cell.setup(labelText: setting.displayName)
+                
+                if setting == .setting1 {
+                    cell.settingPressClosure = { [weak self] in
+                        guard let self else { return }
+                        
+                        router?.routeToEditProfile()
+                    }
+                }
             }
             
             if indexPath.row == 0 {

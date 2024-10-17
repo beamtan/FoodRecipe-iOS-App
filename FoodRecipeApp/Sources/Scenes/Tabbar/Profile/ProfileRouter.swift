@@ -10,6 +10,7 @@ import UIKit
 
 @objc protocol ProfileRoutingLogic {
     func routeToLogin()
+    func routeToEditProfile()
 }
 
 protocol ProfileDataPassing {
@@ -30,11 +31,25 @@ class ProfileRouter: NSObject, ProfileRoutingLogic, ProfileDataPassing {
         navigateToLogin(source: viewController, destination: destination)
     }
     
+    func routeToEditProfile() {
+        guard let destination = UIStoryboard(name: "EditProfileStoryboard", bundle: nil)
+            .instantiateViewController(withIdentifier: "EditProfileViewController") as? EditProfileViewController,
+              let viewController else { return }
+        
+        navigateToEditProfile(source: viewController, destination: destination)
+    }
+    
     // MARK: Navigation
     
     func navigateToLogin(source: ProfileViewController, destination: MainViewController) {
         let navigationController = UINavigationController(rootViewController: destination)
         
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(vc: navigationController, animation: .transitionFlipFromRight)
+    }
+    
+    func navigateToEditProfile(source: ProfileViewController, destination: EditProfileViewController) {
+        if let navigationController = source.navigationController {
+            navigationController.pushViewController(destination, animated: true)
+        }
     }
 }

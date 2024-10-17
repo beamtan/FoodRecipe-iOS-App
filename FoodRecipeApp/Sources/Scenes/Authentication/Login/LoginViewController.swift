@@ -59,6 +59,8 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     // MARK: - IBAction
     
     @IBAction func loginPressed(_ sender: UIButton) {
+        startLoadingLottie()
+        
         let email: String = emailTextField.text ?? ""
         let password: String = passwordTextField.text ?? ""
         
@@ -160,6 +162,8 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     // MARK: - Display
     
     func displayLoginWithFirebaseSuccess(viewModel: LoginModels.FirebaseLogin.ViewModel) {
+        stopLoadingLottie()
+        
         guard let user = viewModel.data else {
             return
         }
@@ -172,6 +176,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     
     func displayLoginWithFirebaseFailure(viewModel: LoginModels.FirebaseLogin.ViewModel) {
         showValidate()
+        stopLoadingLottie()
     }
 }
 

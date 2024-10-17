@@ -82,6 +82,15 @@
 		EF3FA4692CC025B000EE2B57 /* SavedRecipeTableCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF3FA4672CC025B000EE2B57 /* SavedRecipeTableCollectionViewCell.xib */; };
 		EF3FA46E2CC0FCA100EE2B57 /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3FA46D2CC0FC9B00EE2B57 /* FirebaseUser.swift */; };
 		EF3FA4702CC0FCE100EE2B57 /* FirebaseUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3FA46F2CC0FCDC00EE2B57 /* FirebaseUserModel.swift */; };
+		EF3FA4732CC133A200EE2B57 /* SeeAllFoodViewController+NSCollectionLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3FA4722CC1339300EE2B57 /* SeeAllFoodViewController+NSCollectionLayoutSection.swift */; };
+		EF3FA47C2CC1356400EE2B57 /* EditProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3FA47B2CC1356400EE2B57 /* EditProfileWorker.swift */; };
+		EF3FA47D2CC1356400EE2B57 /* EditProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3FA4792CC1356400EE2B57 /* EditProfileRouter.swift */; };
+		EF3FA47E2CC1356400EE2B57 /* EditProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3FA4762CC1356400EE2B57 /* EditProfileInteractor.swift */; };
+		EF3FA47F2CC1356400EE2B57 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3FA47A2CC1356400EE2B57 /* EditProfileViewController.swift */; };
+		EF3FA4802CC1356400EE2B57 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3FA4782CC1356400EE2B57 /* EditProfilePresenter.swift */; };
+		EF3FA4812CC1356400EE2B57 /* EditProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3FA4772CC1356400EE2B57 /* EditProfileModels.swift */; };
+		EF3FA4832CC1357200EE2B57 /* EditProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF3FA4822CC1357200EE2B57 /* EditProfileStoryboard.storyboard */; };
+		EF3FA4852CC14F4C00EE2B57 /* FirebaseUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3FA4842CC14F4500EE2B57 /* FirebaseUserManager.swift */; };
 		EF4FBD972CBBE95100713E3A /* SearchTextFieldCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FBD962CBBE95100713E3A /* SearchTextFieldCollectionReusableView.swift */; };
 		EF4FBD9F2CBC653E00713E3A /* SavedRecipeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FBD9E2CBC653E00713E3A /* SavedRecipeWorker.swift */; };
 		EF4FBDA02CBC653E00713E3A /* SavedRecipeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FBD9C2CBC653E00713E3A /* SavedRecipeRouter.swift */; };
@@ -288,6 +297,15 @@
 		EF3FA4672CC025B000EE2B57 /* SavedRecipeTableCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedRecipeTableCollectionViewCell.xib; sourceTree = "<group>"; };
 		EF3FA46D2CC0FC9B00EE2B57 /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		EF3FA46F2CC0FCDC00EE2B57 /* FirebaseUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserModel.swift; sourceTree = "<group>"; };
+		EF3FA4722CC1339300EE2B57 /* SeeAllFoodViewController+NSCollectionLayoutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeeAllFoodViewController+NSCollectionLayoutSection.swift"; sourceTree = "<group>"; };
+		EF3FA4762CC1356400EE2B57 /* EditProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInteractor.swift; sourceTree = "<group>"; };
+		EF3FA4772CC1356400EE2B57 /* EditProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModels.swift; sourceTree = "<group>"; };
+		EF3FA4782CC1356400EE2B57 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
+		EF3FA4792CC1356400EE2B57 /* EditProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileRouter.swift; sourceTree = "<group>"; };
+		EF3FA47A2CC1356400EE2B57 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		EF3FA47B2CC1356400EE2B57 /* EditProfileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileWorker.swift; sourceTree = "<group>"; };
+		EF3FA4822CC1357200EE2B57 /* EditProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfileStoryboard.storyboard; sourceTree = "<group>"; };
+		EF3FA4842CC14F4500EE2B57 /* FirebaseUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserManager.swift; sourceTree = "<group>"; };
 		EF4FBD962CBBE95100713E3A /* SearchTextFieldCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextFieldCollectionReusableView.swift; sourceTree = "<group>"; };
 		EF4FBD992CBC653E00713E3A /* SavedRecipeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeInteractor.swift; sourceTree = "<group>"; };
 		EF4FBD9A2CBC653E00713E3A /* SavedRecipeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeModels.swift; sourceTree = "<group>"; };
@@ -427,6 +445,7 @@
 		EF0365CD2C75164E00965A66 /* SeeAllFood */ = {
 			isa = PBXGroup;
 			children = (
+				EF3FA4712CC1337B00EE2B57 /* Extensions */,
 				EF1B1CB72C76483400DFEB58 /* Header */,
 				EF1B1CB62C76480000DFEB58 /* Cell */,
 				EF0365DA2C75180500965A66 /* SeeAllFoodStoryboard.storyboard */,
@@ -444,10 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				EF4FBDB82CBD921200713E3A /* Extensions */,
-				EFA42C802C6DF4A0004ACBD5 /* AccountTitle */,
-				EFA42C7B2C6DF455004ACBD5 /* Account */,
-				EF4FBDB32CBC7CC000713E3A /* Setting */,
-				EF4FBDBB2CBDA0FD00713E3A /* Logout */,
+				EF3FA4742CC134B900EE2B57 /* Components */,
 				EF0759752C66594000CA1F67 /* ProfileStoryboard.storyboard */,
 				EF07596B2C66590900CA1F67 /* ProfileViewController.swift */,
 				EF07596C2C66590900CA1F67 /* ProfileInteractor.swift */,
@@ -607,13 +623,47 @@
 			path = GridLayout;
 			sourceTree = "<group>";
 		};
-		EF3FA46A2CC0569D00EE2B57 /* Shared */ = {
+		EF3FA46A2CC0569D00EE2B57 /* FirebaseUser */ = {
 			isa = PBXGroup;
 			children = (
 				EF3FA46D2CC0FC9B00EE2B57 /* FirebaseUser.swift */,
+				EF3FA4842CC14F4500EE2B57 /* FirebaseUserManager.swift */,
 				EF3FA46F2CC0FCDC00EE2B57 /* FirebaseUserModel.swift */,
 			);
-			path = Shared;
+			path = FirebaseUser;
+			sourceTree = "<group>";
+		};
+		EF3FA4712CC1337B00EE2B57 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EF3FA4722CC1339300EE2B57 /* SeeAllFoodViewController+NSCollectionLayoutSection.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EF3FA4742CC134B900EE2B57 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EFA42C802C6DF4A0004ACBD5 /* AccountTitle */,
+				EFA42C7B2C6DF455004ACBD5 /* Account */,
+				EF4FBDB32CBC7CC000713E3A /* Setting */,
+				EF4FBDBB2CBDA0FD00713E3A /* Logout */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		EF3FA4752CC1350000EE2B57 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				EF3FA4822CC1357200EE2B57 /* EditProfileStoryboard.storyboard */,
+				EF3FA47A2CC1356400EE2B57 /* EditProfileViewController.swift */,
+				EF3FA4762CC1356400EE2B57 /* EditProfileInteractor.swift */,
+				EF3FA4782CC1356400EE2B57 /* EditProfilePresenter.swift */,
+				EF3FA4792CC1356400EE2B57 /* EditProfileRouter.swift */,
+				EF3FA47B2CC1356400EE2B57 /* EditProfileWorker.swift */,
+				EF3FA4772CC1356400EE2B57 /* EditProfileModels.swift */,
+			);
+			path = EditProfile;
 			sourceTree = "<group>";
 		};
 		EF4FBD982CBC650A00713E3A /* SavedRecipe */ = {
@@ -655,6 +705,7 @@
 			children = (
 				EF4FBDB52CBC7E8800713E3A /* ProfileSettingCollectionViewCell.xib */,
 				EF4FBDB42CBC7E8800713E3A /* ProfileSettingCollectionViewCell.swift */,
+				EF3FA4752CC1350000EE2B57 /* EditProfile */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -1211,7 +1262,7 @@
 		EFF585172C72621300FA56BC /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				EF3FA46A2CC0569D00EE2B57 /* Shared */,
+				EF3FA46A2CC0569D00EE2B57 /* FirebaseUser */,
 				EF2A65FB2CBEE3CF006752E8 /* LoadingViews */,
 				EF2A65F82CBEE259006752E8 /* Views */,
 				EFF585132C725FA800FA56BC /* Models */,
@@ -1391,6 +1442,7 @@
 				EF1B1CE22C78F74200DFEB58 /* beverageTop6Response.json in Resources */,
 				EF8665842C66133F0016023C /* HomeTabbarStoryboard.storyboard in Resources */,
 				EF1B1CDE2C78F74200DFEB58 /* sideDishTop6Response.json in Resources */,
+				EF3FA4832CC1357200EE2B57 /* EditProfileStoryboard.storyboard in Resources */,
 				EF1B1CE52C78F74200DFEB58 /* fingerfoodTop6Response.json in Resources */,
 				EF1B1CC22C78EB9600DFEB58 /* foods50Response.json in Resources */,
 				EFA42C8B2C6DF932004ACBD5 /* ProfileFavHeaderCollectionViewCell.xib in Resources */,
@@ -1473,6 +1525,7 @@
 				EF78B0252C67E0FE003686F5 /* PopularRecipeCollectionViewCell.swift in Sources */,
 				EF4FBD972CBBE95100713E3A /* SearchTextFieldCollectionReusableView.swift in Sources */,
 				EF15DEE02C5EC44700EF4294 /* CreateAccountPresenter.swift in Sources */,
+				EF3FA4732CC133A200EE2B57 /* SeeAllFoodViewController+NSCollectionLayoutSection.swift in Sources */,
 				EFC523942C629A94001467DC /* HomePresenter.swift in Sources */,
 				EFC425C02C6A9C51004FF5BE /* Environment.swift in Sources */,
 				EFD14ED52C6FAE4E0016F1B7 /* FoodDetailViewController+NSCollectionLayoutSection.swift in Sources */,
@@ -1501,6 +1554,12 @@
 				EF07596F2C66590900CA1F67 /* ProfileRouter.swift in Sources */,
 				EFC425C72C6AA0AF004FF5BE /* ExtensionData.swift in Sources */,
 				EF0759702C66590900CA1F67 /* ProfileModels.swift in Sources */,
+				EF3FA47C2CC1356400EE2B57 /* EditProfileWorker.swift in Sources */,
+				EF3FA47D2CC1356400EE2B57 /* EditProfileRouter.swift in Sources */,
+				EF3FA47E2CC1356400EE2B57 /* EditProfileInteractor.swift in Sources */,
+				EF3FA47F2CC1356400EE2B57 /* EditProfileViewController.swift in Sources */,
+				EF3FA4802CC1356400EE2B57 /* EditProfilePresenter.swift in Sources */,
+				EF3FA4812CC1356400EE2B57 /* EditProfileModels.swift in Sources */,
 				EFA42C662C6DC1FF004ACBD5 /* SearchTitleCollectionViewCell.swift in Sources */,
 				EF0759782C667C6300CA1F67 /* TabbarViewController.swift in Sources */,
 				EF0759712C66590900CA1F67 /* ProfileViewController.swift in Sources */,
@@ -1524,6 +1583,7 @@
 				EFA42C832C6DF4B9004ACBD5 /* AccountTitleCollectionViewCell.swift in Sources */,
 				EF15DEF02C5EC91500EF4294 /* AuthenticationPresenter.swift in Sources */,
 				EFA42C402C6D1718004ACBD5 /* CompositionLayoutHelper.swift in Sources */,
+				EF3FA4852CC14F4C00EE2B57 /* FirebaseUserManager.swift in Sources */,
 				EF78B0222C67CA9B003686F5 /* CategoryCollectionViewCell.swift in Sources */,
 				EFD5278C2CBAE84600A7E0D9 /* SearchResultGridCollectionViewCell.swift in Sources */,
 				EF15DEF12C5EC91500EF4294 /* AuthenticationWorker.swift in Sources */,

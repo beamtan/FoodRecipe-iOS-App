@@ -57,8 +57,6 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
     func navigateToSeeAllFood(source: HomeViewController, destination: SeeAllFoodViewController) {
         if let navigationController = source.navigationController {
             navigationController.pushViewController(destination, animated: true)
-        } else {
-            print("NavigationController is nil")
         }
     }
     
