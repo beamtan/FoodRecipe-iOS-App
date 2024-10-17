@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchTextFieldCollectionReusableView" id="U6b-Vx-4bR" customClass="SearchTextFieldCollectionReusableView" customModule="FoodRecipeApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="388" height="85"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWP-58-cdp">
+                    <rect key="frame" x="0.0" y="0.0" width="388" height="85"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWy-uk-uUp">
+                            <rect key="frame" x="24" y="0.0" width="340" height="61"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fPj-2H-LWK">
+                                    <rect key="frame" x="16" y="18" width="20" height="25.333333333333336"/>
+                                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="20" id="ZWy-5s-GXC"/>
+                                    </constraints>
+                                </imageView>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Recipe, Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5KK-u6-1zY">
+                                    <rect key="frame" x="52" y="19" width="288" height="23"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="23" id="G8L-4V-j9D"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SofiaPro-Regular" family="SofiaPro" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="5KK-u6-1zY" secondAttribute="trailing" id="MJ8-Sb-ond"/>
+                                <constraint firstItem="fPj-2H-LWK" firstAttribute="centerY" secondItem="VWy-uk-uUp" secondAttribute="centerY" id="NzO-uh-zpX"/>
+                                <constraint firstItem="5KK-u6-1zY" firstAttribute="leading" secondItem="fPj-2H-LWK" secondAttribute="trailing" constant="16" id="ShQ-0a-KLO"/>
+                                <constraint firstItem="fPj-2H-LWK" firstAttribute="top" secondItem="VWy-uk-uUp" secondAttribute="top" constant="17" id="cb3-E3-HNi"/>
+                                <constraint firstItem="5KK-u6-1zY" firstAttribute="centerY" secondItem="fPj-2H-LWK" secondAttribute="centerY" id="r7k-kr-EKl"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fPj-2H-LWK" secondAttribute="bottom" constant="17" id="utc-KG-W3C"/>
+                                <constraint firstItem="fPj-2H-LWK" firstAttribute="leading" secondItem="VWy-uk-uUp" secondAttribute="leading" constant="16" id="ym8-DV-vaX"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <integer key="value" value="16"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" name="F1F5F5"/>
+                    <constraints>
+                        <constraint firstItem="VWy-uk-uUp" firstAttribute="leading" secondItem="VWP-58-cdp" secondAttribute="leading" constant="24" id="9ro-yD-eJT"/>
+                        <constraint firstItem="VWy-uk-uUp" firstAttribute="top" secondItem="VWP-58-cdp" secondAttribute="top" id="IMl-Lo-suq"/>
+                        <constraint firstAttribute="bottom" secondItem="VWy-uk-uUp" secondAttribute="bottom" constant="24" id="uAm-CN-hUw"/>
+                        <constraint firstAttribute="trailing" secondItem="VWy-uk-uUp" secondAttribute="trailing" constant="24" id="vjT-2A-53e"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="VWP-58-cdp" secondAttribute="bottom" id="0pd-ha-8w5"/>
+                <constraint firstItem="VWP-58-cdp" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="239-qa-oBU"/>
+                <constraint firstItem="VWP-58-cdp" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="BEm-lg-CMI"/>
+                <constraint firstAttribute="trailing" secondItem="VWP-58-cdp" secondAttribute="trailing" id="Z3d-nu-BQW"/>
+            </constraints>
+            <connections>
+                <outlet property="searchTextField" destination="5KK-u6-1zY" id="Wte-UH-inx"/>
+                <outlet property="textFieldView" destination="VWy-uk-uUp" id="NvI-kz-gav"/>
+            </connections>
+            <point key="canvasLocation" x="25.954198473282442" y="1.0563380281690142"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <namedColor name="F1F5F5">
+            <color red="0.94499999284744263" green="0.96100002527236938" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

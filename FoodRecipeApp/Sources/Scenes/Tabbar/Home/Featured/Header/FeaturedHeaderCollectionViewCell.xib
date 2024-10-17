@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SofiaPro-Bold.ttf">
+            <string>SofiaPro-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FeaturedHeaderCollectionViewCell" id="n5b-w9-BfF" customClass="FeaturedHeaderCollectionViewCell" customModule="FoodRecipeApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="192" height="63"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="12b-mo-HuV">
+                <rect key="frame" x="0.0" y="0.0" width="192" height="63"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xxr-b5-XDn">
+                        <rect key="frame" x="0.0" y="0.0" width="192" height="63"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aO4-ee-L2m">
+                                <rect key="frame" x="0.0" y="24" width="192" height="27"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="20"/>
+                                <color key="textColor" name="0A2533"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="F1F5F5"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="aO4-ee-L2m" secondAttribute="bottom" constant="12" id="8Qa-sR-9KD"/>
+                            <constraint firstAttribute="trailing" secondItem="aO4-ee-L2m" secondAttribute="trailing" id="Bc1-JX-DQ0"/>
+                            <constraint firstItem="aO4-ee-L2m" firstAttribute="leading" secondItem="xxr-b5-XDn" secondAttribute="leading" id="ehr-Ur-aNy"/>
+                            <constraint firstItem="aO4-ee-L2m" firstAttribute="top" secondItem="xxr-b5-XDn" secondAttribute="top" constant="24" id="wSB-5X-I9S"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="xxr-b5-XDn" firstAttribute="top" secondItem="12b-mo-HuV" secondAttribute="top" id="FZN-ZV-T4z"/>
+                    <constraint firstAttribute="bottom" secondItem="xxr-b5-XDn" secondAttribute="bottom" id="MwH-gn-3Td"/>
+                    <constraint firstAttribute="trailing" secondItem="xxr-b5-XDn" secondAttribute="trailing" id="YX2-wu-8Hj"/>
+                    <constraint firstItem="xxr-b5-XDn" firstAttribute="leading" secondItem="12b-mo-HuV" secondAttribute="leading" id="Zn1-6W-uLE"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="192" height="63"/>
+            <point key="canvasLocation" x="200" y="203.16901408450704"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="0A2533">
+            <color red="0.039000000804662704" green="0.14499999582767487" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="F1F5F5">
+            <color red="0.94499999284744263" green="0.96100002527236938" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

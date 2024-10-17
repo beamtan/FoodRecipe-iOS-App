@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SofiaPro-Bold.ttf">
+            <string>SofiaPro-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FoodDetailTypeAndTotalCollectionViewCell" id="gTV-IL-0wX" customClass="FoodDetailTypeAndTotalCollectionViewCell" customModule="FoodRecipeApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="371" height="91"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="371" height="91"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51D-L8-7P5">
+                        <rect key="frame" x="0.0" y="0.0" width="371" height="91"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QjT-F8-mGL">
+                                <rect key="frame" x="24" y="24" width="323" height="21"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="20"/>
+                                <color key="textColor" name="0A2533"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HF-4u-tVV">
+                                <rect key="frame" x="24" y="47" width="323" height="18.666666666666671"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Regular" family="SofiaPro" pointSize="16"/>
+                                <color key="textColor" name="748189"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="8HF-4u-tVV" secondAttribute="trailing" constant="24" id="3j9-4z-dMP"/>
+                            <constraint firstItem="8HF-4u-tVV" firstAttribute="top" secondItem="QjT-F8-mGL" secondAttribute="bottom" constant="2" id="9vy-So-XXN"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8HF-4u-tVV" secondAttribute="bottom" constant="12" id="AJz-PX-Fya"/>
+                            <constraint firstItem="QjT-F8-mGL" firstAttribute="top" secondItem="51D-L8-7P5" secondAttribute="top" constant="24" id="ATs-NQ-4FO"/>
+                            <constraint firstItem="QjT-F8-mGL" firstAttribute="leading" secondItem="51D-L8-7P5" secondAttribute="leading" constant="24" id="FzP-Rc-rel"/>
+                            <constraint firstItem="8HF-4u-tVV" firstAttribute="leading" secondItem="51D-L8-7P5" secondAttribute="leading" constant="24" id="Y7J-mD-dxw"/>
+                            <constraint firstAttribute="trailing" secondItem="QjT-F8-mGL" secondAttribute="trailing" constant="24" id="oY1-Me-mfN"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="51D-L8-7P5" secondAttribute="trailing" id="YHo-tk-jpd"/>
+                <constraint firstItem="51D-L8-7P5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gBZ-Zb-VJk"/>
+                <constraint firstItem="51D-L8-7P5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="gfS-bF-PfC"/>
+                <constraint firstAttribute="bottom" secondItem="51D-L8-7P5" secondAttribute="bottom" id="iHr-dM-gT1"/>
+            </constraints>
+            <size key="customSize" width="371" height="91"/>
+            <connections>
+                <outlet property="customBackgroundView" destination="51D-L8-7P5" id="3rS-Ec-G99"/>
+                <outlet property="foodDetailTypeLabel" destination="QjT-F8-mGL" id="sfF-HU-hgU"/>
+                <outlet property="totalItemLabel" destination="8HF-4u-tVV" id="Sy5-we-kMj"/>
+            </connections>
+            <point key="canvasLocation" x="159.54198473282443" y="1.7605633802816902"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="0A2533">
+            <color red="0.039000000804662704" green="0.14499999582767487" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="748189">
+            <color red="0.45500001311302185" green="0.50599998235702515" blue="0.53700000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
