@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SofiaPro-Bold.ttf">
+            <string>SofiaPro-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchResultTableCollectionViewCell" id="AHu-o9-N5o" customClass="SearchResultTableCollectionViewCell" customModule="FoodRecipeApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="478" height="247"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HKt-Yz-YV0">
+                <rect key="frame" x="0.0" y="0.0" width="478" height="247"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LSM-jX-MTQ">
+                        <rect key="frame" x="0.0" y="0.0" width="478" height="247"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTe-NS-C3D">
+                                <rect key="frame" x="8" y="8" width="462" height="231"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Healthy Taco Sald with fresh vegetable" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrU-Tb-UjH">
+                                        <rect key="frame" x="296" y="16" width="150" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="nIE-kj-tBL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="16"/>
+                                        <color key="textColor" name="0A2533"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x59-nD-ota">
+                                        <rect key="frame" x="16" y="16" width="264" height="199"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flame" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="God-pU-3NY">
+                                        <rect key="frame" x="296" y="73.666666666666671" width="16" height="20"/>
+                                        <color key="tintColor" name="97A2B0"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120 KCAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ew6-uD-ON2">
+                                        <rect key="frame" x="316" y="75.666666666666671" width="64" height="17"/>
+                                        <fontDescription key="fontDescription" name="SofiaPro-Regular" family="SofiaPro" pointSize="14"/>
+                                        <color key="textColor" name="97A2B0"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fitness.timer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NUB-1n-EyV">
+                                        <rect key="frame" x="296" y="99" width="19.666666666666686" height="19"/>
+                                        <color key="tintColor" name="97A2B0"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 Min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQd-kb-QoR">
+                                        <rect key="frame" x="319.66666666666669" y="100" width="43" height="17"/>
+                                        <fontDescription key="fontDescription" name="SofiaPro-Regular" family="SofiaPro" pointSize="14"/>
+                                        <color key="textColor" name="97A2B0"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="jrU-Tb-UjH" firstAttribute="leading" secondItem="x59-nD-ota" secondAttribute="trailing" constant="16" id="72W-Gn-wLa"/>
+                                    <constraint firstItem="NUB-1n-EyV" firstAttribute="leading" secondItem="x59-nD-ota" secondAttribute="trailing" constant="16" id="7K4-MB-ZtN"/>
+                                    <constraint firstItem="NUB-1n-EyV" firstAttribute="top" secondItem="God-pU-3NY" secondAttribute="bottom" constant="4" id="Bwn-Af-gVf"/>
+                                    <constraint firstItem="ew6-uD-ON2" firstAttribute="leading" secondItem="God-pU-3NY" secondAttribute="trailing" constant="4" id="CcQ-C6-hys"/>
+                                    <constraint firstItem="tQd-kb-QoR" firstAttribute="centerY" secondItem="NUB-1n-EyV" secondAttribute="centerY" id="IRV-fr-Q9Z"/>
+                                    <constraint firstAttribute="bottom" secondItem="x59-nD-ota" secondAttribute="bottom" constant="16" id="JY4-Nh-bWl"/>
+                                    <constraint firstAttribute="trailing" secondItem="jrU-Tb-UjH" secondAttribute="trailing" constant="16" id="L3Y-2r-l4R"/>
+                                    <constraint firstItem="x59-nD-ota" firstAttribute="top" secondItem="jTe-NS-C3D" secondAttribute="top" constant="16" id="QCE-5B-UQT"/>
+                                    <constraint firstItem="ew6-uD-ON2" firstAttribute="centerY" secondItem="God-pU-3NY" secondAttribute="centerY" id="Vbi-fU-nhu"/>
+                                    <constraint firstItem="jrU-Tb-UjH" firstAttribute="top" secondItem="jTe-NS-C3D" secondAttribute="top" constant="16" id="XDB-xb-Q1b"/>
+                                    <constraint firstItem="God-pU-3NY" firstAttribute="top" secondItem="jrU-Tb-UjH" secondAttribute="bottom" constant="8" id="bM5-Em-3dS"/>
+                                    <constraint firstItem="tQd-kb-QoR" firstAttribute="leading" secondItem="NUB-1n-EyV" secondAttribute="trailing" constant="4" id="jgr-ni-9G4"/>
+                                    <constraint firstItem="God-pU-3NY" firstAttribute="leading" secondItem="x59-nD-ota" secondAttribute="trailing" constant="16" id="vDX-ZP-Mnw"/>
+                                    <constraint firstItem="x59-nD-ota" firstAttribute="leading" secondItem="jTe-NS-C3D" secondAttribute="leading" constant="16" id="yXi-qe-8QC"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="jTe-NS-C3D" secondAttribute="bottom" constant="8" id="Lxj-BU-AZ3"/>
+                            <constraint firstItem="jTe-NS-C3D" firstAttribute="leading" secondItem="LSM-jX-MTQ" secondAttribute="leading" constant="8" id="NwE-dN-jiH"/>
+                            <constraint firstAttribute="trailing" secondItem="jTe-NS-C3D" secondAttribute="trailing" constant="8" id="qUp-eG-FcI"/>
+                            <constraint firstItem="jTe-NS-C3D" firstAttribute="top" secondItem="LSM-jX-MTQ" secondAttribute="top" constant="8" id="tv6-rj-gHM"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="LSM-jX-MTQ" firstAttribute="leading" secondItem="HKt-Yz-YV0" secondAttribute="leading" id="Uqv-cX-6JM"/>
+                    <constraint firstAttribute="bottom" secondItem="LSM-jX-MTQ" secondAttribute="bottom" id="g9V-Rv-g0Z"/>
+                    <constraint firstAttribute="trailing" secondItem="LSM-jX-MTQ" secondAttribute="trailing" id="hRf-r1-1c4"/>
+                    <constraint firstItem="LSM-jX-MTQ" firstAttribute="top" secondItem="HKt-Yz-YV0" secondAttribute="top" id="s6k-Ee-TBH"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="478" height="247"/>
+            <connections>
+                <outlet property="calorieLabel" destination="ew6-uD-ON2" id="GJy-AV-ixo"/>
+                <outlet property="cardView" destination="jTe-NS-C3D" id="cjJ-h4-zVI"/>
+                <outlet property="imageView" destination="x59-nD-ota" id="w95-xe-yer"/>
+                <outlet property="timeLabel" destination="tQd-kb-QoR" id="xyZ-I7-iJ6"/>
+                <outlet property="titleLabel" destination="jrU-Tb-UjH" id="Cys-pM-2Ud"/>
+            </connections>
+            <point key="canvasLocation" x="1574.0458015267175" y="129.22535211267606"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="fitness.timer" catalog="system" width="128" height="123"/>
+        <image name="flame" catalog="system" width="106" height="128"/>
+        <namedColor name="0A2533">
+            <color red="0.039000000804662704" green="0.14499999582767487" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="97A2B0">
+            <color red="0.59200000762939453" green="0.63499999046325684" blue="0.68999999761581421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

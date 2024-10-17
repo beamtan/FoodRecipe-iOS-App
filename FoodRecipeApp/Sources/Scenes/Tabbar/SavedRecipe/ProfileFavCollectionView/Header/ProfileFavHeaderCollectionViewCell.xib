@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SofiaPro-Bold.ttf">
+            <string>SofiaPro-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileFavHeaderCollectionViewCell" id="gTV-IL-0wX" customClass="ProfileFavHeaderCollectionViewCell" customModule="FoodRecipeApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="366" height="84"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="366" height="84"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mI1-5h-Ix8">
+                        <rect key="frame" x="0.0" y="0.0" width="366" height="84"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Favorites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D17-m8-gRz">
+                                <rect key="frame" x="0.0" y="24" width="119.33333333333333" height="48"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="20"/>
+                                <color key="textColor" name="0A2533"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See All" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dO-nE-Mld">
+                                <rect key="frame" x="322" y="40.666666666666664" width="44" height="14.666666666666664"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="14"/>
+                                <color key="textColor" name="70B9BE"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="D17-m8-gRz" firstAttribute="top" secondItem="mI1-5h-Ix8" secondAttribute="top" constant="24" id="8t1-bR-4GM"/>
+                            <constraint firstItem="6dO-nE-Mld" firstAttribute="centerY" secondItem="D17-m8-gRz" secondAttribute="centerY" id="9bQ-6D-O6Y"/>
+                            <constraint firstAttribute="bottom" secondItem="D17-m8-gRz" secondAttribute="bottom" constant="12" id="AER-BV-gk2"/>
+                            <constraint firstAttribute="trailing" secondItem="6dO-nE-Mld" secondAttribute="trailing" id="XHX-1S-Jrz"/>
+                            <constraint firstItem="D17-m8-gRz" firstAttribute="leading" secondItem="mI1-5h-Ix8" secondAttribute="leading" id="xx6-dJ-x8O"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="mI1-5h-Ix8" secondAttribute="bottom" id="Qid-Ls-kvG"/>
+                <constraint firstAttribute="trailing" secondItem="mI1-5h-Ix8" secondAttribute="trailing" id="V4J-ic-vcx"/>
+                <constraint firstItem="mI1-5h-Ix8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="b7B-tP-Ab6"/>
+                <constraint firstItem="mI1-5h-Ix8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bkS-9s-2UE"/>
+            </constraints>
+            <size key="customSize" width="366" height="84"/>
+            <connections>
+                <outlet property="seeAllButtonView" destination="6dO-nE-Mld" id="EoC-gf-aZx"/>
+            </connections>
+            <point key="canvasLocation" x="325.19083969465646" y="0.70422535211267612"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="0A2533">
+            <color red="0.039000000804662704" green="0.14499999582767487" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="70B9BE">
+            <color red="0.43900001049041748" green="0.72500002384185791" blue="0.74500000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

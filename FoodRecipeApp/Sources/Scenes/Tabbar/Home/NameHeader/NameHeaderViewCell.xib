@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SofiaPro-Bold.ttf">
+            <string>SofiaPro-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NameHeaderViewCell" id="M76-AV-Ee6" customClass="NameHeaderViewCell" customModule="FoodRecipeApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="386" height="62"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="Vht-aq-ZXV">
+                <rect key="frame" x="0.0" y="0.0" width="386" height="62"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JeB-lj-a5q">
+                        <rect key="frame" x="0.0" y="0.0" width="386" height="52"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.min" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hIs-jX-AQa">
+                                <rect key="frame" x="24" y="0.99999999999999822" width="20" height="18.333333333333336"/>
+                                <color key="tintColor" name="3DA0A7"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="6cB-m6-C6Z"/>
+                                    <constraint firstAttribute="width" constant="20" id="ZUT-Dk-k9i"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Morning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5Q-hE-3hF">
+                                <rect key="frame" x="48" y="1.6666666666666661" width="91" height="17"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Regular" family="SofiaPro" pointSize="14"/>
+                                <color key="textColor" name="0A2533"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beam Tangsanga" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOV-ii-2vO">
+                                <rect key="frame" x="24" y="27" width="195" height="25"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="SofiaPro" pointSize="24"/>
+                                <color key="textColor" name="0A2533"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tcT-IW-0nv">
+                                <rect key="frame" x="338" y="3.3333333333333321" width="24" height="22"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="HRP-Xw-gsd"/>
+                                    <constraint firstAttribute="height" constant="24" id="fp5-9d-fdk"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tcT-IW-0nv" secondAttribute="trailing" constant="24" id="8eO-oR-H5r"/>
+                            <constraint firstAttribute="bottom" secondItem="UOV-ii-2vO" secondAttribute="bottom" id="FlH-pI-XR6"/>
+                            <constraint firstItem="d5Q-hE-3hF" firstAttribute="centerY" secondItem="hIs-jX-AQa" secondAttribute="centerY" id="Mcx-1g-nKC"/>
+                            <constraint firstItem="tcT-IW-0nv" firstAttribute="top" secondItem="d5Q-hE-3hF" secondAttribute="top" id="Wr0-F6-lZQ"/>
+                            <constraint firstItem="UOV-ii-2vO" firstAttribute="leading" secondItem="JeB-lj-a5q" secondAttribute="leading" constant="24" id="ZJf-rY-aU1"/>
+                            <constraint firstAttribute="height" constant="52" id="jka-XD-P4a"/>
+                            <constraint firstItem="hIs-jX-AQa" firstAttribute="leading" secondItem="JeB-lj-a5q" secondAttribute="leading" constant="24" id="tES-1c-WPw"/>
+                            <constraint firstItem="d5Q-hE-3hF" firstAttribute="leading" secondItem="hIs-jX-AQa" secondAttribute="trailing" constant="4" id="wkN-HA-3JG"/>
+                            <constraint firstItem="hIs-jX-AQa" firstAttribute="top" secondItem="JeB-lj-a5q" secondAttribute="top" id="xjT-QF-yzx"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="JeB-lj-a5q" secondAttribute="trailing" id="C0I-np-596"/>
+                    <constraint firstItem="JeB-lj-a5q" firstAttribute="top" secondItem="Vht-aq-ZXV" secondAttribute="top" id="E6m-LG-ye5"/>
+                    <constraint firstAttribute="bottom" secondItem="JeB-lj-a5q" secondAttribute="bottom" id="Tja-L7-ZM5"/>
+                    <constraint firstItem="JeB-lj-a5q" firstAttribute="leading" secondItem="Vht-aq-ZXV" secondAttribute="leading" id="oAV-Xh-SqD"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="386" height="62"/>
+            <connections>
+                <outlet property="displayNameLabel" destination="UOV-ii-2vO" id="jd1-UI-ZSL"/>
+            </connections>
+            <point key="canvasLocation" x="271.75572519083971" y="245.77464788732397"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="sun.min" catalog="system" width="128" height="123"/>
+        <namedColor name="0A2533">
+            <color red="0.039000000804662704" green="0.14499999582767487" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="3DA0A7">
+            <color red="0.23899999260902405" green="0.62699997425079346" blue="0.65499997138977051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
