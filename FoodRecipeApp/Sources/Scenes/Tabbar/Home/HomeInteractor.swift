@@ -10,6 +10,7 @@ import UIKit
 
 protocol HomeBusinessLogic {
     func inquirySearchFoodsByCategory(request: HomeModels.InquirySearchFoodsByQueryText.Request)
+    func inquiryUser(request: HomeModels.User.Request)
     
     /// Route
     func prepareRouteToFoodDetail(food: FoodDetailModels.FoodDetailResponse)
@@ -50,6 +51,13 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     
     func updateCurrentCategory(request: HomeModels.InquirySearchFoodsByQueryText.Request) {
         category = HomeModels.Category.CategoryType.allCases.first(where: { $0.rawValue == request.query })
+    }
+    
+    func inquiryUser(request: HomeModels.User.Request) {
+        let user = FirebaseUser.shared.getUser()
+        let response = HomeModels.User.Response(user: user)
+        
+        presenter?.presentInquiryUser(response: response)
     }
     
     // MARK: - Prepare Routing

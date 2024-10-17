@@ -206,6 +206,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             cell.logoutClosure = { [weak self] in
                 guard let self else { return }
                 
+                interactor?.logout()
                 router?.routeToLogin()
             }
             

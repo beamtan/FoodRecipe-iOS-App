@@ -7,26 +7,53 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseAuth
+import GoogleSignIn
 
 protocol LoginBusinessLogic {
-    func doSomething(request: LoginModels.Something.Request)
+    func loginWithFirebase(request: LoginModels.FirebaseLogin.Request)
+    func saveUserToFirebaseUser(request: LoginModels.FirebaseUser.Request)
 }
 
 protocol LoginDataStore {
-    //var name: String { get set }
+
 }
 
 class LoginInteractor: LoginBusinessLogic, LoginDataStore {
     var presenter: LoginPresentationLogic?
     var worker: LoginWorker?
-    //var name: String = ""
+    var googleService: GoogleServiceImp?
     
-    // MARK: Do something
-    
-    func doSomething(request: LoginModels.Something.Request) {
-        worker = LoginWorker()
+    func loginWithFirebase(request: LoginModels.FirebaseLogin.Request) {
+        let googleService = GoogleService()
         
-        let response = LoginModels.Something.Response()
-        presenter?.presentSomething(response: response)
+        googleService.signIn(email: request.email, password: request.password) { [weak self] error in
+            guard let self else { return }
+            
+            guard error == nil else {
+                let response = LoginModels.FirebaseLogin.Response(data: nil, error: error)
+                presenter?.presentLoginWithFirebase(response: response)
+                
+                return
+            }
+            
+             googleService.getFirebaseUser() { [weak self] user in
+                 guard let self else { return }
+                 
+                 let data = FirebaseUserModel(
+                    displayName: user?.displayName ?? "",
+                    photoUrl: "\(user?.photoURL)",
+                    email: user?.email ?? ""
+                 )
+                 
+                 let response = LoginModels.FirebaseLogin.Response(data: data, error: nil)
+                 presenter?.presentLoginWithFirebase(response: response)
+            }
+        }
+    }
+    
+    func saveUserToFirebaseUser(request: LoginModels.FirebaseUser.Request) {
+        FirebaseUser.shared.saveUser(user: request.user)
     }
 }

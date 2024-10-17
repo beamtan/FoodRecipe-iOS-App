@@ -111,12 +111,13 @@ class FoodDetailViewController: UIViewController, FoodDetailDisplayLogic {
            let fullHeartIcon = UIImage(systemName: "heart.fill")
         {
             let image = isFavoriteFood() ? fullHeartIcon : heartIcon
-            let color: UIColor = isFavoriteFood() ? .red : .black
+            let tintColor: UIColor = isFavoriteFood() ? .red : .black
+            let backgroundColor: UIColor = isFavoriteFood() ? .E_3_C_3_C_6 : .E_6_EBF_2
             
             let tintedImage = image.withRenderingMode(.alwaysTemplate)
             likeButtonSolidBG.setImage(tintedImage, for: .normal)
-            likeButtonSolidBG.tintColor = color
-            likeButtonSolidBG.backgroundColor = .white
+            likeButtonSolidBG.tintColor = tintColor
+            likeButtonSolidBG.backgroundColor = backgroundColor
         }
     }
     

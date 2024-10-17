@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProfileBusinessLogic {
-    
+    func logout()
 }
 
 protocol ProfileDataStore {
@@ -19,4 +19,11 @@ protocol ProfileDataStore {
 class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
     var presenter: ProfilePresentationLogic?
     var worker: ProfileWorker?
+    
+    func logout() {
+        let googleService = GoogleService()
+        
+        FirebaseUser.shared.resetUser()
+        googleService.signOut()
+    }
 }

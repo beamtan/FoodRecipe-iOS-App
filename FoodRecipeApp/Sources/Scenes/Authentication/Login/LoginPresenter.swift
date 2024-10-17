@@ -9,16 +9,25 @@
 import UIKit
 
 protocol LoginPresentationLogic {
-    func presentSomething(response: LoginModels.Something.Response)
+    func presentLoginWithFirebase(response: LoginModels.FirebaseLogin.Response)
 }
 
 class LoginPresenter: LoginPresentationLogic {
     weak var viewController: LoginDisplayLogic?
     
-    // MARK: Do something
-    
-    func presentSomething(response: LoginModels.Something.Response) {
-        let viewModel = LoginModels.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentLoginWithFirebase(response: LoginModels.FirebaseLogin.Response) {
+        guard response.error == nil else {
+            let viewModel = LoginModels.FirebaseLogin.ViewModel(
+                data: nil,
+                message: response.error?.localizedDescription ?? ""
+            )
+            
+            viewController?.displayLoginWithFirebaseFailure(viewModel: viewModel)
+            
+            return
+        }
+        
+        let viewModel = LoginModels.FirebaseLogin.ViewModel(data: response.data)
+        viewController?.displayLoginWithFirebaseSuccess(viewModel: viewModel)
     }
 }

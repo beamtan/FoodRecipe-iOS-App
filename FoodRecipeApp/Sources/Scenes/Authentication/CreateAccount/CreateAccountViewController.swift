@@ -67,7 +67,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
         googleService.createUser(email: email, password: password) { [weak self] in
             guard let self else { return }
             
-            googleService.seeUserDetail() { user in
+            googleService.getFirebaseUser() { user in
                 print("Welcome: \(user?.email ?? "")")
                 print("isAnonymous \(user?.isAnonymous ?? true)")
            }
@@ -80,7 +80,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
                 return
             }
             
-            googleService.seeUserDetail() { user in
+            googleService.getFirebaseUser() { user in
                 print("Welcome: \(user?.email ?? "")")
                 print("isAnonymous \(user?.isAnonymous ?? true)")
            }

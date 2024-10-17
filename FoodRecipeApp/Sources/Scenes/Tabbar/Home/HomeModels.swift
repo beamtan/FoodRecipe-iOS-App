@@ -10,6 +10,23 @@ import UIKit
 
 struct HomeModels {
     
+    // MARK: - Use cases
+    
+    struct User {
+        struct Request {
+        }
+        
+        struct Response {
+            let user: FirebaseUserModel?
+        }
+        
+        struct ViewModel {
+            let displayName: String
+        }
+    }
+    
+    // MARK: - Call Service
+    
     struct InquirySearchFoodsByQueryText {
         struct Request {
             let query: String

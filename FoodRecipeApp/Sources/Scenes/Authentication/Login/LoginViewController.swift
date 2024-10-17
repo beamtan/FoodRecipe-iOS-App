@@ -7,12 +7,10 @@
 //
 
 import UIKit
-import FirebaseCore
-import FirebaseAuth
-import GoogleSignIn
 
 protocol LoginDisplayLogic: AnyObject {
-    func displaySomething(viewModel: LoginModels.Something.ViewModel)
+    func displayLoginWithFirebaseSuccess(viewModel: LoginModels.FirebaseLogin.ViewModel)
+    func displayLoginWithFirebaseFailure(viewModel: LoginModels.FirebaseLogin.ViewModel)
 }
 
 class LoginViewController: UIViewController, LoginDisplayLogic {
@@ -64,24 +62,8 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         let email: String = emailTextField.text ?? ""
         let password: String = passwordTextField.text ?? ""
         
-        googleService.signIn(email: email, password: password) { [weak self] error in
-            guard let self else { return }
-            
-            guard error == nil else {
-                showValidate()
-                
-                return
-            }
-            
-             googleService.seeUserDetail() { [weak self] user in
-                 guard let self else { return }
-                 
-                 print("Welcome: \(user?.email ?? "")")
-                 print("isAnonymous \(user?.isAnonymous ?? true)")
-                 
-                 router?.routeToHome()
-            }
-        }
+        let request = LoginModels.FirebaseLogin.Request(email: email, password: password)
+        interactor?.loginWithFirebase(request: request)
     }
     
     @objc func loginWithGooglePressed() {
@@ -90,7 +72,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
                 return
             }
             
-            googleService.seeUserDetail() { user in
+            googleService.getFirebaseUser() { user in
                 print("Welcome: \(user?.email ?? "")")
                 print("isAnonymous \(user?.isAnonymous ?? true)")
            }
@@ -177,7 +159,19 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     
     // MARK: - Display
     
-    func displaySomething(viewModel: LoginModels.Something.ViewModel) {
+    func displayLoginWithFirebaseSuccess(viewModel: LoginModels.FirebaseLogin.ViewModel) {
+        guard let user = viewModel.data else {
+            return
+        }
+        
+        let request = LoginModels.FirebaseUser.Request(user: user)
+        
+        interactor?.saveUserToFirebaseUser(request: request)
+        router?.routeToHome()
+    }
+    
+    func displayLoginWithFirebaseFailure(viewModel: LoginModels.FirebaseLogin.ViewModel) {
+        showValidate()
     }
 }
 

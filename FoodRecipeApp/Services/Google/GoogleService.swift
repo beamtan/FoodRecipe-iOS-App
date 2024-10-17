@@ -12,13 +12,15 @@ import FirebaseAuth
 import GoogleSignIn
 
 protocol GoogleServiceImp {
-    func createUser(email: String, password: String, completionHandler: @escaping (()->()))
-    func signUp(viewController: UIViewController, completionHandler: @escaping (()->()))
-    func signIn(credential: AuthCredential, completionHandler: @escaping (()->()))
+    func createUser(email: String, password: String, completionHandler: @escaping (() -> ()))
+    func signUp(viewController: UIViewController, completionHandler: @escaping (() -> ()))
+    func signIn(credential: AuthCredential, completionHandler: @escaping (() -> ()))
     func signIn(email: String, password: String, completionHandler: @escaping ((Error?) -> ()))
     func signOut()
     
-    func seeUserDetail(completionHandler: @escaping ((User?) -> ()))
+    func getFirebaseUser(completionHandler: @escaping ((FirebaseAuth.User?) -> ()))
+    
+    func updateDisplayName(name: String, completionHandler: @escaping ((Error?) -> ()))
 }
 
 class GoogleService: GoogleServiceImp {
@@ -94,7 +96,7 @@ class GoogleService: GoogleServiceImp {
         }
     }
     
-    func seeUserDetail(completionHandler: @escaping ((User?) -> ())) {
+    func getFirebaseUser(completionHandler: @escaping ((FirebaseAuth.User?) -> ())) {
         let user = Auth.auth().currentUser
         
         if let user = user {
@@ -108,6 +110,17 @@ class GoogleService: GoogleServiceImp {
             try firebaseAuth.signOut()
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
+        }
+    }
+    
+    func updateDisplayName(name: String, completionHandler: @escaping ((Error?) -> ())) {
+        let user = Auth.auth().currentUser
+        if let user = user {
+            let changeRequest = user.createProfileChangeRequest()
+            changeRequest.displayName = name
+            changeRequest.commitChanges { (error) in
+                completionHandler(error)
+            }
         }
     }
 }

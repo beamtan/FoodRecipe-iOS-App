@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol HomeDisplayLogic: AnyObject {
     func displayInquirySearchFoodsByCategorySuccess(viewModel: HomeModels.InquirySearchFoodsByQueryText.ViewModel)
     func displayInquirySearchFoodsByCategoryFailure(viewModel: HomeModels.InquirySearchFoodsByQueryText.ViewModel)
+    
+    func displayInquiryUser(viewModel: HomeModels.User.ViewModel)
     
     /// Route
     func displayPrepareRouteToFoodDetailSuccess()
@@ -63,6 +66,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        inquiryUser()
         collectionView.reloadSections([Sections.popularRecipe.rawValue])
     }
     
@@ -83,6 +87,13 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
+    }
+    
+    // MARK: - Use Cases
+    
+    private func inquiryUser() {
+        let request = HomeModels.User.Request()
+        interactor?.inquiryUser(request: request)
     }
     
     // MARK: - Call Service
@@ -118,6 +129,15 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     
     func displayPrepareRouteToFoodDetailSuccess() {
         router?.routeToFoodDetail()
+    }
+    
+    func displayInquiryUser(viewModel: HomeModels.User.ViewModel) {
+        let indexPath = IndexPath(row: 0, section: Sections.name.rawValue)
+        guard let cell = collectionView.cellForItem(at: indexPath) as? NameHeaderViewCell else {
+            return
+        }
+        
+        cell.setUp(displayName: viewModel.displayName)
     }
     
     // MARK: - Navigation
@@ -223,6 +243,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == Sections.name.rawValue {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NameHeaderViewCell", for: indexPath) as! NameHeaderViewCell
+            
             return cell
         }
         

@@ -11,12 +11,14 @@ import UIKit
 class NameHeaderViewCell: UICollectionViewCell {
     static let identifier: String = "NameHeaderViewCell"
     
+    @IBOutlet weak private var displayNameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
     
-    func setUp() {
-        
+    func setUp(displayName: String) {
+        displayNameLabel.text = displayName
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 
 protocol HomePresentationLogic {
     func presentInquirySearchFoodsByCategory(response: HomeModels.InquirySearchFoodsByQueryText.Response)
+    func presentInquiryUser(response: HomeModels.User.Response)
     
     /// Route
     func presentPrepareRouteToFoodDetail()
@@ -28,6 +29,14 @@ class HomePresenter: HomePresentationLogic {
         
         let viewModel = HomeModels.InquirySearchFoodsByQueryText.ViewModel(data: response.data, error: nil)
         viewController?.displayInquirySearchFoodsByCategorySuccess(viewModel: viewModel)
+    }
+    
+    func presentInquiryUser(response: HomeModels.User.Response) {
+        let email: String = response.user?.email ?? "Anonymous"
+        let displayName: String = response.user?.displayName ?? email
+        let viewModel = HomeModels.User.ViewModel(displayName: displayName)
+        
+        viewController?.displayInquiryUser(viewModel: viewModel)
     }
     
     // MARK: - Prepare Routing

@@ -9,18 +9,32 @@
 import UIKit
 
 struct LoginModels {
-    
-    struct Something {
+    struct FirebaseLogin {
         struct Request {
-            
+            let email: String
+            let password: String
         }
         
         struct Response {
-            
+            let data: FirebaseUserModel?
+            let error: Error?
         }
         
         struct ViewModel {
-            
+            let data: FirebaseUserModel?
+            var message: String = ""
+        }
+    }
+    
+    struct FirebaseUser {
+        struct Request {
+            let user: FirebaseUserModel
+        }
+        
+        struct Response {
+        }
+        
+        struct ViewModel {
         }
     }
 }
