@@ -9,7 +9,8 @@
 import UIKit
 
 protocol CreateAccountDisplayLogic: AnyObject {
-    
+    func displayCreateUserWithFirebaseSuccess(viewModel: CreateAccountModels.FirebaseCreateUser.ViewModel)
+    func displayCreateUserWithFirebaseFailure(viewModel: CreateAccountModels.FirebaseCreateUser.ViewModel)
 }
 
 class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
@@ -26,6 +27,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var signUpWithGoogleView: UIView! {
@@ -60,31 +62,18 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
     // MARK: - IBAction
     
     @IBAction func registerPressed(_ sender: UIButton) {
+        startLoadingLottie()
+        
         let _: String = nameTextField.text ?? ""
         let email: String = emailTextField.text ?? ""
         let password: String = passwordTextField.text ?? ""
         
-        googleService.createUser(email: email, password: password) { [weak self] in
-            guard let self else { return }
-            
-            googleService.getFirebaseUser() { user in
-                print("Welcome: \(user?.email ?? "")")
-                print("isAnonymous \(user?.isAnonymous ?? true)")
-           }
-        }
+        let request = CreateAccountModels.FirebaseCreateUser.Request(email: email, password: password)
+        interactor?.createUserWithFirebase(request: request)
     }
     
     @objc func signUpWithGooglePressed() {
-        googleService.signUp(viewController: self) { [weak self] in
-            guard let self else {
-                return
-            }
-            
-            googleService.getFirebaseUser() { user in
-                print("Welcome: \(user?.email ?? "")")
-                print("isAnonymous \(user?.isAnonymous ?? true)")
-           }
-        }
+        router?.routeToGoogleLogin()
     }
     
     // MARK: - General Function
@@ -102,17 +91,21 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
         router.dataStore = interactor
     }
     
-    private func showValidate() {
+    private func showValidate(message: String = "") {
         emailBorderView.layer.borderColor = UIColor.red.cgColor
         emailBorderView.layer.borderWidth = 1
         
         passwordBorderView.layer.borderColor = UIColor.red.cgColor
         passwordBorderView.layer.borderWidth = 1
+        
+        errorLabel.text = message
     }
     
     private func clearValidate() {
         emailBorderView.layer.borderWidth = 0
         passwordBorderView.layer.borderWidth = 0
+        
+        errorLabel.text = ""
     }
     
     private func changeButtonState(textField: UITextField, updatedText: String) {
@@ -178,7 +171,17 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
     
     // MARK: - Display
     
-
+    func displayCreateUserWithFirebaseSuccess(viewModel: CreateAccountModels.FirebaseCreateUser.ViewModel) {
+        stopLoadingLottie()
+        
+        router?.routeToHome()
+    }
+    
+    func displayCreateUserWithFirebaseFailure(viewModel: CreateAccountModels.FirebaseCreateUser.ViewModel) {
+        stopLoadingLottie()
+        
+        showValidate(message: viewModel.message)
+    }
 }
 
 extension CreateAccountViewController: UITextFieldDelegate {

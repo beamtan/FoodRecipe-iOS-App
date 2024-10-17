@@ -12,8 +12,8 @@ import FirebaseAuth
 import GoogleSignIn
 
 protocol GoogleServiceImp {
-    func createUser(email: String, password: String, completionHandler: @escaping (() -> ()))
-    func signUp(viewController: UIViewController, completionHandler: @escaping (() -> ()))
+    func createUser(email: String, password: String, completionHandler: @escaping ((Error?) -> ()))
+    func signUp(viewController: UIViewController, completionHandler: @escaping ((Error?) -> ()))
     func signIn(credential: AuthCredential, completionHandler: @escaping (() -> ()))
     func signIn(email: String, password: String, completionHandler: @escaping ((Error?) -> ()))
     func signOut()
@@ -21,16 +21,19 @@ protocol GoogleServiceImp {
     func getFirebaseUser(completionHandler: @escaping ((FirebaseAuth.User?) -> ()))
     
     func updateDisplayName(name: String, completionHandler: @escaping ((Error?) -> ()))
+    func updateEmail(email: String, completionHandler: @escaping ((Error?) -> ()))
 }
 
 class GoogleService: GoogleServiceImp {
-    func createUser(email: String, password: String, completionHandler: @escaping (() -> ())) {
+    func createUser(email: String, password: String, completionHandler: @escaping ((Error?) -> ())) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            completionHandler()
+            completionHandler(error)
         }
     }
     
-    func signUp(viewController: UIViewController, completionHandler: @escaping (()->())) {
+    // MARK: - Google Sign in
+    
+    func signUp(viewController: UIViewController, completionHandler: @escaping ((Error?) -> ())) {
         guard let clientID = FirebaseApp.app()?.options.clientID else {
             return
         }
@@ -58,10 +61,12 @@ class GoogleService: GoogleServiceImp {
             )
             
             signIn(credential: credential) {
-                completionHandler()
+                completionHandler(error)
             }
         }
     }
+    
+    
     
     func signIn(credential: AuthCredential, completionHandler: @escaping (()->())) {
         Auth.auth().signIn(with: credential) { result, error in
@@ -73,6 +78,8 @@ class GoogleService: GoogleServiceImp {
             completionHandler()
         }
     }
+    
+    // MARK: - Email Sign in
     
     func signIn(
         email: String,
@@ -96,6 +103,8 @@ class GoogleService: GoogleServiceImp {
         }
     }
     
+    // MARK: - Life Cycle
+    
     func getFirebaseUser(completionHandler: @escaping ((FirebaseAuth.User?) -> ())) {
         let user = Auth.auth().currentUser
         
@@ -113,12 +122,27 @@ class GoogleService: GoogleServiceImp {
         }
     }
     
+    // MARK: - Update
+    
     func updateDisplayName(name: String, completionHandler: @escaping ((Error?) -> ())) {
         let user = Auth.auth().currentUser
         if let user = user {
             let changeRequest = user.createProfileChangeRequest()
             changeRequest.displayName = name
-            changeRequest.commitChanges { (error) in
+            changeRequest.commitChanges { [weak self] (error) in
+                guard let self else { return }
+                
+                completionHandler(error)
+            }
+        }
+    }
+    
+    func updateEmail(email: String, completionHandler: @escaping (((any Error)?) -> ())) {
+        let user = Auth.auth().currentUser
+        if let user = user {
+            user.updateEmail(to: email) { [weak self] (error) in
+                guard let self else { return }
+                
                 completionHandler(error)
             }
         }

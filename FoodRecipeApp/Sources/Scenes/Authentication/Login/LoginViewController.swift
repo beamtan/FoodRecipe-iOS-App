@@ -26,6 +26,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginWithGoogleView: UIView! {
@@ -69,16 +70,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     }
     
     @objc func loginWithGooglePressed() {
-        googleService.signUp(viewController: self) { [weak self] in
-            guard let self else {
-                return
-            }
-            
-            googleService.getFirebaseUser() { user in
-                print("Welcome: \(user?.email ?? "")")
-                print("isAnonymous \(user?.isAnonymous ?? true)")
-           }
-        }
+        router?.routeToGoogleLogin()
     }
     
     @IBAction func byPassToHome(_ sender: Any) {
@@ -101,20 +93,24 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         router.dataStore = interactor
     }
     
-    private func showValidate() {
+    private func showValidate(message: String = "") {
         emailBorderView.layer.borderColor = UIColor.red.cgColor
         emailBorderView.layer.borderWidth = 1
         
         passwordBorderView.layer.borderColor = UIColor.red.cgColor
         passwordBorderView.layer.borderWidth = 1
+        
+        errorLabel.text = message
     }
     
     private func clearValidate() {
         emailBorderView.layer.borderWidth = 0
         passwordBorderView.layer.borderWidth = 0
+        
+        errorLabel.text = ""
     }
     
-    private func changeButtonState(textField: UITextField, updatedText: String) {
+    private func updateUIByTyping(textField: UITextField, updatedText: String) {
         clearValidate()
         
         if textField == emailTextField {
@@ -164,19 +160,13 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     func displayLoginWithFirebaseSuccess(viewModel: LoginModels.FirebaseLogin.ViewModel) {
         stopLoadingLottie()
         
-        guard let user = viewModel.data else {
-            return
-        }
-        
-        let request = LoginModels.FirebaseUser.Request(user: user)
-        
-        interactor?.saveUserToFirebaseUser(request: request)
         router?.routeToHome()
     }
     
     func displayLoginWithFirebaseFailure(viewModel: LoginModels.FirebaseLogin.ViewModel) {
-        showValidate()
         stopLoadingLottie()
+        
+        showValidate(message: viewModel.message)
     }
 }
 
@@ -193,7 +183,7 @@ extension LoginViewController: UITextFieldDelegate {
         
         let updatedText: String = textInTextField.replacingCharacters(in: stringRange, with: string)
         
-        changeButtonState(textField: textField, updatedText: updatedText)
+        updateUIByTyping(textField: textField, updatedText: updatedText)
         
         return true
     }

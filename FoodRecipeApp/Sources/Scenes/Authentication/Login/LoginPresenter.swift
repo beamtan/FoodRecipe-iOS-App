@@ -18,7 +18,6 @@ class LoginPresenter: LoginPresentationLogic {
     func presentLoginWithFirebase(response: LoginModels.FirebaseLogin.Response) {
         guard response.error == nil else {
             let viewModel = LoginModels.FirebaseLogin.ViewModel(
-                data: nil,
                 message: response.error?.localizedDescription ?? ""
             )
             
@@ -27,7 +26,7 @@ class LoginPresenter: LoginPresentationLogic {
             return
         }
         
-        let viewModel = LoginModels.FirebaseLogin.ViewModel(data: response.data)
+        let viewModel = LoginModels.FirebaseLogin.ViewModel()
         viewController?.displayLoginWithFirebaseSuccess(viewModel: viewModel)
     }
 }

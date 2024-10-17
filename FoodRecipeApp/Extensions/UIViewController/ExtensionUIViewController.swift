@@ -34,7 +34,7 @@ extension UIViewController {
     // MARK: - Toast
     
     func showSuccessToast() {
-        let view = MessageView.viewFromNib(layout: .cardView)
+        let view = MessageView.viewFromNib(layout: .messageView)
 
         // Theme message elements with the warning style.
         view.configureTheme(.success)
@@ -46,6 +46,7 @@ extension UIViewController {
         // image with an emoji character.
 //        view.configureContent(title: "Success", body: "", iconText: "✅")
         view.configureContent(title: "Success", body: "You have successfully change name.")
+        view.button?.isHidden = true
 
         // Increase the external margin around the card. In general, the effect of this setting
         // depends on how the given layout is constrained to the layout margins.

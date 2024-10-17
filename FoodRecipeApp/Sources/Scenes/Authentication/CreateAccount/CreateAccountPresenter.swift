@@ -9,9 +9,24 @@
 import UIKit
 
 protocol CreateAccountPresentationLogic {
-    
+    func presentCreateUserWithFirebase(response: CreateAccountModels.FirebaseCreateUser.Response)
 }
 
 class CreateAccountPresenter: CreateAccountPresentationLogic {
     weak var viewController: CreateAccountDisplayLogic?
+    
+    func presentCreateUserWithFirebase(response: CreateAccountModels.FirebaseCreateUser.Response) {
+        guard response.error == nil else {
+            let viewModel = CreateAccountModels.FirebaseCreateUser.ViewModel(
+                message: response.error?.localizedDescription ?? ""
+            )
+            
+            viewController?.displayCreateUserWithFirebaseFailure(viewModel: viewModel)
+            
+            return
+        }
+        
+        let viewModel = CreateAccountModels.FirebaseCreateUser.ViewModel()
+        viewController?.displayCreateUserWithFirebaseSuccess(viewModel: viewModel)
+    }
 }

@@ -16,25 +16,11 @@ struct LoginModels {
         }
         
         struct Response {
-            let data: FirebaseUserModel?
             let error: Error?
         }
         
         struct ViewModel {
-            let data: FirebaseUserModel?
             var message: String = ""
-        }
-    }
-    
-    struct FirebaseUser {
-        struct Request {
-            let user: FirebaseUserModel
-        }
-        
-        struct Response {
-        }
-        
-        struct ViewModel {
         }
     }
 }

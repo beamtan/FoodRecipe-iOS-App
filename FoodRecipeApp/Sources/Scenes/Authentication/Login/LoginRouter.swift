@@ -10,6 +10,7 @@ import UIKit
 
 @objc protocol LoginRoutingLogic {
     func routeToHome()
+    func routeToGoogleLogin()
 }
 
 protocol LoginDataPassing {
@@ -20,6 +21,8 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     weak var viewController: LoginViewController?
     var dataStore: LoginDataStore?
     
+    var googleServiceManager = FirebaseUserManager(googleService: GoogleService())
+    
     // MARK: Routing
     
     func routeToHome() {
@@ -28,6 +31,20 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
               let viewController else { return }
         
         navigateToHome(source: viewController, destination: destination)
+    }
+    
+    func routeToGoogleLogin() {
+        guard let viewController else {
+            return
+        }
+        
+        googleServiceManager.signInWithGoogleAccount(viewController: viewController) { [weak self] error in
+            guard let self else { return }
+            
+            if error == nil {
+                routeToHome()
+            }
+        }
     }
     
     // MARK: Navigation
@@ -40,7 +57,4 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     
     // MARK: Passing data
     
-    //func passDataToSomewhere(source: LoginDataStore, destination: inout SomewhereDataStore) {
-    //  destination.name = source.name
-    //}
 }

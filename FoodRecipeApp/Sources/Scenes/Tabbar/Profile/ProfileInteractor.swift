@@ -19,11 +19,9 @@ protocol ProfileDataStore {
 class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
     var presenter: ProfilePresentationLogic?
     var worker: ProfileWorker?
+    var googleServiceManager = FirebaseUserManager(googleService: GoogleService())
     
     func logout() {
-        let googleService = GoogleService()
-        
-        FirebaseUser.shared.resetUser()
-        googleService.signOut()
+        googleServiceManager.logout()
     }
 }
