@@ -18,3 +18,8 @@ This project is currently in version first version (1.0.0), more is coming.
 
 <!-- Image 3 -->
 <img src="https://github.com/user-attachments/assets/2da48230-c347-4ac1-a32e-df6c8bca9fec" alt="Simulator Screenshot - iPhone 16 Pro - 2024-10-18 at 02 49 59" width="300" style="padding:10px;"/>
+
+## Credits
+
+- **API:** https://spoonacular.com
+- **UI Design:** https://www.figma.com/design/yBq3Ilsv9GtRNgI0t2aCyE/%5BFREE%5D-Recipely---Food-Recipe-Mobile-App-UI-Kit-(Community)?m=auto&t=xSXgcSLVN9XFyYFp-6 by @illiyinstudio, @@dhuhacreative
